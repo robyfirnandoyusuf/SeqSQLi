@@ -1,4 +1,4 @@
-# SeqSQLi v2
+# SeqSQLi
 
 > **Sequential SQL Injection Agent with Reinforcement Learning**
 > Adaptive WAF bypass via Q-learning over a sequential mutation policy.
