@@ -7,7 +7,7 @@
 [![License: Academic](https://img.shields.io/badge/license-Academic_Use-orange.svg)]()
 [![Status: Research](https://img.shields.io/badge/status-research-green.svg)]()
 
-**Language:** [English](README.md) | **Bahasa Indonesia**
+🌐 **Language:** [English](README.md) | **Bahasa Indonesia**
 
 ---
 
