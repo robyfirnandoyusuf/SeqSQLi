@@ -11,7 +11,12 @@ from typing import Optional
 from seqsqli.config import REQUEST_DELAY
 from seqsqli.core.profile import TargetProfile
 from seqsqli.core.http import send_request
-from seqsqli.core.response import classify_response, has_valid_output
+from seqsqli.core.response import (
+    classify_response, has_valid_output,
+    SUCCESS_INDICATORS, WAF_INDICATORS,
+    SQL_ERROR_INDICATORS, FILTERED_INDICATORS,
+)
+from seqsqli.core.mutations import MutationEngine
 
 class Fingerprinter:
     """
@@ -641,5 +646,3 @@ class Fingerprinter:
             self.target.base_payload = f"0{q}{c} UNION SELECT {cols}{suffix}"
 
         self.log(f"Base payload: {self.target.base_payload}")
-
-

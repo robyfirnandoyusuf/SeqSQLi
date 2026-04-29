@@ -5,6 +5,7 @@ MutationEngine, MUTATIONS dict, ACTION_LIST, and FILTER_MUTATION_HINTS.
 Each mutation is a pure function: str -> str.
 """
 
+import random
 import re
 from typing import Dict, List
 
@@ -614,5 +615,3 @@ FILTER_MUTATION_HINTS = {
     ],
     "unknown": ACTION_LIST[:15],  # broad exploration
 }
-
-
