@@ -1,0 +1,2396 @@
+{
+  "total_episodes": 300,
+  "successful_episodes": 163,
+  "first_step": {
+    "case": {
+      "success_rate": 95.5,
+      "success_count": 149,
+      "total_count": 156
+    },
+    "paren_full": {
+      "success_rate": 50.0,
+      "success_count": 3,
+      "total_count": 6
+    },
+    "tab_space": {
+      "success_rate": 40.0,
+      "success_count": 2,
+      "total_count": 5
+    },
+    "newline": {
+      "success_rate": 33.3,
+      "success_count": 1,
+      "total_count": 3
+    },
+    "case_split": {
+      "success_rate": 33.3,
+      "success_count": 1,
+      "total_count": 3
+    },
+    "double_or": {
+      "success_rate": 33.3,
+      "success_count": 1,
+      "total_count": 3
+    },
+    "concat_char": {
+      "success_rate": 33.3,
+      "success_count": 1,
+      "total_count": 3
+    },
+    "distinct": {
+      "success_rate": 33.3,
+      "success_count": 1,
+      "total_count": 3
+    },
+    "double_and": {
+      "success_rate": 25.0,
+      "success_count": 1,
+      "total_count": 4
+    },
+    "unhex_wrap": {
+      "success_rate": 25.0,
+      "success_count": 1,
+      "total_count": 4
+    },
+    "vtab": {
+      "success_rate": 20.0,
+      "success_count": 1,
+      "total_count": 5
+    },
+    "formfeed": {
+      "success_rate": 14.3,
+      "success_count": 1,
+      "total_count": 7
+    },
+    "comment": {
+      "success_rate": 0.0,
+      "success_count": 0,
+      "total_count": 5
+    },
+    "crlf": {
+      "success_rate": 0.0,
+      "success_count": 0,
+      "total_count": 3
+    },
+    "between_space": {
+      "success_rate": 0.0,
+      "success_count": 0,
+      "total_count": 5
+    },
+    "plus_sep": {
+      "success_rate": 0.0,
+      "success_count": 0,
+      "total_count": 6
+    },
+    "double_encode": {
+      "success_rate": 0.0,
+      "success_count": 0,
+      "total_count": 3
+    },
+    "paren_space": {
+      "success_rate": 0.0,
+      "success_count": 0,
+      "total_count": 4
+    },
+    "url_encode": {
+      "success_rate": 0.0,
+      "success_count": 0,
+      "total_count": 3
+    },
+    "url_mid_char": {
+      "success_rate": 0.0,
+      "success_count": 0,
+      "total_count": 3
+    },
+    "keyword_split": {
+      "success_rate": 0.0,
+      "success_count": 0,
+      "total_count": 3
+    },
+    "char_split": {
+      "success_rate": 0.0,
+      "success_count": 0,
+      "total_count": 5
+    },
+    "ver_50000": {
+      "success_rate": 0.0,
+      "success_count": 0,
+      "total_count": 3
+    },
+    "nested_and": {
+      "success_rate": 0.0,
+      "success_count": 0,
+      "total_count": 3
+    },
+    "ver_00000": {
+      "success_rate": 0.0,
+      "success_count": 0,
+      "total_count": 3
+    },
+    "ver_12345": {
+      "success_rate": 0.0,
+      "success_count": 0,
+      "total_count": 4
+    },
+    "ver_urlenc": {
+      "success_rate": 0.0,
+      "success_count": 0,
+      "total_count": 3
+    },
+    "ver_newline": {
+      "success_rate": 0.0,
+      "success_count": 0,
+      "total_count": 3
+    },
+    "hash_nl": {
+      "success_rate": 0.0,
+      "success_count": 0,
+      "total_count": 5
+    },
+    "param_pollute": {
+      "success_rate": 0.0,
+      "success_count": 0,
+      "total_count": 3
+    },
+    "hash_nl_all": {
+      "success_rate": 0.0,
+      "success_count": 0,
+      "total_count": 5
+    },
+    "nested_or": {
+      "success_rate": 0.0,
+      "success_count": 0,
+      "total_count": 3
+    },
+    "nested_union": {
+      "success_rate": 0.0,
+      "success_count": 0,
+      "total_count": 4
+    },
+    "hex_encode": {
+      "success_rate": 0.0,
+      "success_count": 0,
+      "total_count": 4
+    },
+    "scientific": {
+      "success_rate": 0.0,
+      "success_count": 0,
+      "total_count": 3
+    },
+    "convert_charset": {
+      "success_rate": 0.0,
+      "success_count": 0,
+      "total_count": 3
+    },
+    "gbk_bypass": {
+      "success_rate": 0.0,
+      "success_count": 0,
+      "total_count": 3
+    },
+    "backtick": {
+      "success_rate": 0.0,
+      "success_count": 0,
+      "total_count": 3
+    },
+    "dbl_url_comment": {
+      "success_rate": 0.0,
+      "success_count": 0,
+      "total_count": 3
+    }
+  },
+  "bigrams": {
+    "vtab -> crlf": {
+      "success_rate": 100.0,
+      "success_count": 2,
+      "total_count": 2
+    },
+    "distinct -> newline": {
+      "success_rate": 100.0,
+      "success_count": 2,
+      "total_count": 2
+    },
+    "case -> tab_space": {
+      "success_rate": 100.0,
+      "success_count": 2,
+      "total_count": 2
+    },
+    "case -> nested_and": {
+      "success_rate": 100.0,
+      "success_count": 2,
+      "total_count": 2
+    },
+    "nested_and -> formfeed": {
+      "success_rate": 100.0,
+      "success_count": 2,
+      "total_count": 2
+    },
+    "case -> newline": {
+      "success_rate": 97.9,
+      "success_count": 140,
+      "total_count": 143
+    },
+    "newline -> case": {
+      "success_rate": 81.8,
+      "success_count": 9,
+      "total_count": 11
+    },
+    "paren_full -> newline": {
+      "success_rate": 50.0,
+      "success_count": 2,
+      "total_count": 4
+    },
+    "tab_space -> case": {
+      "success_rate": 50.0,
+      "success_count": 3,
+      "total_count": 6
+    },
+    "case -> distinct": {
+      "success_rate": 50.0,
+      "success_count": 1,
+      "total_count": 2
+    },
+    "unhex_wrap -> newline": {
+      "success_rate": 50.0,
+      "success_count": 1,
+      "total_count": 2
+    },
+    "case -> crlf": {
+      "success_rate": 50.0,
+      "success_count": 1,
+      "total_count": 2
+    },
+    "tab_space -> formfeed": {
+      "success_rate": 50.0,
+      "success_count": 1,
+      "total_count": 2
+    },
+    "case_split -> newline": {
+      "success_rate": 50.0,
+      "success_count": 1,
+      "total_count": 2
+    },
+    "case -> hex_encode": {
+      "success_rate": 50.0,
+      "success_count": 1,
+      "total_count": 2
+    },
+    "hex_encode -> newline": {
+      "success_rate": 50.0,
+      "success_count": 1,
+      "total_count": 2
+    },
+    "vtab -> vtab": {
+      "success_rate": 50.0,
+      "success_count": 1,
+      "total_count": 2
+    },
+    "crlf -> formfeed": {
+      "success_rate": 40.0,
+      "success_count": 2,
+      "total_count": 5
+    },
+    "vtab -> tab_space": {
+      "success_rate": 33.3,
+      "success_count": 1,
+      "total_count": 3
+    },
+    "crlf -> crlf": {
+      "success_rate": 25.0,
+      "success_count": 2,
+      "total_count": 8
+    },
+    "newline -> vtab": {
+      "success_rate": 20.0,
+      "success_count": 2,
+      "total_count": 10
+    },
+    "vtab -> newline": {
+      "success_rate": 20.0,
+      "success_count": 2,
+      "total_count": 10
+    },
+    "formfeed -> tab_space": {
+      "success_rate": 20.0,
+      "success_count": 1,
+      "total_count": 5
+    },
+    "between_space -> tab_space": {
+      "success_rate": 16.7,
+      "success_count": 1,
+      "total_count": 6
+    },
+    "between_space -> newline": {
+      "success_rate": 16.7,
+      "success_count": 1,
+      "total_count": 6
+    },
+    "formfeed -> newline": {
+      "success_rate": 14.3,
+      "success_count": 2,
+      "total_count": 14
+    },
+    "newline -> hash_nl_all": {
+      "success_rate": 14.3,
+      "success_count": 1,
+      "total_count": 7
+    },
+    "crlf -> newline": {
+      "success_rate": 10.5,
+      "success_count": 2,
+      "total_count": 19
+    },
+    "comment -> case_split": {
+      "success_rate": 9.1,
+      "success_count": 1,
+      "total_count": 11
+    },
+    "double_encode -> comment": {
+      "success_rate": 7.7,
+      "success_count": 1,
+      "total_count": 13
+    },
+    "hash_nl_all -> comment": {
+      "success_rate": 7.7,
+      "success_count": 1,
+      "total_count": 13
+    },
+    "comment -> double_encode": {
+      "success_rate": 7.7,
+      "success_count": 1,
+      "total_count": 13
+    },
+    "tab_space -> crlf": {
+      "success_rate": 6.7,
+      "success_count": 1,
+      "total_count": 15
+    },
+    "comment -> vtab": {
+      "success_rate": 5.1,
+      "success_count": 2,
+      "total_count": 39
+    },
+    "tab_space -> newline": {
+      "success_rate": 4.0,
+      "success_count": 1,
+      "total_count": 25
+    },
+    "comment -> between_space": {
+      "success_rate": 3.7,
+      "success_count": 1,
+      "total_count": 27
+    },
+    "formfeed -> comment": {
+      "success_rate": 3.4,
+      "success_count": 1,
+      "total_count": 29
+    },
+    "newline -> newline": {
+      "success_rate": 2.9,
+      "success_count": 1,
+      "total_count": 35
+    },
+    "vtab -> comment": {
+      "success_rate": 2.8,
+      "success_count": 1,
+      "total_count": 36
+    },
+    "comment -> formfeed": {
+      "success_rate": 2.6,
+      "success_count": 1,
+      "total_count": 38
+    },
+    "newline -> comment": {
+      "success_rate": 1.6,
+      "success_count": 2,
+      "total_count": 123
+    },
+    "comment -> crlf": {
+      "success_rate": 0.0,
+      "success_count": 0,
+      "total_count": 50
+    },
+    "crlf -> comment": {
+      "success_rate": 0.0,
+      "success_count": 0,
+      "total_count": 44
+    },
+    "comment -> plus_sep": {
+      "success_rate": 0.0,
+      "success_count": 0,
+      "total_count": 24
+    },
+    "nested_union -> comment": {
+      "success_rate": 0.0,
+      "success_count": 0,
+      "total_count": 5
+    },
+    "comment -> comment": {
+      "success_rate": 0.0,
+      "success_count": 0,
+      "total_count": 194
+    },
+    "comment -> newline": {
+      "success_rate": 0.0,
+      "success_count": 0,
+      "total_count": 146
+    },
+    "comment -> tab_space": {
+      "success_rate": 0.0,
+      "success_count": 0,
+      "total_count": 75
+    },
+    "tab_space -> param_pollute": {
+      "success_rate": 0.0,
+      "success_count": 0,
+      "total_count": 2
+    },
+    "case -> comment": {
+      "success_rate": 0.0,
+      "success_count": 0,
+      "total_count": 12
+    },
+    "comment -> paren_space": {
+      "success_rate": 0.0,
+      "success_count": 0,
+      "total_count": 10
+    },
+    "paren_space -> comment": {
+      "success_rate": 0.0,
+      "success_count": 0,
+      "total_count": 15
+    },
+    "comment -> convert_charset": {
+      "success_rate": 0.0,
+      "success_count": 0,
+      "total_count": 3
+    },
+    "comment -> ver_00000": {
+      "success_rate": 0.0,
+      "success_count": 0,
+      "total_count": 6
+    },
+    "newline -> double_or": {
+      "success_rate": 0.0,
+      "success_count": 0,
+      "total_count": 2
+    },
+    "double_or -> comment": {
+      "success_rate": 0.0,
+      "success_count": 0,
+      "total_count": 6
+    },
+    "comment -> nested_and": {
+      "success_rate": 0.0,
+      "success_count": 0,
+      "total_count": 4
+    },
+    "nested_and -> comment": {
+      "success_rate": 0.0,
+      "success_count": 0,
+      "total_count": 10
+    },
+    "comment -> url_mid_char": {
+      "success_rate": 0.0,
+      "success_count": 0,
+      "total_count": 3
+    },
+    "url_mid_char -> comment": {
+      "success_rate": 0.0,
+      "success_count": 0,
+      "total_count": 5
+    },
+    "tab_space -> tab_space": {
+      "success_rate": 0.0,
+      "success_count": 0,
+      "total_count": 12
+    },
+    "tab_space -> comment": {
+      "success_rate": 0.0,
+      "success_count": 0,
+      "total_count": 73
+    },
+    "between_space -> comment": {
+      "success_rate": 0.0,
+      "success_count": 0,
+      "total_count": 23
+    },
+    "comment -> nested_or": {
+      "success_rate": 0.0,
+      "success_count": 0,
+      "total_count": 10
+    },
+    "between_space -> paren_space": {
+      "success_rate": 0.0,
+      "success_count": 0,
+      "total_count": 2
+    },
+    "hash_nl -> comment": {
+      "success_rate": 0.0,
+      "success_count": 0,
+      "total_count": 13
+    },
+    "comment -> hex_encode": {
+      "success_rate": 0.0,
+      "success_count": 0,
+      "total_count": 9
+    },
+    "hex_encode -> comment": {
+      "success_rate": 0.0,
+      "success_count": 0,
+      "total_count": 12
+    },
+    "ver_00000 -> comment": {
+      "success_rate": 0.0,
+      "success_count": 0,
+      "total_count": 9
+    },
+    "newline -> paren_full": {
+      "success_rate": 0.0,
+      "success_count": 0,
+      "total_count": 7
+    },
+    "paren_full -> comment": {
+      "success_rate": 0.0,
+      "success_count": 0,
+      "total_count": 24
+    },
+    "plus_sep -> comment": {
+      "success_rate": 0.0,
+      "success_count": 0,
+      "total_count": 29
+    },
+    "ver_newline -> comment": {
+      "success_rate": 0.0,
+      "success_count": 0,
+      "total_count": 7
+    },
+    "distinct -> formfeed": {
+      "success_rate": 0.0,
+      "success_count": 0,
+      "total_count": 2
+    },
+    "scientific -> comment": {
+      "success_rate": 0.0,
+      "success_count": 0,
+      "total_count": 3
+    },
+    "newline -> plus_sep": {
+      "success_rate": 0.0,
+      "success_count": 0,
+      "total_count": 7
+    },
+    "case_split -> comment": {
+      "success_rate": 0.0,
+      "success_count": 0,
+      "total_count": 11
+    },
+    "newline -> nested_union": {
+      "success_rate": 0.0,
+      "success_count": 0,
+      "total_count": 2
+    },
+    "comment -> ver_newline": {
+      "success_rate": 0.0,
+      "success_count": 0,
+      "total_count": 6
+    },
+    "newline -> url_mid_char": {
+      "success_rate": 0.0,
+      "success_count": 0,
+      "total_count": 2
+    },
+    "comment -> case": {
+      "success_rate": 0.0,
+      "success_count": 0,
+      "total_count": 10
+    },
+    "newline -> between_space": {
+      "success_rate": 0.0,
+      "success_count": 0,
+      "total_count": 4
+    },
+    "convert_charset -> comment": {
+      "success_rate": 0.0,
+      "success_count": 0,
+      "total_count": 3
+    },
+    "comment -> gbk_bypass": {
+      "success_rate": 0.0,
+      "success_count": 0,
+      "total_count": 5
+    },
+    "comment -> nested_union": {
+      "success_rate": 0.0,
+      "success_count": 0,
+      "total_count": 3
+    },
+    "comment -> hash_nl_all": {
+      "success_rate": 0.0,
+      "success_count": 0,
+      "total_count": 8
+    },
+    "paren_full -> formfeed": {
+      "success_rate": 0.0,
+      "success_count": 0,
+      "total_count": 2
+    },
+    "comment -> paren_full": {
+      "success_rate": 0.0,
+      "success_count": 0,
+      "total_count": 11
+    },
+    "param_pollute -> comment": {
+      "success_rate": 0.0,
+      "success_count": 0,
+      "total_count": 6
+    },
+    "nested_or -> comment": {
+      "success_rate": 0.0,
+      "success_count": 0,
+      "total_count": 15
+    },
+    "gbk_bypass -> comment": {
+      "success_rate": 0.0,
+      "success_count": 0,
+      "total_count": 8
+    },
+    "url_encode -> comment": {
+      "success_rate": 0.0,
+      "success_count": 0,
+      "total_count": 10
+    },
+    "concat_char -> comment": {
+      "success_rate": 0.0,
+      "success_count": 0,
+      "total_count": 4
+    },
+    "unhex_wrap -> comment": {
+      "success_rate": 0.0,
+      "success_count": 0,
+      "total_count": 8
+    },
+    "comment -> unhex_wrap": {
+      "success_rate": 0.0,
+      "success_count": 0,
+      "total_count": 4
+    },
+    "hash_nl_all -> newline": {
+      "success_rate": 0.0,
+      "success_count": 0,
+      "total_count": 3
+    },
+    "newline -> tab_space": {
+      "success_rate": 0.0,
+      "success_count": 0,
+      "total_count": 31
+    },
+    "dbl_url_comment -> comment": {
+      "success_rate": 0.0,
+      "success_count": 0,
+      "total_count": 5
+    },
+    "formfeed -> crlf": {
+      "success_rate": 0.0,
+      "success_count": 0,
+      "total_count": 2
+    },
+    "crlf -> case": {
+      "success_rate": 0.0,
+      "success_count": 0,
+      "total_count": 2
+    },
+    "tab_space -> double_encode": {
+      "success_rate": 0.0,
+      "success_count": 0,
+      "total_count": 3
+    },
+    "ver_50000 -> comment": {
+      "success_rate": 0.0,
+      "success_count": 0,
+      "total_count": 3
+    },
+    "tab_space -> between_space": {
+      "success_rate": 0.0,
+      "success_count": 0,
+      "total_count": 4
+    },
+    "keyword_split -> comment": {
+      "success_rate": 0.0,
+      "success_count": 0,
+      "total_count": 4
+    },
+    "char_split -> comment": {
+      "success_rate": 0.0,
+      "success_count": 0,
+      "total_count": 4
+    },
+    "comment -> double_or": {
+      "success_rate": 0.0,
+      "success_count": 0,
+      "total_count": 3
+    },
+    "comment -> distinct": {
+      "success_rate": 0.0,
+      "success_count": 0,
+      "total_count": 7
+    },
+    "distinct -> comment": {
+      "success_rate": 0.0,
+      "success_count": 0,
+      "total_count": 12
+    },
+    "comment -> backtick": {
+      "success_rate": 0.0,
+      "success_count": 0,
+      "total_count": 4
+    },
+    "backtick -> comment": {
+      "success_rate": 0.0,
+      "success_count": 0,
+      "total_count": 4
+    },
+    "nested_and -> newline": {
+      "success_rate": 0.0,
+      "success_count": 0,
+      "total_count": 2
+    },
+    "newline -> crlf": {
+      "success_rate": 0.0,
+      "success_count": 0,
+      "total_count": 16
+    },
+    "comment -> char_split": {
+      "success_rate": 0.0,
+      "success_count": 0,
+      "total_count": 2
+    },
+    "newline -> distinct": {
+      "success_rate": 0.0,
+      "success_count": 0,
+      "total_count": 2
+    },
+    "hash_nl -> newline": {
+      "success_rate": 0.0,
+      "success_count": 0,
+      "total_count": 2
+    },
+    "comment -> hash_nl": {
+      "success_rate": 0.0,
+      "success_count": 0,
+      "total_count": 6
+    },
+    "hex_encode -> hash_nl": {
+      "success_rate": 0.0,
+      "success_count": 0,
+      "total_count": 2
+    },
+    "plus_sep -> newline": {
+      "success_rate": 0.0,
+      "success_count": 0,
+      "total_count": 5
+    },
+    "comment -> concat_char": {
+      "success_rate": 0.0,
+      "success_count": 0,
+      "total_count": 2
+    },
+    "crlf -> between_space": {
+      "success_rate": 0.0,
+      "success_count": 0,
+      "total_count": 2
+    },
+    "tab_space -> plus_sep": {
+      "success_rate": 0.0,
+      "success_count": 0,
+      "total_count": 2
+    },
+    "double_and -> comment": {
+      "success_rate": 0.0,
+      "success_count": 0,
+      "total_count": 4
+    },
+    "hex_encode -> unhex_wrap": {
+      "success_rate": 0.0,
+      "success_count": 0,
+      "total_count": 2
+    },
+    "comment -> scientific": {
+      "success_rate": 0.0,
+      "success_count": 0,
+      "total_count": 2
+    },
+    "comment -> url_encode": {
+      "success_rate": 0.0,
+      "success_count": 0,
+      "total_count": 6
+    },
+    "url_mid_char -> newline": {
+      "success_rate": 0.0,
+      "success_count": 0,
+      "total_count": 2
+    },
+    "vtab -> gbk_bypass": {
+      "success_rate": 0.0,
+      "success_count": 0,
+      "total_count": 2
+    },
+    "newline -> hash_nl": {
+      "success_rate": 0.0,
+      "success_count": 0,
+      "total_count": 3
+    },
+    "crlf -> tab_space": {
+      "success_rate": 0.0,
+      "success_count": 0,
+      "total_count": 10
+    },
+    "newline -> nested_or": {
+      "success_rate": 0.0,
+      "success_count": 0,
+      "total_count": 3
+    },
+    "newline -> double_and": {
+      "success_rate": 0.0,
+      "success_count": 0,
+      "total_count": 2
+    },
+    "paren_space -> ver_12345": {
+      "success_rate": 0.0,
+      "success_count": 0,
+      "total_count": 2
+    },
+    "ver_12345 -> comment": {
+      "success_rate": 0.0,
+      "success_count": 0,
+      "total_count": 7
+    },
+    "comment -> ver_50000": {
+      "success_rate": 0.0,
+      "success_count": 0,
+      "total_count": 2
+    },
+    "dbl_url_comment -> newline": {
+      "success_rate": 0.0,
+      "success_count": 0,
+      "total_count": 2
+    },
+    "newline -> ver_12345": {
+      "success_rate": 0.0,
+      "success_count": 0,
+      "total_count": 2
+    },
+    "comment -> ver_12345": {
+      "success_rate": 0.0,
+      "success_count": 0,
+      "total_count": 5
+    },
+    "vtab -> formfeed": {
+      "success_rate": 0.0,
+      "success_count": 0,
+      "total_count": 2
+    },
+    "double_encode -> newline": {
+      "success_rate": 0.0,
+      "success_count": 0,
+      "total_count": 2
+    },
+    "plus_sep -> vtab": {
+      "success_rate": 0.0,
+      "success_count": 0,
+      "total_count": 2
+    },
+    "vtab -> hex_encode": {
+      "success_rate": 0.0,
+      "success_count": 0,
+      "total_count": 2
+    },
+    "backtick -> newline": {
+      "success_rate": 0.0,
+      "success_count": 0,
+      "total_count": 2
+    },
+    "nested_or -> newline": {
+      "success_rate": 0.0,
+      "success_count": 0,
+      "total_count": 2
+    },
+    "ver_urlenc -> comment": {
+      "success_rate": 0.0,
+      "success_count": 0,
+      "total_count": 2
+    },
+    "tab_space -> vtab": {
+      "success_rate": 0.0,
+      "success_count": 0,
+      "total_count": 6
+    },
+    "formfeed -> ver_00000": {
+      "success_rate": 0.0,
+      "success_count": 0,
+      "total_count": 2
+    },
+    "ver_newline -> hash_nl_all": {
+      "success_rate": 0.0,
+      "success_count": 0,
+      "total_count": 2
+    },
+    "double_or -> nested_and": {
+      "success_rate": 0.0,
+      "success_count": 0,
+      "total_count": 2
+    },
+    "hash_nl_all -> tab_space": {
+      "success_rate": 0.0,
+      "success_count": 0,
+      "total_count": 2
+    },
+    "newline -> formfeed": {
+      "success_rate": 0.0,
+      "success_count": 0,
+      "total_count": 7
+    },
+    "double_and -> newline": {
+      "success_rate": 0.0,
+      "success_count": 0,
+      "total_count": 2
+    },
+    "gbk_bypass -> newline": {
+      "success_rate": 0.0,
+      "success_count": 0,
+      "total_count": 2
+    },
+    "double_encode -> double_or": {
+      "success_rate": 0.0,
+      "success_count": 0,
+      "total_count": 2
+    },
+    "comment -> dbl_url_comment": {
+      "success_rate": 0.0,
+      "success_count": 0,
+      "total_count": 2
+    },
+    "plus_sep -> tab_space": {
+      "success_rate": 0.0,
+      "success_count": 0,
+      "total_count": 3
+    },
+    "between_space -> crlf": {
+      "success_rate": 0.0,
+      "success_count": 0,
+      "total_count": 2
+    },
+    "formfeed -> paren_full": {
+      "success_rate": 0.0,
+      "success_count": 0,
+      "total_count": 2
+    },
+    "plus_sep -> ver_newline": {
+      "success_rate": 0.0,
+      "success_count": 0,
+      "total_count": 2
+    },
+    "crlf -> vtab": {
+      "success_rate": 0.0,
+      "success_count": 0,
+      "total_count": 5
+    },
+    "ver_12345 -> newline": {
+      "success_rate": 0.0,
+      "success_count": 0,
+      "total_count": 2
+    },
+    "newline -> paren_space": {
+      "success_rate": 0.0,
+      "success_count": 0,
+      "total_count": 2
+    },
+    "formfeed -> plus_sep": {
+      "success_rate": 0.0,
+      "success_count": 0,
+      "total_count": 3
+    },
+    "plus_sep -> crlf": {
+      "success_rate": 0.0,
+      "success_count": 0,
+      "total_count": 2
+    },
+    "paren_space -> tab_space": {
+      "success_rate": 0.0,
+      "success_count": 0,
+      "total_count": 2
+    }
+  },
+  "reversed_pairs": {
+    "vtab -> crlf": {
+      "forward": {
+        "pair": "vtab -> crlf",
+        "success_rate": 100.0,
+        "count": 2
+      },
+      "reversed": {
+        "pair": "crlf -> vtab",
+        "success_rate": 0.0,
+        "count": 5
+      },
+      "sr_difference": 100.0,
+      "ordering_matters": true
+    },
+    "distinct -> newline": {
+      "forward": {
+        "pair": "distinct -> newline",
+        "success_rate": 100.0,
+        "count": 2
+      },
+      "reversed": {
+        "pair": "newline -> distinct",
+        "success_rate": 0.0,
+        "count": 2
+      },
+      "sr_difference": 100.0,
+      "ordering_matters": true
+    },
+    "case -> tab_space": {
+      "forward": {
+        "pair": "case -> tab_space",
+        "success_rate": 100.0,
+        "count": 2
+      },
+      "reversed": {
+        "pair": "tab_space -> case",
+        "success_rate": 50.0,
+        "count": 6
+      },
+      "sr_difference": 50.0,
+      "ordering_matters": true
+    },
+    "paren_full -> newline": {
+      "forward": {
+        "pair": "paren_full -> newline",
+        "success_rate": 50.0,
+        "count": 4
+      },
+      "reversed": {
+        "pair": "newline -> paren_full",
+        "success_rate": 0.0,
+        "count": 7
+      },
+      "sr_difference": 50.0,
+      "ordering_matters": true
+    },
+    "case -> crlf": {
+      "forward": {
+        "pair": "case -> crlf",
+        "success_rate": 50.0,
+        "count": 2
+      },
+      "reversed": {
+        "pair": "crlf -> case",
+        "success_rate": 0.0,
+        "count": 2
+      },
+      "sr_difference": 50.0,
+      "ordering_matters": true
+    },
+    "crlf -> formfeed": {
+      "forward": {
+        "pair": "crlf -> formfeed",
+        "success_rate": 40.0,
+        "count": 5
+      },
+      "reversed": {
+        "pair": "formfeed -> crlf",
+        "success_rate": 0.0,
+        "count": 2
+      },
+      "sr_difference": 40.0,
+      "ordering_matters": true
+    },
+    "vtab -> tab_space": {
+      "forward": {
+        "pair": "vtab -> tab_space",
+        "success_rate": 33.3,
+        "count": 3
+      },
+      "reversed": {
+        "pair": "tab_space -> vtab",
+        "success_rate": 0.0,
+        "count": 6
+      },
+      "sr_difference": 33.3,
+      "ordering_matters": true
+    },
+    "tab_space -> formfeed": {
+      "forward": {
+        "pair": "tab_space -> formfeed",
+        "success_rate": 50.0,
+        "count": 2
+      },
+      "reversed": {
+        "pair": "formfeed -> tab_space",
+        "success_rate": 20.0,
+        "count": 5
+      },
+      "sr_difference": 30.0,
+      "ordering_matters": true
+    },
+    "between_space -> tab_space": {
+      "forward": {
+        "pair": "between_space -> tab_space",
+        "success_rate": 16.7,
+        "count": 6
+      },
+      "reversed": {
+        "pair": "tab_space -> between_space",
+        "success_rate": 0.0,
+        "count": 4
+      },
+      "sr_difference": 16.7,
+      "ordering_matters": true
+    },
+    "between_space -> newline": {
+      "forward": {
+        "pair": "between_space -> newline",
+        "success_rate": 16.7,
+        "count": 6
+      },
+      "reversed": {
+        "pair": "newline -> between_space",
+        "success_rate": 0.0,
+        "count": 4
+      },
+      "sr_difference": 16.7,
+      "ordering_matters": true
+    },
+    "case -> newline": {
+      "forward": {
+        "pair": "case -> newline",
+        "success_rate": 97.9,
+        "count": 143
+      },
+      "reversed": {
+        "pair": "newline -> case",
+        "success_rate": 81.8,
+        "count": 11
+      },
+      "sr_difference": 16.1,
+      "ordering_matters": true
+    },
+    "formfeed -> newline": {
+      "forward": {
+        "pair": "formfeed -> newline",
+        "success_rate": 14.3,
+        "count": 14
+      },
+      "reversed": {
+        "pair": "newline -> formfeed",
+        "success_rate": 0.0,
+        "count": 7
+      },
+      "sr_difference": 14.3,
+      "ordering_matters": true
+    },
+    "newline -> hash_nl_all": {
+      "forward": {
+        "pair": "newline -> hash_nl_all",
+        "success_rate": 14.3,
+        "count": 7
+      },
+      "reversed": {
+        "pair": "hash_nl_all -> newline",
+        "success_rate": 0.0,
+        "count": 3
+      },
+      "sr_difference": 14.3,
+      "ordering_matters": true
+    },
+    "crlf -> newline": {
+      "forward": {
+        "pair": "crlf -> newline",
+        "success_rate": 10.5,
+        "count": 19
+      },
+      "reversed": {
+        "pair": "newline -> crlf",
+        "success_rate": 0.0,
+        "count": 16
+      },
+      "sr_difference": 10.5,
+      "ordering_matters": true
+    },
+    "comment -> case_split": {
+      "forward": {
+        "pair": "comment -> case_split",
+        "success_rate": 9.1,
+        "count": 11
+      },
+      "reversed": {
+        "pair": "case_split -> comment",
+        "success_rate": 0.0,
+        "count": 11
+      },
+      "sr_difference": 9.1,
+      "ordering_matters": false
+    },
+    "hash_nl_all -> comment": {
+      "forward": {
+        "pair": "hash_nl_all -> comment",
+        "success_rate": 7.7,
+        "count": 13
+      },
+      "reversed": {
+        "pair": "comment -> hash_nl_all",
+        "success_rate": 0.0,
+        "count": 8
+      },
+      "sr_difference": 7.7,
+      "ordering_matters": false
+    },
+    "tab_space -> crlf": {
+      "forward": {
+        "pair": "tab_space -> crlf",
+        "success_rate": 6.7,
+        "count": 15
+      },
+      "reversed": {
+        "pair": "crlf -> tab_space",
+        "success_rate": 0.0,
+        "count": 10
+      },
+      "sr_difference": 6.7,
+      "ordering_matters": false
+    },
+    "tab_space -> newline": {
+      "forward": {
+        "pair": "tab_space -> newline",
+        "success_rate": 4.0,
+        "count": 25
+      },
+      "reversed": {
+        "pair": "newline -> tab_space",
+        "success_rate": 0.0,
+        "count": 31
+      },
+      "sr_difference": 4.0,
+      "ordering_matters": false
+    },
+    "comment -> between_space": {
+      "forward": {
+        "pair": "comment -> between_space",
+        "success_rate": 3.7,
+        "count": 27
+      },
+      "reversed": {
+        "pair": "between_space -> comment",
+        "success_rate": 0.0,
+        "count": 23
+      },
+      "sr_difference": 3.7,
+      "ordering_matters": false
+    },
+    "comment -> vtab": {
+      "forward": {
+        "pair": "comment -> vtab",
+        "success_rate": 5.1,
+        "count": 39
+      },
+      "reversed": {
+        "pair": "vtab -> comment",
+        "success_rate": 2.8,
+        "count": 36
+      },
+      "sr_difference": 2.3,
+      "ordering_matters": false
+    },
+    "newline -> comment": {
+      "forward": {
+        "pair": "newline -> comment",
+        "success_rate": 1.6,
+        "count": 123
+      },
+      "reversed": {
+        "pair": "comment -> newline",
+        "success_rate": 0.0,
+        "count": 146
+      },
+      "sr_difference": 1.6,
+      "ordering_matters": false
+    },
+    "formfeed -> comment": {
+      "forward": {
+        "pair": "formfeed -> comment",
+        "success_rate": 3.4,
+        "count": 29
+      },
+      "reversed": {
+        "pair": "comment -> formfeed",
+        "success_rate": 2.6,
+        "count": 38
+      },
+      "sr_difference": 0.8,
+      "ordering_matters": false
+    },
+    "vtab -> vtab": {
+      "forward": {
+        "pair": "vtab -> vtab",
+        "success_rate": 50.0,
+        "count": 2
+      },
+      "reversed": {
+        "pair": "vtab -> vtab",
+        "success_rate": 50.0,
+        "count": 2
+      },
+      "sr_difference": 0.0,
+      "ordering_matters": false
+    },
+    "crlf -> crlf": {
+      "forward": {
+        "pair": "crlf -> crlf",
+        "success_rate": 25.0,
+        "count": 8
+      },
+      "reversed": {
+        "pair": "crlf -> crlf",
+        "success_rate": 25.0,
+        "count": 8
+      },
+      "sr_difference": 0.0,
+      "ordering_matters": false
+    },
+    "newline -> vtab": {
+      "forward": {
+        "pair": "newline -> vtab",
+        "success_rate": 20.0,
+        "count": 10
+      },
+      "reversed": {
+        "pair": "vtab -> newline",
+        "success_rate": 20.0,
+        "count": 10
+      },
+      "sr_difference": 0.0,
+      "ordering_matters": false
+    },
+    "double_encode -> comment": {
+      "forward": {
+        "pair": "double_encode -> comment",
+        "success_rate": 7.7,
+        "count": 13
+      },
+      "reversed": {
+        "pair": "comment -> double_encode",
+        "success_rate": 7.7,
+        "count": 13
+      },
+      "sr_difference": 0.0,
+      "ordering_matters": false
+    },
+    "newline -> newline": {
+      "forward": {
+        "pair": "newline -> newline",
+        "success_rate": 2.9,
+        "count": 35
+      },
+      "reversed": {
+        "pair": "newline -> newline",
+        "success_rate": 2.9,
+        "count": 35
+      },
+      "sr_difference": 0.0,
+      "ordering_matters": false
+    },
+    "comment -> crlf": {
+      "forward": {
+        "pair": "comment -> crlf",
+        "success_rate": 0.0,
+        "count": 50
+      },
+      "reversed": {
+        "pair": "crlf -> comment",
+        "success_rate": 0.0,
+        "count": 44
+      },
+      "sr_difference": 0.0,
+      "ordering_matters": false
+    },
+    "comment -> plus_sep": {
+      "forward": {
+        "pair": "comment -> plus_sep",
+        "success_rate": 0.0,
+        "count": 24
+      },
+      "reversed": {
+        "pair": "plus_sep -> comment",
+        "success_rate": 0.0,
+        "count": 29
+      },
+      "sr_difference": 0.0,
+      "ordering_matters": false
+    },
+    "nested_union -> comment": {
+      "forward": {
+        "pair": "nested_union -> comment",
+        "success_rate": 0.0,
+        "count": 5
+      },
+      "reversed": {
+        "pair": "comment -> nested_union",
+        "success_rate": 0.0,
+        "count": 3
+      },
+      "sr_difference": 0.0,
+      "ordering_matters": false
+    },
+    "comment -> comment": {
+      "forward": {
+        "pair": "comment -> comment",
+        "success_rate": 0.0,
+        "count": 194
+      },
+      "reversed": {
+        "pair": "comment -> comment",
+        "success_rate": 0.0,
+        "count": 194
+      },
+      "sr_difference": 0.0,
+      "ordering_matters": false
+    },
+    "comment -> tab_space": {
+      "forward": {
+        "pair": "comment -> tab_space",
+        "success_rate": 0.0,
+        "count": 75
+      },
+      "reversed": {
+        "pair": "tab_space -> comment",
+        "success_rate": 0.0,
+        "count": 73
+      },
+      "sr_difference": 0.0,
+      "ordering_matters": false
+    },
+    "case -> comment": {
+      "forward": {
+        "pair": "case -> comment",
+        "success_rate": 0.0,
+        "count": 12
+      },
+      "reversed": {
+        "pair": "comment -> case",
+        "success_rate": 0.0,
+        "count": 10
+      },
+      "sr_difference": 0.0,
+      "ordering_matters": false
+    },
+    "comment -> paren_space": {
+      "forward": {
+        "pair": "comment -> paren_space",
+        "success_rate": 0.0,
+        "count": 10
+      },
+      "reversed": {
+        "pair": "paren_space -> comment",
+        "success_rate": 0.0,
+        "count": 15
+      },
+      "sr_difference": 0.0,
+      "ordering_matters": false
+    },
+    "comment -> convert_charset": {
+      "forward": {
+        "pair": "comment -> convert_charset",
+        "success_rate": 0.0,
+        "count": 3
+      },
+      "reversed": {
+        "pair": "convert_charset -> comment",
+        "success_rate": 0.0,
+        "count": 3
+      },
+      "sr_difference": 0.0,
+      "ordering_matters": false
+    },
+    "comment -> ver_00000": {
+      "forward": {
+        "pair": "comment -> ver_00000",
+        "success_rate": 0.0,
+        "count": 6
+      },
+      "reversed": {
+        "pair": "ver_00000 -> comment",
+        "success_rate": 0.0,
+        "count": 9
+      },
+      "sr_difference": 0.0,
+      "ordering_matters": false
+    },
+    "double_or -> comment": {
+      "forward": {
+        "pair": "double_or -> comment",
+        "success_rate": 0.0,
+        "count": 6
+      },
+      "reversed": {
+        "pair": "comment -> double_or",
+        "success_rate": 0.0,
+        "count": 3
+      },
+      "sr_difference": 0.0,
+      "ordering_matters": false
+    },
+    "comment -> nested_and": {
+      "forward": {
+        "pair": "comment -> nested_and",
+        "success_rate": 0.0,
+        "count": 4
+      },
+      "reversed": {
+        "pair": "nested_and -> comment",
+        "success_rate": 0.0,
+        "count": 10
+      },
+      "sr_difference": 0.0,
+      "ordering_matters": false
+    },
+    "comment -> url_mid_char": {
+      "forward": {
+        "pair": "comment -> url_mid_char",
+        "success_rate": 0.0,
+        "count": 3
+      },
+      "reversed": {
+        "pair": "url_mid_char -> comment",
+        "success_rate": 0.0,
+        "count": 5
+      },
+      "sr_difference": 0.0,
+      "ordering_matters": false
+    },
+    "tab_space -> tab_space": {
+      "forward": {
+        "pair": "tab_space -> tab_space",
+        "success_rate": 0.0,
+        "count": 12
+      },
+      "reversed": {
+        "pair": "tab_space -> tab_space",
+        "success_rate": 0.0,
+        "count": 12
+      },
+      "sr_difference": 0.0,
+      "ordering_matters": false
+    },
+    "comment -> nested_or": {
+      "forward": {
+        "pair": "comment -> nested_or",
+        "success_rate": 0.0,
+        "count": 10
+      },
+      "reversed": {
+        "pair": "nested_or -> comment",
+        "success_rate": 0.0,
+        "count": 15
+      },
+      "sr_difference": 0.0,
+      "ordering_matters": false
+    },
+    "hash_nl -> comment": {
+      "forward": {
+        "pair": "hash_nl -> comment",
+        "success_rate": 0.0,
+        "count": 13
+      },
+      "reversed": {
+        "pair": "comment -> hash_nl",
+        "success_rate": 0.0,
+        "count": 6
+      },
+      "sr_difference": 0.0,
+      "ordering_matters": false
+    },
+    "comment -> hex_encode": {
+      "forward": {
+        "pair": "comment -> hex_encode",
+        "success_rate": 0.0,
+        "count": 9
+      },
+      "reversed": {
+        "pair": "hex_encode -> comment",
+        "success_rate": 0.0,
+        "count": 12
+      },
+      "sr_difference": 0.0,
+      "ordering_matters": false
+    },
+    "paren_full -> comment": {
+      "forward": {
+        "pair": "paren_full -> comment",
+        "success_rate": 0.0,
+        "count": 24
+      },
+      "reversed": {
+        "pair": "comment -> paren_full",
+        "success_rate": 0.0,
+        "count": 11
+      },
+      "sr_difference": 0.0,
+      "ordering_matters": false
+    },
+    "ver_newline -> comment": {
+      "forward": {
+        "pair": "ver_newline -> comment",
+        "success_rate": 0.0,
+        "count": 7
+      },
+      "reversed": {
+        "pair": "comment -> ver_newline",
+        "success_rate": 0.0,
+        "count": 6
+      },
+      "sr_difference": 0.0,
+      "ordering_matters": false
+    },
+    "scientific -> comment": {
+      "forward": {
+        "pair": "scientific -> comment",
+        "success_rate": 0.0,
+        "count": 3
+      },
+      "reversed": {
+        "pair": "comment -> scientific",
+        "success_rate": 0.0,
+        "count": 2
+      },
+      "sr_difference": 0.0,
+      "ordering_matters": false
+    },
+    "newline -> plus_sep": {
+      "forward": {
+        "pair": "newline -> plus_sep",
+        "success_rate": 0.0,
+        "count": 7
+      },
+      "reversed": {
+        "pair": "plus_sep -> newline",
+        "success_rate": 0.0,
+        "count": 5
+      },
+      "sr_difference": 0.0,
+      "ordering_matters": false
+    },
+    "newline -> url_mid_char": {
+      "forward": {
+        "pair": "newline -> url_mid_char",
+        "success_rate": 0.0,
+        "count": 2
+      },
+      "reversed": {
+        "pair": "url_mid_char -> newline",
+        "success_rate": 0.0,
+        "count": 2
+      },
+      "sr_difference": 0.0,
+      "ordering_matters": false
+    },
+    "comment -> gbk_bypass": {
+      "forward": {
+        "pair": "comment -> gbk_bypass",
+        "success_rate": 0.0,
+        "count": 5
+      },
+      "reversed": {
+        "pair": "gbk_bypass -> comment",
+        "success_rate": 0.0,
+        "count": 8
+      },
+      "sr_difference": 0.0,
+      "ordering_matters": false
+    },
+    "paren_full -> formfeed": {
+      "forward": {
+        "pair": "paren_full -> formfeed",
+        "success_rate": 0.0,
+        "count": 2
+      },
+      "reversed": {
+        "pair": "formfeed -> paren_full",
+        "success_rate": 0.0,
+        "count": 2
+      },
+      "sr_difference": 0.0,
+      "ordering_matters": false
+    },
+    "url_encode -> comment": {
+      "forward": {
+        "pair": "url_encode -> comment",
+        "success_rate": 0.0,
+        "count": 10
+      },
+      "reversed": {
+        "pair": "comment -> url_encode",
+        "success_rate": 0.0,
+        "count": 6
+      },
+      "sr_difference": 0.0,
+      "ordering_matters": false
+    },
+    "concat_char -> comment": {
+      "forward": {
+        "pair": "concat_char -> comment",
+        "success_rate": 0.0,
+        "count": 4
+      },
+      "reversed": {
+        "pair": "comment -> concat_char",
+        "success_rate": 0.0,
+        "count": 2
+      },
+      "sr_difference": 0.0,
+      "ordering_matters": false
+    },
+    "unhex_wrap -> comment": {
+      "forward": {
+        "pair": "unhex_wrap -> comment",
+        "success_rate": 0.0,
+        "count": 8
+      },
+      "reversed": {
+        "pair": "comment -> unhex_wrap",
+        "success_rate": 0.0,
+        "count": 4
+      },
+      "sr_difference": 0.0,
+      "ordering_matters": false
+    },
+    "dbl_url_comment -> comment": {
+      "forward": {
+        "pair": "dbl_url_comment -> comment",
+        "success_rate": 0.0,
+        "count": 5
+      },
+      "reversed": {
+        "pair": "comment -> dbl_url_comment",
+        "success_rate": 0.0,
+        "count": 2
+      },
+      "sr_difference": 0.0,
+      "ordering_matters": false
+    },
+    "ver_50000 -> comment": {
+      "forward": {
+        "pair": "ver_50000 -> comment",
+        "success_rate": 0.0,
+        "count": 3
+      },
+      "reversed": {
+        "pair": "comment -> ver_50000",
+        "success_rate": 0.0,
+        "count": 2
+      },
+      "sr_difference": 0.0,
+      "ordering_matters": false
+    },
+    "char_split -> comment": {
+      "forward": {
+        "pair": "char_split -> comment",
+        "success_rate": 0.0,
+        "count": 4
+      },
+      "reversed": {
+        "pair": "comment -> char_split",
+        "success_rate": 0.0,
+        "count": 2
+      },
+      "sr_difference": 0.0,
+      "ordering_matters": false
+    },
+    "comment -> distinct": {
+      "forward": {
+        "pair": "comment -> distinct",
+        "success_rate": 0.0,
+        "count": 7
+      },
+      "reversed": {
+        "pair": "distinct -> comment",
+        "success_rate": 0.0,
+        "count": 12
+      },
+      "sr_difference": 0.0,
+      "ordering_matters": false
+    },
+    "comment -> backtick": {
+      "forward": {
+        "pair": "comment -> backtick",
+        "success_rate": 0.0,
+        "count": 4
+      },
+      "reversed": {
+        "pair": "backtick -> comment",
+        "success_rate": 0.0,
+        "count": 4
+      },
+      "sr_difference": 0.0,
+      "ordering_matters": false
+    },
+    "hash_nl -> newline": {
+      "forward": {
+        "pair": "hash_nl -> newline",
+        "success_rate": 0.0,
+        "count": 2
+      },
+      "reversed": {
+        "pair": "newline -> hash_nl",
+        "success_rate": 0.0,
+        "count": 3
+      },
+      "sr_difference": 0.0,
+      "ordering_matters": false
+    },
+    "crlf -> between_space": {
+      "forward": {
+        "pair": "crlf -> between_space",
+        "success_rate": 0.0,
+        "count": 2
+      },
+      "reversed": {
+        "pair": "between_space -> crlf",
+        "success_rate": 0.0,
+        "count": 2
+      },
+      "sr_difference": 0.0,
+      "ordering_matters": false
+    },
+    "tab_space -> plus_sep": {
+      "forward": {
+        "pair": "tab_space -> plus_sep",
+        "success_rate": 0.0,
+        "count": 2
+      },
+      "reversed": {
+        "pair": "plus_sep -> tab_space",
+        "success_rate": 0.0,
+        "count": 3
+      },
+      "sr_difference": 0.0,
+      "ordering_matters": false
+    },
+    "newline -> nested_or": {
+      "forward": {
+        "pair": "newline -> nested_or",
+        "success_rate": 0.0,
+        "count": 3
+      },
+      "reversed": {
+        "pair": "nested_or -> newline",
+        "success_rate": 0.0,
+        "count": 2
+      },
+      "sr_difference": 0.0,
+      "ordering_matters": false
+    },
+    "newline -> double_and": {
+      "forward": {
+        "pair": "newline -> double_and",
+        "success_rate": 0.0,
+        "count": 2
+      },
+      "reversed": {
+        "pair": "double_and -> newline",
+        "success_rate": 0.0,
+        "count": 2
+      },
+      "sr_difference": 0.0,
+      "ordering_matters": false
+    },
+    "ver_12345 -> comment": {
+      "forward": {
+        "pair": "ver_12345 -> comment",
+        "success_rate": 0.0,
+        "count": 7
+      },
+      "reversed": {
+        "pair": "comment -> ver_12345",
+        "success_rate": 0.0,
+        "count": 5
+      },
+      "sr_difference": 0.0,
+      "ordering_matters": false
+    },
+    "newline -> ver_12345": {
+      "forward": {
+        "pair": "newline -> ver_12345",
+        "success_rate": 0.0,
+        "count": 2
+      },
+      "reversed": {
+        "pair": "ver_12345 -> newline",
+        "success_rate": 0.0,
+        "count": 2
+      },
+      "sr_difference": 0.0,
+      "ordering_matters": false
+    }
+  },
+  "position_sensitivity": {
+    "vtab": {
+      "pos_1": {
+        "success_rate": 20.0,
+        "count": 5
+      },
+      "pos_2": {
+        "success_rate": 50.0,
+        "count": 6
+      },
+      "pos_3+": {
+        "success_rate": 7.6,
+        "count": 66
+      }
+    },
+    "comment": {
+      "pos_1": {
+        "success_rate": 0.0,
+        "count": 5
+      },
+      "pos_2": {
+        "success_rate": 0.0,
+        "count": 38
+      },
+      "pos_3+": {
+        "success_rate": 0.8,
+        "count": 770
+      }
+    },
+    "crlf": {
+      "pos_1": {
+        "success_rate": 0.0,
+        "count": 3
+      },
+      "pos_2": {
+        "success_rate": 18.2,
+        "count": 11
+      },
+      "pos_3+": {
+        "success_rate": 5.9,
+        "count": 101
+      }
+    },
+    "plus_sep": {
+      "pos_1": {
+        "success_rate": 0.0,
+        "count": 6
+      },
+      "pos_3+": {
+        "success_rate": 0.0,
+        "count": 42
+      }
+    },
+    "hex_encode": {
+      "pos_1": {
+        "success_rate": 0.0,
+        "count": 4
+      },
+      "pos_3+": {
+        "success_rate": 0.0,
+        "count": 19
+      }
+    },
+    "nested_union": {
+      "pos_1": {
+        "success_rate": 0.0,
+        "count": 4
+      },
+      "pos_3+": {
+        "success_rate": 0.0,
+        "count": 9
+      }
+    },
+    "newline": {
+      "pos_1": {
+        "success_rate": 33.3,
+        "count": 3
+      },
+      "pos_2": {
+        "success_rate": 83.4,
+        "count": 175
+      },
+      "pos_3+": {
+        "success_rate": 4.0,
+        "count": 276
+      }
+    },
+    "tab_space": {
+      "pos_1": {
+        "success_rate": 40.0,
+        "count": 5
+      },
+      "pos_2": {
+        "success_rate": 13.0,
+        "count": 23
+      },
+      "pos_3+": {
+        "success_rate": 2.0,
+        "count": 147
+      }
+    },
+    "param_pollute": {
+      "pos_1": {
+        "success_rate": 0.0,
+        "count": 3
+      },
+      "pos_3+": {
+        "success_rate": 0.0,
+        "count": 7
+      }
+    },
+    "case": {
+      "pos_1": {
+        "success_rate": 95.5,
+        "count": 156
+      },
+      "pos_2": {
+        "success_rate": 100.0,
+        "count": 3
+      },
+      "pos_3+": {
+        "success_rate": 31.0,
+        "count": 29
+      }
+    },
+    "paren_space": {
+      "pos_1": {
+        "success_rate": 0.0,
+        "count": 4
+      },
+      "pos_3+": {
+        "success_rate": 0.0,
+        "count": 19
+      }
+    },
+    "formfeed": {
+      "pos_1": {
+        "success_rate": 14.3,
+        "count": 7
+      },
+      "pos_2": {
+        "success_rate": 0.0,
+        "count": 6
+      },
+      "pos_3+": {
+        "success_rate": 9.7,
+        "count": 62
+      }
+    },
+    "convert_charset": {
+      "pos_1": {
+        "success_rate": 0.0,
+        "count": 3
+      },
+      "pos_3+": {
+        "success_rate": 0.0,
+        "count": 6
+      }
+    },
+    "ver_00000": {
+      "pos_1": {
+        "success_rate": 0.0,
+        "count": 3
+      },
+      "pos_2": {
+        "success_rate": 0.0,
+        "count": 2
+      },
+      "pos_3+": {
+        "success_rate": 0.0,
+        "count": 9
+      }
+    },
+    "double_or": {
+      "pos_1": {
+        "success_rate": 33.3,
+        "count": 3
+      },
+      "pos_3+": {
+        "success_rate": 0.0,
+        "count": 7
+      }
+    },
+    "nested_and": {
+      "pos_1": {
+        "success_rate": 0.0,
+        "count": 3
+      },
+      "pos_2": {
+        "success_rate": 40.0,
+        "count": 5
+      },
+      "pos_3+": {
+        "success_rate": 0.0,
+        "count": 12
+      }
+    },
+    "url_mid_char": {
+      "pos_1": {
+        "success_rate": 0.0,
+        "count": 3
+      },
+      "pos_2": {
+        "success_rate": 50.0,
+        "count": 2
+      },
+      "pos_3+": {
+        "success_rate": 0.0,
+        "count": 4
+      }
+    },
+    "between_space": {
+      "pos_1": {
+        "success_rate": 0.0,
+        "count": 5
+      },
+      "pos_2": {
+        "success_rate": 0.0,
+        "count": 3
+      },
+      "pos_3+": {
+        "success_rate": 5.0,
+        "count": 40
+      }
+    },
+    "nested_or": {
+      "pos_1": {
+        "success_rate": 0.0,
+        "count": 3
+      },
+      "pos_3+": {
+        "success_rate": 0.0,
+        "count": 19
+      }
+    },
+    "paren_full": {
+      "pos_1": {
+        "success_rate": 50.0,
+        "count": 6
+      },
+      "pos_2": {
+        "success_rate": 0.0,
+        "count": 2
+      },
+      "pos_3+": {
+        "success_rate": 0.0,
+        "count": 28
+      }
+    },
+    "hash_nl": {
+      "pos_1": {
+        "success_rate": 0.0,
+        "count": 5
+      },
+      "pos_2": {
+        "success_rate": 0.0,
+        "count": 3
+      },
+      "pos_3+": {
+        "success_rate": 0.0,
+        "count": 13
+      }
+    },
+    "ver_newline": {
+      "pos_1": {
+        "success_rate": 0.0,
+        "count": 3
+      },
+      "pos_3+": {
+        "success_rate": 0.0,
+        "count": 10
+      }
+    },
+    "ver_urlenc": {
+      "pos_1": {
+        "success_rate": 0.0,
+        "count": 3
+      },
+      "pos_3+": {
+        "success_rate": 0.0,
+        "count": 2
+      }
+    },
+    "distinct": {
+      "pos_1": {
+        "success_rate": 33.3,
+        "count": 3
+      },
+      "pos_3+": {
+        "success_rate": 0.0,
+        "count": 14
+      }
+    },
+    "scientific": {
+      "pos_1": {
+        "success_rate": 0.0,
+        "count": 3
+      },
+      "pos_3+": {
+        "success_rate": 0.0,
+        "count": 5
+      }
+    },
+    "case_split": {
+      "pos_1": {
+        "success_rate": 33.3,
+        "count": 3
+      },
+      "pos_3+": {
+        "success_rate": 7.7,
+        "count": 13
+      }
+    },
+    "double_encode": {
+      "pos_1": {
+        "success_rate": 0.0,
+        "count": 3
+      },
+      "pos_3+": {
+        "success_rate": 5.9,
+        "count": 17
+      }
+    },
+    "hash_nl_all": {
+      "pos_1": {
+        "success_rate": 0.0,
+        "count": 5
+      },
+      "pos_3+": {
+        "success_rate": 4.8,
+        "count": 21
+      }
+    },
+    "dbl_url_comment": {
+      "pos_1": {
+        "success_rate": 0.0,
+        "count": 3
+      },
+      "pos_3+": {
+        "success_rate": 0.0,
+        "count": 7
+      }
+    },
+    "gbk_bypass": {
+      "pos_1": {
+        "success_rate": 0.0,
+        "count": 3
+      },
+      "pos_2": {
+        "success_rate": 0.0,
+        "count": 2
+      },
+      "pos_3+": {
+        "success_rate": 0.0,
+        "count": 9
+      }
+    },
+    "char_split": {
+      "pos_1": {
+        "success_rate": 0.0,
+        "count": 5
+      },
+      "pos_2": {
+        "success_rate": 33.3,
+        "count": 3
+      },
+      "pos_3+": {
+        "success_rate": 0.0,
+        "count": 4
+      }
+    },
+    "url_encode": {
+      "pos_1": {
+        "success_rate": 0.0,
+        "count": 3
+      },
+      "pos_2": {
+        "success_rate": 0.0,
+        "count": 2
+      },
+      "pos_3+": {
+        "success_rate": 0.0,
+        "count": 9
+      }
+    },
+    "concat_char": {
+      "pos_1": {
+        "success_rate": 33.3,
+        "count": 3
+      },
+      "pos_3+": {
+        "success_rate": 0.0,
+        "count": 4
+      }
+    },
+    "unhex_wrap": {
+      "pos_1": {
+        "success_rate": 25.0,
+        "count": 4
+      },
+      "pos_3+": {
+        "success_rate": 0.0,
+        "count": 7
+      }
+    },
+    "keyword_split": {
+      "pos_1": {
+        "success_rate": 0.0,
+        "count": 3
+      },
+      "pos_3+": {
+        "success_rate": 0.0,
+        "count": 3
+      }
+    },
+    "ver_50000": {
+      "pos_1": {
+        "success_rate": 0.0,
+        "count": 3
+      },
+      "pos_3+": {
+        "success_rate": 0.0,
+        "count": 2
+      }
+    },
+    "ver_12345": {
+      "pos_1": {
+        "success_rate": 0.0,
+        "count": 4
+      },
+      "pos_2": {
+        "success_rate": 0.0,
+        "count": 3
+      },
+      "pos_3+": {
+        "success_rate": 0.0,
+        "count": 8
+      }
+    },
+    "backtick": {
+      "pos_1": {
+        "success_rate": 0.0,
+        "count": 3
+      },
+      "pos_3+": {
+        "success_rate": 0.0,
+        "count": 5
+      }
+    },
+    "double_and": {
+      "pos_1": {
+        "success_rate": 25.0,
+        "count": 4
+      },
+      "pos_3+": {
+        "success_rate": 0.0,
+        "count": 7
+      }
+    }
+  },
+  "ordering_matters_count": 14
+}
