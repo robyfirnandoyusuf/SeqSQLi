@@ -13,6 +13,19 @@ Usage:
 
 import argparse
 import json
+import numpy as np
+
+
+class _NumpyEncoder(json.JSONEncoder):
+    def default(self, o):
+        if isinstance(o, np.integer):
+            return int(o)
+        if isinstance(o, np.floating):
+            return float(o)
+        if isinstance(o, np.ndarray):
+            return o.tolist()
+        return super().default(o)
+
 
 from seqsqli.config import (
     DEFAULT_BASE_URL, MAX_EPISODES, QTABLE_PATH, RESULTS_PATH,
@@ -171,7 +184,7 @@ Examples:
 
             results_path = f"results_ppo_less{args.less}.json" if args.less else "results_ppo.json"
             with open(results_path, "w") as f:
-                json.dump(logs, f, indent=2)
+                json.dump(logs, f, indent=2, cls=_NumpyEncoder)
             print(f"[*] PPO logs saved to {results_path}")
 
             ordering_path = f"ordering_ppo_less{args.less}.json" if args.less else "ordering_ppo.json"
@@ -187,7 +200,7 @@ Examples:
 
             results_path = f"results_less{args.less}.json" if args.less else "results.json"
             with open(results_path, "w") as f:
-                json.dump(logs, f, indent=2)
+                json.dump(logs, f, indent=2, cls=_NumpyEncoder)
             print(f"[*] Logs saved to {results_path}")
 
             ordering_path = f"ordering_less{args.less}.json" if args.less else "ordering.json"

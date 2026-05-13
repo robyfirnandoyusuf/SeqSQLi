@@ -163,7 +163,7 @@ def greedy_eval_ppo(target: TargetProfile,
         logs.append({
             "episode":       ep + 1,
             "steps":         steps,
-            "total_reward":  round(total_r, 2),
+            "total_reward":  round(float(total_r), 2),
             "success":       final_result == "SUCCESS",
             "final_result":  final_result,
             "sequence":      sequence,
