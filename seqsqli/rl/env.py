@@ -5,6 +5,9 @@ Gymnasium-compatible environment wrapper for SeqSQLi.
 Used by PPO and other deep RL algorithms.
 """
 
+import random
+from typing import List, Optional
+
 import numpy as np
 import gymnasium as gym
 from gymnasium import spaces
@@ -38,9 +41,27 @@ class SeqSQLiEnv(gym.Env):
 
     metadata = {"render_modes": []}
 
-    def __init__(self, target: TargetProfile):
+    def __init__(self, target: TargetProfile,
+                 base_payloads: Optional[List[str]] = None,
+                 strict_markers: Optional[bool] = None):
+        """
+        Args:
+            target:        TargetProfile (URL, param, method, ...).
+            base_payloads: Optional pool of validated starting payloads.
+                           When provided, reset() samples uniformly from
+                           this list each episode (online-WAF training).
+                           When None, falls back to target.base_payload.
+            strict_markers: Force strict marker success criterion.
+                           When None, auto-enabled iff base_payloads is
+                           provided (those payloads embed SEQSQLI_*).
+        """
         super().__init__()
         self.target = target
+        self.base_payloads: List[str] = list(base_payloads) if base_payloads else []
+        if strict_markers is None:
+            self.strict_markers = bool(self.base_payloads)
+        else:
+            self.strict_markers = bool(strict_markers)
 
         self.action_space = spaces.Discrete(_N_ACTIONS)
         self.observation_space = spaces.Box(
@@ -56,7 +77,10 @@ class SeqSQLiEnv(gym.Env):
     # ------------------------------------------------------------------
     def reset(self, *, seed=None, options=None):
         super().reset(seed=seed)
-        self._payload         = self.target.base_payload
+        if self.base_payloads:
+            self._payload = random.choice(self.base_payloads)
+        else:
+            self._payload = self.target.base_payload
         self._step_count      = 0
         self._last_action_idx = -1
         return self._obs(), {}
@@ -75,7 +99,8 @@ class SeqSQLiEnv(gym.Env):
             return self._obs(), reward, False, truncated, {"result": "STAGNANT", "payload": self._payload}
 
         resp_text, status = send_request(self.target, mutated)
-        result = classify_response(resp_text, status)
+        result = classify_response(resp_text, status,
+                                   strict_markers=self.strict_markers)
         reward = REWARD_TABLE.get(result, -1.0) - STEP_PENALTY * self._step_count
 
         self._payload         = mutated

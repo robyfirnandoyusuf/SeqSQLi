@@ -121,6 +121,10 @@ Examples:
     parser.add_argument("--fingerprint",    action="store_true", help="Fingerprint only, then exit")
     parser.add_argument("--no-fingerprint", action="store_true", help="Skip auto-detection")
     parser.add_argument("--extract",        action="store_true", help="Extract DB data after bypass")
+    parser.add_argument("--payloads-csv",   type=str, default=None,
+                        help="Path to payload_builder.py CSV for online-WAF PPO training. "
+                             "Each episode samples a random validated payload as starting "
+                             "point; strict marker SUCCESS is auto-enabled.")
 
     args = parser.parse_args()
 
@@ -179,7 +183,8 @@ Examples:
             logs = greedy_eval_ppo(target, model_path=PPO_MODEL_PATH)
             evaluate(logs)
         else:
-            logs = train_ppo(target, timesteps=args.timesteps)
+            logs = train_ppo(target, timesteps=args.timesteps,
+                             payloads_csv=args.payloads_csv)
             evaluate(logs)
 
             results_path = f"results_ppo_less{args.less}.json" if args.less else "results_ppo.json"
