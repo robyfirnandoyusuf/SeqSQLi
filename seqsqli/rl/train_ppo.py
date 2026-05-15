@@ -47,7 +47,9 @@ class EpisodeLogCallback(BaseCallback):
         self._ep_steps    = 0
         self._ep_reward   = 0.0
         self._ep_actions: List[str] = []
+        self._ep_payload  = ""
         self._ep_num      = 0
+        self._best_steps  = None
 
     def _on_step(self) -> bool:
         info      = self.locals["infos"][0]
@@ -55,10 +57,13 @@ class EpisodeLogCallback(BaseCallback):
         done      = bool(self.locals["dones"][0])
         action    = ACTION_LIST[int(self.locals["actions"][0])]
         result    = info.get("result", "UNKNOWN")
+        payload   = info.get("payload", "")
 
         self._ep_steps  += 1
         self._ep_reward += reward
         self._ep_actions.append(action)
+        if payload:
+            self._ep_payload = payload
 
         if done:
             success = result == "SUCCESS"
@@ -70,8 +75,17 @@ class EpisodeLogCallback(BaseCallback):
                 "success":      bool(success),
                 "final_result": str(result),
                 "sequence":     list(self._ep_actions),
-                "final_payload": "",
+                "final_payload": self._ep_payload[:150],
             })
+
+            if success:
+                is_new_best = self._best_steps is None or self._ep_steps < self._best_steps
+                marker = "  *** NEW SHORTEST ***" if is_new_best else ""
+                if is_new_best:
+                    self._best_steps = self._ep_steps
+                print(f"  [BYPASS] Ep {self._ep_num:>4} | steps={self._ep_steps} | "
+                      f"seq={' -> '.join(self._ep_actions)}")
+                print(f"           payload: {self._ep_payload[:150]}{marker}")
 
             if self._ep_num % 10 == 0:
                 recent = self.episode_logs[-10:]
@@ -84,6 +98,7 @@ class EpisodeLogCallback(BaseCallback):
             self._ep_steps   = 0
             self._ep_reward  = 0.0
             self._ep_actions = []
+            self._ep_payload = ""
 
         return True
 

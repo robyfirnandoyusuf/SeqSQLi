@@ -72,7 +72,7 @@ class SeqSQLiEnv(gym.Env):
             self._step_count += 1
             self._last_action_idx = action_idx
             truncated = self._step_count >= MAX_STEPS
-            return self._obs(), reward, False, truncated, {"result": "STAGNANT"}
+            return self._obs(), reward, False, truncated, {"result": "STAGNANT", "payload": self._payload}
 
         resp_text, status = send_request(self.target, mutated)
         result = classify_response(resp_text, status)
@@ -85,7 +85,7 @@ class SeqSQLiEnv(gym.Env):
         terminated = result == "SUCCESS"
         truncated  = self._step_count >= MAX_STEPS
 
-        return self._obs(), reward, terminated, truncated, {"result": result}
+        return self._obs(), reward, terminated, truncated, {"result": result, "payload": mutated}
 
     # ------------------------------------------------------------------
     def _obs(self) -> np.ndarray:
