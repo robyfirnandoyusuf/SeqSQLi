@@ -51,13 +51,35 @@ FILTERED_INDICATORS = [
 # Public API
 # ---------------------------------------------------------------------------
 
-def has_strict_markers(resp_text: str) -> bool:
-    """True iff response contains BOTH SEQSQLI_START and SEQSQLI_END markers
-    in the correct order. This is the strict bypass criterion."""
-    start, end = STRICT_MARKERS
-    idx_s = resp_text.find(start)
-    idx_e = resp_text.find(end)
-    return idx_s != -1 and idx_e != -1 and idx_e > idx_s
+def has_strict_markers(body: str) -> bool:
+    """Check marker appears as DATA, not in SQL error message."""
+    if not body:
+        return False
+    
+    # Reject if marker appears only inside a SQL error message
+    sql_error_phrases = [
+        "you have an error in your sql syntax",
+        "error in your sql",
+        "mysql server version",
+        "near '",
+    ]
+    body_lower = body.lower()
+    
+    start_idx = body.find(STRICT_MARKERS[0])
+    end_idx = body.find(STRICT_MARKERS[1])
+    
+    if start_idx == -1 or end_idx == -1:
+        return False
+    
+    # Check if marker is inside an error message context
+    context_start = max(0, start_idx - 200)
+    context = body[context_start:end_idx + 50].lower()
+    
+    for phrase in sql_error_phrases:
+        if phrase in context:
+            return False  # Marker in error message = false positive
+    
+    return start_idx < end_idx
 
 
 def classify_response(resp_text: str, status_code: int,
