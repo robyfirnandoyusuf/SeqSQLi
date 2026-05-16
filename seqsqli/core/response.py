@@ -45,41 +45,36 @@ FILTERED_INDICATORS = [
     "input was stripped",
     "query stripped",
 ]
-
+# SQL_ERROR_PHRASES = [
+#     "you have an error in your sql syntax",
+#     "error in your sql",
+#     "mysql server version",
+#     "near '",
+#     "syntax error",
+# ]
 
 # ---------------------------------------------------------------------------
 # Public API
 # ---------------------------------------------------------------------------
 
 def has_strict_markers(body: str) -> bool:
-    """Check marker appears as DATA, not in SQL error message."""
     if not body:
         return False
-    
-    # Reject if marker appears only inside a SQL error message
-    sql_error_phrases = [
-        "you have an error in your sql syntax",
-        "error in your sql",
-        "mysql server version",
-        "near '",
-    ]
+
     body_lower = body.lower()
-    
-    start_idx = body.find(STRICT_MARKERS[0])
-    end_idx = body.find(STRICT_MARKERS[1])
-    
-    if start_idx == -1 or end_idx == -1:
+    start_idx = body.find("SEQSQLI_START")
+    end_idx   = body.find("SEQSQLI_END")
+
+    if start_idx == -1 or end_idx == -1 or start_idx >= end_idx:
         return False
-    
-    # Check if marker is inside an error message context
-    context_start = max(0, start_idx - 200)
-    context = body[context_start:end_idx + 50].lower()
-    
-    for phrase in sql_error_phrases:
+
+    # Cek apakah marker ada di dalam SQL error message
+    context = body_lower[max(0, start_idx-200) : end_idx+50]
+    for phrase in SQL_ERROR_INDICATORS:
         if phrase in context:
-            return False  # Marker in error message = false positive
-    
-    return start_idx < end_idx
+            return False  # False positive — marker di error, bukan di data
+
+    return True
 
 
 def classify_response(resp_text: str, status_code: int,
