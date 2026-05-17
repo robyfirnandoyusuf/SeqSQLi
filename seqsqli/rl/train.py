@@ -4,8 +4,9 @@ seqsqli/rl/train.py
 Training loop: runs episodes, updates Q-table, returns episode logs.
 """
 
+import random
 import time
-from typing import List
+from typing import List, Optional
 
 from seqsqli.config import EPSILON, EPSILON_DECAY, EPSILON_MIN, MAX_STEPS
 from seqsqli.core.profile import TargetProfile
@@ -14,12 +15,21 @@ from seqsqli.core.mutations import MUTATIONS
 from seqsqli.core.response import classify_response
 from seqsqli.rl.state import encode_state
 from seqsqli.rl.qlearning import choose_action, update_Q, get_reward
+from seqsqli.rl.train_ppo import load_payloads_csv
 from seqsqli.config import REQUEST_DELAY
 
 
 def train(target: TargetProfile,
-          episodes: int) -> List[dict]:
+          episodes: int,
+          payloads_csv: Optional[str] = None) -> List[dict]:
     """Train the RL agent against a target for N episodes.
+
+    Args:
+        payloads_csv: Optional path to a payload_builder.py CSV.
+                      When provided, each episode samples a random
+                      validated payload as starting point and strict
+                      marker SUCCESS criterion is auto-enabled
+                      (mirrors train_ppo for fair RQ1 comparison).
 
     Returns a list of episode dicts, each containing:
         episode, steps, total_reward, success, sequence, final_payload
@@ -29,17 +39,28 @@ def train(target: TargetProfile,
     epsilon      = EPSILON
     episode_logs: List[dict] = []
 
+    base_payloads: Optional[List[str]] = None
+    if payloads_csv:
+        base_payloads = load_payloads_csv(payloads_csv)
+        if not base_payloads:
+            raise ValueError(f"No payloads loaded from {payloads_csv}")
+    strict_markers = bool(base_payloads)
+
     print("=" * 60)
     print(f" SeqSQLi v2 — Training")
     print(f" URL         : {target.url}")
     print(f" Filter type : {filter_type}")
     print(f" Columns     : {target.columns}")
-    print(f" Base payload: {base_payload}")
+    if base_payloads:
+        print(f" Mode        : online-WAF (strict markers)")
+        print(f" Payload pool: {len(base_payloads)} validated from {payloads_csv}")
+    else:
+        print(f" Base payload: {base_payload}")
     print(f" Episodes    : {episodes}")
     print("=" * 60)
 
     for ep in range(episodes):
-        payload      = base_payload
+        payload      = random.choice(base_payloads) if base_payloads else base_payload
         state        = encode_state("INIT", "none", 0, payload)
         total_reward = 0.0
         step_log     = []
@@ -50,7 +71,8 @@ def train(target: TargetProfile,
             mutated = MUTATIONS[action](payload)
 
             resp_text, status = send_request(target, mutated)
-            result            = classify_response(resp_text, status)
+            result            = classify_response(resp_text, status,
+                                                  strict_markers=strict_markers)
             reward            = get_reward(result, step + 1)
 
             next_state = encode_state(result, action, step + 1, mutated)

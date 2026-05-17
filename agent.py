@@ -122,9 +122,10 @@ Examples:
     parser.add_argument("--no-fingerprint", action="store_true", help="Skip auto-detection")
     parser.add_argument("--extract",        action="store_true", help="Extract DB data after bypass")
     parser.add_argument("--payloads-csv",   type=str, default=None,
-                        help="Path to payload_builder.py CSV for online-WAF PPO training. "
-                             "Each episode samples a random validated payload as starting "
-                             "point; strict marker SUCCESS is auto-enabled.")
+                        help="Path to payload_builder.py CSV for online-WAF training "
+                             "(works for both PPO and Q-learning). Each episode samples a "
+                             "random validated payload as starting point; strict marker "
+                             "SUCCESS is auto-enabled.")
 
     args = parser.parse_args()
 
@@ -199,7 +200,8 @@ Examples:
         if args.eval_only:
             greedy_eval(target)
         else:
-            logs = train(target, args.episodes)
+            logs = train(target, args.episodes,
+                         payloads_csv=args.payloads_csv)
             evaluate(logs)
             save_q_table(QTABLE_PATH)
 
