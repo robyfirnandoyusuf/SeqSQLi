@@ -36,6 +36,7 @@ from seqsqli.core.http import get_request_count
 from seqsqli.rl.qlearning import save_q_table, load_q_table
 from seqsqli.rl.train import train
 from seqsqli.rl.train_ppo import train_ppo, greedy_eval_ppo, PPO_MODEL_PATH
+from seqsqli.rl.train_trpo import train_trpo, greedy_eval_trpo, TRPO_MODEL_PATH
 from seqsqli.rl.evaluate import evaluate, greedy_eval, analyze_q_table, analyze_ordering
 from seqsqli.extractor import DataExtractor
 from seqsqli.builder import build_target_from_preset, build_target_from_args
@@ -112,10 +113,10 @@ Examples:
     parser.add_argument("--base-url",       type=str, default=DEFAULT_BASE_URL)
     parser.add_argument("--episodes",       type=int, default=MAX_EPISODES)
     parser.add_argument("--algo",           type=str, default="qlearning",
-                        choices=["qlearning", "ppo"],
+                        choices=["qlearning", "ppo", "trpo"],
                         help="RL algorithm to use (default: qlearning)")
     parser.add_argument("--timesteps",      type=int, default=50_000,
-                        help="Total env steps for PPO training (default: 50000)")
+                        help="Total env steps for PPO/TRPO training (default: 50000)")
     parser.add_argument("--load",           action="store_true", help="Load existing Q-table")
     parser.add_argument("--eval-only",      action="store_true", help="Skip training, greedy eval")
     parser.add_argument("--fingerprint",    action="store_true", help="Fingerprint only, then exit")
@@ -194,6 +195,23 @@ Examples:
             print(f"[*] PPO logs saved to {results_path}")
 
             ordering_path = f"ordering_ppo_less{args.less}.json" if args.less else "ordering_ppo.json"
+            analyze_ordering(logs, save_path=ordering_path)
+
+    elif args.algo == "trpo":
+        if args.eval_only:
+            logs = greedy_eval_trpo(target, model_path=TRPO_MODEL_PATH)
+            evaluate(logs)
+        else:
+            logs = train_trpo(target, timesteps=args.timesteps,
+                              payloads_csv=args.payloads_csv)
+            evaluate(logs)
+
+            results_path = f"results_trpo_less{args.less}.json" if args.less else "results_trpo.json"
+            with open(results_path, "w") as f:
+                json.dump(logs, f, indent=2, cls=_NumpyEncoder)
+            print(f"[*] TRPO logs saved to {results_path}")
+
+            ordering_path = f"ordering_trpo_less{args.less}.json" if args.less else "ordering_trpo.json"
             analyze_ordering(logs, save_path=ordering_path)
 
     else:  # qlearning (default)
