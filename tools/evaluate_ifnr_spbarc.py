@@ -224,6 +224,36 @@ def _make_ppo_picker(model_path: str, target: TargetProfile):
     return picker
 
 
+def _make_a2c_picker(model_path: str, target: TargetProfile):
+    """Returns an action picker using a saved A2C model (deterministic)."""
+    from stable_baselines3 import A2C
+    from seqsqli.rl.env import SeqSQLiEnv
+
+    model = A2C.load(model_path)
+    env = SeqSQLiEnv(target)
+    obs, _ = env.reset()
+
+    def picker(payload: str, state: dict) -> Tuple[str, str]:
+        env._payload = payload
+        env._step_count = state.get("step", 0)
+        obs = env._obs()
+        action_arr, _ = model.predict(obs, deterministic=True)
+        action_idx = int(action_arr)
+        action = ACTION_LIST[action_idx]
+        mutated = MUTATIONS[action](payload)
+        env._payload = mutated
+        env._last_action_idx = action_idx
+        return mutated, action
+
+    def reset():
+        env._payload = ""
+        env._step_count = 0
+        env._last_action_idx = -1
+
+    picker.reset = reset  # type: ignore[attr-defined]
+    return picker
+
+
 def _make_trpo_picker(model_path: str, target: TargetProfile):
     """Returns an action picker using a saved TRPO model (deterministic)."""
     from sb3_contrib import TRPO
@@ -386,7 +416,7 @@ def main():
     parser.add_argument("--param", default="id")
     parser.add_argument("--method", required=True,
                         choices=["none", "random", "static",
-                                 "filter_aware", "qlearning", "ppo", "trpo"])
+                                 "filter_aware", "qlearning", "ppo", "trpo", "a2c"])
     parser.add_argument("--filter-type", default="unknown",
                         help="Filter class hint for filter_aware method")
     parser.add_argument("--max-steps", type=int, default=15)
@@ -398,6 +428,8 @@ def main():
                         help="PPO model path for method=ppo")
     parser.add_argument("--trpo-model", default="seqsqli_trpo.zip",
                         help="TRPO model path for method=trpo")
+    parser.add_argument("--a2c-model", default="seqsqli_a2c.zip",
+                        help="A2C model path for method=a2c")
     parser.add_argument("--training-requests", type=int, default=0,
                         help="Training-phase HTTP request count for the "
                              "method (qlearning/ppo). Reported separately "
@@ -441,6 +473,8 @@ def main():
         picker = _make_ppo_picker(args.ppo_model, target)
     elif args.method == "trpo":
         picker = _make_trpo_picker(args.trpo_model, target)
+    elif args.method == "a2c":
+        picker = _make_a2c_picker(args.a2c_model, target)
     else:
         raise ValueError(args.method)
 
