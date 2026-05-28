@@ -14,7 +14,7 @@ WAF artifacts that confound the reward signal.
 
 import csv
 import time
-from typing import List, Optional
+from typing import Dict, List, Optional
 
 import numpy as np
 from stable_baselines3 import A2C
@@ -26,19 +26,9 @@ from seqsqli.core.mutations import ACTION_LIST, MUTATIONS
 from seqsqli.core.http import send_request
 from seqsqli.core.response import classify_response
 from seqsqli.rl.env import SeqSQLiEnv
-
-
-def load_payloads_csv(path: str) -> List[str]:
-    """Load validated payloads from payload_builder.py CSV.
-    Expects a 'payload' column. Returns list of payload strings."""
-    payloads: List[str] = []
-    with open(path, newline='', encoding='utf-8') as f:
-        reader = csv.DictReader(f)
-        for row in reader:
-            p = row.get("payload", "").strip()
-            if p:
-                payloads.append(p)
-    return payloads
+# Single source of truth for the CSV loader — reuses train_ppo's
+# dict-returning load_payloads_csv so all trainers share the same schema.
+from seqsqli.rl.train_ppo import load_payloads_csv
 
 
 # ---------------------------------------------------------------------------
@@ -140,21 +130,24 @@ def train_a2c(target: TargetProfile,
     Same calling convention as train_ppo()/train_trpo() so agent.py can swap freely.
     """
 
-    base_payloads: Optional[List[str]] = None
+    base_payload_specs: Optional[List[Dict]] = None
     if payloads_csv:
-        base_payloads = load_payloads_csv(payloads_csv)
-        if not base_payloads:
+        base_payload_specs = load_payloads_csv(payloads_csv)
+        if not base_payload_specs:
             raise ValueError(f"No payloads loaded from {payloads_csv}")
 
-    env = SeqSQLiEnv(target, base_payloads=base_payloads)
+    env = SeqSQLiEnv(target, base_payload_specs=base_payload_specs)
 
     print("=" * 60)
     print(f" SeqSQLi v2 — A2C Training")
     print(f" URL         : {target.url}")
     print(f" Filter type : {target.filter_type}")
-    if base_payloads:
-        print(f" Mode        : online-WAF (strict markers)")
-        print(f" Payload pool: {len(base_payloads)} validated from {payloads_csv}")
+    if base_payload_specs:
+        n_union = sum(1 for s in base_payload_specs if s["injection_type"] == "union")
+        n_error = sum(1 for s in base_payload_specs if s["injection_type"] == "error")
+        print(f" Mode        : online-WAF (dual-signal: union+error)")
+        print(f" Payload pool: {len(base_payload_specs)} validated from {payloads_csv}")
+        print(f"               (union={n_union}, error={n_error})")
     else:
         print(f" Base payload: {target.base_payload}")
     print(f" Timesteps   : {timesteps}")

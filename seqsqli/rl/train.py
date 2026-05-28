@@ -6,7 +6,7 @@ Training loop: runs episodes, updates Q-table, returns episode logs.
 
 import random
 import time
-from typing import List, Optional
+from typing import Dict, List, Optional
 
 from seqsqli.config import EPSILON, EPSILON_DECAY, EPSILON_MIN, MAX_STEPS
 from seqsqli.core.profile import TargetProfile
@@ -27,9 +27,12 @@ def train(target: TargetProfile,
     Args:
         payloads_csv: Optional path to a payload_builder.py CSV.
                       When provided, each episode samples a random
-                      validated payload as starting point and strict
-                      marker SUCCESS criterion is auto-enabled
-                      (mirrors train_ppo for fair RQ1 comparison).
+                      validated payload spec (payload + injection_type +
+                      error_function) as the starting point. Strict marker
+                      SUCCESS criterion is auto-enabled for union episodes;
+                      error-based episodes use SQL-error-signature SUCCESS
+                      detection automatically (mirrors train_ppo for fair
+                      RQ1 comparison).
 
     Returns a list of episode dicts, each containing:
         episode, steps, total_reward, success, sequence, final_payload
@@ -39,28 +42,39 @@ def train(target: TargetProfile,
     epsilon      = EPSILON
     episode_logs: List[dict] = []
 
-    base_payloads: Optional[List[str]] = None
+    base_payload_specs: Optional[List[Dict]] = None
     if payloads_csv:
-        base_payloads = load_payloads_csv(payloads_csv)
-        if not base_payloads:
+        base_payload_specs = load_payloads_csv(payloads_csv)
+        if not base_payload_specs:
             raise ValueError(f"No payloads loaded from {payloads_csv}")
-    strict_markers = bool(base_payloads)
+    strict_markers = bool(base_payload_specs)
 
     print("=" * 60)
     print(f" SeqSQLi v2 — Training")
     print(f" URL         : {target.url}")
     print(f" Filter type : {filter_type}")
     print(f" Columns     : {target.columns}")
-    if base_payloads:
-        print(f" Mode        : online-WAF (strict markers)")
-        print(f" Payload pool: {len(base_payloads)} validated from {payloads_csv}")
+    if base_payload_specs:
+        n_union = sum(1 for s in base_payload_specs if s["injection_type"] == "union")
+        n_error = sum(1 for s in base_payload_specs if s["injection_type"] == "error")
+        print(f" Mode        : online-WAF (dual-signal: union+error)")
+        print(f" Payload pool: {len(base_payload_specs)} validated from {payloads_csv}")
+        print(f"               (union={n_union}, error={n_error})")
     else:
         print(f" Base payload: {base_payload}")
     print(f" Episodes    : {episodes}")
     print("=" * 60)
 
     for ep in range(episodes):
-        payload      = random.choice(base_payloads) if base_payloads else base_payload
+        if base_payload_specs:
+            spec           = random.choice(base_payload_specs)
+            payload        = spec["payload"]
+            signal_type    = spec.get("injection_type", "union") or "union"
+            error_function = spec.get("error_function", "") or ""
+        else:
+            payload        = base_payload
+            signal_type    = "union"
+            error_function = ""
         state        = encode_state("INIT", "none", 0, payload)
         total_reward = 0.0
         step_log     = []
@@ -71,8 +85,12 @@ def train(target: TargetProfile,
             mutated = MUTATIONS[action](payload)
 
             resp_text, status = send_request(target, mutated)
-            result            = classify_response(resp_text, status,
-                                                  strict_markers=strict_markers)
+            result            = classify_response(
+                resp_text, status,
+                signal_type=signal_type,
+                error_function=error_function,
+                strict_markers=strict_markers,
+            )
             reward            = get_reward(result, step + 1)
 
             next_state = encode_state(result, action, step + 1, mutated)

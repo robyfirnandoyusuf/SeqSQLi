@@ -3,10 +3,16 @@ seqsqli/rl/env.py
 =================
 Gymnasium-compatible environment wrapper for SeqSQLi.
 Used by PPO and other deep RL algorithms.
+
+Each episode samples one base payload from a corpus and the agent
+mutates it for up to MAX_STEPS steps. The success criterion is
+delegated to classify_response() and routed via per-payload
+signal_type (union | error) + error_function (for error-based
+signature lookup).
 """
 
 import random
-from typing import List, Optional
+from typing import Dict, List, Optional
 
 import numpy as np
 import gymnasium as gym
@@ -36,6 +42,31 @@ _N_FEATURES = 14
 OBS_DIM     = _N_FEATURES + _N_ACTIONS + 1
 
 
+def _coerce_specs(base_payloads: Optional[List[str]],
+                  base_payload_specs: Optional[List[Dict]]) -> List[Dict]:
+    """Normalize either input form into a list of spec dicts.
+
+    Backward compat: if `base_payloads` (list of strings) is given,
+    each entry is wrapped into a dict with sensible defaults
+    (injection_type='union', error_function='').
+    """
+    if base_payload_specs:
+        out: List[Dict] = []
+        for s in base_payload_specs:
+            out.append({
+                "payload":        s.get("payload", ""),
+                "injection_type": s.get("injection_type", "union") or "union",
+                "error_function": s.get("error_function", "") or "",
+            })
+        return [s for s in out if s["payload"]]
+    if base_payloads:
+        return [
+            {"payload": p, "injection_type": "union", "error_function": ""}
+            for p in base_payloads if p
+        ]
+    return []
+
+
 class SeqSQLiEnv(gym.Env):
     """Gymnasium environment for SQL injection WAF bypass via mutation sequences."""
 
@@ -43,23 +74,39 @@ class SeqSQLiEnv(gym.Env):
 
     def __init__(self, target: TargetProfile,
                  base_payloads: Optional[List[str]] = None,
+                 base_payload_specs: Optional[List[Dict]] = None,
                  strict_markers: Optional[bool] = None):
         """
         Args:
-            target:        TargetProfile (URL, param, method, ...).
-            base_payloads: Optional pool of validated starting payloads.
-                           When provided, reset() samples uniformly from
-                           this list each episode (online-WAF training).
-                           When None, falls back to target.base_payload.
-            strict_markers: Force strict marker success criterion.
-                           When None, auto-enabled iff base_payloads is
-                           provided (those payloads embed SEQSQLI_*).
+            target:             TargetProfile (URL, param, method, ...).
+            base_payloads:      DEPRECATED — list of payload strings, all
+                                treated as injection_type='union'. Kept
+                                for backward compatibility with older
+                                trainers.
+            base_payload_specs: Preferred. List of dicts, each with at
+                                least the keys 'payload', 'injection_type'
+                                (union|error), and 'error_function'
+                                (extractvalue|updatexml|floor|exp|
+                                gtid_subset, '' for union). Typically
+                                produced by csv.DictReader over the output
+                                of tools/payload_builder.py.
+                                When provided, reset() samples uniformly
+                                from this list each episode.
+                                When None and base_payloads is also None,
+                                falls back to target.base_payload (union).
+            strict_markers:     Force strict marker success criterion.
+                                Only meaningful for union episodes.
+                                When None, auto-enabled iff any specs
+                                are provided (those payloads embed
+                                SEQSQLI_*).
         """
         super().__init__()
         self.target = target
-        self.base_payloads: List[str] = list(base_payloads) if base_payloads else []
+        self.base_payload_specs: List[Dict] = _coerce_specs(
+            base_payloads, base_payload_specs,
+        )
         if strict_markers is None:
-            self.strict_markers = bool(self.base_payloads)
+            self.strict_markers = bool(self.base_payload_specs)
         else:
             self.strict_markers = bool(strict_markers)
 
@@ -70,17 +117,24 @@ class SeqSQLiEnv(gym.Env):
             dtype=np.float32,
         )
 
-        self._payload    = ""
-        self._step_count = 0
-        self._last_action_idx = -1
+        self._payload          = ""
+        self._signal_type      = "union"
+        self._error_function   = ""
+        self._step_count       = 0
+        self._last_action_idx  = -1
 
     # ------------------------------------------------------------------
     def reset(self, *, seed=None, options=None):
         super().reset(seed=seed)
-        if self.base_payloads:
-            self._payload = random.choice(self.base_payloads)
+        if self.base_payload_specs:
+            spec = random.choice(self.base_payload_specs)
+            self._payload        = spec["payload"]
+            self._signal_type    = spec.get("injection_type", "union") or "union"
+            self._error_function = spec.get("error_function", "") or ""
         else:
-            self._payload = self.target.base_payload
+            self._payload        = self.target.base_payload
+            self._signal_type    = "union"
+            self._error_function = ""
         self._step_count      = 0
         self._last_action_idx = -1
         return self._obs(), {}
@@ -99,8 +153,12 @@ class SeqSQLiEnv(gym.Env):
             return self._obs(), reward, False, truncated, {"result": "STAGNANT", "payload": self._payload}
 
         resp_text, status = send_request(self.target, mutated)
-        result = classify_response(resp_text, status,
-                                   strict_markers=self.strict_markers)
+        result = classify_response(
+            resp_text, status,
+            signal_type=self._signal_type,
+            error_function=self._error_function,
+            strict_markers=self.strict_markers,
+        )
         reward = REWARD_TABLE.get(result, -1.0) - STEP_PENALTY * self._step_count
 
         self._payload         = mutated
