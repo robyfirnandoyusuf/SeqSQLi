@@ -45,6 +45,31 @@ FILTERED_INDICATORS = [
     "input was stripped",
     "query stripped",
 ]
+
+# ---------------------------------------------------------------------------
+# Error-based success signatures
+# ---------------------------------------------------------------------------
+# Keys match the error_function names used by tools/payload_builder.py
+# (ERROR_FUNCTIONS dict). When signal_type='error', the function-specific
+# signature is checked first for tight detection.
+ERROR_SUCCESS_SIGNATURES = {
+    "extractvalue": "xpath syntax error",
+    "updatexml":    "xpath syntax error",
+    "floor":        "duplicate entry",
+    "exp":          "double value is out of range",
+    "gtid_subset":  "malformed gtid",
+}
+
+# Generic SQL error markers — sufficient evidence that the injected
+# payload reached the SQL parser and produced a server-visible error.
+# Used as fallback when the function-specific signature isn't found
+# (e.g., MySQL version mismatch returning a generic error message).
+ERROR_SUCCESS_FALLBACK = [
+    "you have an error in your sql syntax",
+    "warning: mysql",
+    "warning: mysqli",
+    "supplied argument is not",
+]
 # SQL_ERROR_PHRASES = [
 #     "you have an error in your sql syntax",
 #     "error in your sql",
@@ -78,47 +103,70 @@ def has_strict_markers(body: str) -> bool:
 
 
 def classify_response(resp_text: str, status_code: int,
+                      signal_type: str = "union",
+                      error_function: str = "",
                       strict_markers: bool = False) -> str:
-    """Classify WAF/success/error from HTTP response.
+    """Classify WAF / success / error from HTTP response.
 
     Returns one of:
         'SUCCESS', 'WAF_BLOCKED', 'SQL_ERROR',
         'FILTERED', 'SERVER_ERROR', 'UNKNOWN'
 
     Args:
-        resp_text   : Response body text.
-        status_code : HTTP status code.
-        strict_markers : When True, SUCCESS requires both SEQSQLI_START
-                         and SEQSQLI_END markers to be reflected in the
-                         response (paper-grade IFNR/SPBARC criterion).
-                         Default False uses legacy SUCCESS_INDICATORS so
-                         that existing training loops with non-marker base
-                         payloads keep working.
-                         Marker check is ALWAYS attempted first regardless
-                         of this flag — if both markers are present, SUCCESS
-                         is returned. The flag only controls the FALLBACK
-                         path (legacy indicators or not).
+        resp_text       : Response body text.
+        status_code     : HTTP status code.
+        signal_type     : Selects success criterion.
+                          "union" (default) — both SEQSQLI_START and
+                                  SEQSQLI_END must reflect.
+                          "error" — function-specific SQL error signature
+                                  (or generic SQL error fallback) must
+                                  appear in the response.
+        error_function  : Only meaningful when signal_type='error'.
+                          Names the error-triggering function in use
+                          (extractvalue / updatexml / floor / exp /
+                          gtid_subset) so the tight signature can be
+                          looked up. When empty, only the generic
+                          fallback list is checked.
+        strict_markers  : Only meaningful when signal_type='union'.
+                          False (default) — legacy SUCCESS_INDICATORS
+                                  (login/password text) also counts as
+                                  SUCCESS when markers don't reflect.
+                                  Kept for backward compatibility with
+                                  pre-marker training loops.
+                          True — strict marker-only mode (paper-grade
+                                  IFNR/SPBARC criterion).
     """
     text = resp_text.lower()
 
-    # WAF block always wins — short-circuit.
+    # ---- WAF block always wins ---------------------------------------
     if status_code in (403, 406, 429, 501):
         return "WAF_BLOCKED"
     for ind in WAF_INDICATORS:
         if ind in text:
             return "WAF_BLOCKED"
 
-    # Strict success criterion (paper-grade): both markers must be reflected.
-    # Always check this first; it's the strongest signal we have.
-    if has_strict_markers(resp_text):
-        return "SUCCESS"
-
-    # Legacy fallback — only when strict mode is disabled.
-    if not strict_markers:
-        for ind in SUCCESS_INDICATORS:
-            if ind in text:
+    # ---- Success criterion (per signal_type) -------------------------
+    if signal_type == "error":
+        # Function-specific signature first — tightest detection.
+        sig = ERROR_SUCCESS_SIGNATURES.get(error_function, "")
+        if sig and sig in text:
+            return "SUCCESS"
+        # Generic SQL error fallback — payload reached parser & errored.
+        for fb in ERROR_SUCCESS_FALLBACK:
+            if fb in text:
                 return "SUCCESS"
+    else:
+        # signal_type == "union" (or anything unknown — default to union).
+        # Strict marker check — always the strongest signal we have.
+        if has_strict_markers(resp_text):
+            return "SUCCESS"
+        # Legacy fallback (loose mode) — only when strict_markers=False.
+        if not strict_markers:
+            for ind in SUCCESS_INDICATORS:
+                if ind in text:
+                    return "SUCCESS"
 
+    # ---- Non-success classifications ---------------------------------
     for ind in SQL_ERROR_INDICATORS:
         if ind in text:
             return "SQL_ERROR"
