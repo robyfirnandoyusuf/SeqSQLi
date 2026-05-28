@@ -294,8 +294,17 @@ def evaluate_one_payload(target: TargetProfile,
                           max_steps: int,
                           delay: float,
                           state: dict) -> PayloadResult:
-    """Run one payload through the method until SUCCESS or step budget."""
+    """Run one payload through the method until SUCCESS or step budget.
+
+    Reads injection_type + error_function from the spec row so that
+    error-based payloads are classified by their SQL error signature
+    (not the union marker reflection).
+    """
     original = spec["payload"]
+    # Per-payload success criterion routing.
+    signal_type    = (spec.get("injection_type", "") or "union").strip() or "union"
+    error_function = (spec.get("error_function", "") or "").strip()
+
     sequence: List[str] = []
     payload = original
     initial_bypass = False
@@ -307,7 +316,12 @@ def evaluate_one_payload(target: TargetProfile,
     # whether the WAF naturally misses this payload (contributes to FNR0).
     resp_text, status = send_request(target, payload)
     final_status = status
-    result = classify_response(resp_text, status, strict_markers=True)
+    result = classify_response(
+        resp_text, status,
+        signal_type=signal_type,
+        error_function=error_function,
+        strict_markers=True,
+    )
     final_result = result
     if result == "SUCCESS":
         initial_bypass = True
@@ -343,7 +357,12 @@ def evaluate_one_payload(target: TargetProfile,
 
         resp_text, status = send_request(target, mutated)
         final_status = status
-        result = classify_response(resp_text, status, strict_markers=True)
+        result = classify_response(
+            resp_text, status,
+            signal_type=signal_type,
+            error_function=error_function,
+            strict_markers=True,
+        )
         final_result = result
         payload = mutated
 

@@ -8,7 +8,7 @@ so evaluate() and analyze_ordering() can be reused unchanged.
 
 import csv
 import time
-from typing import List, Optional
+from typing import Dict, List, Optional
 
 import numpy as np
 from stable_baselines3 import PPO
@@ -22,17 +22,32 @@ from seqsqli.core.response import classify_response
 from seqsqli.rl.env import SeqSQLiEnv
 
 
-def load_payloads_csv(path: str) -> List[str]:
-    """Load validated payloads from payload_builder.py CSV.
-    Expects a 'payload' column. Returns list of payload strings."""
-    payloads: List[str] = []
+def load_payloads_csv(path: str) -> List[Dict]:
+    """Load validated payload specs from payload_builder.py CSV.
+
+    Returns a list of dicts (one per row) carrying:
+        payload         : the SQL payload string
+        injection_type  : 'union' or 'error' (defaults to 'union' if missing,
+                          preserving backward compatibility with old CSVs)
+        error_function  : the error-triggering function name when
+                          injection_type='error' (extractvalue / updatexml /
+                          floor / exp / gtid_subset); '' for union.
+
+    The dict shape matches what SeqSQLiEnv expects via `base_payload_specs`.
+    """
+    specs: List[Dict] = []
     with open(path, newline='', encoding='utf-8') as f:
         reader = csv.DictReader(f)
         for row in reader:
             p = row.get("payload", "").strip()
-            if p:
-                payloads.append(p)
-    return payloads
+            if not p:
+                continue
+            specs.append({
+                "payload":        p,
+                "injection_type": (row.get("injection_type", "") or "").strip() or "union",
+                "error_function": (row.get("error_function", "") or "").strip(),
+            })
+    return specs
 
 
 # ---------------------------------------------------------------------------
@@ -135,21 +150,24 @@ def train_ppo(target: TargetProfile,
                       Use this for online training vs ModSec.
     """
 
-    base_payloads: Optional[List[str]] = None
+    base_payload_specs: Optional[List[Dict]] = None
     if payloads_csv:
-        base_payloads = load_payloads_csv(payloads_csv)
-        if not base_payloads:
+        base_payload_specs = load_payloads_csv(payloads_csv)
+        if not base_payload_specs:
             raise ValueError(f"No payloads loaded from {payloads_csv}")
 
-    env = SeqSQLiEnv(target, base_payloads=base_payloads)
+    env = SeqSQLiEnv(target, base_payload_specs=base_payload_specs)
 
     print("=" * 60)
     print(f" SeqSQLi v2 — PPO Training")
     print(f" URL         : {target.url}")
     print(f" Filter type : {target.filter_type}")
-    if base_payloads:
-        print(f" Mode        : online-WAF (strict markers)")
-        print(f" Payload pool: {len(base_payloads)} validated from {payloads_csv}")
+    if base_payload_specs:
+        n_union = sum(1 for s in base_payload_specs if s["injection_type"] == "union")
+        n_error = sum(1 for s in base_payload_specs if s["injection_type"] == "error")
+        print(f" Mode        : online-WAF (dual-signal: union+error)")
+        print(f" Payload pool: {len(base_payload_specs)} validated from {payloads_csv}")
+        print(f"               (union={n_union}, error={n_error})")
     else:
         print(f" Base payload: {target.base_payload}")
     print(f" Timesteps   : {timesteps}")
