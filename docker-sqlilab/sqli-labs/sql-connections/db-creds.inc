@@ -1,10 +1,10 @@
 <?php
 
 //give your mysql connection username n password
-$dbuser ='root';
-$dbpass ='';
+$dbuser ='lab';
+$dbpass ='lab123';
 $dbname ="security";
-$host = 'localhost';
+$host = 'mysql';
 $dbname1 = "challenges";
 
 

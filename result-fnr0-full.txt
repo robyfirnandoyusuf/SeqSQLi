@@ -1,0 +1,40 @@
+[*] Loaded 216 validated payloads
+[*] Method=none | max_steps=0 | target=http://lab-sqli.local/Less-1/index.php
+  [  10/216] success=0 (initial=0)
+  [  20/216] success=0 (initial=0)
+  [  30/216] success=0 (initial=0)
+  [  40/216] success=0 (initial=0)
+  [  50/216] success=0 (initial=0)
+  [  60/216] success=0 (initial=0)
+  [  70/216] success=0 (initial=0)
+  [  80/216] success=0 (initial=0)
+  [  90/216] success=0 (initial=0)
+  [ 100/216] success=0 (initial=0)
+  [ 110/216] success=0 (initial=0)
+  [ 120/216] success=0 (initial=0)
+  [ 130/216] success=0 (initial=0)
+  [ 140/216] success=0 (initial=0)
+  [ 150/216] success=0 (initial=0)
+  [ 160/216] success=0 (initial=0)
+  [ 170/216] success=0 (initial=0)
+  [ 180/216] success=0 (initial=0)
+  [ 190/216] success=0 (initial=0)
+  [ 200/216] success=0 (initial=0)
+  [ 210/216] success=0 (initial=0)
+  [ 216/216] success=0 (initial=0)
+
+============================================================
+ RESULTS: method=none
+============================================================
+  Payloads             : 216
+  Initial bypasses     : 0  (within-run FNR0=0.0000)
+  Total successes      : 0
+  Mutated bypasses     : 0
+  FNR0 (used)          : 0.0000  (measured)
+  MFNR                 : 0.0000
+  IFNR                 : +0.0000
+  SPBARC               : N/A (no mutated bypasses)
+  Inference requests   : 216
+  Training requests    : 0 (reported-only)
+  Wall clock           : 0.4s
+  Report saved to      : fnr0_full_less1.json

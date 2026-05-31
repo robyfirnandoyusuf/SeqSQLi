@@ -1,0 +1,61 @@
+version: '3.8'
+
+services:
+  mysql:
+    image: mysql:5.7
+    container_name: sqlilab-mysql
+    environment:
+      MYSQL_ROOT_PASSWORD: root
+      MYSQL_DATABASE: security
+      MYSQL_USER: lab
+      MYSQL_PASSWORD: lab123
+    volumes:
+      - mysql_data:/var/lib/mysql
+      - ./sqli-labs/sql-lab.sql:/docker-entrypoint-initdb.d/01-security.sql
+      - ./init-challenges-db.sql:/docker-entrypoint-initdb.d/02-challenges.sql
+    networks:
+      - sqlilab-network
+    healthcheck:
+      test: ["CMD", "mysqladmin", "ping", "-h", "localhost", "-ulab", "-plab123"]
+      interval: 10s
+      timeout: 5s
+      retries: 5
+
+  php-app:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    container_name: sqlilab-app
+    volumes:
+      - ./sqli-labs:/var/www/html
+    networks:
+      - sqlilab-network
+    depends_on:
+      mysql:
+        condition: service_healthy
+
+  nginx:
+    image: owasp/modsecurity-crs:nginx-alpine
+    container_name: sqlilab-nginx
+    ports:
+      - "8080:8080"
+    volumes:
+      - ./sqli-labs:/var/www/html:ro
+      - ./nginx/modsec.conf:/etc/nginx/templates/conf.d/default.conf.template:ro
+      - ./modsecurity/setup.conf:/etc/nginx/templates/modsecurity.d/setup.conf.template:ro
+      - ./modsecurity/custom-sqli.conf:/etc/modsecurity/rules/custom-sqli.conf:ro
+    networks:
+      - sqlilab-network
+    depends_on:
+      - php-app
+    environment:
+      - PORT=8080
+      - MODSEC_RULE_ENGINE=On
+      - BLOCKING_PARANOIA=1
+
+networks:
+  sqlilab-network:
+    driver: bridge
+
+volumes:
+  mysql_data:
