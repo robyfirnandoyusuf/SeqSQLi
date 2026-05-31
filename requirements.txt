@@ -1,0 +1,5 @@
+gymnasium==1.2.0
+numpy==2.4.6
+Requests==2.34.2
+sb3_contrib==2.8.0
+stable_baselines3==2.8.0

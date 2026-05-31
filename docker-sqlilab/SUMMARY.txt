@@ -1,0 +1,283 @@
+╔══════════════════════════════════════════════════════════════════════════════╗
+║                    SQLi Lab - Portable Docker Setup                          ║
+║                  SETUP COMPLETE WITH MODSECURITY ✅                           ║
+╚══════════════════════════════════════════════════════════════════════════════╝
+
+📦 YANG SUDAH DIBUAT:
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+✅ Docker Compose Setup
+   - MySQL 5.7 (database server)
+   - PHP-FPM 7.4 (application server)
+   - Nginx + ModSecurity (web server dengan WAF)
+
+✅ SQLi-Labs Application
+   - 65+ SQL Injection challenges
+   - Error-based, UNION, Blind, POST, Header, Cookie SQLi
+   - Database sudah ter-setup otomatis
+
+✅ ModSecurity WAF (AKTIF! 🛡️)
+   - OWASP CRS 4.x (856+ rules)
+   - Custom SQLi Rules (10 rules khusus)
+   - Anomaly scoring mode
+   - Blocking mode enabled
+
+✅ Custom SQLi Detection Rules
+   - Rule 9100001: UNION/SELECT/INSERT/DELETE/UPDATE detection
+   - Rule 9100002: SQL comments detection
+   - Rule 9100003: Quote-based injection
+   - Rule 9100004: Time-based blind SQLi
+   - Rule 9100005: Information schema queries
+   - Rule 9100006: UNION-based injection
+   - Rule 9100007: Stacked queries
+   - Rule 9100008: Hex encoding
+   - Rule 9100009: Dangerous SQL functions
+   - Rule 9100010: Boolean-based blind SQLi
+
+✅ CORS Configuration
+   - Allow all origins (*)
+   - Support GET, POST, PUT, DELETE, OPTIONS
+   - Preflight handling
+
+✅ Helper Scripts
+   - start.sh   → Start lab
+   - stop.sh    → Stop lab
+   - status.sh  → Check status & resource usage
+
+✅ Documentation
+   - README.md       → Dokumentasi lengkap dengan ModSecurity guide
+   - QUICKSTART.md   → Quick reference
+   - SUMMARY.txt     → This file
+   - .gitignore      → Git ignore file
+
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+🚀 CARA MENGGUNAKAN:
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+1. AKSES LAB (sudah running):
+
+   🌐 Browser: http://localhost:8080
+
+   📝 Challenges:
+      http://localhost:8080/Less-1/
+      http://localhost:8080/Less-2/
+      ...
+      http://localhost:8080/Less-65/
+
+2. PERINTAH DASAR:
+
+   ./start.sh          # Start lab
+   ./stop.sh           # Stop lab
+   ./status.sh         # Check status
+
+   docker-compose ps   # List containers
+   docker-compose logs -f nginx    # View logs
+
+3. DATABASE ACCESS:
+
+   Host: mysql (dari container) / localhost (dari host)
+   User: lab
+   Pass: lab123
+   DBs:  security, challenges
+
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+🛡️ MODSECURITY TESTING:
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+✅ TESTED & WORKING:
+
+1. Normal Request:
+   curl "http://localhost:8080/Less-1/?id=1"
+   → HTTP 200 OK ✅
+
+2. UNION SELECT Attack:
+   curl "http://localhost:8080/Less-1/?id=1' UNION SELECT 1,2,3--"
+   → HTTP 403 Forbidden 🛡️ BLOCKED
+
+3. SQL Comment Attack:
+   curl "http://localhost:8080/Less-1/?id=1--"
+   → HTTP 403 Forbidden 🛡️ BLOCKED
+
+4. Boolean Injection:
+   curl "http://localhost:8080/Less-1/?id=1' OR '1'='1"
+   → HTTP 403 Forbidden 🛡️ BLOCKED
+
+5. Information Schema:
+   curl "http://localhost:8080/Less-1/?id=1' UNION SELECT 1,table_name,3 FROM information_schema.tables--"
+   → HTTP 403 Forbidden 🛡️ BLOCKED
+
+View ModSecurity logs:
+   docker-compose logs nginx | grep ModSecurity
+
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+🎯 PORTABILITAS:
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+Untuk membawa lab ke komputer lain:
+
+1. Copy folder "docker-sqlilab" (bisa zip/USB/cloud)
+2. Install Docker + Docker Compose di komputer target
+3. Jalankan: ./start.sh
+4. Akses: http://localhost:8080
+
+✅ Tidak perlu install PHP, MySQL, Nginx, ModSecurity manual!
+✅ Semua dependencies sudah di-bundle dalam Docker images
+✅ Database auto-initialize saat pertama kali jalan
+✅ ModSecurity + Custom Rules sudah aktif otomatis
+
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+📊 CURRENT STATUS:
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+✅ sqlilab-nginx  → Running (port 8080) + ModSecurity ACTIVE 🛡️
+✅ sqlilab-app    → Running (PHP-FPM)
+✅ sqlilab-mysql  → Running (healthy)
+
+ModSecurity Status:
+  - Engine: On (Blocking Mode)
+  - OWASP CRS: 856+ rules loaded
+  - Custom Rules: 10 SQLi detection rules
+  - Paranoia Level: 1
+  - Anomaly Threshold: 5 (inbound), 4 (outbound)
+
+Memory Usage:
+  - Nginx + ModSecurity: ~50 MB
+  - PHP:   ~5 MB
+  - MySQL: ~185 MB
+  Total:   ~240 MB
+
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+📁 STRUKTUR FOLDER:
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+docker-sqlilab/
+├── docker-compose.yml       # Main orchestration
+├── Dockerfile               # PHP-FPM image
+├── start.sh                 # Start script
+├── stop.sh                  # Stop script
+├── status.sh                # Status checker
+├── README.md                # Full documentation + ModSecurity guide
+├── QUICKSTART.md            # Quick reference
+├── SUMMARY.txt              # This file
+├── .gitignore               # Git ignore
+├── init-challenges-db.sql   # DB init script
+├── sqli-labs/               # 65+ challenges
+├── nginx/
+│   ├── modsec.conf          # Active config (ModSecurity + CORS) ⭐
+│   ├── simple.conf          # Simple config tanpa ModSecurity
+│   └── default.conf         # Backup config
+└── modsecurity/
+    ├── modsecurity.conf     # ModSecurity main config
+    └── custom-sqli.conf     # Custom SQLi detection rules ⭐⭐⭐
+
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+⚙️ KONFIGURASI MODSECURITY:
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+Edit Custom Rules:
+   File: modsecurity/custom-sqli.conf
+   - Tambah/edit/disable rules sesuai kebutuhan
+   - Rule ID range: 9100001-9100010
+   - Restart nginx setelah edit: docker-compose restart nginx
+
+Adjust Paranoia Level (1-4, semakin tinggi semakin strict):
+   Edit docker-compose.yml:
+   environment:
+     - BLOCKING_PARANOIA=2
+
+Detection Only Mode (log saja, tidak block):
+   Edit docker-compose.yml:
+   environment:
+     - MODSEC_RULE_ENGINE=DetectionOnly
+
+Disable ModSecurity Sementara:
+   Edit docker-compose.yml:
+   environment:
+     - MODSEC_RULE_ENGINE=Off
+
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+⚠️  CATATAN PENTING:
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+1. ModSecurity WAF SUDAH AKTIF dengan custom SQLi detection rules
+   - Semua SQLi payload akan di-block (403 Forbidden)
+   - Cocok untuk testing WAF bypass techniques
+   - Edit custom rules di modsecurity/custom-sqli.conf
+
+2. Lab ini HANYA untuk pembelajaran dan testing
+   JANGAN expose ke internet atau production!
+
+3. CORS terbuka untuk semua origin (*)
+   Cocok untuk testing dengan tools/scripts
+
+4. Credentials menggunakan default values
+   Ganti jika deploy untuk jangka panjang
+
+5. ModSecurity bisa di-adjust sesuai kebutuhan:
+   - Detection Only mode untuk learning
+   - Blocking mode untuk testing bypass
+   - Custom rules untuk specific attack patterns
+
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+🎓 CHALLENGES AVAILABLE:
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+✅ Error-based SQLi (Less 1-14)
+✅ UNION-based SQLi (Less 1-4)
+✅ Blind SQLi - Boolean (Less 5, 8)
+✅ Blind SQLi - Time-based (Less 9, 10)
+✅ POST-based SQLi (Less 11-17)
+✅ Header-based SQLi (Less 18-21)
+✅ Cookie-based SQLi (Less 20-22)
+✅ Second Order SQLi (Less 24)
+✅ Stacked Queries (Less 38-53)
+✅ WAF Bypass (Less 23-28) 🛡️ + ModSecurity Challenge!
+✅ Advanced Challenges (Less 54-65)
+
+Total: 65+ unique challenges!
+
+BONUS: WAF Bypass Challenge dengan ModSecurity aktif!
+
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+💡 TIPS:
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+• Gunakan ./status.sh untuk monitoring resource usage
+• Logs bisa dilihat dengan: docker-compose logs -f nginx
+• ModSecurity logs: docker-compose logs nginx | grep ModSecurity
+• Reset database: docker-compose down -v && docker-compose up -d
+• Ganti port jika 8080 sudah dipakai (edit docker-compose.yml)
+• Test WAF bypass techniques dengan custom payloads
+• Adjust paranoia level untuk testing berbagai skenario
+• Edit custom rules untuk fine-tuning detection
+
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+📚 RESOURCES:
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+• SQLi-Labs GitHub: https://github.com/Audi-1/sqli-labs
+• OWASP SQLi Guide: https://owasp.org/www-community/attacks/SQL_Injection
+• OWASP ModSecurity CRS: https://coreruleset.org/
+• ModSecurity Handbook: https://www.feistyduck.com/books/modsecurity-handbook/
+• Docker Docs: https://docs.docker.com/
+
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+✨ SELAMAT BELAJAR SQL INJECTION & WAF BYPASS! ✨
+
+Lab sudah siap dengan ModSecurity aktif!
+Bisa dibawa kemana saja dan langsung jalan!
+
+Untuk dokumentasi lengkap, baca README.md
+
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
