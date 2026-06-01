@@ -121,10 +121,12 @@ class EpisodeLogCallback(BaseCallback):
 def train_trpo(target: TargetProfile,
                timesteps: int = TRPO_TIMESTEPS,
                save_path: str = TRPO_MODEL_PATH,
+               load_path: Optional[str] = None,
                payloads_csv: Optional[str] = None) -> List[dict]:
     """Train a TRPO agent against target and return episode logs.
 
     Same calling convention as train_ppo() so agent.py can swap freely.
+    load_path resumes a saved model for curriculum Stage-2 fine-tune.
     """
 
     base_payload_specs: Optional[List[Dict]] = None
@@ -153,20 +155,24 @@ def train_trpo(target: TargetProfile,
 
     callback = EpisodeLogCallback(verbose=0)
 
-    model = TRPO(
-        "MlpPolicy",
-        env,
-        learning_rate    = TRPO_LR,
-        n_steps          = TRPO_N_STEPS,
-        batch_size       = TRPO_BATCH_SIZE,
-        gamma            = TRPO_GAMMA,
-        gae_lambda       = TRPO_GAE_LAMBDA,
-        target_kl        = TRPO_TARGET_KL,
-        cg_max_steps     = TRPO_CG_MAX_STEPS,
-        n_critic_updates = TRPO_N_CRITIC_UPDATES,
-        verbose          = 0,
-        tensorboard_log  = "./trpo_tensorboard/",
-    )
+    if load_path:
+        print(f" Resuming    : {load_path}.zip (curriculum fine-tune)")
+        model = TRPO.load(load_path, env=env)
+    else:
+        model = TRPO(
+            "MlpPolicy",
+            env,
+            learning_rate    = TRPO_LR,
+            n_steps          = TRPO_N_STEPS,
+            batch_size       = TRPO_BATCH_SIZE,
+            gamma            = TRPO_GAMMA,
+            gae_lambda       = TRPO_GAE_LAMBDA,
+            target_kl        = TRPO_TARGET_KL,
+            cg_max_steps     = TRPO_CG_MAX_STEPS,
+            n_critic_updates = TRPO_N_CRITIC_UPDATES,
+            verbose          = 0,
+            tensorboard_log  = "./trpo_tensorboard/",
+        )
 
     model.learn(total_timesteps=timesteps, callback=callback)
     model.save(save_path)

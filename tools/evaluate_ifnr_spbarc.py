@@ -174,6 +174,7 @@ def _make_qlearning_picker(qtable_path: str):
             state_holder["last_action"],
             state_holder["step"],
             payload,
+            state.get("signal_type", "union"),
         )
         # Greedy: pick action with highest Q-value at this state.
         best_action = max(ACTION_LIST, key=lambda a: Q[(st, a)])
@@ -191,8 +192,13 @@ def _make_qlearning_picker(qtable_path: str):
     return picker
 
 
-def _make_ppo_picker(model_path: str, target: TargetProfile):
-    """Returns an action picker using a saved PPO model (deterministic)."""
+def _make_ppo_picker(model_path: str, target: TargetProfile,
+                     deterministic: bool = True):
+    """Returns an action picker using a saved PPO model.
+
+    deterministic=True takes the argmax action; False samples from the
+    policy distribution (use with --attempts for best-of-N eval).
+    """
     import numpy as np
     from stable_baselines3 import PPO
     from seqsqli.rl.env import SeqSQLiEnv
@@ -205,9 +211,10 @@ def _make_ppo_picker(model_path: str, target: TargetProfile):
         # Sync env's internal payload + step to what we're tracking.
         env._payload = payload
         env._step_count = state.get("step", 0)
+        env._signal_type = state.get("signal_type", "union")
         # last_action_idx left unchanged; not critical for greedy eval.
         obs = env._obs()
-        action_arr, _ = model.predict(obs, deterministic=True)
+        action_arr, _ = model.predict(obs, deterministic=deterministic)
         action_idx = int(action_arr)
         action = ACTION_LIST[action_idx]
         mutated = MUTATIONS[action](payload)
@@ -224,8 +231,9 @@ def _make_ppo_picker(model_path: str, target: TargetProfile):
     return picker
 
 
-def _make_a2c_picker(model_path: str, target: TargetProfile):
-    """Returns an action picker using a saved A2C model (deterministic)."""
+def _make_a2c_picker(model_path: str, target: TargetProfile,
+                     deterministic: bool = True):
+    """Returns an action picker using a saved A2C model."""
     from stable_baselines3 import A2C
     from seqsqli.rl.env import SeqSQLiEnv
 
@@ -236,8 +244,9 @@ def _make_a2c_picker(model_path: str, target: TargetProfile):
     def picker(payload: str, state: dict) -> Tuple[str, str]:
         env._payload = payload
         env._step_count = state.get("step", 0)
+        env._signal_type = state.get("signal_type", "union")
         obs = env._obs()
-        action_arr, _ = model.predict(obs, deterministic=True)
+        action_arr, _ = model.predict(obs, deterministic=deterministic)
         action_idx = int(action_arr)
         action = ACTION_LIST[action_idx]
         mutated = MUTATIONS[action](payload)
@@ -254,8 +263,9 @@ def _make_a2c_picker(model_path: str, target: TargetProfile):
     return picker
 
 
-def _make_trpo_picker(model_path: str, target: TargetProfile):
-    """Returns an action picker using a saved TRPO model (deterministic)."""
+def _make_trpo_picker(model_path: str, target: TargetProfile,
+                      deterministic: bool = True):
+    """Returns an action picker using a saved TRPO model."""
     from sb3_contrib import TRPO
     from seqsqli.rl.env import SeqSQLiEnv
 
@@ -266,8 +276,9 @@ def _make_trpo_picker(model_path: str, target: TargetProfile):
     def picker(payload: str, state: dict) -> Tuple[str, str]:
         env._payload = payload
         env._step_count = state.get("step", 0)
+        env._signal_type = state.get("signal_type", "union")
         obs = env._obs()
-        action_arr, _ = model.predict(obs, deterministic=True)
+        action_arr, _ = model.predict(obs, deterministic=deterministic)
         action_idx = int(action_arr)
         action = ACTION_LIST[action_idx]
         mutated = MUTATIONS[action](payload)
@@ -293,7 +304,8 @@ def evaluate_one_payload(target: TargetProfile,
                           picker,
                           max_steps: int,
                           delay: float,
-                          state: dict) -> PayloadResult:
+                          state: dict,
+                          attempts: int = 1) -> PayloadResult:
     """Run one payload through the method until SUCCESS or step budget.
 
     Reads injection_type + error_function from the spec row so that
@@ -304,6 +316,10 @@ def evaluate_one_payload(target: TargetProfile,
     # Per-payload success criterion routing.
     signal_type    = (spec.get("injection_type", "") or "union").strip() or "union"
     error_function = (spec.get("error_function", "") or "").strip()
+    # Expose the task identity to model/Q-table pickers so the observation
+    # they build matches what the agent saw at training time.
+    state["signal_type"]    = signal_type
+    state["error_function"] = error_function
 
     sequence: List[str] = []
     payload = original
@@ -339,37 +355,46 @@ def evaluate_one_payload(target: TargetProfile,
             sequence=[],
         )
 
-    # Step 1..max_steps — apply mutations.
-    if hasattr(picker, "reset"):
-        picker.reset()
-    state["step"] = 0
+    # Step 1..max_steps — apply mutations. With attempts>1 we retry the
+    # whole rollout (best-of-N) and stop at the first success. A stochastic
+    # picker explores a fresh trajectory each attempt, matching how the
+    # policy's success is measured at training time and how the tool would
+    # be run in practice (an attacker re-rolls a failed payload).
     state.setdefault("filter_type", target.filter_type)
 
     success = False
-    for step in range(1, max_steps + 1):
-        mutated, action = picker(payload, state)
-        sequence.append(action)
-        state["step"] = step
+    for attempt in range(max(1, attempts)):
+        if hasattr(picker, "reset"):
+            picker.reset()
+        state["step"] = 0
+        payload = original
+        sequence = []
+        for step in range(1, max_steps + 1):
+            mutated, action = picker(payload, state)
+            sequence.append(action)
+            state["step"] = step
 
-        # Stagnation skip: don't waste an HTTP request if mutation is no-op.
-        if mutated == payload:
-            continue
+            # Stagnation skip: don't waste an HTTP request if mutation is no-op.
+            if mutated == payload:
+                continue
 
-        resp_text, status = send_request(target, mutated)
-        final_status = status
-        result = classify_response(
-            resp_text, status,
-            signal_type=signal_type,
-            error_function=error_function,
-            strict_markers=True,
-        )
-        final_result = result
-        payload = mutated
+            resp_text, status = send_request(target, mutated)
+            final_status = status
+            result = classify_response(
+                resp_text, status,
+                signal_type=signal_type,
+                error_function=error_function,
+                strict_markers=True,
+            )
+            final_result = result
+            payload = mutated
 
-        if result == "SUCCESS":
-            success = True
+            if result == "SUCCESS":
+                success = True
+                break
+            time.sleep(delay)
+        if success:
             break
-        time.sleep(delay)
 
     post_count = get_request_count()
     return PayloadResult(
@@ -441,6 +466,14 @@ def main():
     parser.add_argument("--max-steps", type=int, default=15)
     parser.add_argument("--seed", type=int, default=0)
     parser.add_argument("--delay", type=float, default=0.05)
+    parser.add_argument("--stochastic", action="store_true",
+                        help="Sample actions from the policy instead of taking "
+                             "the argmax (ppo/trpo/a2c only). Pair with "
+                             "--attempts for best-of-N evaluation.")
+    parser.add_argument("--attempts", type=int, default=1,
+                        help="Rollouts per payload (best-of-N). Stops at the "
+                             "first success. With --stochastic each attempt "
+                             "explores a fresh trajectory.")
     parser.add_argument("--qtable", default="q_table.json",
                         help="Q-table path for method=qlearning")
     parser.add_argument("--ppo-model", default="seqsqli_ppo.zip",
@@ -489,11 +522,14 @@ def main():
     elif args.method == "qlearning":
         picker = _make_qlearning_picker(args.qtable)
     elif args.method == "ppo":
-        picker = _make_ppo_picker(args.ppo_model, target)
+        picker = _make_ppo_picker(args.ppo_model, target,
+                                  deterministic=not args.stochastic)
     elif args.method == "trpo":
-        picker = _make_trpo_picker(args.trpo_model, target)
+        picker = _make_trpo_picker(args.trpo_model, target,
+                                   deterministic=not args.stochastic)
     elif args.method == "a2c":
-        picker = _make_a2c_picker(args.a2c_model, target)
+        picker = _make_a2c_picker(args.a2c_model, target,
+                                  deterministic=not args.stochastic)
     else:
         raise ValueError(args.method)
 
@@ -502,7 +538,9 @@ def main():
         args.max_steps = 0
 
     # ----- Run ----- #
+    sampling = "stochastic" if args.stochastic else "deterministic"
     print(f"[*] Method={args.method} | max_steps={args.max_steps} | "
+          f"sampling={sampling} | attempts={args.attempts} | "
           f"target={args.url}")
     t0 = time.time()
     pre_total = get_request_count()
@@ -510,6 +548,7 @@ def main():
     for i, spec in enumerate(payloads, 1):
         r = evaluate_one_payload(
             target, spec, picker, args.max_steps, args.delay, state,
+            attempts=args.attempts,
         )
         results.append(r)
         if i % 10 == 0 or i == len(payloads):

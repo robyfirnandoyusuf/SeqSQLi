@@ -60,6 +60,9 @@ PPO_BATCH_SIZE = 64
 PPO_N_EPOCHS   = 10
 PPO_GAMMA      = 0.99
 PPO_CLIP_RANGE = 0.2
+PPO_ENT_COEF   = 0.01     # entropy bonus — sustains exploration so the policy
+                          # doesn't collapse onto a deterministic dead policy
+                          # before it discovers the (rare) success sequence.
 PPO_MODEL_PATH = "seqsqli_ppo"
 
 
@@ -139,6 +142,7 @@ class EpisodeLogCallback(BaseCallback):
 def train_ppo(target: TargetProfile,
               timesteps: int = PPO_TIMESTEPS,
               save_path: str = PPO_MODEL_PATH,
+              load_path: Optional[str] = None,
               payloads_csv: Optional[str] = None) -> List[dict]:
     """Train a PPO agent against target and return episode logs.
 
@@ -148,6 +152,10 @@ def train_ppo(target: TargetProfile,
                       validated payload as starting point and strict
                       marker SUCCESS criterion is auto-enabled.
                       Use this for online training vs ModSec.
+        load_path:    Optional path to a saved .zip model to resume from
+                      (curriculum Stage-2 fine-tune). When given, the
+                      policy weights are loaded and training continues on
+                      the new payload pool instead of starting fresh.
     """
 
     base_payload_specs: Optional[List[Dict]] = None
@@ -175,18 +183,23 @@ def train_ppo(target: TargetProfile,
 
     callback = EpisodeLogCallback(verbose=0)
 
-    model = PPO(
-        "MlpPolicy",
-        env,
-        learning_rate  = PPO_LR,
-        n_steps        = PPO_N_STEPS,
-        batch_size     = PPO_BATCH_SIZE,
-        n_epochs       = PPO_N_EPOCHS,
-        gamma          = PPO_GAMMA,
-        clip_range     = PPO_CLIP_RANGE,
-        verbose        = 0,
-        tensorboard_log= "./ppo_tensorboard/",
-    )
+    if load_path:
+        print(f" Resuming    : {load_path}.zip (curriculum fine-tune)")
+        model = PPO.load(load_path, env=env)
+    else:
+        model = PPO(
+            "MlpPolicy",
+            env,
+            learning_rate  = PPO_LR,
+            n_steps        = PPO_N_STEPS,
+            batch_size     = PPO_BATCH_SIZE,
+            n_epochs       = PPO_N_EPOCHS,
+            gamma          = PPO_GAMMA,
+            clip_range     = PPO_CLIP_RANGE,
+            ent_coef       = PPO_ENT_COEF,
+            verbose        = 0,
+            tensorboard_log= "./ppo_tensorboard/",
+        )
 
     model.learn(total_timesteps=timesteps, callback=callback)
     model.save(save_path)

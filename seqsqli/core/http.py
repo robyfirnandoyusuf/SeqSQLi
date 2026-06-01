@@ -40,7 +40,11 @@ def _smart_url_encode(payload: str) -> str:
         if re.match(r'^%[0-9a-fA-F]{2}$', part):
             result.append(part)
         else:
-            result.append(urllib.parse.quote(part, safe="-_.~!*()+,;:@/=&"))
+            # NOTE: '&' and ';' are query-string parameter separators. If left
+            # unencoded, mutations like double_and ('AND'->'&&') split ARGS:id
+            # and truncate the payload, producing a fake WAF-bypass + trivial
+            # syntax error that the error-based SUCCESS check misreads as a win.
+            result.append(urllib.parse.quote(part, safe="-_.~!*()+,:@/="))
     return ''.join(result)
 
 

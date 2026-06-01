@@ -1,2 +1,7 @@
 .claude/
 docs/
+memory/
+PROJECT_STATE.md
+__pycache__/
+*.pyc
+*.zip

