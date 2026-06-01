@@ -128,6 +128,13 @@ Examples:
                              "(works for both PPO and Q-learning). Each episode samples a "
                              "random validated payload as starting point; strict marker "
                              "SUCCESS is auto-enabled.")
+    parser.add_argument("--save-model",      type=str, default=None,
+                        help="Path (no extension) to save the PPO/TRPO/A2C model. "
+                             "Defaults to the fixed per-algo path. Use a stage-specific "
+                             "name for curriculum, e.g. models/ppo_union_stage1.")
+    parser.add_argument("--load-model",      type=str, default=None,
+                        help="Path (no extension) to a saved PPO/TRPO/A2C model to "
+                             "resume from for curriculum Stage-2 fine-tuning.")
 
     args = parser.parse_args()
 
@@ -183,10 +190,12 @@ Examples:
     # Training / evaluation
     if args.algo == "ppo":
         if args.eval_only:
-            logs = greedy_eval_ppo(target, model_path=PPO_MODEL_PATH)
+            logs = greedy_eval_ppo(target, model_path=args.load_model or PPO_MODEL_PATH)
             evaluate(logs)
         else:
             logs = train_ppo(target, timesteps=args.timesteps,
+                             save_path=args.save_model or PPO_MODEL_PATH,
+                             load_path=args.load_model,
                              payloads_csv=args.payloads_csv)
             evaluate(logs)
 
@@ -200,10 +209,12 @@ Examples:
 
     elif args.algo == "trpo":
         if args.eval_only:
-            logs = greedy_eval_trpo(target, model_path=TRPO_MODEL_PATH)
+            logs = greedy_eval_trpo(target, model_path=args.load_model or TRPO_MODEL_PATH)
             evaluate(logs)
         else:
             logs = train_trpo(target, timesteps=args.timesteps,
+                              save_path=args.save_model or TRPO_MODEL_PATH,
+                              load_path=args.load_model,
                               payloads_csv=args.payloads_csv)
             evaluate(logs)
 
@@ -217,10 +228,12 @@ Examples:
 
     elif args.algo == "a2c":
         if args.eval_only:
-            logs = greedy_eval_a2c(target, model_path=A2C_MODEL_PATH)
+            logs = greedy_eval_a2c(target, model_path=args.load_model or A2C_MODEL_PATH)
             evaluate(logs)
         else:
             logs = train_a2c(target, timesteps=args.timesteps,
+                             save_path=args.save_model or A2C_MODEL_PATH,
+                             load_path=args.load_model,
                              payloads_csv=args.payloads_csv)
             evaluate(logs)
 

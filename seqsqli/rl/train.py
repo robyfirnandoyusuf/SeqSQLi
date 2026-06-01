@@ -75,7 +75,7 @@ def train(target: TargetProfile,
             payload        = base_payload
             signal_type    = "union"
             error_function = ""
-        state        = encode_state("INIT", "none", 0, payload)
+        state        = encode_state("INIT", "none", 0, payload, signal_type)
         total_reward = 0.0
         step_log     = []
         success      = False
@@ -93,7 +93,7 @@ def train(target: TargetProfile,
             )
             reward            = get_reward(result, step + 1)
 
-            next_state = encode_state(result, action, step + 1, mutated)
+            next_state = encode_state(result, action, step + 1, mutated, signal_type)
             update_Q(state, action, reward, next_state)
 
             step_log.append({

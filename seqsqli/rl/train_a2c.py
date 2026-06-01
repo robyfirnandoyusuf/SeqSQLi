@@ -124,10 +124,12 @@ class EpisodeLogCallback(BaseCallback):
 def train_a2c(target: TargetProfile,
               timesteps: int = A2C_TIMESTEPS,
               save_path: str = A2C_MODEL_PATH,
+              load_path: Optional[str] = None,
               payloads_csv: Optional[str] = None) -> List[dict]:
     """Train an A2C agent against target and return episode logs.
 
     Same calling convention as train_ppo()/train_trpo() so agent.py can swap freely.
+    load_path resumes a saved model for curriculum Stage-2 fine-tune.
     """
 
     base_payload_specs: Optional[List[Dict]] = None
@@ -156,19 +158,23 @@ def train_a2c(target: TargetProfile,
 
     callback = EpisodeLogCallback(verbose=0)
 
-    model = A2C(
-        "MlpPolicy",
-        env,
-        learning_rate = A2C_LR,
-        n_steps       = A2C_N_STEPS,
-        gamma         = A2C_GAMMA,
-        gae_lambda    = A2C_GAE_LAMBDA,
-        ent_coef      = A2C_ENT_COEF,
-        vf_coef       = A2C_VF_COEF,
-        max_grad_norm = A2C_MAX_GRAD_NORM,
-        verbose       = 0,
-        tensorboard_log = "./a2c_tensorboard/",
-    )
+    if load_path:
+        print(f" Resuming    : {load_path}.zip (curriculum fine-tune)")
+        model = A2C.load(load_path, env=env)
+    else:
+        model = A2C(
+            "MlpPolicy",
+            env,
+            learning_rate = A2C_LR,
+            n_steps       = A2C_N_STEPS,
+            gamma         = A2C_GAMMA,
+            gae_lambda    = A2C_GAE_LAMBDA,
+            ent_coef      = A2C_ENT_COEF,
+            vf_coef       = A2C_VF_COEF,
+            max_grad_norm = A2C_MAX_GRAD_NORM,
+            verbose       = 0,
+            tensorboard_log = "./a2c_tensorboard/",
+        )
 
     model.learn(total_timesteps=timesteps, callback=callback)
     model.save(save_path)

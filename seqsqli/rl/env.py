@@ -12,6 +12,7 @@ signature lookup).
 """
 
 import random
+import re
 from typing import Dict, List, Optional
 
 import numpy as np
@@ -33,13 +34,95 @@ REWARD_TABLE = {
     "UNKNOWN":      -0.5,
     "WAF_BLOCKED":  -2.0,
     "SERVER_ERROR": -1.5,
-    "STAGNANT":     -1.5,
+    # STAGNANT must be the WORST outcome. If a no-op mutation (-1.5) is
+    # cheaper than getting WAF-blocked (-2.0), the policy learns to stop
+    # changing the payload and collapses — observed as ~2.9 HTTP req/episode
+    # over 15 allowed steps. Making no-ops strictly worse than any real
+    # attempt forces the agent to keep mutating.
+    "STAGNANT":     -3.0,
 }
 
-# State dim: 14 binary payload features + 41 last-action one-hot + 1 step_norm
-_N_ACTIONS  = len(ACTION_LIST)
-_N_FEATURES = 14
-OBS_DIM     = _N_FEATURES + _N_ACTIONS + 1
+# ---------------------------------------------------------------------------
+# Potential-based reward shaping (Ng et al., 1999)
+# ---------------------------------------------------------------------------
+# The bypass is reachable but needs a SPECIFIC mutation order (e.g. null_byte
+# must precede any space-replacement, else '-- -' becomes '--%0a-' and can no
+# longer be stripped — confirmed via tools/probe_bypass.py). Sparse SUCCESS=10
+# gives no gradient toward that order. We add F = gamma*phi(s') - phi(s), where
+# phi counts how many known ModSec-100010/100023 triggers the payload has shed.
+# This is policy-INVARIANT (cannot create reward-hacking): the only terminal
+# reward is still strict-marker SUCCESS; phi merely guides exploration and is
+# computed from the payload STRING, never from the server response.
+PBRS_GAMMA  = 0.99
+SHAPE_COEF  = 1.0
+
+# Each pattern, when ABSENT, means one WAF trigger has been removed.
+_TRIGGER_COMMENT = re.compile(r'(--|#|/\*)')
+_TRIGGER_EXACT_KW = re.compile(r'(union|UNION|Union|select|SELECT|Select)')
+_TRIGGER_FUNC_ADJ = re.compile(
+    r'(?i)(database|user|version|current_user|session_user|schema)\s*\('
+)
+# --- Complex/medium-tier triggers (rules 100021 / 100031 / 100030 / 100020) ---
+_TRIGGER_GROUP_CONCAT = re.compile(r'(?i)group_concat\s*\(')   # rule 100021
+_TRIGGER_HEX          = re.compile(r'0x[0-9a-fA-F]{2,}')        # rule 100031
+_TRIGGER_FROM_TABLE   = re.compile(                              # rule 100030
+    r'(?i)from\s+(users|accounts|admin|members|password)\b'
+)
+_TRIGGER_INFO_SCHEMA  = re.compile(r'(?i)information_schema')    # rule 100020
+
+
+def _waf_readiness(payload: str) -> int:
+    """Structural progress score 0-8 (higher = closer to bypass).
+
+    Mirrors the live ModSec rules so each correct mutation raises the score.
+    Trivial/T2b triggers (1-4) plus medium/complex triggers (5-8); without the
+    latter, the agent gets NO gradient for the extra mutations that complex
+    payloads require (agg_swap/hex_to_char/ident_backtick), so it could only
+    ever learn the trivial tier. Each trigger maps to a live rule:
+      1. no comment/terminator token  (--, #, /*)         -> rule 100010
+      2. no literal space or '+'                           -> rule 100010
+      3. no exact-case UNION/SELECT token                  -> rule 100010
+      4. info-leak func not adjacent to '(' via \\s        -> rule 100023
+         (%a0/NBSP is literal text here, not \\s, so database%a0() scores +1)
+      5. no group_concat( adjacency                        -> rule 100021
+         (cleared by agg_swap -> json_arrayagg)
+      6. no 0x.. hex literal                               -> rule 100031
+         (cleared by hex_to_char -> CHAR(..))
+      7. no bare FROM <known table>                        -> rule 100030
+         (cleared by ident_backtick -> FROM `users`)
+      8. no exact 'information_schema' literal             -> rule 100020
+         (cleared by case/random_case; rule has no lowercase transform)
+    """
+    score = 0
+    if not _TRIGGER_COMMENT.search(payload):
+        score += 1
+    if ' ' not in payload and '+' not in payload:
+        score += 1
+    if not _TRIGGER_EXACT_KW.search(payload):
+        score += 1
+    if not _TRIGGER_FUNC_ADJ.search(payload):
+        score += 1
+    if not _TRIGGER_GROUP_CONCAT.search(payload):
+        score += 1
+    if not _TRIGGER_HEX.search(payload):
+        score += 1
+    if not _TRIGGER_FROM_TABLE.search(payload):
+        score += 1
+    if not _TRIGGER_INFO_SCHEMA.search(payload):
+        score += 1
+    return score
+
+# State dim: 14 binary payload features + 1 injection-type bit
+#            + 41 last-action one-hot + 1 step_norm
+# The injection-type bit makes the task identity (union vs error) observable.
+# Without it, a union and an error payload that have had the same mutations
+# applied produce identical observations, yet require different optimal
+# actions and have different SUCCESS criteria — the policy cannot separate
+# them and collapses onto the easier (error) task.
+_N_ACTIONS    = len(ACTION_LIST)
+_N_FEATURES   = 14
+_N_INJECTION  = 1
+OBS_DIM       = _N_FEATURES + _N_INJECTION + _N_ACTIONS + 1
 
 
 def _coerce_specs(base_payloads: Optional[List[str]],
@@ -161,6 +244,12 @@ class SeqSQLiEnv(gym.Env):
         )
         reward = REWARD_TABLE.get(result, -1.0) - STEP_PENALTY * self._step_count
 
+        # Potential-based shaping: reward shedding WAF triggers (policy-invariant)
+        shaping = SHAPE_COEF * (
+            PBRS_GAMMA * _waf_readiness(mutated) - _waf_readiness(self._payload)
+        )
+        reward += shaping
+
         self._payload         = mutated
         self._step_count     += 1
         self._last_action_idx = action_idx
@@ -174,13 +263,17 @@ class SeqSQLiEnv(gym.Env):
     def _obs(self) -> np.ndarray:
         features = np.array(extract_features(self._payload), dtype=np.float32)
 
+        injection_bit = np.array(
+            [1.0 if self._signal_type == "error" else 0.0], dtype=np.float32
+        )
+
         action_onehot = np.zeros(_N_ACTIONS, dtype=np.float32)
         if self._last_action_idx >= 0:
             action_onehot[self._last_action_idx] = 1.0
 
         step_norm = np.array([self._step_count / MAX_STEPS], dtype=np.float32)
 
-        return np.concatenate([features, action_onehot, step_norm])
+        return np.concatenate([features, injection_bit, action_onehot, step_norm])
 
     # ------------------------------------------------------------------
     def get_payload(self) -> str:

@@ -35,10 +35,16 @@ def extract_features(payload: str) -> Tuple:
 
 
 def encode_state(last_result: str, last_action: str,
-                 step: int, payload: str) -> Tuple:
+                 step: int, payload: str,
+                 signal_type: str = "union") -> Tuple:
     """Encode current environment state for Q-table lookup.
 
-    st = (last_result, last_action, step_bucket, *payload_features)
+    st = (signal_type, last_result, last_action, step_bucket, *payload_features)
     Step is bucketed into [0,4] to keep state space manageable.
+
+    signal_type ('union'|'error') makes the task identity observable so the
+    Q-table keeps separate entries per injection type — mirrors the
+    injection-type bit added to the deep-RL observation in env.py.
     """
-    return (last_result, last_action, min(step // 3, 4), *extract_features(payload))
+    return (signal_type, last_result, last_action,
+            min(step // 3, 4), *extract_features(payload))

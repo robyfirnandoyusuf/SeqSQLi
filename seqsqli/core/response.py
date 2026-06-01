@@ -60,24 +60,6 @@ ERROR_SUCCESS_SIGNATURES = {
     "gtid_subset":  "malformed gtid",
 }
 
-# Generic SQL error markers — sufficient evidence that the injected
-# payload reached the SQL parser and produced a server-visible error.
-# Used as fallback when the function-specific signature isn't found
-# (e.g., MySQL version mismatch returning a generic error message).
-ERROR_SUCCESS_FALLBACK = [
-    "you have an error in your sql syntax",
-    "warning: mysql",
-    "warning: mysqli",
-    "supplied argument is not",
-]
-# SQL_ERROR_PHRASES = [
-#     "you have an error in your sql syntax",
-#     "error in your sql",
-#     "mysql server version",
-#     "near '",
-#     "syntax error",
-# ]
-
 # ---------------------------------------------------------------------------
 # Public API
 # ---------------------------------------------------------------------------
@@ -147,14 +129,14 @@ def classify_response(resp_text: str, status_code: int,
 
     # ---- Success criterion (per signal_type) -------------------------
     if signal_type == "error":
-        # Function-specific signature first — tightest detection.
+        # Function-specific signature ONLY — proves the injected error
+        # function actually executed and leaked data. A generic "you have
+        # an error in your sql syntax" is NOT accepted: that is what a
+        # truncated/broken payload (e.g. a bare "1'") returns, where the
+        # function never ran — counting it as SUCCESS inflates the metrics.
         sig = ERROR_SUCCESS_SIGNATURES.get(error_function, "")
         if sig and sig in text:
             return "SUCCESS"
-        # Generic SQL error fallback — payload reached parser & errored.
-        for fb in ERROR_SUCCESS_FALLBACK:
-            if fb in text:
-                return "SUCCESS"
     else:
         # signal_type == "union" (or anything unknown — default to union).
         # Strict marker check — always the strongest signal we have.
