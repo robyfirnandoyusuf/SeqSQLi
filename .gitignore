@@ -5,3 +5,5 @@ PROJECT_STATE.md
 __pycache__/
 *.pyc
 *.zip
+docker-safeline/.env
+docker-safeline/data/
