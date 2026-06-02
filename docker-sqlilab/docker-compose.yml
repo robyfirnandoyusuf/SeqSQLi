@@ -53,6 +53,20 @@ services:
       - MODSEC_RULE_ENGINE=On
       - BLOCKING_PARANOIA=1
 
+  # Plain nginx (no WAF) — upstream for Safeline CE + no-WAF validation
+  nginx-plain:
+    image: nginx:alpine
+    container_name: sqlilab-nginx-plain
+    ports:
+      - "8081:80"
+    volumes:
+      - ./sqli-labs:/var/www/html:ro
+      - ./nginx/plain.conf:/etc/nginx/conf.d/default.conf:ro
+    networks:
+      - sqlilab-network
+    depends_on:
+      - php-app
+
 networks:
   sqlilab-network:
     driver: bridge
