@@ -1,0 +1,51 @@
+{
+  "total_episodes": 10,
+  "successful_episodes": 0,
+  "first_step": {
+    "comment": {
+      "success_rate": 0.0,
+      "success_count": 0,
+      "total_count": 10
+    }
+  },
+  "bigrams": {
+    "comment -> comment": {
+      "success_rate": 0.0,
+      "success_count": 0,
+      "total_count": 140
+    }
+  },
+  "reversed_pairs": {
+    "comment -> comment": {
+      "forward": {
+        "pair": "comment -> comment",
+        "success_rate": 0.0,
+        "count": 140
+      },
+      "reversed": {
+        "pair": "comment -> comment",
+        "success_rate": 0.0,
+        "count": 140
+      },
+      "sr_difference": 0.0,
+      "ordering_matters": false
+    }
+  },
+  "position_sensitivity": {
+    "comment": {
+      "pos_1": {
+        "success_rate": 0.0,
+        "count": 10
+      },
+      "pos_2": {
+        "success_rate": 0.0,
+        "count": 10
+      },
+      "pos_3+": {
+        "success_rate": 0.0,
+        "count": 130
+      }
+    }
+  },
+  "ordering_matters_count": 0
+}

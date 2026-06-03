@@ -1,0 +1,44 @@
+[
+  {
+    "method": "Random Mutation",
+    "success_rate": 10.0,
+    "avg_steps_success": 14.0,
+    "avg_steps_overall": 14.9,
+    "failed": 9
+  },
+  {
+    "method": "Static Round-Robin",
+    "success_rate": 0.0,
+    "avg_steps_success": null,
+    "avg_steps_overall": 15.0,
+    "failed": 10
+  },
+  {
+    "method": "Single Heuristic (ver_50000)",
+    "success_rate": 0.0,
+    "avg_steps_success": null,
+    "avg_steps_overall": 15.0,
+    "failed": 10
+  },
+  {
+    "method": "Filter-Aware Heuristic",
+    "success_rate": 0.0,
+    "avg_steps_success": null,
+    "avg_steps_overall": 15.0,
+    "failed": 10
+  },
+  {
+    "method": "RL Agent (SeqSQLi)",
+    "success_rate": 0.0,
+    "avg_steps_success": null,
+    "avg_steps_overall": 15.0,
+    "failed": 10
+  },
+  {
+    "method": "WAF-A-MoLE (Genetic)",
+    "success_rate": 0.0,
+    "avg_steps_success": null,
+    "avg_steps_overall": 2007.4,
+    "failed": 10
+  }
+]

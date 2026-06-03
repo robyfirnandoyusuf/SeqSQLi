@@ -26,24 +26,25 @@ from agent import (
     FILTER_MUTATION_HINTS,
     TargetProfile, Fingerprinter,
     send_request, classify_response, encode_state,
-    load_q_table, Q, QTABLE_PATH, MAX_STEPS,
+    load_q_table, Q, QTABLE_PATH,
     build_target_from_preset, build_target_from_args,
-    DEFAULT_BASE_URL, REQUEST_DELAY,
+    DEFAULT_BASE_URL,
     analyze_ordering,
     # Legacy compat
     LESS_TARGETS, send_payload, analyze_response,
 )
+from seqsqli.config import MAX_STEPS, REQUEST_DELAY
 
 TEST_EPISODES = 50
 
 # Round-robin sequence covering diverse mutation types
 STATIC_SEQUENCE = [
     "comment", "case", "url_encode", "keyword_split",
-    "newline", "versioned_comment", "case_split",
+    "newline", "ver_50000", "case_split",
     "tab_space", "hex_encode", "paren_space",
 ]
 
-SINGLE_HEURISTIC = "versioned_comment"
+SINGLE_HEURISTIC = "ver_50000"
 
 
 # ============================================================
@@ -164,6 +165,17 @@ def run_rl(target: TargetProfile, episodes: int) -> list:
             })
     return results
 
+# WAF-A-MoLE baseline (optional — requires waf-a-mole installed)
+try:
+    import sys
+    sys.path.insert(0, r"C:\Users\dfshgfdsb\WAF-A-MoLE")
+    from wafamole_adapter.models.http_waf_model import ModSecurityHTTPModel
+    from wafamole.evasion.evasion import EvasionEngine
+    WAFAMOLE_AVAILABLE = True
+except Exception as e:
+    print(f"[WAF-A-MoLE IMPORT ERROR] {e}")
+    WAFAMOLE_AVAILABLE = False
+
 
 # ============================================================
 # SUMMARY
@@ -198,7 +210,42 @@ def summarize(name: str, results: list) -> dict:
         "avg_steps_overall": round(avg_o, 2),
         "failed": total - len(successes),
     }
+def run_wafamole(target: TargetProfile, episodes: int) -> list:
+    """WAF-A-MoLE genetic fuzzer baseline."""
+    if not WAFAMOLE_AVAILABLE:
+        print("  [!] WAF-A-MoLE not available, skipping.")
+        return [{"success": False, "steps": 0} for _ in range(episodes)]
 
+    counter = [0]
+    model = ModSecurityHTTPModel(
+            target_url=target.url,
+            inject_param=target.param,
+            request_counter=counter,
+        )
+    engine = EvasionEngine(model)
+    results = []
+
+    for _ in range(episodes):
+        model.reset_counter()
+        try:
+            confidence, evaded_payload = engine.evaluate(
+                payload=target.base_payload,
+                max_rounds=200,
+                round_size=20,
+                timeout=60,
+                threshold=0.5,
+            )
+            success = confidence < 0.5
+        except Exception as e:
+                    print(f"  [WAF-A-MoLE ERROR] {e}")
+                    success = False
+
+        results.append({
+            "success": success,
+            "steps": model.total_requests,
+        })
+
+    return results
 
 # ============================================================
 # MAIN
@@ -278,6 +325,9 @@ if __name__ == "__main__":
     print("[5/5] RL Agent (SeqSQLi)...")
     r5 = run_rl(target, args.episodes)
 
+    print("[6/6] WAF-A-MoLE (Genetic Fuzzer)...")
+    r6 = run_wafamole(target, args.episodes)
+
     print("\n" + "=" * 60)
     print(" COMPARISON RESULTS")
     print("=" * 60)
@@ -288,6 +338,7 @@ if __name__ == "__main__":
         summarize(f"Single Heuristic ({heuristic})", r3),
         summarize("Filter-Aware Heuristic", r4),
         summarize("RL Agent (SeqSQLi)", r5),
+        summarize("WAF-A-MoLE (Genetic)", r6),
     ]
 
     out = f"comparison_less{args.less}.json" if args.less else "comparison.json"
