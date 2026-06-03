@@ -68,18 +68,28 @@ def has_strict_markers(body: str) -> bool:
     if not body:
         return False
 
-    body_lower = body.lower()
     start_idx = body.find("SEQSQLI_START")
     end_idx   = body.find("SEQSQLI_END")
 
     if start_idx == -1 or end_idx == -1 or start_idx >= end_idx:
         return False
 
-    # Cek apakah marker ada di dalam SQL error message
-    context = body_lower[max(0, start_idx-200) : end_idx+50]
+    # Fix 1: cek SQL error di SELURUH jendela sekitar kedua marker
+    # (bukan hanya sebelum — sqli-labs echo query dulu, error belakangan)
+    context = body.lower()[max(0, start_idx - 300) : end_idx + 300]
     for phrase in SQL_ERROR_INDICATORS:
         if phrase in context:
-            return False  # False positive — marker di error, bukan di data
+            return False  # marker di error message, bukan di data
+
+    # Fix 2: cek karakter tepat sebelum dan sesudah marker.
+    # Kalau marker dikelilingi tanda kutip SQL, itu reflected literal:
+    #   '...,'SEQSQLI_START','SEQSQLI_END'...' (di error message / query echo)
+    # Kalau genuine data, marker muncul bare (tanpa quotes di sekelilingnya).
+    char_before = body[start_idx - 1] if start_idx > 0 else ""
+    char_after  = body[start_idx + len("SEQSQLI_START")] if \
+                  start_idx + len("SEQSQLI_START") < len(body) else ""
+    if char_before in ("'", '"', "`") or char_after in ("'", '"', "`", ","):
+        return False  # marker is a SQL string literal, not real data output
 
     return True
 
