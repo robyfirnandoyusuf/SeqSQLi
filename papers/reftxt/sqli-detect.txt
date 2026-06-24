@@ -1,0 +1,600 @@
+Article electronics
+A Semantic Learning-Based SQL Injection Attack
+DArteiclteection Technology DAongSzheemLu,aJinnltoincg FLeie* aanrdnLoinnggLi-uBased SQL Injection Attack Detection Technology
+State Key Laboratory of Mathematical Engineering and Advanced Computing, Zhengzhou 450001, China;
+Dongzhe Lu, Jinlong Fei * anlddzzLzo_9n7g@1L63iu.com (D.L.); liulong_2023@163.com (L.L.)
+* Correspondence: feijinlong_2021@163.com; Tel.: +86-13683818083
+State Key Laboratory of Mathematical Engineering and Advanced Computing, Zhengzhou 450001, China
+A*bCstorrarecstp: Oonvdeerntche:efyeiejianrlso,nign_j2e0c2ti1o@n16v3u.clnomer;aTbeill.:it+ie8s6-h1a36v8e3b81e8e0n83at the top of the Open Web Application Security Project Top 10 and are one of the most damaging and widely exploited types of vulnerabAilbitsietrsaacgt:aOinvsetrwtheeb yaepaprsli,ciantjieocntiso. nStvruulcnteurraebdilQitiueesrhyaLveanbgeuenagaet t(hSeQtLo)pinojfetchtieoOn paettnacWkedbeAtepcptiloicnatrieo-n mSaecinusriatycPhraolljenctgTinopg 1p0roabnldemaredouneetoftthheehmeotesrtodgaemneaigtiyngofaantdtawckidleolaydesx,pthloeitdeidvteyrpsietsyooffvauttlnacekrambielitthie-s oadgsa, iannsdt wtheebvaapripeltiycaotfioatntsa.ckStprautctteurrnesd. IQt huaesrybeLeanndgeumagoens(tSrQatLed) itnhjeact tnioonsiantgtaleckmdoedteelcctiaonngrueamraanintesea acdheaqluleantgeisnegcuprriotyblteompdrouteecttowtheebhaeptperliocgaetinoenisty, aonfdatittaicskcrlouacdiasl, ttohededviveelorpsitaynoeffafitctiaecnkt manedthaocdcus,raanted mthoedvelarfioertySQofLaitntajeccktipoanttaetrtnasc.kItdheatescbtieoenn. dInemthoins sptraapteerd, twheatpnroopsionsgelesymnoBdEeRlTc,ana sgeumaraannttieceleaadrenqiungat-e bsaesceudridtyetteoctpiornotemcot dweelbthaaptpelxicpaltiicoitnlys, eamndbeidt sisthcreusceianltetoncdee-lveevleolpseamn aenffiticcieinntfoarnmdataicocnurfarotemmSoQdLel sftoatreSmQeLntisnijnectotioann aemttabcekdddeintegcvtieocnto. rI.nTthheismpoadpeelr,lewarenpsrroepporesesesnytnatBioEnRsTt,haastecmananbteicmlaeparpneidngto-bSaQseLd sdyentteacxtitorneemstorduecltuthraets,eaxspelivciitdlyenecmedbebdys vthiseusaelniztaetniocen-lwevoerlks.eWmeangtaitchienrfeodrma awtiiodne frraonmgeSQofLdsattaatseemtsentots aisnsteossatnheemclbaessdidfiicnagtiovnecptoerr.foTrmheanmcoedoefltlheearsnysnBreEpRrTes, eanntdattihoensretshualttscashnobwe tmhaatpopuedr atpopSrQoaLchsyonutta-x ptererfeosrtmruscpturerevsio, aussleyvpidreonpcoesdedbymvoidsuelasl.izEavteionnown obrrka.nWd-engewat,huenretdraainwedidme oradneglse, oafccduartaacsyetcsatno raesascehss 9t0h%e colrashsiigfihceart,ioinndpicearftionrgmtahnactethoef tmheodsyenl hBaEsRgTo, oadndgethneerraelsiuzalttsiosnhopwertfhoramt oaunrcea.pproach outperforms previously proposed models. Even on brand-new, untrained models, accuracy can reach 90% or Kheigyhweor,rdinsd: iScQatLinignjtehcatitotnheatmtaocdk;eldheeaps gleoaordnignegn;ewraelbizaaptipolnicpaetirofnorvmualnecrea. bility detection
+Keywords: SQL injection attack; deep learning; web application vulnerability detection
+
+Citation: Lu, D.; Fei, J.; Liu, L. A Semantic Learning-Based SQL Injection Attack Detection Technology. Electronics 2023, 12, x. https://doi.org/10.3390/xxxxx
+ACciatdateimonic: ELdui,tDor.;: FReaim, Je.;eLziAu,sLif. A Semantic Learning-Based SQL RIencjeecivtieodn: A9 tFteabckruDareyte2c0ti2o3n RTeevcihsnedo:lo8gMy.aErlcehct2ro0n2i3cs 2023, 12, 1344. Ahctctpeps:t/e/dd: 1o1i.oMrga/rc1h0.23032930/ Peulebclitsrhoendic:s11220M61a3rc4h4 2023
+Academic Editor: Rameez Asif
+CRoepcyerivigehdt::9©Fe2b0r2u3aryby20t2h3e authors. SRuebvmisiettde:d8fMorarpcohs2s0ib2l3e open access pAucbcliecpatteiodn: 11uMndaerrcht2h0e23terms and
+
+1. Introduction
+1. InItnrojedcuticotniovnulnerabilities are specific vulnerabilities triggered by developers or imperfect dIensjiegcntiponrovceuslsneesra[Ebrilriotire!sRaerfeersepnecceifiscouvruclenenroatbfioliutinesd.t]r.iWggiethretdhebyradpeidveelxoppaenrssioorn iomf tpheerIfnetcetrdneestiignnfrparsotrcuecstsuerse[,1t]h.eWinitchretahseinrgapreidliaenxcpeaonnsidonigoitfatlhinefIonrtmerantieotninbfyraasntriuncctrueraes,inthge ninucmrebaesrionfgurseelriasnhcigeholnighdtisgitthael iimnfpoorrmtaanticoenofbiynfaonrminactrieoansainngd nduatma bperrotoefctuiosenr[sEhrriogrh!lRigehft-s etrheencime psoourtracnecneoot ffoinufnodrm.].aDtiaotna saencdurditaytaispdroeftiencetidonas[t2h].e uDsaetaofshecaurdriwtyaries odrefisonfetwd aarsetthoe purseevoenf thuarndawutahroeroizresdofatcwcaesres,tmo opdreifviecanttiounn,aourthdoersitzreudctaioccneossf,inmfoodrmifiactaiotino.n, or destruction of inSfotrrumcatutiroend. Query Language (SQL) injection is a code injection attack that executes the inSpturut cdtautraeadsQcouderey, tLhaunsgvuioaglaeti(nSgQtLh)eindjaetcat-iocondies asecpoadreatiinojnecptiroinncaipttlaeck[Etrhraotr!eRxeecfuetreesntchee sionupructednaottafaosucnodd.e]., AthnusatvtaioclkaetrincganthiensdearttaS-cQoLdecosmepmaraantdiosninptrointhciepqleu[e3r]y. Astrninagttaocfkaewr ceabn fionrsmerstuSbQmLiscsoimonm, aUnndifsoirnmtoRtheseoquurecreyLsotcriantogro(fUaRwLe),bofroprmagseurbemquisessitoann, dUcnhifaonrgme RtheesoSuQrLce sLtaotceamtoern(tUeRxLec),uotiropnalgoegriceqtouegsatiannadcccehsasntgoertehseouSQrcLessotartechmaenngteexdeactuatsitoonrelodgiinc ttohegdaiantaabcacesses wtohreensoauwrceebs aoprpclhicaantgioendiastapsatsosrinedg iSnQtLhestdaatteambeansetswtohetnheabwaeckbeanpdpdlicaatatiboanseisfporasdsaintagbSaQseL osptaetreamtioenntsswtoitthhoeubtasctrkiecnt dfildteartianbgasoef fuosredr aintapbuatspeaorpaemraettieorns,saws isthhoowutnsitnricFtigfiultreeri1n.g of user input parameters, as shown in Figure 1.
+
+cPonudbliitsiohnesd:o1f2thMe aCrcreha2ti0v2e3Commons Attribution (CC BY) license
+
+Internet
+
+(https://creativecommons.org/license
+s/by/4.0/). Copyright: © 2023 by the authors.
+Licensee MDPI, Basel, Switzerland.
+
+Network Traffic
+
+HTTP Request
+
+SQL Query SQL Response
+
+This article is an open access article distributed under the terms and
+
+Users
+
+Web server
+
+Database
+
+conditions of the Creative Commons Figure 1. How SQL injection attacks work.
+
+Attribution (CC BY) license (https://
+
+creativecommons.org/licenses/by/
+
+SQL injection attacks have become a popular tactic among cyber attackers due to their
+
+E4l.e0c/t)r.onics 2023, 12, x. https://doi.org/1e0a.3s3e90o/xfxixmxxplementation and high threat level. Traditional rulwe-wbwa.smeddpdi.ceotmec/jtoiuornnaml/eoledcetrlosnaicrse
+
+Electronics 2023, 12, 1344. https://doi.org/10.3390/electronics12061344
+
+https://www.mdpi.com/journal/electronics
+
+Electronics 2023, 12, 1344
+
+2 of 22
+inefficient and ineffective at detecting variant attacks. Simultaneously, there are numerous free SQL injection tools available on the Internet, lowering the bar for carrying out SQL injection attacks, while flaws in development languages, limitations in some developers' professionalism, and a lack of web security awareness increase the likelihood of successful attacks on websites. As a result, it is critical to develop a reliable and accurate SQL injection attack detection model for web application security.
+In this paper, we present synBERT, a semantic learning and deep learning-based technique for detecting SQL injection attacks. For the first time, we apply a pre-trained model to the field of vulnerability attack detection and demonstrate that the model can fully learn sentence-level semantic information. It outperforms other detection algorithms in terms of classification accuracy and can distinguish between SQL injection statements and SQL statements. This paper's contributions are listed below.
+(i) We collect a more comprehensive malicious dataset, covering the full range of SQL injection attacks. Moreover, benign samples are selected not only from the plain text but also from normal SQL statements. This method has the potential to reduce the number of false alarms.
+(ii) For raw traffic, we detect injection attacks not only in URL fields but also in request body and request header fields. To some extent, this reduces the possibility of underreporting.
+(iii) We propose a new detection model--synBERT, which is based on semantic comprehension. When compared with other detection models, it outperforms Convolutional Neural Networks (CNN) [1], Multilayer Perceptron (MLP) [4,5], Long Short-Term Memory (LSTM) [6,7], and others [8,9].
+(iv) We use a structural probe to assess how well the synBERT model learns sentence-level semantic information, and we visualize it with heat maps and tree maps.
+The remainder of the paper is organized as follows. Section 2 introduces SQL injection attacks and the most commonly used vectorization methods, as well as the benefits and drawbacks of traditional attack detection methods. Section 3 introduces our proposed model and its principles. Section 4 expands on the structural probe's design principles and visualization. Section 5 conducts a comprehensive test of synBERT's performance and selects a new test set for secondary evaluation. Section 6 concludes the paper and suggests future works.
+2. Background and Related Work 2.1. SQL Injection Attacks
+Structured Query Language Injection Attack (SQLIA) is one of the most important and dangerous vulnerabilities in interactive online applications [3]. Web applications with databases that store important information are one of the targets of SQLIA. According to Mitre [10], SQL injection attacks are one of the oldest, most prevalent, and most damaging types of security attacks facing web-based information systems.
+The causes of SQL injection can be broadly grouped into two categories: dynamic string construction and insecure database configuration. The former includes incorrect handling of escape characters, incorrect handling of types, incorrect handling of join queries, incorrect handling of errors, and incorrect handling of multiple commits. The latter includes pre-installed users by default, running as root or SYSTEM or Administrator privileged system users, and allowing many system functions by default.
+After summarizing, the classic SQL injection methods are classified in the following ways. According to the way of constructing and submitting SQL statements, they can be classified into: cookie injection, GET injection, POST injection, Hyper Text Transfer Protocol (HTTP) header injection, and second order injection. According to the execution effect, it can be divided into blind injection and backdated injection, mainly the following: booleanbased blind injection, time-based blind injection, error reporting-based blind injection, joint query injection, stacking injection, annotation character injection, wide-byte injection, and reduplication style.
+
+Electronics 2023, 12, 1344
+
+col (HTTP) header injection, and second order injection. According to the execution effect, it can be divided into blind injection and backdated injection, mainly the following: boolean-based blind injection, time-based blind injection, error reporting-based blind injection, joint query injection, stacking injection, annotation character injection, wide-byte injection, and reduplication style.
+In addition to this, SQL injection vulnerabilities are often exploited in more nove3l aofn2d2 sophisticated attacks, such as Fast-Flux SQL Injection and compound SQL Injection (a combination of a SQL injection attack and other web application attacks). There are many examIpnleasd.dition to this, SQL injection vulnerabilities are often exploited in more novel (aan)dSsQopLh+iDstiisctartiebdutaetdtaDckesn,isaul cohf SaesrFvaicset-(FDluDxoSSQ): LThInisjeactttiaocnk aisnudsceodmtophouanngdtShQe LseIrnvjeerctainodn (a coemxhbaiunsattitohne orfesaoSuQrcLesinsjoectthioant uasttearcskcaannndoottahcecrewsseibt.aTpopltircaactkiotnheatDtaDckosS).aTtthaeckre, tahree mancyomexmamanpdlesst.hat can be used in SQL injection are encoding, compression, connection, (a) etScQ. L+ Distributed Denial of Service (DDoS): This attack is used to hang the server and (b) SQexLh+auDstomthaeirnesNouamrcesSsyosttheamt u(DseNrsSc)aHnnijoatcakcincegs:sBity. TuositnragckthtihsetDypDeooSfaatttatackck, t,htehecoamt--
+tamckaenrdisnttheantdcsatnobeemubseedd ianSSQQLL qinujeercytioinn athree eDnNcoSdrineqgu, ceostmapnrdescsaiopntu, croenitnetoctimona,keetcit. (b) pSroQpLa+gaDteoamcraoinssNthaemineteSrynsetet.m (DNS) Hijacking: By using this type of attack, the (c) SQatLta+ckCerroisnsteSnitdesStcoriepmtibnegd(Xa SSSQ):LXqSuSeriys ainctlhieenDt-NsidSerecqoudeestinajnedcticoanptautrtaecikt two hmearekeaint
+atptraocpkaegr actaenaicnrjoescst tmhealiincitoeurnsecto. de into the input fields of an application. After insert(c) inSgQtLh+e XCSroSssscrSiiptet,Sitcrwipiltlinexge(cXuSteS)a:nXdSStryistao ccloiennnte-cstidtoe tchoedaepinpjleiccatitoionna'sttdaacktawbahseer.eTahne
+coadtteactkoeerxctarnacitntjhecetdmaatalicfirooums cthoededianttaobtahsee icnapnubtefioelbdtsaionfeadnuaspipnlgictahteioinfr.aAmfteecroinmsmertainndg [EthrreoXr!SRS escferirpetn, citewsoilul ercxeecnuotet faonudntdry.].to connect to the application's database. The code (d) SQtoLe+xtIrnascutftfhiceiednattaaufrtohmentthiceadtiaotna:biafstehceasnecbueroitbytapinareadmuestienrgs tahree infroatmineitcioamlizmedan, dan[1a1t]-. (d) taScQkeLr+cIannsuacfficecsiesnstenasuitthiveentciocnattieonnt:wifitthhoeustevceurriiftyyinpgarthame uetseerrs'sairdeennotittyin. Sitoiaalitztaecdk, earns exapttlaociktetrhicsanvualcnceersasbsielnitsyittioveincjoenctteSnQt Lwiinthjeocuttiovnerciofydien.g the user's identity. So attackers
+exploit this vulnerability to inject SQL injection code. In general, the harms caused by SQL injection include the following. (a) An attacker can aIcncegsesntehreald, tahtae ihnarthmesdcaatuasbeadsebywSitQhoLuitnjaeuctthioonriiznactliuodneatnhde sftoelalolwthiengu.s(ear)'sApnriavtataccykaesr wcaenllaacscepsesrtshoenadlaitnafionrmthaetidoant,arbeassueltwinigthionutthaeultehaokraizgaetioofnthaendussetre'aslitnhfeorumseart'isonp.ri(vba) cAydads woredllealestpeeorpsoernaatlioinnfsotromtahteiodna,traeisnultthinegdiantatbhaeslee,askuacgheaosfpthrievautseelry'sadindfionrgmoartidoenl.et(ibn)gAadddmorindieslteratetoorpaecrcaotuionntss.t(oc)thIfe adawtaebisnittehdeidreacttaobrayseh,assuwchritaes pperrimvaitsesliyona,dtdhiengattoarckdeerlsetcinang wadrmiteinaiswtreabtopr aagcecoTurnotjsa.n(.cT) hIfeaawttaecbkseitrecdainretchtoenrytahmaspwerriwteitpherthmeiswsieobn,ptahgeeaattnadckpeursblciashn wsormitee iallewgeabl ipnafogremTartoiojann..(dT)hAefatettrasctkeeprs csaunchthaesnprtiavmilepgeer ewxittrhactthioenw, tehbe phaiggheeastnpdripvuilbelgisehs osofmtheeilsleergvaelrinafroermobattaioinne.d(db)yAtfhteerasttteapcskseur.chThaes patrtiavcilkeegreceaxntrraecmtioonte, ltyhetahkigehceosnttprorilvoilfegthees soefrtvheer,sienrsvtearllaarebaocbktdaionoerd, abnydtbhee aabttlaectkoemr. oTdhiefyaottraccoknetrrocal nthreemopoetrealtyintgakseysctoenmtr.ol of the server, install a backdoor, and be able to modify or control the operating system.
+22..22.. TTrraaddiittiioonnaall DDeetteeccttiioonn MMeetthhooddss AAlltthhoouugghh tthheettrraadditiitoionnaallvvuulnlnerearbaibliiltiytydedteetcetciotinontectehcnhonloogloygsyhoshwoswmsamnyanshyosrhtcoormtcionmgs-
+iinngms ainnymaapnpyliacaptpiolincastcieonnasrcioens,airtisorse,sietsarrcehseparrocvhidpersovthideetsecthhneitceaclhbnaisciaslabnadsifseaansidblfeedaseivbeleldopevmeelonptmdiernetctdioirnecfotirotnhfeosrutbhseeqsuubesnetqrueesenatrrcehseoafrmchooref imntoerleliginetnetllviguelnntervaublinlietryadbieltietyctdioentteeccthinonolotegcyh.nTohloegtrya.dTihtieontraaldmiteiothnoadl smfeotrhdoedtsecftoirngdeStQecLtiinngjeScQtioLninatjetacctikosnaarettsatcaktsicaarneasltyastiisc, adnyanlaymsiisc, adnyanlaymsisic, caonmalbyisnies,dcsotmatbicinaendd sdtyatniacmanicdadnyalnyasmis,icanandaplyasriasm, aentedr pfialtrearminegt,earnfdilttehreidnegte, catniodnthaercdheitteeccttuiorne iasrcshhoitwecntuirneFiisgsuhroew2.n in Figure 2.
+query response
+
+send a query request response
+
+query
+
+Check for SQL injection normal query
+attacks
+
+User
+
+Application server
+
+SQL Injection Attack
+
+database
+
+Block or Discard
+
+FFiigguurree 22.. TTrraaddiittiioonnaall ddeetteeccttiioonn mmeetthhooddss..
+
+Static analysis methods detect type errors and syntax errors by analyzing incoming statements, which mainly refers to source code analysis without running the program to determine if there is a possibility of SQL injection. Many traditional web attack mitigation is achieved by statically analyzing incoming web traffic, also known as signature detection. This strategy involves creating a signature of a web attack, and when that signature is detected, suspicious traffic can be blocked through a firewall or other security device. This method has the advantage of being fast, implemented in real-time, and protecting network resources, but the disadvantage is that only known attacks can be detected.
+
+Electronics 2023, 12, 1344
+
+4 of 22
+Wassermann and Su [12] proposed a combined automated reasoning and static analysis approach to prevent SQL injection attacks and experimentally demonstrated that this approach can detect the presence of reduplicative attacks in real-time SQL queries. However, it cannot detect other types of attacks. A static analysis framework, called SAFELI [13], was proposed for identifying SQL injection attack vulnerabilities at compile time. SAFELI can identify vulnerabilities that may lead to violations of information security for the corresponding user input. The limitation of this approach is that SQL injection attacks are detected only in Microsoft-based products.
+The dynamic analysis approach determines whether a statement is malicious by analyzing the final implementation of a statement, which mainly refers to detecting the presence of SQL injection attacks in an application by performing dynamic penetration tests at runtime or using generative models when the source code of the web application is not available.
+Pan et al. [14] proposed a RSMT-based approach for web application attack detection that analyzes call tracing as the runtime behavior of a web application. RSMT uses an auto-encoder for analysis and uses graphs as data calls. In RSTM, a smaller amount of labeled data is used to calculate the reconstruction error of the autoencoder and to establish a threshold to distinguish between normal and abnormal behavior. However, further research is still needed to investigate the efficiency of retraining the autoencoder, and it may not be able to support the detection of zero-day attacks. Moreover, the authors did not compare with more complex network structures. Shin [15] proposed an automated whitebox security testing framework to detect SQL injection attacks. The warnings generated by static analysis tools or automated black-box testing tools can be reduced, and the main limitation of dynamic analysis is that vulnerabilities in web applications can only be located by relying on the attacks that have already appeared. Therefore, this method can also not cope with zero-day attacks.
+Combined static and dynamic analysis detection is a hybrid approach that combines static code inspection with real-time monitoring at runtime to detect and block SQL injection attacks. The static analysis phase analyzes the program source code and builds a SQL statement security model based on the program source code, while the dynamic analysis phase compares the requests submitted to the database with the model of static analysis and accesses them normally if they are the same or denies access if they are different.
+Wang et al. [16] proposed a method for SQL vulnerability detection based on injection analysis techniques. Firstly, based on the combination of dynamic and static analysis, a detailed analysis of injection statements in terms of data flow and program behavior is carried out, and then a SQL vulnerability determination algorithm based on lexical feature comparison is implemented. Finally, a SQL vulnerability detection system is designed and built by combining alias analysis techniques, behavior models, and lexical feature comparison. ASSIST was a technique [17] that used a combination of static analysis and program transformation for automatic query sanitization to prevent SQL injection in code. However, similar to AMNESIA [18], this technique also leads to false negatives due to imprecision. Qing and He [19] proposed an approach to detect and prevent SQL injection attacks by using analytic techniques to extract legitimate SQL queries and match them with Aspect Oriented Programming (AOP). However, the main limitation of the method is that the source code of the program must be visible.
+Parameter filtering methods mainly refer to filtering invalid characters based on regular expressions and blacklists. It is a hazy, non-independent concept that is frequently used in conjunction with static or dynamic analysis methods. Ref. [20] divides SQL parameters into six elements, uses the static analysis sequence of injection points and filtering omissions, and passes them as parameters to the dynamic detection module to generate more targeted test cases. However, there are some obvious drawbacks to this approach. One is that the test cases stitched together according to the rules are very limited, and the other is that the source code of the program must be known ahead of time. Katole et al. [21] combined query processing methods and parameter filtering methods to give a method to
+
+Electronics 2023, 12, 1344
+
+5 of 22
+detect the difference between the original SQL query and modified injected SQL query by parameters, which can detect SQL injection attacks before any data is lost from the web application, thus making the system more secure. The drawbacks are that detecting SQL injection attacks is time-consuming, and more robust methods need to be developed for different business requirements.
+Traditional Web protection technology uses feature detection to detect SQL injection, and its method is to identify specific injection parameters at a specific access request URI and write thousands of detection rules depending on the type and version of the Web server where SQL injection vulnerabilities exist. However, these rules can only defend against SQL injection attacks on Web servers that have been discovered, and the detection features also lack universality, making it difficult to defend against more complex SQL injection and 0day injection attacks.
+2.3. Artificial Intelligence-Based Detection Methods
+AI detection methods for SQL injection first emerged using feature engineering plus machine learning methods, which use statistical feature extraction methods for feature engineering. It is followed by training various classifiers of machine learning or integrated learning models and detecting the presence of SQL injection attacks in real data streams. Statistical feature extraction includes feature extraction by word statistics and expert abstraction by empirical feature extraction methods. The former generally uses Term Frequency­Inverse Document Frequency (TF-IDF) or N-gram methods, and the latter relies on the experience of security experts. Under this approach, whether the data samples and expert experience are sufficient and effective determines the final detection results.
+Makiou et al. [22] used a combination of a machine learning classifier and rule engine to detect SQL injection attacks, improving the detection performance of traditional rulebased methods. First, the HTTP request traffic is divided into different parts to detect the presence of SQL injection. A plain Bayesian classifier is used to characterize the presence of certain keywords and symbols in SQL statements. To reduce false positives during training, the model gives a higher penalty for misclassifying SQL injection attacks as normal traffic. After the classification is complete, the suspicious traffic is forwarded to a pattern-matching detection engine based on a simplified security rule set for in-depth analysis. The accuracy of the method is 97.6%. The advantage is that the detection location contains not only URLs and POSTs but also HTTP headers, whereas most detection methods ignore SQL injection detection in headers for simplicity and efficiency purposes. The disadvantage is that the analysis continues using the rule engine after the machine learning model, which loses the generalization of machine learning and does not overcome the limitations of the rules themselves to detect unknown SQL attacks.
+Choi et al. [23] introduced general methods of natural language processing, such as the n-gram, into the detection of SQL injection statements with good results. Candidate tokens for the n-grams were limited to SQL functions pulled from an ordered occurrence frequency list in SQL Command. However, the method cannot cope with complex joint injection attacks. Obviously, due to the limitations of the n-gram, the method is also unable to cope with multiple obfuscated and mutated injection statements. A new approach for SQLi detection based on unsupervised machine learning [24] used a dual Hidden Markov Model (HMM), but the process was very complex and time-consuming, which affected the performance and resulted in more false positives. In [25], the authors made further improvements by developing methods that are more suitable for fast traffic networks and SQL injection attack detection. The authors proposed the use of machine learning methods for detection, providing an accurate means of improving network egress filtering.
+Natural language processing based on deep learning has received increasing attention in recent years and has made significant advances, such as the use of convolutional neural networks for text classification to better capture the local relevance of text. Deep learning, unlike traditional machine learning algorithms, does not require complex feature engineering, and its performance typically improves with increasing training data. In
+
+Electronics 2023, 12, 1344
+
+6 of 22
+other words, it is far more scalable than traditional machine learning algorithms. A wide range of researchers [26] continue to propose new techniques in the field of SQL injection attack detection, and detection performance has improved as a result. Of course, no single technique can solve all problems, and each has its own set of scenarios to consider as well as drawbacks.
+Fang et al. [27] designed to convert sample data into word vectors as the input of the model and uses LSTM models to detect, demonstrating that LSTM-based methods have better detection results than Recurrent Neural Network (RNN) and CNN-based methods. However, there are still many challenges and problems. First, due to the lack of open SQL injection datasets, it is difficult to obtain enough training samples during the training process, leading to overfitting. Second, there are many types of SQL injection attacks, each with its own specific performance and judgment features, and the samples of different forms of attacks are unevenly distributed. When the distribution is unbalanced, i.e., the training data for a certain type of anomaly is too small, it is difficult for deep learning-based methods to achieve good detection results.
+Ref. [8] built the MLP and LSTM models to learn the statistical features and character order features of URL parameter strings, respectively. The experimental results show that the accuracy of the MLP model is much higher than that of the Naïve-Bayes algorithm, the SVM algorithm, the SVM + Social Media Optimization (SMO) algorithm, and the SVM + Particle Swarm Optimization (PSO) algorithm proposed by some scholars. The LSTM model, although its detection time is much longer than that of the MLP model, it has a unique advantage. On the contrary, the effect of this statistical feature extraction is very sample-dependent, i.e., the model trained in this case has a weak generalizability, which will be mentioned later. Zhongdong Zhu [4] systematically proposed a framework for detecting SQL injection attacks based on HTTP traffic in the context of complex HTTP traffic. The model building module proposed a modeling method for detecting payloads of arbitrary length and a training method for variable-length sequences with guaranteed efficiency. The framework had a low false alarm and missing reporting rate in a real network environment. However, the author only proposed a theoretical framework without providing any experimental data or results. Moreover, the method of concatenating statistical features and word embeddings is theoretically ineffective because the dimension of word embeddings is dozens or even hundreds of times that of statistical features.
+Currently, the latest machine learning approaches in Web security focus more on methods that combine machine learning algorithms with semantic features of Web code, caring not only about the statistical features of words in a sample but also about the contextual situational semantics of words, achieving better practical results than traditional detection methods and statistical-based AI approaches.
+Muyang Liu et al. [28] proposed a deep natural language processing-based tool Deepsqli for generating test cases for detecting SQL injection vulnerabilities. By employing deep learning-based neural language models and lexical prediction sequences, Deepsqli can learn the semantic knowledge embedded in SQL injection attacks, enabling it to transform user input (or test cases) into a semantically relevant and potentially more complex new test case. Experiments were conducted to compare Deepsqli and Sqlmap on six real-world web applications with different scales, features, and domains. The empirical results demonstrate the effectiveness and superiority of Deepsqli, leading to the identification of additional SQL injection vulnerabilities. This approach can be used to exploit unknown SQL injection vulnerabilities, but it still gives us some insights, especially in the areas of test case generation and semantic knowledge learning. Ref. [29] proposed a model for SQL injection attack detection based on machine learning techniques implemented in the business logic layer of Web applications. It claimed to improve the efficiency of SQL injection attack detection by extracting semantic features from dynamic and static analysis that could effectively indicate SQL injection attacks. However, this work is only theoretical and has not been tested by experiments.
+
+Electronics 2023, 12, 1344
+
+could effectively indicate SQL injection attacks. However, this work is on and has not been tested by experiments.
+
+3. Detection Model synBERT
+
+7 of 22
+
+It is well known that Bidirectional Encoder Representations from T
+
+(BERT) are used for pre-training to learn word vector representations of spec a3g. DiveetencticoonnMteoxdte.l BsyEnRBETRuTses the encoder part (left of Figure 3) of the transfor tuarreeuIs[teEidsrfwrooerrlpl!kreRn-oterwafinenrtinheagnttcBoeildeisareroncutiwornocaredl EnvneoccottodfreorreuRpenrpedsree.sn]e.tnaItttaiostinomsnosoffrssoptmeicmiTfircapnwosforotrrdamsneitnrsfa(eBgaEivtRueTnr)e is th trcaondtietxito. nBEaRl TRuNseNs tshae nendcoCdNer Npasrta(lnefdt oeffFfeigcutriev3e)loyfsthoelvtreasnstfhoremterricakrcyhiltoecntugr-et[e3r0m]. depe leItms mboysttirmapnosrtfaonrtmfeiantugretihsethdatisittadinsccaerdosfttrawdoitiownaolrRdNsNast aanrdbCitNraNrsyapndoesfifteicotinvselythrough masotelavcrehbsiattrhnaeirsytrmipcok.syitlioonngs-ttehrrmoudgehpaenndaetntecnytipornobmleemchbaynitsrman.sforming the distance of two words
+
+Output Probabilities
+Softmax
+
+Linear
+
+Add&Norm
+
+Feed Forward
+
+Add&Norm
+Feed Forward
+N×
+Add&Norm Multi-Head Attention
+
+Add&Norm
+
+Multi-Head
+
+Attention
+
+×N
+
+Add&Norm
+Masked MultiHead Attention
+
+Positional Encoding
+Input Embedding
+Inputs
+
+Positional Encoding
+Output Embedding
+Outputs
+
+FFiigguurree33. T. hTehaercahritcehctiutreecotfutrraensoffortmraern. sformer.
+
+As shown in Figure 3, the gray area on the left is a block, and each block contains
+multiApleslasyheorsw. Anddin& FNiogrmuraedd3s,ththe ienpgurtaayndaoruetapuot vnectthores olfetfhteims ualtib-hleoacdka,ttaenntidoneach b malaufyuellrtliytpoclogenetnlaaecynteeewdrsns.eeAut ordaflvdneec&ttworNosrakon,rdwmthhiecanhdppderorsfjoetcrhmtsesthilnaeypveeurcnttooarrsmngdaelinozeaurtaitotpendu. Tbthyvetehlicenteeoanrrcsoladyoeefrratihss e mult tiloognitsl.aTyheern tthoe gsoefttmaaxnleawyersneotrmoaflivzeesctthoerlsineaanrdlaytehre'snouptpeurftotormgetslolga_yperrobns.ormalizatio layerThise ianpfuut lolfythceoBnEnRTecetnecdodnereius araselqnueentwce oofrkto,kewnsh, iacnhd tpheroojuetcptust itshaesevqueecntocers gene ehonfacsvoetdhctroeerres,pawasrhtesl:roetgoeikatceshn. ienTmphubeet dntodkitnehnge,csoesrgroemfstpemnontadexms tbolaeadydveeirncgton,rao. nTrdhmepaionlspiiztuieot nsofettmhhebeeBdlEidRniTnegma.roTdhleaelyer's o loingte_rpnarlosbtrsu.cture of BERT consists of two parts. First, an initial embedding is created for each tTohkeenibnypcuomt boifnitnhgeaBpEreR-trTaineendcwoodredrviesctaorsweiqthuaepnocseitioonf tvoeckteornasn,datnexdt vthecetoor utput oifnfvoermctaotirosn,. Twhhe eproesiteioancehnciondpinugtistoinkdeenpecnodernrteosfptohenidnpsuttocoantvenetc.tFourr.thTerhmeoirne,pthuist of the hioanfisctioatnhl teremextebueapdldaeimrntgbse:sdetqdouiknegensnceateisemapcabhsessedtdedpt.ihnrogu,gshemgumlteipnlet belmockbsetdo dpriondgu,ceaanndewposesqituieonnceembed ternaIln sthtirsupcatpuer,esyonfBEBRETRisTdecsoignnseidstfosrothfetfweaoturpesaorftsS.QFLiirnsjetc, taionn sitnatietmiaelnetsm, wbitehdding
+three component modules: the knowledge layer, the representation layer, and the encoder
+layer. The knowledge layer is responsible for the injection of knowledge and the generation
+of sentence syntax trees, the representation layer is responsible for projecting the syntax
+tree, a sequence of inputs, into a representation vector; and the encoder layer is responsible
+for encoding the representation vector based on the information provided by the injected
+triadic knowledge.
+
+Electronics 2023, 12, 1344
+
+of contextual embeddings at each step. In this paper, synBERT is designed for the features of SQL injection statements, with
+three component modules: the knowledge layer, the representation layer, and the encoder layer. The knowledge layer is responsible for the injection of knowledge and the generation of sentence syntax trees, the representation layer is responsible for projecting the syntax tree, a sequence of inputs, into a representation vector; and the encoder layer 8isofre22sponsible for encoding the representation vector based on the information provided by the injected triadic knowledge.
+In this paper, the original position embedding is changed to a semantically relevant position eemmbbeeddddiinngg,,i.ie.e.,.,ththeesesmemanatnicticinifnofromrmataiotinonofothf ethSeQSLQsLtatsetamtemnteinsteims beemdbdeedddeexdpexlipcilticlyitilny tihnetihnepuintplauytelra. yFeigr.urFeig4uvriseu4alvlyisrueaplrlyeserenptsrehsoewntws ehorewplwacee rthepeloarciegitnhael poorisgitiinoanl pemosbiteidondienmg bweidthdiangcuwstiothmaecmubsteodmdienmg.bedding.
+
+Token Embedding
+
+[CLS] SELECT col_1
+
+as
+
++
+
++
+
++
+
++
+
+Syntactic-position
+
+0
+
+1
+
+2
+
+3
+
+Embedding
+
++
+
++
+
++
+
++
+
+Segment Embedding
+
+A
+
+A
+
+A
+
+A
+
+a
+
+col_2
+
+as
+
++
+
++
+
++
+
+4
+
+3
+
+4
+
++
+
++
+
++
+
+A
+
+A
+
+A
+
+b
+
+from
+
+Table_A
+
++
+
++
+
++
+
+5
+
+4
+
+5
+
++
+
++
+
++
+
+A
+
+A
+
+A
+
+Syntactic Tree
+
+0 [CLS]
+0
+
+green:hard-position index red:syntactic-position index
+
+1 SELECT
+1
+
+Embedding Layer
+
+2
+
+5
+
+8
+
+col_1
+
+col_2
+
+from
+
+2
+
+3
+
+4
+
+3
+
+6
+
+as
+
+as
+
+3
+
+4
+
+4
+
+7
+
+a
+
+b
+
+4
+
+5
+
+FFiigguurree 44.. TThhrreeee eemmbbeeddddiinnggss ooff tthhee iinnppuutt..
+
+9 Table_A
+5
+
+ssyynnBBEERRTTddeessccrriibbeessththeeththrereeeemembebdeddidnigngfeafetuatruesreosf othfethinepiuntpaustwasorwdopriedcpeieemcebeemddbiendg-, dsyinngta,cstyicn-tpaocstiitci-opnoesimtiboendedminbge,dadnidngse, gamndenset gemmbenedt deminbge. dWdoinrdgp. iWecoerrdepfeierscetorethfeersditvoisthioendoi-f wviosirodns oinftwo oarldims iintetod aseltimofitceodmsemtoonf csoumbwmoorndsuunbiwtsotrhdatucnaintsstthriaktecaancostmripkreoamciosme bpertowmeiesne wbeotwrdevenaliwdoitrydavnadlicdhitayraacntedr cflheaxriabcitleitry.flSeyxnibtialcittyic.-Spyonsittaicotnice-pmobseitdiodninegmrbeefedrdsitnogernecfoedrsintgo ethnecosdeminagntthice asnemd saynntitcacatnicdisnyfnortamctaitcioinnfcoormrreastpioonncdoinrrgestopoenadchintgoktoeneainchtotaokfeeantuinrteovaecfetoar-. tSuergemveencttoemr. bSeedgdminegnst aerme buesdedditnogdsisatrienguusiesdh btoetdwiesetinngtwuioshsebnetetwnceeesn, et.wg.o, wsehnettehnerceBs,iset.gh.e, bswtacbfseeeeoneenahccndddtoocetdduepntniTThinrieddnniehheusrggrefveooa0orrvvnantBreeaileeeemofufniccoonsiietdtsssrrooteeootrtaahrh,,hffssnnewew..etAhFFeecteef.roneniiearrFuunccasssiooonstttsetuiereddcaiinssrobeesttueawnwrelaraenvdpttptoophhaitrroselaaaseseeunnuurtptpntecbbaarroteooocmceomffcccncpfAoeteeeocathpspsdhde.iessrtteeeFoiossselslor,srssmtt,,1erthhffwwhc.boeeosoeeerhhrttndneeifittdccehdtnnhhehaeissesnntoocecuttcgoorrnaaernnstvseddekpkvveiinvccaeceooactttririfioreftltoousssrccinn,eosaoacatamomh1ossrrm.ttyeyfpprrtiipurfrunnheeeuttggeatititnuuntaiifiugrnnrtgrinrnttosaeooaeetnnnddvaa.sddaeTbnbnlnccyhyuuultliamemaettsshhnsoseseseecpifrrifeifipplytccyihitrriisttneeenpeeppg0nngrfrorissatrootcohonshccerretdeees..sssseTTeetissmnhhmhonogeeerr--Electronics 2023, 12, x FOR PEER REVaaInlEldoWwpsertfhoerminsputhtetotrbaienpabrolecepsasertdoafsythnechermonbeodudsliyngbevfeocrteorbecionmg pfeudtattoionth. eTthriasinsipnlgit9lpoorofop2-3. cFeigssuirneg5aillllouwstsrathtees itnhpeusttrtuocbtuerperoofctehsesesdynaBsyEnRcThrmonodouels.ly before being fed to the training loop. Figure 5 illustrates the structure of the synBERT model.
+
+At the same time, we scale down the original model to reduce the number of neurons,
+
+resultitnexgt i|nInapsuitgLnayifeircant reduction in the baseline model of BERT, synBERT
+
+the amouFenedtFoorfwmarda&cLhayienr e operation. Compared with is able to inNcorrme&aDsreoptohute computational speed by more
+
+than five times. The specific parameter values andFeemd Feorawnaridngs are described in Section 5.1.
+N×
+
+preprocessing | KerasLayer
+
+Layer Norm&Dropout
+
+encoder | KerasLayer
+
+Multi-Head Attention
+
+Input Embedding Layer Norm&Dropout
+
+dropout | Dropout classifier | Dense
+
+Token Embedding
+Input ids
+
+Semantics-Position Embedding
+Position ids
+
+Segment Embedding
+Token type ids
+
+FFiigguurree55..TThheessttrruuccttuurreeooffssyynnBBEERRTT. .
+
+4. Structure Probe
+4.1. Syntax Tree of SQL Statements
+For SQL statement compilation, lexical analysis is used to split the SQL string into tokens that contain keyword recognition. Take the statement "select a from table where c = `aaaaaaaaa'" as an example, and split it into words to get [select, a, from, table, where,
+
+Electronics 2023, 12, 1344
+
+9 of 22
+
+At the same time, we scale down the original model to reduce the number of neurons, resulting in a significant reduction in the amount of machine operation. Compared with the baseline model of BERT, synBERT is able to increase the computational speed by more than five times. The specific parameter values and meanings are described in Section 5.1.
+4. Structure Probe 4.1. Syntax Tree of SQL Statements
+For SQL statement compilation, lexical analysis is used to split the SQL string into tokens that contain keyword recognition. Take the statement "select a from table where c = `aaaaaaaaa'" as an example, and split it into words to get [select, a, from, table, where, c, =, `aaaaaaaaa'], each of which has a different attribute. That is to say, "select" is a DML statement, while "=" is a comparison operation symbol. Syntax analysis involves the use of top-down or bottom-up algorithms to parse tokens into abstract syntax trees. Syntax parsing rules for SQL statements, generally consist of two steps: identifying syntax-related statements and adjusting the syntax tree structure. Take the statement "Select col_1, col_2 as b from DT_A;" as an example, the level of its syntax tree is as follows.
+|- 0 DML `Select' |- 1 Whitespace ` '` |- 2 IdentifierList `col_1, . . . ` |- 0 Identifier `col_1' | `- 0 Name `col_1' |- 1 Punctuation `,' |- 2 Whitespace ` ' | `- 3 Identifier `col_2, . . . ' |- 0 Name `col_2' |- 1 Whitespace ` ' |- 2 Keyword `as' |- 3 Whitespace ` ' | `- 4 Identifier `b' | `- 0 Name `b' |- 3 Whitespace ` ' |- 4 Keyword `from' |- 5 Whitespace ` ' |- 6 Identifier `DT_A' | `- 0 Name ` DT_A' `- 7 Punctuation `;'
+The objects in the above syntax tree structure are inherited from the base class Token, and the parent node contains the information of the child nodes. Token has two instance attributes ttype and value, and the class attributes and the regular expressions used for parsing are shown in Table 1.
+
+Table 1. Class attributes and their regular expressions.
+
+Base Types and Sub-Attributes Comment Assignment Operator
+Comparison Text
+Whitespace Newline
+Punctuation
+
+Examples ­
+var:=val +
+=, > \r\n
+\r ;:()[],.
+
+Example of Regular Expressions ­|)#\+.*?(\r\n|\r|\n|$ := [+/@#%^&|^-]+ [<>=~!]+ ".*?" \s \r\n|\r|\n [;:()\ [\ ],\ . . . ]
+
+Electronics 2023, 12, 1344
+
+10 of 22
+
+Table 1. Cont.
+
+Base Types and Sub-Attributes
+
+Examples
+
+Example of Regular Expressions
+
+Keyword DDL
+
+from, GROUP BY CREATE, ALTER
+
+CASE|IN|VALUES|USING|FROM|GROUP\s+BY CREATE(\s+OR\s+REPLACE)?\b
+
+DML
+
+SELECT, UPDATE
+
+SELECT|INSERT|UPDATE|DELETE
+
+Name
+
+c
+
+(?<![\w\])])(\ [[^\ ]\ []+\ ])
+
+Placeholder
+
+?, *
+
+(?<!\w)[$:?]\w+
+
+Literal String
+
+hello aaaa
+
+\d+|\w+|.+ `\'.*?\'
+
+Number
+
+111
+
+\d
+
+Identifier
+
+database, table, column
+
+\w
+
+Wildcard
+
+*
+
+\*
+
+Note: The first column shows all the attributes and sub-attributes that "Token" contains. The content in each solid line box indicates the same class. The dotted lines make the table more readable. Using "Text" as an example, the inclusion relationship (from lowest to highest) is as follows: Newline -> Whitespace -> Text -> Token.
+
+4.2. Structure Probe for synBERT
+Sentences are sequences of discrete symbols, but neural networks operate on continuous data­vectors­in high-dimensional space, and it is clear that a successful network will transform the discretized input into some sort of geometric representation. For example, the influential Word2Vec system [31], has been shown to place related words near each other in a space where certain directions in the space correspond to semantic distinctions. Syntactic information, such as numbers and tenses, is also represented by the orientation of space. An analysis of the internal states of RNN-based models shows that they represent information about soft-level grammars in a form that can be extracted by a hidden layer network [32]. Qualitative, visualization-based work [33] suggests that attention matrices may encode important relationships between words. One finding of Hewitt and Manning [34] was that BERT appeared to create a straightforward representation of the entire parse tree, which motivated our work. The authors found that the square of the Euclidean distance between contextual embeddings is roughly proportional to the tree distance in dependency parsing. Ref. [35] clarified the internal representation of linguistic information by BERT, finding evidence of syntactic representations in the attention matrix. The papers cited above show that language processing networks create a rich set of intermediate representations of semantic and syntactic information.
+In this paper, we use the structural probe to verify whether the improved synBERT model reflects the syntactic tree structure of SQL statements, i.e., we can prove that the BERT model learns the syntactic tree structure as long as the distance between word vectors exhibits the pattern of the Pythagorean theorem.
+Assuming that the two nodes of the syntax tree are wi and wj, two words for hi and hj, computing the distance between the two high-dimensional vectors can be transformed into
+
+d = hi - hj T hi - hj
+
+(1)
+
+This can be translated into computing a semi-positive definite measure matrix A = BT B to satisfy the
+
+dB hi, hj = hi - hj T A hi - hj = B hi - hj T B hi - hj
+
+(2)
+
+Electronics 2023, 12, 1344
+
+11 of 22
+
+The matrix elements of the B-matrix are learned by training a neural network with a loss function set to the difference of the distance between the word vectors dB hi, hj and the word tree distance dtree wi, wj , i.e.,
+
+  loss =
+
+1 l sl 2
+
+i,j dtreel wil, wlj - dB hil, hil 2
+
+(3)
+
+where l denotes any statement, sl denotes the number of words in the lth statement.
+We use the trained synBERT to perform dependency parsing tests on SQL statements, and the testing Algorithm 1 is shown below.
+
+Algorithm 1: Structure Probe Resolution Dependency Algorithm
+Input: Sentence of n words w1l :n, a sequence of vector representations h1l :n, a linear transformation B  Rkm, a positive semidefinite symmetric matrix A  S+mm Output: parse depth ||wi || Steps:
+(1) for i do (2) dB(hi)[B(hi)]T B(hi) (3) hi A = dB(hi) (4) return torch of shape (batch_size, max_seq_len) (5) for i, j do
+T
+(6) dB hi, hj  B hi - hj B hi - hj
+(7) || hi - hj ||A = dB hi, hj (8) return torch of shape (batch_size, max_seq_len, max_seq_len) (9) UnionFind(matrix(dB )) (10) return a single distance image and depth image
+Taking the statement "Select col_1, col_2 as b from Table_A;" (Note: Table_A here is the table name of the example, not a chart in this paper) as an example, the visualization of the parsing depth and parsing distance obtained using the structure probe is shown in Figure 6. It can be seen that the results are generally similar to those of the SQL parser: "b" Electronics 2023, 12, x FOR PEER REVIEWhas the deepest depth in the syntax tree, followed by "as"; "col_2" is similar t1o2 "ocfo2l3_1"; "Table_A" is deeper than "from". The heat map of the predicted parsing L2 distances is shown in Figure 7.
+
+Predicted Parse Depth(squared)
+
+Tree Depth
+
+4
+
+3.5 3
+2.5 2
+1.5 Select 1
+
+, col_1
+
+b as
+
+col_2
+
+Table_A
+
+from
+
+
+
+0.5
+
+0
+
+0
+
+100
+
+200
+
+300
+
+400
+
+500
+
+Linear Absolute Position
+
+Figure 6. Predicted parse depth. The horizontal coordinate is the position of the word in the SQL
+Figustraete6m. Pernetd, iacnteddthpearvserdtiecpalthc.oTohrdeinhaotreiziosntthael cdoeoprtdhin(raetleatiisvtehevapluosei)tioofnthoef twheorwdoirndthine tshyenStaQxLtree statleemarennetd, abnydththeemvoerdteicl.alItcocaonrdbineasteeeins tthhaetdthepetdhe(prtehlaotifvtehveaslyunet)aoxfttrheee wcoomrdpuintetdhebysytnhteasxytnrBeeERT learmneoddeblyisthsiemmilaordteol.tIhtecaacntubael sveaelunet.hat the depth of the syntax tree computed by the synBERT model is similar to the actual value.
+
+Electronics 2023, 12, 1344
+
+Linear Absolute Position
+Figure 6. Predicted parse depth. The horizontal coordinate is the position of the word in the SQL sFtaigteumreen6.t,Parnedicthteedvperatriscealdceopotrhd. iTnhaetehiosrtihzoendtaepl tchoo(rdeliantaivtee ivsatlhuee)pofsithioenwoofrtdheinwtohredsiynnthaxe tSrQeeL lsetaartneemdenbyt, tahnedmthoedevle.rItticcaalncoboersdeiennattehiast tthhee ddeepptthh (orfeltahteivseyvnataluxet)reoef tchoemwpuotreddinbythtehesysnytnaBxEtRreTe mleoadrneel dis bsiymtihlaermtoodtheel.aIcttucaanl vbaeluse.en that the depth of the syntax tree computed by the synB1E2RofT22 model is similar to the actual value.
+
+Figure 7. Predicted parse distance. This heat map shows the distance between two of these tokens. TFhiFgeiuglirugerhe7t.t7oP. rPderaderidkcitcceotdelodprapirnasdresicedaidstetisastntahcnec.deT.ihsTtiahsnihsceehaeftraomtmmapnapeshasrohtwoowsfatshr.tehFdoeirdsetiaxsntaamcnecpbelebt,weittewceaenetnbwetowseooefnotfthhtehastee"stecootkloe_kn1e"sn. s. aTnhTdeh"elicgloihgl_th2tto"todaraderakcrlkcooscleooslrotirtnoidngidectaihctaetrse,tsahtnehddeitdshtieasytnacanerceferaoftrmothmneensaearamtroetfodafrea.prF.tohFroienrxetahxmeampsylpen,letiat, xcitatcnraebnee.bseeesenetnhatht a"tco"cl_o1l_"1" anadnd"c"oclo_l2_"2"araereclcolsoessetsttotgoegtehtehre,ra, nanddththeyeyaraereatatththeesasmameeddepepththininththeesysynntataxxtrtereee. .
+mpmpeedfanaontetd,rd,pmTaeTaeeshnshnTanetstethsdh,LhrLeeraoeaoeanswsTrwsTtuesuenehsLnlXltXuotaisisnliwTnitsasaseFrnFrrXreieaiegigtrnmituumesuurrFarrraemnenieppge8tepa8uupd.dp.eerr,,dpendeeexe8xttddpo.poo,ottterhorhtxteieipntnhdgodgeirisistittdtitsansaincnsgcoctocaeinentnssosocttfcrefruoeuenocacatfcstceethhedrduattmocmcohktkieinenedtnionimmmkiinuenuinmntmthihmiesnesppuppatamahnanrernsnssiepiepnnatagtgrrrnetsetnereere,ie,netaeargnieninndetdr,PPettDaieDikknFziFzdn-f-dfodPoterierDk----zF-
+
+FigFuigruer8e. 8M. iMniimniummumspsapnanninngintgretereeexepxoproterdtebdybLyaLTaeTXe.X. Figure 8. Minimum spanning tree exported by LaTeX.
+ExEpxepreimrimenetnstsshsohwowththaattuussiinngg tthhee ssyynnBBEERRTTeennaabblelesslelxeixciacla-lle-lveevleslesmemanatnictiacnaanlyasliyssaisnd ansdensEteexnnptceeenr-iclmeev-eleenlvtsseelsmsheaomnwtaincthtaiacntaaulnysasinliysgsoitsfhSoeQfsSLyQnsBLtaEtsRetmaTteeemnntaesbnaltenssdalnSedxQicLSaQils-Llteaivtseetmlatseeenmmtsea.nntFtsiu.crFtauhnreatrhlmyesroi-sre, manmodroers,eemnaotcercneucareac-tcleeuvdraeetlteescdetmeioteancntatiinocdnacanlnaadslyscisfiliascsasotififoiScnQaotLifoSnsQtoaLtfeSimnQjeeLncittnsiojeancntaditotnaScQaktLtsiatcasktteasmtteaemtneetmns tecsna.ntFsbuceartnmhbeared-e. mm5ao.drEe.x, mpeorriemaecnctuarlaRteedsuelttesctainond aAnndaclylassissification of SQL injection attack statements can be m5a.1d.eE. valuation Indicators
+The evaluation metrics proposed in this paper aim to evaluate the detection model in a dichotomous scenario. We used the following evaluation metrics: accuracy, true positives, false positives, true negatives, and false negatives.
+According to the confusion matrix shown in Table 2, the accuracy represents the proportion of the total sample that the model predicts correctly and is calculated as
+
+Accuracy
+
+=
+
+TP + TN TP + TN + FP + FN
+
+(4)
+
+where TP is a correctly classified SQLi sample, FP is a non-injected sample incorrectly classified as SQLi, TN is a correctly classified non-injected sample, and FN is a SQLi sample incorrectly classified as normal.
+
+Table 2. Confusion matrix.
+
+Actual
+
+Positive Negative
+
+Positive TP FP
+
+Predicted
+
+Negative FN TN
+
+

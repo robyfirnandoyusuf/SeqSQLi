@@ -122,7 +122,8 @@ def train_trpo(target: TargetProfile,
                timesteps: int = TRPO_TIMESTEPS,
                save_path: str = TRPO_MODEL_PATH,
                load_path: Optional[str] = None,
-               payloads_csv: Optional[str] = None) -> List[dict]:
+               payloads_csv: Optional[str] = None,
+               seed: Optional[int] = None) -> List[dict]:
     """Train a TRPO agent against target and return episode logs.
 
     Same calling convention as train_ppo() so agent.py can swap freely.
@@ -151,6 +152,7 @@ def train_trpo(target: TargetProfile,
         print(f" Base payload: {target.base_payload}")
     print(f" Timesteps   : {timesteps}")
     print(f" Target KL   : {TRPO_TARGET_KL}")
+    print(f" Seed        : {seed}")
     print("=" * 60)
 
     callback = EpisodeLogCallback(verbose=0)
@@ -170,6 +172,7 @@ def train_trpo(target: TargetProfile,
             target_kl        = TRPO_TARGET_KL,
             cg_max_steps     = TRPO_CG_MAX_STEPS,
             n_critic_updates = TRPO_N_CRITIC_UPDATES,
+            seed             = seed,
             verbose          = 0,
             tensorboard_log  = "./trpo_tensorboard/",
         )
