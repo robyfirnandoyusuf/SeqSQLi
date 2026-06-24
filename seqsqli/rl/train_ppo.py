@@ -143,7 +143,8 @@ def train_ppo(target: TargetProfile,
               timesteps: int = PPO_TIMESTEPS,
               save_path: str = PPO_MODEL_PATH,
               load_path: Optional[str] = None,
-              payloads_csv: Optional[str] = None) -> List[dict]:
+              payloads_csv: Optional[str] = None,
+              seed: Optional[int] = None) -> List[dict]:
     """Train a PPO agent against target and return episode logs.
 
     Args:
@@ -179,6 +180,7 @@ def train_ppo(target: TargetProfile,
     else:
         print(f" Base payload: {target.base_payload}")
     print(f" Timesteps   : {timesteps}")
+    print(f" Seed        : {seed}")
     print("=" * 60)
 
     callback = EpisodeLogCallback(verbose=0)
@@ -197,6 +199,7 @@ def train_ppo(target: TargetProfile,
             gamma          = PPO_GAMMA,
             clip_range     = PPO_CLIP_RANGE,
             ent_coef       = PPO_ENT_COEF,
+            seed           = seed,
             verbose        = 0,
             tensorboard_log= "./ppo_tensorboard/",
         )

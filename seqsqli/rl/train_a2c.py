@@ -125,7 +125,8 @@ def train_a2c(target: TargetProfile,
               timesteps: int = A2C_TIMESTEPS,
               save_path: str = A2C_MODEL_PATH,
               load_path: Optional[str] = None,
-              payloads_csv: Optional[str] = None) -> List[dict]:
+              payloads_csv: Optional[str] = None,
+              seed: Optional[int] = None) -> List[dict]:
     """Train an A2C agent against target and return episode logs.
 
     Same calling convention as train_ppo()/train_trpo() so agent.py can swap freely.
@@ -154,6 +155,7 @@ def train_a2c(target: TargetProfile,
         print(f" Base payload: {target.base_payload}")
     print(f" Timesteps   : {timesteps}")
     print(f" Rollout     : n_steps={A2C_N_STEPS} (synchronous A3C variant)")
+    print(f" Seed        : {seed}")
     print("=" * 60)
 
     callback = EpisodeLogCallback(verbose=0)
@@ -172,6 +174,7 @@ def train_a2c(target: TargetProfile,
             ent_coef      = A2C_ENT_COEF,
             vf_coef       = A2C_VF_COEF,
             max_grad_norm = A2C_MAX_GRAD_NORM,
+            seed          = seed,
             verbose       = 0,
             tensorboard_log = "./a2c_tensorboard/",
         )

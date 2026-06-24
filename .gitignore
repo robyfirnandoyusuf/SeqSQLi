@@ -7,3 +7,4 @@ __pycache__/
 *.zip
 docker-safeline/.env
 docker-safeline/data/
+docker-sqlilab/sqli-labs/Less-1/result.txt

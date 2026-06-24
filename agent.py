@@ -118,6 +118,9 @@ Examples:
                         help="RL algorithm to use (default: qlearning)")
     parser.add_argument("--timesteps",      type=int, default=50_000,
                         help="Total env steps for PPO/TRPO/A2C training (default: 50000)")
+    parser.add_argument("--seed",           type=int, default=None,
+                        help="RNG seed for PPO/TRPO/A2C training (reproducibility / "
+                             "multi-seed variance studies). Default: None (nondeterministic).")
     parser.add_argument("--load",           action="store_true", help="Load existing Q-table")
     parser.add_argument("--eval-only",      action="store_true", help="Skip training, greedy eval")
     parser.add_argument("--fingerprint",    action="store_true", help="Fingerprint only, then exit")
@@ -196,7 +199,8 @@ Examples:
             logs = train_ppo(target, timesteps=args.timesteps,
                              save_path=args.save_model or PPO_MODEL_PATH,
                              load_path=args.load_model,
-                             payloads_csv=args.payloads_csv)
+                             payloads_csv=args.payloads_csv,
+                             seed=args.seed)
             evaluate(logs)
 
             results_path = f"results_ppo_less{args.less}.json" if args.less else "results_ppo.json"
@@ -215,7 +219,8 @@ Examples:
             logs = train_trpo(target, timesteps=args.timesteps,
                               save_path=args.save_model or TRPO_MODEL_PATH,
                               load_path=args.load_model,
-                              payloads_csv=args.payloads_csv)
+                              payloads_csv=args.payloads_csv,
+                              seed=args.seed)
             evaluate(logs)
 
             results_path = f"results_trpo_less{args.less}.json" if args.less else "results_trpo.json"
@@ -234,7 +239,8 @@ Examples:
             logs = train_a2c(target, timesteps=args.timesteps,
                              save_path=args.save_model or A2C_MODEL_PATH,
                              load_path=args.load_model,
-                             payloads_csv=args.payloads_csv)
+                             payloads_csv=args.payloads_csv,
+                             seed=args.seed)
             evaluate(logs)
 
             results_path = f"results_a2c_less{args.less}.json" if args.less else "results_a2c.json"
