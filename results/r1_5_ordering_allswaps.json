@@ -1,0 +1,27 @@
+[
+  {
+    "swap": "ident_backtick <-> hex_to_char",
+    "sr": 66.66666666666666,
+    "N": 36
+  },
+  {
+    "swap": "hex_to_char <-> agg_swap",
+    "sr": 66.66666666666666,
+    "N": 36
+  },
+  {
+    "swap": "agg_swap <-> newline",
+    "sr": 66.66666666666666,
+    "N": 36
+  },
+  {
+    "swap": "newline <-> null_byte",
+    "sr": 66.66666666666666,
+    "N": 36
+  },
+  {
+    "swap": "null_byte <-> case",
+    "sr": 66.66666666666666,
+    "N": 36
+  }
+]
