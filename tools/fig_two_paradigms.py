@@ -36,6 +36,13 @@ def arrow(x1, y1, x2, y2, col=LINE):
     ax.add_patch(a)
 
 
+def alabel(x1, y1, x2, y2, txt, dx=0, dy=0):
+    """Label placed at the arrow midpoint, white background for legibility."""
+    ax.text((x1 + x2) / 2 + dx, (y1 + y2) / 2 + dy, txt, ha="center", va="center",
+            fontsize=8.5, color=INK, style="italic", zorder=4,
+            bbox=dict(boxstyle="round,pad=0.15", fc="white", ec="none"))
+
+
 # Shared adversary (top center)
 box(33, 84, 34, 11, [
     ("Semantics-preserving mutation", 12, INK, True),
@@ -61,6 +68,8 @@ box(57, 47, 36, 24, [
 
 arrow(42, 84, 25, 71)   # adversary -> signature
 arrow(58, 84, 75, 71)   # adversary -> learning
+alabel(42, 84, 25, 71, "request", dx=-3.5, dy=1.0)
+alabel(58, 84, 75, 71, "request", dx=3.5, dy=1.0)
 
 # Verdicts (bottom)
 box(10, 22, 30, 11, [
@@ -73,6 +82,8 @@ box(60, 22, 30, 11, [
 ], fill="#DDDDDD", edge=RED)
 arrow(25, 47, 25, 33)
 arrow(75, 47, 75, 33)
+alabel(25, 47, 25, 33, "anomaly score", dx=0, dy=0)
+alabel(75, 47, 75, 33, "class probability", dx=0, dy=0)
 
 # Bottom unifying label
 box(28, 6, 44, 9, [
@@ -80,6 +91,8 @@ box(28, 6, 44, 9, [
 ], fill=HI, edge=ACC)
 arrow(25, 22, 42, 15)
 arrow(75, 22, 58, 15)
+alabel(25, 22, 42, 15, "verdict", dx=-2, dy=-1.2)
+alabel(75, 22, 58, 15, "verdict", dx=2, dy=-1.2)
 
 os.makedirs("figures", exist_ok=True)
 out = "figures/fig_two_paradigms.png"

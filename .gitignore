@@ -8,3 +8,13 @@ __pycache__/
 docker-safeline/.env
 docker-safeline/data/
 docker-sqlilab/sqli-labs/Less-1/result.txt
+
+# --- revision documents (excluded from public repo) ---
+rev/
+refs/
+*.docx
+*.pdf
+*_tensorboard/
+SeqSQLi_progress_labmeeting.pptx
+presentasi/
+HANDOFF.md

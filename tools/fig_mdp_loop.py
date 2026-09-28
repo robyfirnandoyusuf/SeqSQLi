@@ -27,13 +27,13 @@ def box(x, y, w, h, lines, fill=CARD):
                 fontsize=fs, color=c, fontweight=("bold" if b else "normal"), zorder=3)
 
 
-def arrow(x1,y1,x2,y2,label=None,lx=0,ly=0):
+def arrow(x1,y1,x2,y2,label=None,lx=0,ly=0,lcolor=MUT,lbg="white"):
     a=FancyArrowPatch((x1,y1),(x2,y2),arrowstyle="-|>",mutation_scale=13,lw=1.4,color=LINE,zorder=1)
     ax.add_patch(a)
     if label:
         ax.text((x1+x2)/2+lx,(y1+y2)/2+ly,label,ha="center",va="center",fontsize=9.5,
-                color=MUT,style="italic",zorder=4,
-                bbox=dict(boxstyle="round,pad=0.2",fc="white",ec="none"))
+                color=lcolor,style="italic",zorder=4,
+                bbox=dict(boxstyle="round,pad=0.2",fc=lbg,ec="none"))
 
 # Agent
 box(4, 60, 24, 16, [("Agent",12,INK,True),
@@ -52,8 +52,8 @@ box(38, 30, 26, 14, [("Reward  rₜ",11,INK,True),
                      ("strict success + PBRS shaping",9.3,MUT,False)])
 
 arrow(28, 68, 38, 68, "action aₜ", ly=4)
-arrow(64, 68, 72, 68)
-arrow(84, 60, 84, 44)
+arrow(64, 68, 72, 68, "HTTP request", ly=12)
+arrow(84, 60, 84, 44, "response", lx=7)
 arrow(72, 37, 64, 37)
 arrow(38, 37, 16, 37); arrow(16, 37, 16, 60, "sₜ₊₁ , rₜ", lx=-7, ly=0)
 

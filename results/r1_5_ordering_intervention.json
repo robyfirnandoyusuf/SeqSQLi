@@ -1,0 +1,16 @@
+[
+  {
+    "pair": "ident_backtick -> hex_to_char",
+    "tier": "complex",
+    "N": 36,
+    "forward_sr": 66.66666666666666,
+    "reversed_sr": 66.66666666666666
+  },
+  {
+    "pair": "newline -> func_sp_nbsp",
+    "tier": "trivial",
+    "N": 36,
+    "forward_sr": 100.0,
+    "reversed_sr": 100.0
+  }
+]
