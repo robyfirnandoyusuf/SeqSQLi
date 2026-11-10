@@ -12,8 +12,17 @@ docker-sqlilab/sqli-labs/Less-1/result.txt
 # --- revision documents (excluded from public repo) ---
 rev/
 refs/
+papers/
+proposal/
+LLM/
 *.docx
+*.doc
+*.dotx
 *.pdf
+*.pptx
+*.ppt
+*.xlsx
+*.xls
 *_tensorboard/
 SeqSQLi_progress_labmeeting.pptx
 presentasi/
